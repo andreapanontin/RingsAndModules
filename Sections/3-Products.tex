@@ -1,0 +1,472 @@
+\section{Limits}
+\subsection{Kernel and Cokernel}
+
+\begin{defn}[(Co)kernel]
+	Let $\mathsf{C}$ be a preadditive category, with a zero object.
+	Let $A \xrightarrow{f} B$ a morphism in $\mathsf{C}$.
+	\begin{itemize}
+		\item A \textbf{kernel} of $f$ is a pair $\left(K, \epsilon\right)$, with $K \xrightarrow{\epsilon} A$ satisfying
+	\begin{description}
+		\item[K1] $f \circ \epsilon = 0$,
+		\item[K2] for any $\epsilon': K' \to A$ s.t. $f \circ \epsilon' = 0$, then
+			$\exists\, ! K' \xrightarrow{\alpha} K$ s.t. $\epsilon \circ \alpha = \epsilon'$, i.e. s.t. the following diagram commutes
+			\begin{equation}
+			\begin{tikzcd}
+				K \arrow[r, "\epsilon", rightarrow] & A \arrow[r, "f", rightarrow] & B\\
+				    & K' \arrow[lu, "\exists\, ! \alpha", dashrightarrow] \arrow[u, "\epsilon'"', rightarrow] \arrow[ru, "0"', rightarrow] & 
+			\end{tikzcd}
+			.\end{equation} 
+	\end{description} 
+	\item A \textbf{cokernel} of $f$ is a kernel of $B \xrightarrow{f} A$ in $\mathsf{C}^{op}$.
+		In other words it is a pair $\left(C, p\right)$, with $B \xrightarrow{p} C$ s.t.
+	\begin{description}
+		\item[CK1] $p \circ f = 0$,
+		\item[CK2] for any $p': B \to C'$ s.t. $p' \circ f = 0$, then
+			$\exists\, ! C \xrightarrow{\gamma} C'$ s.t. $\gamma \circ p = p'$, i.e. s.t. the following diagram commutes
+			\begin{equation}
+			\begin{tikzcd}
+				A \arrow[r, "f", rightarrow] \arrow[rd, "0"', rightarrow]  & B \arrow[r, "p", rightarrow] \arrow[d, "p'", rightarrow] & C \arrow[ld, "\exists\, ! \gamma", dashrightarrow] \\
+				    & C'& 
+			\end{tikzcd}
+			.\end{equation} 
+	\end{description} 
+	\end{itemize}
+	We denote with the uppercase Ker the object $K$, and with the lowercase ker the morphism $\epsilon: K \to A$.\newline
+	Analogously for the cokernel, we denote with the uppercase Coker the object $C$, and with the lower case coker the morphism $p: B \to C$.
+\end{defn}
+
+\begin{rem}
+	Property \textbf{K2} grants that Ker satisfies a universal property (U.P.).
+	Objects that satisfy universal properties are unique up to a unique isomorphism. 
+\end{rem}
+
+\begin{defn}[(Co)equalizer]
+	Let $f,g$ be two parallel morphisms $A \rightrightarrows B$ in a category $\mathsf{C}$.
+	\begin{itemize}
+		\item An \textbf{equalizer} of $f$ and $g$ is a pair $\left(C, e\right)$, with $C \xrightarrow{e} A$, satisfying
+	\begin{description}
+		\item[eq1] $f \circ e = g \circ e$,
+		\item[eq2] for $\left(C', e'\right)$ with $C' \xrightarrow{e'} A$ s.t. $f \circ e' = g \circ e'$, then
+			$\exists\, ! \alpha: C' \to C$ s.t. $e \circ \alpha = e'$, i.e. the following diagram commutes
+			\begin{equation}
+			\begin{tikzcd}
+				C \arrow[r, "e", rightarrow] & A \arrow[r, "f", rightarrow, shift left=.5ex] \arrow[r, "g"', rightarrow, shift right=.5ex] & B\\
+				    & C' \arrow[lu, "\exists\, ! \alpha", dashrightarrow] \arrow[u, "e'"', rightarrow] & 
+			\end{tikzcd}
+			.\end{equation} 
+	\end{description}
+	\item A \textbf{coequalizer} of $f$ and $g$ is an equalizer of $f$ and $g$ in $\mathsf{C}^{op}$.
+		In other words it is a pair $\left(C, p\right)$, with $B \xrightarrow{p} C$ s.t.
+		\begin{description}
+			\item[coeq1] $p \circ f = p \circ g$,
+			\item[coeq2] for $\left(C', p'\right)$ with $B \xrightarrow{p'} C'$ s.t. $p' \circ f = p' \circ g$, then $\exists\, ! \gamma: C \to C'$, with $\gamma \circ p = p'$, i.e. s.t. the following diagram commutes
+			\begin{equation}
+			\begin{tikzcd}
+				A \arrow[r, "f", rightarrow, shift left=.5ex] \arrow[r, "g"', rightarrow, shift right=.5ex] & B \arrow[r, "P", rightarrow] \arrow[d, "p'", rightarrow] & C \arrow[dl, "\exists\, ! \gamma", dashrightarrow] \\
+				    & C' & 
+			\end{tikzcd}
+			.\end{equation} 
+		\end{description} 
+	\end{itemize}
+\end{defn}
+
+\begin{rem}\leavevmode\vspace{-.2\baselineskip}
+	\begin{itemize}
+		\item The kernel of $A \xrightarrow{f} B$ is just the equalizer of $f$ and $0$, if it exists.
+		\item The cokernel of $A \xrightarrow{f} B$ is just the coequalizer of $f$ and $0$, if it exists.
+	\end{itemize}
+\end{rem}
+
+\begin{lem}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	Let $f: A \to B$ in $\mathsf{C}$.
+	\begin{itemize}
+		\item $f$ is a mono (epi) iff $f \circ h = 0 \implies h = 0$ ($h \circ f = 0 \implies h = 0$),
+		\item $f$ is a mono (epi) iff $0 \to A$ is a kernel of $f$ ($B \to 0$ is a cokernel of $f$),
+		\item A kernel (cokernel) is mono (epi).
+	\end{itemize}
+\end{lem} 
+
+\begin{defn}[Ker functor]
+	Let $\mathsf{C}$ be a preadditive category admitting zero object.
+	Consider $A \xrightarrow{f} B$ a morphism in $\mathsf{C}$.
+	This induces a natural transformation, given by the collection of maps
+	\begin{align}
+		f_*(X): h^A(X) = \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, B \right) = h^B(X) \\
+		\alpha &\mapsto f \circ \alpha
+	\end{align} 
+	for $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+	For any $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ $f_*(X)$ is a morphism of abelian groups, hence it admits a kernel.
+	\begin{equation}
+		\ker f_*(X) = \left\{ X \xrightarrow{\alpha} A  \ \middle|\ f \circ \alpha = 0\right\} \leq \mathrm{Hom}_{\mathsf{C}} \left( X, A \right)
+	.\end{equation} 
+	We can define the \textit{contravariant} functor
+	\begin{equation}
+	F := \ker \left[ f_*: \mathrm{Hom}_{\mathsf{C}} \left( -, A \right) \to \mathrm{Hom}_{\mathsf{C}} \left( -, B \right) \right]
+	\end{equation} 
+	That acts on a morphism $X \xrightarrow{h} Y$ as
+	 \begin{align}
+		 F(h): F(Y) &\to F(X) \\
+		\beta &\mapsto \beta \circ f
+	.\end{align} 
+\end{defn}
+
+\begin{prop}
+	A morphism $A \xrightarrow{f} B$ in a preadditive category admitting zero object has a kernel iff the associated functor $F$ is representable.
+	In this case a kernel of $f$ is given by $\left(K, \epsilon\right)$, as follows:
+	Let $F \simeq_\eta \mathrm{Hom}_{\mathsf{C}} \left( -, K \right)$, for $K \in \mathrm{Ob} \left(\mathsf{C}\right)$ a representative of $F$.
+	Then $\epsilon$ is given by
+	\begin{align}
+		\mathrm{Hom}_{\mathsf{C}} \left( K, K \right) &\xrightarrow{\eta_K} F(K) \\
+		1_K &\mapsto \epsilon
+	.\end{align} 
+\end{prop} 
+
+\begin{defn}[Coker functor]
+	Let $\mathsf{C}$ be a preadditive category admitting zero object.
+	Consider $A \xrightarrow{f} B$ a morphism in $\mathsf{C}$.
+	This induces a natural transformation, given by the collection of maps
+	\begin{align}
+		f^*(X): h_B(X) = \mathrm{Hom}_{\mathsf{C}} \left( B, X \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) h_A(X) \\
+		\beta &\mapsto \beta \circ f
+	\end{align} 
+	for $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+	For any $X \in \mathrm{Ob} \left(\mathsf{C}\right)$, $f^*(X)$ is a morphism of abelian groups, hence it admits a kernel in $\mathsf{Ab}$:
+	\begin{equation}
+		\ker f^*(X) = \left\{ B \xrightarrow{\beta} X \ \middle|\ \beta \circ f = 0 \right\}
+	.\end{equation} 
+	We can define a \textit{covariant} functor
+	\begin{equation}
+	F := \ker \left[ f^*: \mathrm{Hom}_{\mathsf{C}} \left( B, - \right) \to \mathrm{Hom}_{\mathsf{C}} \left( A, - \right) \right]
+	\end{equation} 
+	that acts on a morphism $X \xrightarrow{h} Y$ as
+	\begin{align}
+		F(h): F(X) &\to F(Y) \\
+		\beta &\mapsto h \circ \beta
+	.\end{align} 
+\end{defn}
+
+\begin{prop}
+	Let $\mathsf{C}$ be a preadditive category admitting zero object.
+	The morphism $A \xrightarrow{f} B$ has a cokernel iff $F$ is corepresentable.
+	In other words, iff there exists $C \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a natural isomorphism
+	\begin{equation}
+	F \simeq_\eta \mathrm{Hom}_{\mathsf{C}} \left( C, - \right)
+	.\end{equation} 
+	In this case a cokernel is given by $\left(C, p\right)$, with $C \in \mathrm{Ob} \left(\mathsf{C}\right)$ a representative of $F$ and $p$ given by
+	\begin{align}
+		\mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) \\
+		1_C &\mapsto p
+	.\end{align} 
+\end{prop} 
+
+\begin{lem}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	Let $A \xrightarrow{f} B$ be a kernel of some other morphism.
+	Then, if $\mathrm{coker}\, f$ exists, we have
+	\begin{equation}
+		f = \ker \left( \mathrm{coker}\, f \right)
+	.\end{equation} 
+\end{lem} 
+
+\begin{lem}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	Let $A \xrightarrow{f} B$ be a cokernel of some morphism.
+	Lat $f$ admit a kernel, then
+	\begin{equation}
+		f = \mathrm{coker}\, \left( \ker f \right)
+	.\end{equation} 
+\end{lem} 
+
+\subsection{Product and Coproduct}
+
+\begin{defn}[Product]
+	Let $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$ for an arbitrary category $\mathsf{C}$.
+	A \textbf{product} of $A$ and $B$, if it exists, is a triple $\left(A \prod B, \pi_A, \pi_B \right)$, where $A \prod B \in \mathrm{Ob} \left(\mathsf{C}\right)$, and the morphisms $\pi_A$ and $\pi_B$ in $\mathsf{C}$, called \textbf{projections}, 
+	 \begin{equation}
+	A \prod B \xrightarrow{\pi_A} A \quad \text{ and } \quad A \prod B \xrightarrow{\pi_B} B
+	\end{equation} 
+	satisfy the universal property:
+	Given an arbitrary $\left(X, \alpha, \beta\right)$, with $X \in \mathrm{Ob} \left(\mathsf{C}\right)$, $X \xrightarrow{\alpha} A$ and $X \xrightarrow{\beta} B$ a pair of morphism, there exists a unique morphism $X \xrightarrow{\exists\, ! h} A \prod B$ s.t.
+	\begin{equation}
+	\begin{tikzcd}
+		& X \arrow[ld, "\alpha"', rightarrow] \arrow[rd, "\beta", rightarrow] \arrow[dd, "h", "\exists\, !"', dashrightarrow] \\
+		A & & B\\
+		  & A \prod B \arrow[lu, "\pi_A", rightarrow] \arrow[ru, "\pi_B"', rightarrow] &
+	\end{tikzcd}
+	\end{equation} 
+	the above diagram commutes.
+	In other words, s.t. $\alpha = \pi_A \circ h$ and $\beta = \pi_B \circ h$.
+\end{defn}
+
+\begin{rem}
+	If it exists, a product, is unique up to a unique isomorphism.
+	This, as usual, is due to the universal property used to define the product.
+\end{rem}
+
+\begin{prop}
+	Define the functor 
+	\begin{equation}
+	F := \mathrm{Hom}_{\mathsf{C}} \left( -, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( -, B \right): \mathsf{C} \to \mathsf{Sets}
+	\end{equation} 
+	on objects as $F(X) := \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( X, B \right)$, and on morphisms $X \xrightarrow{f} Y$, for a couple of arrows $Y \xrightarrow{\alpha} A$ and $Y \xrightarrow{\beta} B$, as
+	\begin{align}
+		F(f): \mathrm{Hom}_{\mathsf{C}} \left( Y, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( Y, B \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( X, B \right) \\
+		\left(\alpha, \beta\right) &\mapsto \left(\alpha \circ f, \beta \circ f \right)
+	.\end{align} 
+	A product $\left(A \prod B, \pi_A, \pi_B \right)$ exists iff the functor $F$ is representable.
+	In other words iff $F \simeq_\eta \mathrm{Hom}_{\mathsf{C}} \left( -, C \right)$ for some $C \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+	In this case $\left(C, \pi_A, \pi_B\right)$ is a product of $A$ and $B$, where $\left(\pi_A, \pi_B\right)$ are given by
+	\begin{align}
+		\eta_C: \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) = \mathrm{Hom}_{\mathsf{C}} \left( C, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( C, B \right)  \\
+		1_C &\mapsto \left(\pi_A, \pi_B\right)
+	.\end{align} 
+\end{prop} 
+
+\begin{ex}\leavevmode\vspace{-.2\baselineskip}
+	\begin{itemize}
+		\item $\mathsf{C} = \mathsf{Sets}$, then $A \prod B = A \cross B$ is the cartesian product of sets, with $\pi_A$ and $\pi_B$ the projections.
+		\item $\mathsf{C} = \mathsf{Mod}\text{-}R$, then $A \prod B = A \cross B$ is the set theoretic cartesian product, with componentwise operations. The projections are the set-theoretic projections.
+		\item $\mathsf{C} = \mathsf{Rings}$, as above, $A \prod B = A \cross B$ is the set theoretic cartesian product, with componentwise operations. The projections are the set-theoretic projections.
+	\end{itemize}
+\end{ex} 
+
+\begin{defn}[Coproduct]
+	Let $A,B \in \mathrm{Ob} \left(\mathsf{C}\right)$ for an arbitrary category $\mathsf{C}$.
+	A \textbf{coproduct} of $A$ and $B$, if it exists, is a triple $\left(A \coprod B, \epsilon_A, \epsilon_B \right)$, whew $A \coprod B \in \mathrm{Ob} \left(\mathsf{C}\right)$ and the morphisms $\epsilon_A$ and $\epsilon_B$, called \textbf{embeddings}, 
+	\begin{equation}
+	A \xrightarrow{\epsilon_A} A \coprod B \quad \text{ and } \quad B \xrightarrow{\epsilon_B} A \coprod B
+	\end{equation} 
+	satisfy the universal property:
+	Given an arbitrary $\left(X, \alpha, \beta\right)$, with $X \in \mathrm{Ob} \left(\mathsf{C}\right)$, $A \xrightarrow{\alpha} X$ and $B \xrightarrow{\beta} X$ a pair of morphism, there exists a unique morphism $A \coprod B \xrightarrow{\exists\, ! h} X$ s.t.
+	\begin{equation}
+	\begin{tikzcd}
+		& A \coprod B \arrow[ld, "\epsilon_A"', leftarrow] \arrow[rd, "\epsilon_B", leftarrow] \arrow[dd, "h", "\exists\, !"', dashrightarrow] \\
+		A & & B\\
+		  & X \arrow[lu, "\alpha", leftarrow] \arrow[ru, "\beta"', leftarrow] &
+	\end{tikzcd}
+	\end{equation} 
+	the above diagram commutes.
+	In other words, s.t. $h \circ \epsilon_A = \alpha$ and $h \circ \epsilon_B = \beta$.
+\end{defn}
+
+\begin{rem}
+	A coproduct is a product in $\mathsf{C}^{op}$.
+	Moreover, if it exists, then it is unique up to a unique isomorphism.
+\end{rem}
+
+\begin{prop}
+	Define the functor 
+	\begin{equation}
+	F := \mathrm{Hom}_{\mathsf{C}} \left( A, - \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, - \right): \mathsf{C} \to \mathsf{Sets}
+	\end{equation} 
+	on objects as $F(X) := \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, X \right)$, and on morphisms $X \xrightarrow{f} Y$, for a couple of arrows $Y \xrightarrow{\alpha} A$ and $Y \xrightarrow{\beta} B$, as
+	\begin{align}
+		F(f): \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( A, Y \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( A, Y \right) \\
+		\left(\alpha, \beta\right) &\mapsto \left(f \circ \alpha, f \circ \beta \right)
+	.\end{align} 
+	A coproduct $\left(A \coprod B, \epsilon_A, \epsilon_B \right)$ exists iff the functor $F$ is corepresentable.
+	In other words iff $F \simeq_\eta \mathrm{Hom}_{\mathsf{C}} \left( C, - \right)$
+	for some $C \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+	In this case $\left(C, \epsilon_A, \epsilon_B\right)$ is a coproduct of $A$ and $B$,
+	where $\left(\epsilon_A, \epsilon_B\right)$ are given by
+	\begin{align}
+		\eta_C: \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) = \mathrm{Hom}_{\mathsf{C}} \left( A, C \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, C \right)  \\
+		1_C &\mapsto \left(\epsilon_A, \epsilon_B\right)
+	.\end{align} 
+\end{prop} 
+
+\begin{ex}\leavevmode\vspace{-.2\baselineskip}
+	\begin{itemize}
+		\item Let $\mathsf{C} = \mathsf{Sets}$, then $A \coprod B = A \sqcup B$, the disjoint union, with embeddings given by the inclusions.
+		\item Let $\mathsf{C} = R\text{-}\mathsf{Mod}$, then ${}_RM \coprod {}_RN = \left(M \cross N, \epsilon_M, \epsilon_N\right)$, set-theoretically is the cartesian product, with componentwise operations and inclusions.
+		\item Let $\mathsf{C} = \mathsf{CRings}$ the category of commutative rings.
+			Then $R \coprod S = \left(R \otimes_{\Z} S, \epsilon_R, \epsilon_S\right)$ the coproduct of two commutative rings is given by their tensor product over $\Z$.
+	\end{itemize}
+\end{ex} 
+
+\begin{defn}[Additive category]
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	$\mathsf{C}$ is said \textbf{additive} iff, given any pair (or finite family) of objects in $\mathsf{C}$, their product exists in $\mathsf{C}$.
+\end{defn}
+
+\begin{prop}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	If product exist in $\mathsf{C}$, then coproduct exist and they are isomorphic.
+	In particular we have the following for embeddings and projections:
+	\begin{equation}
+	\epsilon_A = 
+	\begin{bmatrix}
+		1_A \\ 0
+	\end{bmatrix}, \quad
+	\pi_A = 
+	\begin{bmatrix}
+		1_A & 0
+	\end{bmatrix}, \quad
+	\epsilon_B = 
+	\begin{bmatrix}
+		0 \\ 1_B
+	\end{bmatrix}, \quad
+	\pi_B = 
+	\begin{bmatrix}
+		0 & 1_B
+	\end{bmatrix}
+	.\end{equation} 
+	This implies that these morphisms compose as
+	\begin{equation}
+	\pi_A \circ \epsilon_A = 1_A, \quad
+	\pi_A \circ \epsilon_B = 0, \quad
+	\pi_B \circ \epsilon_A = 0, \quad
+	\pi_B \circ \epsilon_B = 1_B
+	.\end{equation} 
+\end{prop} 
+
+\begin{defn}[(Co)product in preadditive categories]
+	If $\mathsf{C}$ is a preadditive category, and the (co)product between $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$ exists in $\mathsf{C}$, they are denoted with 
+	\begin{equation}
+	A \oplus B
+	.\end{equation} 
+\end{defn}
+
+\begin{prop}
+	Let $\mathsf{C}$ be an \textbf{additive} category with $0$.
+	Let $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+	The structure of abelian group of $\mathrm{Hom}_{\mathsf{C}} \left( A, B \right)$ is determined by $\mathsf{C}$.
+\end{prop} 
+
+\subsection{Infinite product and coproduct}
+
+\begin{defn}[(Co)product of an arbitrary family of objects]
+	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$ an arbitrary family of objects in the category $\mathsf{C}$.
+	 \begin{itemize}
+		 \item A \textbf{product} of the $A_i$s is the couple $\left(\prod_i A_i, (\pi_i)_{i \in I} \right)$, with $\prod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\pi_i: \prod_j A_j \to A_i$ for any $i \in I$, satisfying the universal property:
+			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $X \xrightarrow{\alpha_i} A_i$, then $\exists\, !\, \alpha: X \to \prod_i A_i$ s.t. $\pi_i \circ \alpha = \alpha_i$ for any $i$.
+		 \item A \textbf{coproduct} of the $A_i$s is the couple $\left(\coprod_i A_i, (\epsilon_i)_{i \in I} \right)$, with $\coprod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\epsilon_i: A_i \to \coprod_j A_j$ for any $i \in I$, satisfying the universal property:
+			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $A_i \xrightarrow{\alpha_i} X$, then $\exists\, !\, \alpha: \coprod_i A_i \to X$ s.t. $\alpha \circ \epsilon_i = \alpha_i$ for any $i$.
+			 In other words it is a product in $\mathsf{C}^{op}$.
+	\end{itemize}
+\end{defn}
+ 
+\begin{ex}\leavevmode\vspace{-.2\baselineskip}
+	\begin{itemize}
+		\item Let $\mathsf{C} = \mathsf{Sets}$ and $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$.
+			The set $\prod_{i \in I} A_i$ (the infinite cartesian product), with usual projections, is a product in $\mathsf{Sets}$,
+		\item Analogously, $\sqcup_{i \in I} A_i$ (the disjoint union), with the usual embeddings, is a coproduct in $\mathsf{Sets}$.
+		\item Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $\left\{ M_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$.
+			The set 
+			\begin{equation}
+			\prod_{i \in I} M_i := \left\{ \left( x_i \right)_{i \in I} \ \middle|\ x_i \in M_i \,\forall\, i \in I \right\}	
+			.\end{equation}
+			(the infinite cartesian product), with componentwise operations and usual projections, is a product in $\mathsf{Mod}\text{-}R$.
+			Clearly, given a family of morphisms $\alpha_i: X \to M_i$, one defines
+			\begin{align}
+				\alpha: X &\to \prod_{i \in I} M_i \\
+				x &\mapsto \left( a_i(x) \right)_{i \in I}
+			\end{align} 
+			and easily checks the universal properties of products.
+		\item Analogously the copruduct exists and is defined as follows
+			\begin{equation}
+				\coprod_{i \in I} M_i = \left\{ \left( x_i \right)_{i \in I} \ \middle|\ x_i \in M_i \,\forall\, i \in I \text{ and } x_i = 0  \text{ for almost all } i  \right\} \leq \prod_{i \in I} M_i
+			.\end{equation} 
+			with the embeddings
+			\begin{align}
+				\epsilon_i: M_i &\to \coprod_{i \in I} M_i \\
+				x &\mapsto \left( \ldots, 0, x, 0, \ldots \right)
+			,\end{align} 
+			with nonzero entry only for the $i$-th component, is a coproduct in $\mathsf{Mod}\text{-}R$.
+			In fact, given a family of morphisms $\alpha_i: M_i \to X$, the unique morphism is defined as
+			\begin{align}
+				\exists\, !\, \alpha: \coprod_{i \in I}M_i &\to X \\
+				\left( x_i \right)_{i\in I} &\mapsto \sum_{i \in I}^{} \alpha_i(x_i)
+			.\end{align} 
+			It is important to remark that the sum makes sense, since $x_i \neq 0$ only for finitely many $i \in I$, hence it is a finite sum.
+	\end{itemize}
+\end{ex} 
+
+\begin{prop}
+	Let $\mathsf{C}$ be an arbitrary category.
+	let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$ be an arbitrary family of objects.
+	Assume that a product $\left(\prod_{i \in I}A_i, \pi_i\right)$ exists in $\mathsf{C}$, then
+	given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$, the map
+	\begin{align}
+		\mathrm{Hom}_{\mathsf{C}} \bigg( X, \prod_{i \in I}A_i \bigg)  &\xrightarrow{\phi_X} \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( X, A_i \right) \\
+		f &\mapsto \left( \pi_i \circ f \right)_{i \in I}
+	\end{align} 
+	is an isomorphism in $\mathsf{Sets}$ (by U.P.).
+	Moreover the family $\left\{ \phi_X \right\}_{X \in \mathrm{Ob} \left(\mathsf{C}\right)}$ gives a natural isomorphism between the functors
+	\begin{equation}
+	F := \mathrm{Hom}_{\mathsf{C}} \bigg( -, \prod_{i \in I} A_i \bigg) \quad \text{ and } \quad G:= \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( -, A_i \right)
+	,\end{equation} 
+	where $G$, on morphisms acts as: $G(f) = \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( f, A_i \right)$.
+\end{prop} 
+
+\begin{prop}
+	Let $\mathsf{C}$ be an arbitrary category.
+	let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$ be an arbitrary family of objects.
+	Assume that a coproduct $\left(\coprod_{i \in I}A_i, \epsilon_i\right)$ exists in $\mathsf{C}$, then
+	given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$, the map
+	\begin{align}
+		\mathrm{Hom}_{\mathsf{C}} \bigg( \coprod_{i \in I}A_i, X \bigg)  &\xrightarrow{\psi_X} \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( A_i, X \right) \\
+		f &\mapsto \left( f \circ \epsilon_i \right)_{i \in I}
+	\end{align} 
+	is an isomorphism in $\mathsf{Sets}$ (by U.P.).
+	Moreover the family $\left\{ \psi_X \right\}_{X \in \mathrm{Ob} \left(\mathsf{C}\right)}$ gives a natural isomorphism between the functors
+	\begin{equation}
+	F := \mathrm{Hom}_{\mathsf{C}} \bigg( \coprod_{i \in I} A_i, - \bigg) \quad \text{ and } \quad G:= \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( A_i, - \right)
+	,\end{equation} 
+	where $G$, on morphisms acts as: $G(f) = \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( A_i, f \right)$.
+\end{prop} 
+
+\begin{rem}
+	Notice that, if $\mathsf{C}$ is preadditive with $0$,
+	then $\phi_X$ and $\psi_X$ are both isomorphisms of abelian groups.
+	In particular $\left\{ \phi_X \right\}_{X \in \mathrm{Ob} \left(\mathsf{C}\right)}$ 
+	and $\left\{ \psi_X \right\}_{X \in \mathrm{Ob} \left(\mathsf{C}\right)}$ are both natural
+	isomorphisms of functors with values in $\mathsf{Ab}$.
+\end{rem}
+
+\begin{prop}
+	Let $\mathsf{C}$ be an arbitrary category.
+	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob}, \left\{ B_i \right\}_{i \in I}
+	\subset \mathrm{Ob} \left(\mathsf{C}\right)$.
+	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i: A_i \to B_i$.
+	Assume that both products $\left(\prod_{i \in I} A_i , \pi_i\right)$ and $\left(\prod_{i \in I} B_i, p_i\right)$ exist in $\mathsf{C}$.
+	Then 
+	\begin{equation}
+	\exists\, !\, \alpha: \prod_{i \in I} A_i  \to \prod_{i \in I} B_i
+	\end{equation} 
+	s.t. $p_i \circ \alpha = \alpha_i \circ \pi_i$.
+	Moreover if, for all $i$, the morphism $\alpha_i$ is a mono, then also $\alpha$ is a monomorphism.
+\end{prop} 
+
+\begin{prop}
+	Let $\mathsf{C}$ be an arbitrary category.
+	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob}, \left\{ B_i \right\}_{i \in I}
+	\subset \mathrm{Ob} \left(\mathsf{C}\right)$.
+	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i: A_i \to B_i$.
+	Assume that both coproducts $\left(\coprod_{i \in I} A_i , \epsilon_i\right)$ and
+	$\left(\coprod_{i \in I} B_i, \delta_i\right)$ exist in $\mathsf{C}$.
+	Then 
+	\begin{equation}
+	\exists\, !\, \alpha: \coprod_{i \in I} A_i  \to \coprod_{i \in I} B_i
+	\end{equation} 
+	s.t. $\alpha \circ \epsilon_i = \delta_i \circ \alpha_i$.
+	Moreover if, for all $i$, the morphism $\alpha_i$ is am epi, then also $\alpha$ is a epimorphism.
+\end{prop} 
+
+\begin{prop}
+	Let $\mathsf{C}$ be an arbitrary category.
+	Consider an arbitrary family $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$ s.t.
+	the product $\left(\prod_{i \in I} A_i, \pi_i\right)$ (resp. the coproduct $\left(\coprod_{i \in I} A_i, \epsilon_i \right)$) exists in $\mathsf{C}$.
+	Assume, moreover, that $\mathrm{Hom}_{\mathsf{C}} \left( A_i, A_j \right) \neq \emptyset$ for $i \neq j \in I$.
+	It follows that $\pi_i$ (resp. $\epsilon_i$) is an epimorphism (resp. monomorphism) for all $i \in I$.
+\end{prop} 
+
+\begin{cor}
+	In particular, if $\mathsf{C}$ is preadditive with $0$ object, then every $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \neq \emptyset$.
+	This means that $\pi_i$ and $\epsilon_i$ in the above proposition are always respectively epi and mono.
+	In other words, given $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$, then 
+	$\pi_A: A \prod B \to A$ and $\pi_B: A \prod B \to B$ are epi, whereas
+	$\epsilon_A: A \to A \prod B$ and $\epsilon_B: B \to A \prod B$ are mono.
+\end{cor} 
+

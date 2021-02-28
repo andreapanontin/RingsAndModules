@@ -1,0 +1,143 @@
+\section{Exact categories}
+\begin{rem}
+	Let $\mathsf{C}$ be an abelian category and $A \xrightarrow{i} B \xrightarrow{d} C$ morphisms in $\mathsf{C}$, s.t.
+	$i = \ker d$ and $d = \coker i$.
+	Then $i$ is mono, $d$ is epi and $\ker d = \ima i$.
+	In fact 
+	\begin{equation}
+		\begin{tikzcd}[column sep=small]
+		0 \arrow[r, "", rightarrow] &
+		A \arrow[r, "i", rightarrow] \arrow[d, "1_A"', equal] &
+		B \arrow[r, "d", rightarrow] &
+		C \\
+		& \mathrm{coim}\, i = A \arrow[r, "\simeq", rightarrow] &
+		\ker d = \ima i \arrow[u, "", rightarrow] & \\
+	\end{tikzcd}
+	.\end{equation} 
+\end{rem}
+
+\begin{defn}[Kernel-cokernel pair]
+	Let $\mathsf{C}$ be an additive category.
+	A \textbf{kernel cokernel pair} $\left(i, d\right)$ in $\mathsf{C}$ is a pair of composable morphisms
+	\begin{equation}
+	A \xrightarrow{i} B \xrightarrow{d} C
+	\end{equation} 
+	s.t. $i$ is a kernel of $d$ and $d$ is a cokernel of $i$.
+\end{defn}
+
+\begin{defn}[Inflation, deflation, conflation]
+	Let $\mathcal{E}$ be a fixed class of kernel-cokernel pairs in $\mathsf{C}$.
+	A sequence $E = \left(i, d\right) \in \mathcal{E}$
+	\begin{equation}
+	A \xrightarrow{i} B \xrightarrow{d} C
+	\end{equation} 
+	is called a \textbf{conflation}.
+	A morphism $i: A \rightarrowtail B$ s.t. there exists a morphism $d$ with $\left(i, d\right) \in \mathcal{E}$ is called \textbf{inflation}.
+	A morphism $d: B \twoheadrightarrow C$ s.t. there exists a morphism $i$ with $\left(i, d\right) \in \mathcal{E}$ is called \textbf{deflation}.
+	Sometimes they are called admissible mono and admissible epi.
+\end{defn}
+
+\begin{defn}[Exact structure]
+	Given an additive category $\mathsf{C}$, an \textbf{exact structure} in $\mathsf{C}$ is a class $\mathcal{E}$ of ker-coker pairs satisfying the following axioms and closed under isomorphisms, i.e.
+	given a commutative diagram
+	\begin{equation}
+	\begin{tikzcd}
+		A \arrow[r, "i", rightarrow] \arrow[d, "\alpha"', rightarrow] &
+		B \arrow[r, "d", rightarrow] \arrow[d, "\beta", rightarrow] &
+		C \arrow[d, "\gamma", rightarrow] \\
+		A' \arrow[r, "i'", rightarrow] &
+		B' \arrow[r, "d'", rightarrow] &
+		C'
+	\end{tikzcd}
+	,\end{equation} 
+	in which all the vertical arrows are isomorphisms, and $\left(i, d\right) \in \mathcal{E}$, then also $\left(i', d'\right) \in \mathcal{E}$.
+	\begin{description}
+		\item[Ex0] $1_0$ is a deflation,
+		\item[Ex0$^{op}$] $1_0$ is an inflation,
+		\item[Ex1] the class of deflations is closed under compositions,
+		\item[Ex1$^{op}$] the class of inflations is closed under compositions,
+		\item[Ex2] the pullback of a deflation along an arbitrary morphism exists and is a deflation,
+		\item[Ex2$^{op}$] the pushout of an inflation along an arbitrary morphism exists and is an inflation.
+	\end{description} 
+	These last 2 axioms correspond to the following diagrams
+	\begin{equation}
+	\mathbf{Ex2}:
+	\begin{tikzcd}
+		Y' \arrow[r, "d'", twoheadrightarrow] \arrow[d, "f'"', rightarrow] &
+		Z' \arrow[d, "f", rightarrow] \\
+		Y \arrow[r, "d"', twoheadrightarrow] &
+		Z
+	\end{tikzcd}\quad\quad\quad\quad
+	\mathbf{Ex2}^{op}:
+	\begin{tikzcd}
+		X \arrow[r, "i", tail] \arrow[d, "f"', rightarrow] &
+		Y \arrow[d, "f'", rightarrow] \\
+		X' \arrow[r, "i'", tail] &
+		Y'
+	\end{tikzcd}
+	.\end{equation} 
+	The interpetation is as follows (for the first diagram):
+	given a deflation $d: Y \to Z$ and a morphism $f: Z' \to Z$, then,
+	if the pullback of $\left(d, f\right)$ exists, let's denote it with $\left(Y', f', d'\right)$, also $d': Y' \to Z'$ is a deflation.
+\end{defn}
+
+\begin{defn}[Exact category]
+	An \textbf{exact category} is a pair $\left(\mathsf{C}, \mathcal{E}\right)$, with $\mathsf{C}$ an additive category and $\mathcal{E}$ an exact structure on $\mathsf{C}$.
+	Conflations in $\mathcal{E}$ are called \textbf{short exact sequences}.
+\end{defn}
+
+\begin{rem}
+	$\mathcal{E}$ is an exact structure in $\mathsf{C}$ iff $\mathcal{E}^{op}$ is an exact structure in $\mathsf{C}^{op}$.
+\end{rem}
+
+\begin{rem}
+	An abelian category $\mathsf{C}$ with $\mathcal{E}$ given by all of its ker-coker pairs is an exact category.
+\end{rem}
+
+\begin{defn}[Extensions closed subcategory]
+	Given an abelian category $\mathsf{C}$, a full subcategory $\mathsf{C}' \subset \mathsf{C}$ is \textbf{extensions closed} iff, given a ker-coker pair
+	$A \xrightarrow{i} B \xrightarrow{d} C$ with $A, C \in \mathrm{Ob} \left(\mathsf{C}'\right)$, then $B \in \mathrm{Ob} \left(\mathsf{C}'\right)$
+\end{defn}
+
+\begin{rem}
+	An extensions closed subcategory of an abelian category is an exact category, but need not be abelian.
+	In fact
+	\begin{itemize}
+		\item $\mathsf{F} \subset \mathsf{Ab}$ the full subcategory of torsion free abelian groups,
+		\item $\mathsf{D} \subset \mathsf{Ab}$ the full subcategory of divisible abelian groups,
+	\end{itemize}
+	are both extensions closed in $\mathsf{Ab}$, but are not abelian.
+	For the first, in fact, given
+	\begin{equation}
+	A \xrightarrow{i} B \xrightarrow{d} C
+	,\end{equation} 
+	with $A, C \in \mathrm{Ob} \left(\mathsf{F}\right)$, then $B/i(A), i(A) \in \mathrm{Ob} \left(\mathsf{F}\right)$.
+	From this it can be easily proved that also $B \in \mathrm{Ob} \left(\mathsf{F}\right)$.
+\end{rem}
+
+The following proposition can be found in the paper \textit{Chain complexes and stable categories}, by B. Keller.
+Also in the PhD thesis of  T. Bühler \textit{Exact categories}
+(For more precise references see lecture 8-1, minute 20).
+\begin{prop}[Keller]
+	The axioms of exact categories are redundant.
+	The following are enough \textbf{Ex0}, \textbf{Ex1}, \textbf{Ex2}, \textbf{Ex2}$^{op}$.
+	They imply:
+	\begin{description}
+		\item[a] given $X, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, then the following is a conflation
+			\begin{equation}
+			X \xrightarrow{
+				\begin{bmatrix}
+					1 \\ 0
+				\end{bmatrix} 
+			} X \oplus Z
+			\xrightarrow{
+				\begin{bmatrix}
+					0 & 1
+				\end{bmatrix} 
+			} Z
+			.\end{equation} 
+		\item[b] \textbf{Ex1}$^{op}$.
+		\item[c] \textbf{Quillem's obscure axioms}: If a morphism $d$ has a kernel and if $d \circ e$ is a deflation for some morphism $e$, then also $d$ is a deflation.
+		\item[c$^{op}$] \textbf{Quillem's obscure axioms}: If a morphism $i$ has a cokernel and if $k \circ i$ is an inflation for some morphism $k$, then also $i$ is an inflation.
+	\end{description} 
+\end{prop} 

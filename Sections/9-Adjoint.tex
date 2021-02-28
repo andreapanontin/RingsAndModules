@@ -1,0 +1,277 @@
+\section{Adjoint functors}
+Let's introduce this topic with an example
+\begin{ex}
+	Let $\K$ be a field, and $\mathsf{C} := \mathsf{Vect-}\K$ the category of $\K$-Vector Spaces.
+	Clearly we can define the forgetful functor, which acts on objects as
+	\begin{align}
+		\mathrm{For}: \mathsf{Vect-}\K &\to \mathsf{Sets} \\
+		V_K &\mapsto V
+	,\end{align} 
+	forgetting about the structure of Vector Space.
+	For a set $X$, moreover, we can construct the Vector Space $\left\langle X \right\rangle$,
+	which is the Vector Space  for which $X$ is a basis.
+	This induces a functor
+	\begin{align}
+		 \mathsf{Sets} &\to \mathsf{Vect-}\K \\
+		 X&\mapsto \left\langle X \right\rangle =: V
+	.\end{align} 
+	Recall that, fixed $X \in \mathrm{Ob} \left(\mathsf{Sets}\right)$, and $W \in \mathrm{Ob} \left(\mathsf{Vect}-\K\right)$,
+	for every map $\alpha: X \to \mathrm{for}\, W$, we can construct a unique linear map
+	$f: \left\langle X \right\rangle \to W$ s.t. the diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		X \arrow[r, "\alpha", rightarrow] \arrow[d, "i", hookrightarrow] &
+		W\\
+		\left\langle X \right\rangle \arrow[ru, "\exists\, !\, f"', rightarrow] &
+	\end{tikzcd}
+	\end{equation} 
+	i.e. s.t. $f(x) = \alpha(x)\ \,\forall\, x \in X$.
+	In particualr we have a bijection
+	\begin{equation}
+	\begin{tikzcd}
+		\mathrm{Hom}_{\mathsf{Sets}} \left( X, \mathrm{For}\, W \right) \arrow[r, "", leftrightarrow] &
+		\mathrm{Hom}_{\K} \left( \left\langle X \right\rangle_{\K}, W_{\K} \right)
+	\end{tikzcd}
+	.\end{equation} 
+\end{ex} 
+
+\begin{defn}[Adjoint pair of functors]
+	Let $\mathsf{C}$ and $\mathsf{D}$ be two categories.
+	Consider two functors $L: \mathsf{C} \to \mathsf{D}$ and $R: \mathsf{D} \to \mathsf{C}$.
+	The pair $\left(L, R\right)$ is called an \textbf{adjoint} pair iff there is
+	\begin{equation}
+	\begin{tikzcd}
+		\mathrm{Hom}_{\mathsf{D}} \left( L(C), D \right) \arrow[r, "{\varphi(C,D)}", rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( C, R(D) \right)
+	\end{tikzcd}
+	\end{equation} 
+	a bijection natural in $C$ and $D$.
+	In particular $L$ is the left adjoint of $R$ and $R$ is the right adjoint of $L$.
+	An adjoint pair is sometimes referred to as adjunction, and denoted by
+	\begin{equation}
+	\begin{tikzcd}
+		\mathsf{C} \arrow[r, "L", rightarrow, shift left = .5ex] &
+		\mathsf{D} \arrow[l, "R", rightarrow, shift left = .5ex] 
+	\end{tikzcd}
+	.\end{equation} 
+\end{defn}
+
+\begin{rem}
+	In the above remark, the pair $\left(\left\langle - \right\rangle, \mathrm{For}\, \right)$ is an adjoint pair.
+\end{rem} 
+
+\begin{rem}
+	Naturality of $\varphi$ in $C$ and $D$, more explicitly, means that the following diagrams commute
+	\begin{equation}
+	\begin{tikzcd}
+		C \arrow[d, "f", rightarrow] &
+		\mathrm{Hom}_{\mathsf{D}} \left( L(C), D \right) \arrow[r, "{\varphi(C,D)}", rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( C, R(D) \right)\\
+		C' &
+		\mathrm{Hom}_{\mathsf{D}} \left( L(C'), D \right) \arrow[r, "{\varphi(C',D)}"', rightarrow] 
+		\arrow[u, "{\mathrm{Hom}_{\mathsf{D}} \left( L(f), D \right)}", rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( C', R(D) \right) 
+		\arrow[u, "{\mathrm{Hom}_{\mathsf{C}} \left( f, R(D) \right)}"', rightarrow]
+	\end{tikzcd}
+	.\end{equation} 
+	
+	\begin{equation}
+	\begin{tikzcd}
+		D \arrow[d, "g", rightarrow] &
+		\mathrm{Hom}_{\mathsf{D}} \left( L(C), D \right) \arrow[r, "{\varphi(C,D)}", rightarrow]
+		\arrow[d, "{\mathrm{Hom}_{\mathsf{D}} \left( L(C), g \right)}"', rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( C, R(D) \right)
+		\arrow[d, "{\mathrm{Hom}_{\mathsf{C}} \left( C, R(g) \right)}", rightarrow]\\
+		D' &
+		\mathrm{Hom}_{\mathsf{D}} \left( L(C), D' \right) \arrow[r, "{\varphi(C,D')}"', rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( C, R(D') \right) 
+	\end{tikzcd}
+	.\end{equation} 
+\end{rem}
+
+\begin{defn}[(Co)unit of an adjunction]
+	Let $\mathsf{C}$ and $\mathsf{D}$ be two categories.
+	Let $L: \mathsf{C} \to \mathsf{D}$ and $R: \mathsf{D} \to \mathsf{C}$ be functors
+	s.t. $\left(L, R\right)$ is an adjoint pair.
+	We define
+	\begin{itemize}
+		\item The \textbf{unit} of the adjunction, the natural transformation
+			\begin{equation}
+			\eta: id_{\mathsf{C}} \to R \circ L
+			\end{equation} 
+			defined, for every $C \in \mathrm{Ob} \left(\mathsf{C}\right)$, by
+			\begin{equation}
+				\eta_C := \varphi_{(C, L(C))} \left( 1_{LC} \right) \in \mathrm{Hom}_{\mathsf{C}} \left( C, RL(C) \right)
+			.\end{equation} 
+		\item The \textbf{counit} of the adjunction, the natural transformation
+			\begin{equation}
+			\zeta: L \circ R \to id_{\mathsf{D}}
+			\end{equation} 
+			defined, for every $D \in \mathrm{Ob} \left(\mathsf{D}\right)$, by
+			\begin{equation}
+				\zeta_D := \varphi_{(R(D), D)}^{-1} \left( 1_{RD} \right) \in \mathrm{Hom}_{\mathsf{C}} \left( LR(D), D \right)
+			.\end{equation} 
+	\end{itemize}
+\end{defn}
+
+\begin{rem}[]
+	It is not obvious from the definition that the family of morphisms given by the unit and counit
+	are natural transformation.
+\end{rem}
+
+\begin{prop}
+	Given two right adjoints $R$ and $R'$ of the same functor $L$,
+	then $R$ and $R'$ are naturally isomorphic.
+\end{prop} 
+
+\begin{prop}
+	Given two left adjoints $L$ and $L'$ of the same functor $R$,
+	then $L$ and $L'$ are naturally isomorphic.
+\end{prop} 
+
+\begin{prop}
+	Let $F: \mathsf{C} \to \mathsf{D}$ and $R: \mathsf{D} \to \mathsf{C}$ be a pair of functors.
+	TFAE
+	\begin{itemize}
+		\item $\left(L, R\right)$ is an adjoint pair,
+		\item there exist natural transformations
+			\begin{equation}
+			\eta: id_{\mathsf{C}} \to R \circ L \qquad \text{ and }\qquad \zeta: L \circ R \to id_{\mathsf{D}}
+			\end{equation} 
+			s.t.
+			\begin{align}
+				\zeta_{L(C)} \circ L(\eta_C) &= id_{L(C)} \qquad
+				\,\forall\, C \in \mathrm{Ob} \left(\mathsf{C}\right)\\
+				R(\zeta_D) \circ \eta_{R(D)} &= id_{R(D)} \qquad
+				\,\forall\, D \in \mathrm{Ob} \left(\mathsf{D}\right)
+			.\end{align} 
+	\end{itemize}
+	In such case $\eta$ is the unit, and $\zeta$ the counit, of the adjunction.
+\end{prop} 
+
+\begin{rem}
+	Let $\left(L, R\right)$, with $L: \mathsf{C} \to \mathsf{D}$ and $R: \mathsf{D} \to \mathsf{C}$, be an adjoint pair.
+	Given an arbitrary morphism $\beta: C \to RD$, with $C \in \mathrm{Ob} \left(\mathsf{C}\right)$ and
+	$D \in \mathrm{Ob} \left(\mathsf{D}\right)$.
+	Let $\alpha: L(C) \to D$ the morphism s.t. $\varphi(C,D) = \beta$.
+	Then there exists a commutative triangle, i.e. that $\beta = R(\alpha) \circ\eta_C$
+	\begin{equation}
+	\begin{tikzcd}
+		C \arrow[r, "\beta", rightarrow] \arrow[d, "\eta_C"', rightarrow] &
+		R(D)\\
+		RL(C) \arrow[ru, "{R(\alpha)}"', rightarrow] &
+	\end{tikzcd}
+	.\end{equation} 
+\end{rem} 
+
+\begin{rem}[]
+	Let $\left(L, R\right)$, with $L: \mathsf{C} \to \mathsf{D}$ and $R: \mathsf{D} \to \mathsf{C}$, be an adjoint pair.
+	TFAE:
+	\begin{enumerate}
+		\item $R$ is faithful,
+		\item $R$ reflects epimorphisms, i.e. if $Rf$ is an epi in $\mathsf{C}$,
+			then $f$ is epi in $\mathsf{D}$,
+		\item given $\beta: C \to R(D)$ epi, then $\alpha := \varphi^{-1}(C,D)(\beta)$ is epi,
+		\item $\zeta_D: LR(D) \to D$ is epi for every $D \in \mathsf{D}$.
+	\end{enumerate}
+\end{rem}
+
+\begin{rem}[]
+	Given the definitions in the preliminaries, fix two rings $S$ and $R$, and an $R$-$S$ bimodule ${}_SM_R$,
+	we can construct the functors (acting on the objects as)
+	\begin{align}
+		- \otimes_S M: \mathsf{Mod}\text{-}S &\to \mathsf{Mod}\text{-}R \\
+		 N_S &\mapsto \left[ N \otimes_S M_R \right]_R
+	,\end{align}
+	\begin{align}
+		\mathrm{Hom}_{R} \left( M_R, - \right): \mathsf{Mod}\text{-}R &\to \mathsf{Mod}\text{-}S \\
+		L_R &\mapsto \left[ \mathrm{Hom}_{R}\left( {}_SM_R, L_R \right)\right]_S
+	.\end{align} 	
+\end{rem}
+
+\begin{prop}
+	The pair $\left(- \otimes_S M_R, \mathrm{Hom}_{R}\left( M_R, - \right)\right)$
+	is an adjoint pair.
+	Moreover also the pair $\left(M_R \otimes_R -, \mathrm{Hom}_{S}\left( M, - \right) \right)$ is an adjoint pair.
+	Notice that, if the above functors are between categories of right modules,
+	these are between categories of left modules.
+\end{prop} 
+
+\begin{ex}
+	Let $\phi: R \to S$ be a ring homomorphism.
+	Then any ${}_SN \in S\text{-}\mathsf{Mod}$ becomes also a left $R$-module via
+	\begin{equation}
+		r \cdot x := \phi(r) \cdot x \qquad \,\forall\, x \in N,\ \,\forall\, r \in R
+	.\end{equation} 
+	And analogously for any $N_S \in \mathsf{Mod}\text{-}S$.
+	In particular $S$ becomes both a left and right $R$-module via $\phi$.
+	We can then define the following functors:
+	\begin{align}
+		-\otimes_R S: \mathsf{Mod}\text{-}R &\to \mathsf{Mod}\text{-}S \\
+		M_R &\mapsto M \otimes_R S
+	\end{align} 
+	called \textit{extension of scalars}.
+	And also the \textit{restriction functor}
+	\begin{align}
+		\phi_*: \mathsf{Mod}\text{-}S &\to \mathsf{Mod}\text{-}S \\
+		N_S &\mapsto N_R
+	.\end{align} 
+	Then the pair $\left(- \otimes_R S, \phi_*\right)$ is an adjoint pair.
+
+	Analogously we can define the functor
+	\begin{align}
+		\mathrm{Hom}_{ R}\left( S_R, - \right): \mathsf{Mod}\text{-}R &\to \mathsf{Mod}\text{-}S\\
+		M_R &\mapsto \left[ \mathrm{Hom}_{R}\left({}_SS_R, M_R \right) \right]_S
+	,\end{align} 
+	and the pair $\left(\phi_*, \mathrm{Hom}_{ R}\left( S, - \right)\right)$ is an adjoint pair.
+\end{ex} 	
+
+\begin{prop}
+	Let $\mathsf{C}$ and $\mathsf{D}$ be arbitrary categories.
+	Let $\left(L, R\right)$ be a pair of adjoint functors, $L: \mathsf{C} \to \mathsf{D}$ and
+	$R: \mathsf{D} \to \mathsf{C}$.
+	Then
+	\begin{enumerate}
+		\item $L$ preserves colimts, and in particular coproducts, pushouts, cokernels,
+			when they exist,
+		\item $R$ preserves limts, and in particular products, pullbacks, kernels,
+			when they exist.
+	\end{enumerate}
+\end{prop} 
+
+\begin{ex}
+	If $\mathsf{C} := R\text{-}\mathsf{Mod}$ and $\mathsf{D}:= S\text{-}\mathsf{Mod}$, then
+	$\left(M \otimes_R -, \mathrm{Hom}_{S}\left( M, - \right)\right)$, for ${}_SM_R$, is an adjoint pair.
+	Then $M \otimes_R -$ preserves colimits.
+	In fact, given a direct system $\left\{N_i, f_{ji}\right\}_{i, j \in \mathrm{Ob} \left(\mathsf{I}\right)}$, 
+	for some small category $\mathsf{I}$, then
+	\begin{equation}
+		M \otimes_R \varinjlim_i N_i \simeq \varinjlim_i \left( M \otimes_R N_i \right)
+	.\end{equation} 
+	Analogously $\mathrm{Hom}_{S}\left( {}_S M, - \right)$ preserves limits.
+	Then, given an inverse system $\left\{ L_i, f_{ij} \right\}_{i,j \in \mathrm{Ob} \left(\mathsf{I}\right)}$
+	for some small category $\mathsf{I}$, then
+	\begin{equation}
+		\mathrm{Hom}_{S}\big( {}_S M, \varprojlim_i L_i \big) \simeq
+		\varprojlim_i \mathrm{Hom}_{ S}\left( {}_S M, L_i \right)
+	.\end{equation} 
+\end{ex} 
+
+\begin{rem}[Application of the proposition]
+	Let $\mathsf{C}$ and $\mathsf{D}$ be abelian categories.
+	Let $\left(L, R\right)$ be an adjoint pair, $L: \mathsf{C} \to \mathsf{D}$ and $R: \mathsf{D} \to \mathsf{C}$.
+	Then $L$ is \textbf{right} exact, and $L$ is \textbf{left} exact.
+\end{rem}
+
+\begin{prop}
+	Let $\mathsf{I}$ be a small category, and $\mathsf{C}$ be a cocomplete category.
+	Then the colimit functor
+	\begin{equation}
+	\varinjlim: \mathsf{C}^{\mathsf{I}} \to \mathsf{C}
+	\end{equation} 
+	is a left adjoint.
+	If, moreover, $\mathsf{C}$ is abelian, $\varinjlim$ is also right exact.
+
+	Dually, if $\mathsf{C}$ is complete, then $\varprojlim$	is a right adjoint.
+	Again, if $\mathsf{C}$ is abelian, then $\varprojlim$ is also left exaxct.
+\end{prop} 

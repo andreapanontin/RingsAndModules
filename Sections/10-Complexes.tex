@@ -1,0 +1,362 @@
+\section{Chain and cochain complexes}
+Let, in the following, $\mathsf{A}$ be a \textit{preadditive} category with $0$.
+
+\begin{defn}[Chain complex over $A$]
+	We define $\mathrm{Ch}(\mathsf{A})$ the category of \textbf{chain complexes} over $\mathsf{A}$
+	as the category whose objects are sequences
+	\begin{equation}
+	\ldots \to X_n \xrightarrow{d_n} X_{n-1}
+	\xrightarrow{d_{n-1}} X_{n-2} \to \ldots
+	\end{equation} 
+	s.t. $X_i \in \mathrm{Ob} \left(\mathsf{A}\right)$, $d_i \circ d_{i+1} = 0$ for all $i \in \Z$.
+	The morphisms $d_i$ are called \textit{differentials} and the sequence is called \textit{complex},
+	denoted by $\left( X_{\bullet}, d^X_{\bullet} \right)$, with $\left( d^X \right)^2 = 0$.
+
+	Morphisms in $\mathrm{Ch}(\mathsf{A})$, are defined by:
+	$f:\left(X_{\bullet}, d^X_{\bullet}\right) \to \left(Y_{\bullet}, d^Y_{\bullet}\right)$
+	is a family of morphisms $\left\{ f_n \right\}_{n \in \Z}$, where
+	$f_n \in \mathrm{Hom}_{\mathsf{A}} \left( X_n, Y_n \right)$ for all $n$,
+	are s.t. the following diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		\ldots \arrow[r, "", rightarrow] &
+		X_n \arrow[r, "d^X_n", rightarrow] \arrow[d, "f_n", rightarrow] &
+		X_{n-1} \arrow[r, "d^X_{n-1}", rightarrow] \arrow[d, "f_{n-1}", rightarrow] &
+		X_{n-2} \arrow[r, "", rightarrow] \arrow[d, "f_{n-2}", rightarrow] &
+		\ldots \\
+		\ldots \arrow[r, "", rightarrow] &
+		Y_n \arrow[r, "d^Y_n", rightarrow]&
+		Y_{n-1} \arrow[r, "d^Y_{n-1}", rightarrow] &
+		Y_{n-2} \arrow[r, "", rightarrow] &
+		\ldots
+	\end{tikzcd}
+	,\end{equation} 
+	i.e. s.t $d^Y_n \circ f_N = f_{n-1} \circ d^X_n$ for all $n \in \Z$
+	(more compactly $d^Y \circ f = f \circ d^X$).
+\end{defn}
+
+\begin{defn}[Cochain complex over $A$]
+	We define $\mathrm{Cch}(\mathsf{A})$ the category of \textbf{cochain complexes} over $\mathsf{A}$
+	as the category whose objects are sequences
+	\begin{equation}
+	\ldots \to X^n \xrightarrow{d^n} X^{n+1}
+	\xrightarrow{d^{n+1}} X^{n+2} \to \ldots
+	\end{equation} 
+	s.t. $X^i \in \mathrm{Ob} \left(\mathsf{A}\right)$, $d^i \circ d^{i-1} = 0$ for all $i \in \Z$.
+	The morphisms $d_i$ are called \textit{differentials} and the sequence is called \textit{complex},
+	denoted by $\left( X^{\bullet}, d_X^{\bullet} \right)$, with $\left( d_X \right)^2 = 0$.
+
+	Morphisms in $\mathrm{Cch}(\mathsf{A})$, are defined by:
+	$f:\left(X^{\bullet}, d_X^{\bullet}\right) \to \left(Y^{\bullet}, d_Y^{\bullet}\right)$
+	is a family of morphisms $\left\{ f^n \right\}_{n \in \Z}$, where
+	$f^n \in \mathrm{Hom}_{\mathsf{A}} \left( X^n, Y^n \right)$ for all $n$,
+	are s.t. the following diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		\ldots \arrow[r, "", rightarrow] &
+		X^n \arrow[r, "d_X^n", rightarrow] \arrow[d, "f^n", rightarrow] &
+		X^{n+1} \arrow[r, "d_X^{n+1}", rightarrow] \arrow[d, "f^{n+1}", rightarrow] &
+		X^{n+2} \arrow[r, "", rightarrow] \arrow[d, "f^{n+2}", rightarrow] &
+		\ldots \\
+		\ldots \arrow[r, "", rightarrow] &
+		Y^n \arrow[r, "d_Y^n", rightarrow]&
+		Y^{n+1} \arrow[r, "d_Y^{n+1}", rightarrow] &
+		Y^{n+2} \arrow[r, "", rightarrow] &
+		\ldots
+	\end{tikzcd}
+	,\end{equation} 
+	i.e. s.t $f^n \circ d_X^{n-1} = d_Y^{n-1} \circ f^{n-1}$ for all $n \in \Z$
+	(more compactly $f \circ d_X = d_Y \circ f$).
+\end{defn}
+
+\begin{rem}[Additive categories]
+	If $\mathsf{A}$ is additive, then also $\mathrm{Ch}(\mathsf{A})$ and $\mathrm{Cch}(\mathsf{A})$ are.
+	In particular, given $\left(X^{\bullet}, d_X\right)$ and $\left(Y^{\bullet}, d_Y \right)$ two cochain complexes,
+	then their coproduct $\left(X^{\bullet} \oplus Y^{\bullet}, d_X \oplus d_Y\right)$ degree wise is
+	\begin{equation}
+	\left[ X^{\bullet} \oplus Y^{\bullet} \right]^n := X^n \oplus Y^n
+	\end{equation} 
+	and with differentials given by
+	\begin{equation}
+	d^n_{X^{\bullet} \oplus Y^{\bullet}} :=
+	d^n_X \oplus d^n_Y =
+	\begin{bmatrix}
+		d^n_X & 0\\
+		0 & d^n_Y
+	\end{bmatrix} 
+	.\end{equation} 
+\end{rem}
+
+\begin{defn}[Bounded (co)chain complex]
+	A (co)chain complex $\left(X^{\bullet}, d_X\right)$ is \textbf{bounded} iff
+	$\exists\, b \in \N$ s.t. $X^n = 0$ for all $\left| n \right| > b$.
+	It is bounded \textbf{below}, resp. \textbf{above}, iff
+	$\exists\, b \in \Z$ s.t. $X^n = 0$ for all
+	$n < b$, resp. $n > b$.
+	(Even though we used the notation for cochain complexes the definitions apply without
+	modification to chain complexes).
+
+	We denote respectively with $\mathrm{Ch}(\mathsf{A})^b$, $\mathrm{Ch}(\mathsf{A})^+$
+	and $\mathrm{Ch}(\mathsf{A})^-$ the full subcategory of bounded, resp. above or below, chain complexes.
+\end{defn}
+
+\begin{defn}[Canonical functor]
+	There is a canonical embedding
+	\begin{align}
+		\mathrm{can}: \mathsf{A} &\to \mathrm{Ch}(\mathsf{A}) \\
+		A &\mapsto A^{\bullet} := 
+		\ldots \to 0 \to A^0 := A \to 0 \to \ldots
+	.\end{align} 
+	$A^{\bullet}$ is called complex concentrated in degree $0$.
+	Clearly $\mathrm{can}$ is fully faithful, hence it is an embedding of $\mathsf{A}$ into $\mathrm{Ch}(\mathsf{A})$.
+\end{defn}
+
+\begin{defn}[Shift functor]
+	Choose $p \in \Z$, then we can define the functor
+	\begin{align}
+		\left[ p \right]: \mathrm{Ch}(\mathsf{A}) &\to \mathrm{Ch}(\mathsf{A}) \\
+		\left(X^{\bullet}, d_X\right) &\mapsto \left( X^{\bullet}[p], d_{X}[p] \right)
+	,\end{align} 
+	in which we define
+	\begin{equation}
+		\left( X^{\bullet} [p] \right)^n := X^{n+p} \qquad \text{ and } \qquad
+		d^n_{X^{\bullet}[p]} := (-1)^{p} d_X^{n+p}
+	.\end{equation} 
+	More explixitly this functor shifts the objects in the (co)chain, by $p$ to the left.
+	Analogously, on a morphism of complexes $f: \left( X_{\bullet}, d^{X} \right) \to \left( Y_{\bullet}, d^{Y} \right)$
+	acts by shifting the morphisms of the family by $p$ to the left.
+	More explicitly
+	\begin{equation}
+		\left( [p]f \right)^n := f^{n+p}
+	.\end{equation} 
+	Moreover we introduce the notation $f[p] := [p]f$.
+\end{defn}
+
+\begin{rem}[Shift functor]
+	If $p = 1$ we call the functor
+	\begin{equation}
+		[1]: \mathrm{Ch}(\mathsf{A}) \to \mathrm{Ch}(\mathsf{A})
+	\end{equation} 
+	is called the \textbf{shift} functor.
+\end{rem}
+
+\begin{rem}[]
+	The functor $[p]: \mathrm{Ch}(\mathsf{A}) \to \mathrm{Ch}(\mathsf{A})$ is an automorphism of categories.
+	In fact $[p] \circ [-p] = id_{\mathrm{Ch}(\mathsf{A})} = [-p] \circ [p]$.	
+\end{rem}
+
+\begin{rem}[Motivational remark]
+	From algebraic topology.
+	We define $\Delta_n$ the standard $n$-simplex.
+	Given a topological space $X$ one wants to partition it into finitely many
+	$n$-simplices.
+	One can construct a chain (the simplicial chain complex) by considering $X_k$, for every $k \in \N$,
+	the set of $k$-dimensional simplices appearing in the partition of $X$.
+	Then one can create for each degree $k$ the free abelian group generated by $X_k$, we denote it by $(C_{\bullet})_k$.
+	One also defines a differential $d_k: C_k \to C_{k-1}$, which gives rise to a chain complex.
+\end{rem}
+
+\begin{prop}
+	Given an abelian category $\mathsf{A}$, then $\mathrm{Ch}(\mathsf{A})$ is abelian,
+	i.e. it admits kernels, cokernles and $\mathrm{Coim}\, $ is canonically isomorphic to $\mathrm{Im}\, $.
+\end{prop}
+
+\begin{ex}
+	Let's, for example, define the kernel of a morphism
+	\begin{equation}
+	f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)
+	.\end{equation} 
+	Then, we denote by $K^{\bullet} := \ker f$ the cochain s.t. $K^n := \ker f^n$
+	and with differential defined by:
+	\begin{equation}
+		\begin{tikzcd}[column sep=small, row sep=small]
+		& X^n \arrow[rr, "d^n_X", rightarrow] \arrow[dd, "f^n"' near end, rightarrow] & &
+		X^{n+1} \arrow[dd, "f^{n+1}" near end, rightarrow] \\
+		\ker f^n \arrow[ru, "\epsilon^n", tail]
+			\arrow[rr, "\exists\, ! d^n" near end, rightarrow, red, crossing over] & &
+		\ker f^{n+1} \arrow[ru, "\epsilon^{n+1}"', tail] \\
+		& Y^n \arrow[rr, "d^n_Y", rightarrow] & &
+		Y^{n+1}
+	\end{tikzcd}
+	.\end{equation} 
+	By the commutativity of the diagram we obtain
+	\begin{equation}
+	f^{n+1} \circ d^n_X \circ \epsilon^n = 
+	d_Y^n \circ f^n \circ \epsilon^n = 0
+	.\end{equation} 
+	Then, by the second condition on kernels, we obtain $\exists\, !\, d^n: \ker f^n \to \ker f^{n+1}$ s.t.
+	$d^n_X \circ \epsilon^n = \epsilon^{n+1} \circ d^n$.
+\end{ex} 
+
+\begin{defn}[Cohomology]
+	Let $\mathsf{A}$ be an abelian category, and $\left( X^{\bullet}, d_{X} \right) \in \mathrm{Ch}(\mathsf{A})$.
+	Then $\Ima d^{n-1}_X \subset \ker d_X^n$ and we can define, for all $n \in \Z$, the following quotient object
+	\begin{equation}
+		H^n(X) :=
+		\frac{\ker d^n_X}{\Ima d_X^{n-1}} \in \mathrm{Ob} \left(\mathsf{A}\right)
+	,\end{equation} 
+	called the $n$-th cohomology of the cochain complex $\left( X^{\bullet}, d_{X} \right)$.
+\end{defn}
+
+\begin{ex}
+	Let $\mathsf{A} = \mathsf{Ab}$ the category of abelian groups.
+	Consider the following cochain
+	\begin{equation}
+	\ldots \to 0 \to \mathbb{Z}/4\mathbb{Z} \xrightarrow{\dot{2}} \mathbb{Z}/4\mathbb{Z}
+	\xrightarrow{\dot{2}} \mathbb{Z}/4\mathbb{Z} \xrightarrow{\dot{2}} \ldots
+	=: \left( X^{\bullet}, d_{X} \right)	
+	.\end{equation} 
+	Then $H^0(X) = 2\mathbb{Z}/4\mathbb{Z} \simeq \mathbb{Z}/2\mathbb{Z}$, whereas
+	$H^n(X) = 0$ for all $n \neq 0$.
+	If, instead, we considered the following object
+	\begin{equation}
+	\ldots \to \mathbb{Z}/4\mathbb{Z} \xrightarrow{\dot{2}} \mathbb{Z}/4\mathbb{Z}
+	\xrightarrow{\dot{2}} \mathbb{Z}/4\mathbb{Z} \xrightarrow{\dot{2}} \ldots
+	=: \left( X^{\bullet}, d_{X} \right)	
+	.\end{equation} 
+	Then $H^n(X) = 0$ for all $n \in \Z$, hence $\left( X^{\bullet}, d_{X} \right)$ is \textit{acyclic}.
+\end{ex}
+
+\begin{prop}
+	Let $\mathsf{A}$ be an abelian category, then, for every $n \in \Z$, we can define the functor
+	\begin{align}
+		H^n: \mathrm{Ch}(\mathsf{A}) &\to \mathsf{A} \\
+		\left( X^{\bullet}, d_{X} \right) &\mapsto H^n(X)
+	.\end{align}
+\end{prop} 
+\begin{proof}
+	We need to construct, starting from a cochain map $f: X^{\bullet} \to Y^{\bullet}$, the associated cohomology morphism
+	\begin{equation}
+		H^n(f): H^n(X) \to H^n(Y)
+	.\end{equation} 
+\end{proof}
+
+\begin{rem}[]
+	If $\mathsf{A} := \mathsf{Mod}\text{-}R$, then every part of the above result can be
+	checked by diagram chasing.
+	In fact $z \in \ker d^n_X \iff d^n_X(z) = 0$, then
+	\begin{equation}
+		d^n_Y \circ f^n(z) = f^{n+1} \circ d^n_X(z) = 0
+	,\end{equation} 
+	hence $f^n(\ker d^n_X) \subset \ker d^n_Y$.
+	Moreover, given $x \in \Ima d^{n-1}_X$, then $x = d^{n-1}_X(z)$, for some $z \in X^{n-1}$.
+	Then
+	\begin{equation}
+		f^n(x) = f^n \circ d^{n-1}_X(z) =
+		d^{n-1}_Y \circ f^{n-1} (z) \in \Ima d^{n-1}_Y
+	.\end{equation} 
+	Hence $f^n(\Ima d^{n-1}_X) \subset \Ima d^{n-1}_Y$.
+	The $f$ induces a map on the quotient
+	\begin{equation}
+	\widetilde{f}: \frac{\ker d^n_X}{\Ima d_X^{n-1}} \to \frac{\ker d^n_Y}{\Ima d_Y^{n-1}}
+	.\end{equation} 
+\end{rem}
+
+And now, a very important result!
+\begin{thm}[Freyd-Mitchell embedding]
+	Let $\mathsf{A}$ be a small, abelian category.
+	Then there is a ring $R$ and a fully faithful exact functor
+	\begin{equation}
+	F: \mathsf{A} \to \mathsf{Mod}\text{-}R
+	.\end{equation} 
+\end{thm}
+
+\begin{rem}[]
+	The above theorem essentially states that we can consider objects of $\mathsf{A}$ as if they were modules.
+	In particular any result in $\mathsf{Mod}\text{-}R$ involving only finitely many
+	objects and morphisms (such as exactness, existance and vanishing of morphisms)
+	holds in any abelian category $\mathsf{C}$.
+	This is true, since we can always construct a small full subcategory $\mathsf{A}_0$ of $\mathsf{C}$,
+	containing only the objects involved in the result.
+
+	Notice, however, that results for arbitrary family of objects do not translate so easily.
+	For example the product of an arbitrary family of exact sequences in $\mathsf{Mod}\text{-}R$
+	is still exact in $\mathsf{Mod}\text{-}R$, 
+	but not in an arbitrary abelian category.
+\end{rem}
+
+\begin{proof}[Sketch of proof (Freyd-Mitchell)]
+	Let $\mathrm{Hom}_{ }\left( \mathsf{A}^{op}, \mathsf{Ab} \right)$ be the category of the additive functors from $\mathsf{A}^{op}$ to $\mathsf{Ab}$.
+	Then, the Yoneda embedding
+	\begin{align}
+		Y: \mathsf{A} &\to \mathrm{Hom}_{ }\left( \mathsf{A}^{op}, \mathsf{Ab} \right) \\
+		A &\mapsto h^A = \mathrm{Hom}_{\mathsf{A}} \left( -, A \right)
+	\end{align} 
+	is, by \textit{Yoneda lemma} fully faithful.
+	Moreover it is left exact, since, for every $A$ the functor $h^A$ is left exact.
+	In fact
+	\begin{equation}
+		Y: \mathsf{A} \to \mathsf{L} := \mathrm{Lex} \left(\mathsf{A}^{op}, \mathsf{Ab}\right) \subset
+		\mathrm{Hom}_{ }\left( \mathsf{A}^{op}, \mathsf{Ab} \right)
+	\end{equation} 
+	takes values in the category $\mathrm{Lex}\left(\mathsf{A}^{op}, \mathsf{Ab}\right)$ of
+	left exact funcotrs from $\mathsf{A}^{op}$ to $\mathsf{Ab}$.
+	We need some facts about $\mathsf{L}$ (which are not trivial to show):
+	\begin{enumerate}
+		\item $\mathsf{L}$ is an abelian category.
+			In particular its kernels coincide with the ones in $\mathrm{Hom}_{ }\left( \mathsf{A}^{op}, \mathsf{Ab} \right)$,
+			whereas cokernels differ.
+			This implies that the inclusion functor $\mathsf{L} \hookrightarrow \mathrm{Hom}_{ }\left( \mathsf{A}^{op}, \mathsf{Ab} \right)$
+			is only left exact.
+		\item The Yoneda embedding $Y: \mathsf{A} \to \mathsf{L}$ is fully faithful and exact.
+		\item $\mathsf{L}$ has arbitrary coproducts, i.e. $\mathsf{L}$ is cocomplete,
+			and has a projective generator, which is faithful as a functor, 
+			namely
+			\begin{equation}
+			P := \coprod_{A \in \mathrm{Ob} \left(\mathsf{A}\right)} h^A
+			.\end{equation} 
+			Recall that we can take this coproduct since $\mathsf{A}$ is a small category,
+			hence $\mathrm{Ob} \left(\mathsf{A}\right)$ is a set.
+	\end{enumerate}
+	Summarizing: $\mathsf{A}$ is a small abelian full subcategory of $\mathsf{L}$, which is a
+	cocomplete abelian category with a projective generator.
+	Then Freyd-Mitchell follows from the following theorem.
+\end{proof}
+
+\begin{thm}[]
+	Let $\mathsf{C}$ be a cocomplete abelian categry with a projective generator.
+	Then, for every small full abelian category $\mathsf{A} \subset \mathsf{C}$,
+	there is a ring $R$ and a fully faithful exact functor
+	\begin{equation}
+	F: \mathsf{A} \to \mathsf{Mod}\text{-}R
+	,\end{equation} 
+	so that $\mathsf{A}$ is equivalent to a full subcategory of $\mathsf{Mod}\text{-}R$.
+\end{thm}
+
+\begin{defn}[Functor reflecting exactness]
+	Let $\mathsf{C}$ and $\mathsf{D}$ be abelian categories, and
+	$F: \mathsf{C} \to \mathsf{D}$ be an additive functor.
+	We say that $F$ \textbf{reflects exactness} iff
+	\begin{equation}
+	A \to B \to C
+	\end{equation} 
+	is exact in $\mathsf{C}$, as soon as
+	\begin{equation}
+		F(A) \to F(B) \to F(C)
+	\end{equation} 
+	is exact in $\mathsf{D}$.
+\end{defn}
+
+\begin{lem}
+	If $F$ is an exact and fully faithful functor,
+	then $F$ reflects exactness.
+	(you can simplify things if you prove it using Freyd-Mitchell)
+\end{lem} 
+
+\begin{prop}
+	Let $\mathsf{A}$ be a small abelian category.
+	The Yoneda embedding
+	\begin{equation}
+	Y: \mathsf{A} \to \mathrm{Hom}_{ }\left( \mathsf{A}^{op}, \mathsf{Ab} \right)
+	\end{equation} 
+	reflects exactness.
+\end{prop} 
+
+\begin{defn}[Acyclic complex]
+	A (co)chain complex $\left( X^{\bullet}, d_{X} \right)$ is \textbf{acyclic} iff 
+	$H^n(X) = 0$ for all $n \in \Z$, i.e. as a sequence it is exact
+	\begin{equation}
+	\ldots \to X^{n-1} \xrightarrow{d_X^{n-1}} X^n \xrightarrow{d_X^n} 
+	X^{n+1} \xrightarrow{d_X^{n+1}} X^{n+2} \to \ldots
+	.\end{equation} 
+\end{defn}

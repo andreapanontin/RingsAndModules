@@ -1,0 +1,393 @@
+\section{Abelian categories}
+
+\begin{lem}[Parallel morphism]
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	Assume that every morphism in $\mathsf{C}$ admits kernel and cokernel, then
+	\begin{equation}
+	\begin{tikzcd}
+		\ker f \arrow[r, "\epsilon", rightarrow] & A \arrow[r, "f", rightarrow] \arrow[d, "p"', rightarrow] \arrow[rd, "\beta", dashrightarrow] &
+		B \arrow[r, "\pi", rightarrow] & \mathrm{coker}\, f \\
+					       & \mathrm{coker}\, \epsilon \arrow[r, "\widetilde{f}"', dashrightarrow] & \ker \pi \arrow[u, "\mu"', rightarrow] &
+	\end{tikzcd}
+	\end{equation} 
+	$\exists\, !\, \widetilde{f}: \mathrm{coker}\, \epsilon \to \ker \pi$ s.t. $\widetilde{f} \circ p = \beta$.
+	$\widetilde{f}$ is called \textbf{parallel morphism} of $f$.
+\end{lem} 
+
+\begin{ex}
+	Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $A \xrightarrow{f} B$.
+	Then $\mathrm{coker}\, (\ker f) = A / \ker f$ ad $\ker \left( \mathrm{coker}\, f \right) \simeq \ima f$.
+	By the first isomorphism theorem we have
+	\begin{equation}
+	A/ \ker f \simeq_{\widetilde{f}} \ima f
+	.\end{equation} 
+\end{ex} 
+
+\begin{defn}[Some notation]
+	We denote the above objects as
+	\begin{align}
+		\coim f := \coker \left( \ker f \right)\\
+		\Ima f := \ker \left( \coker f \right)	
+	.\end{align} 
+\end{defn}
+
+\begin{defn}[Abelian category]
+	A category $\mathsf{C}$ is said \textbf{abelian} iff it is additive and
+	\begin{enumerate}
+		\item every morphism has both kernel and cokernel,
+		\item the parallel morphism $\widetilde{f}$ of $f$ is an isomorphism for any $f$.
+	\end{enumerate}
+	The second condition is equivalent to the following
+	\begin{enumerate}
+		\item[2'.] Every morphism $f$ in $\mathsf{C}$ factors as $\nu \beta$ with $\beta$ a cokernel and $\nu$ a kernel.
+	\end{enumerate}
+\end{defn}
+
+\begin{lem}
+	Let $f = \nu \beta$ in $\mathsf{C}$ a preadditive category with $0$ object.
+	\begin{enumerate}
+		\item If $\nu$ is a mono, then $\ker f = \ker \beta$, if they exist.
+		\item If $\beta$ is epi, then $\coker f = \coker \nu$, if they exist.
+	\end{enumerate}
+\end{lem} 
+
+\begin{lem}
+	Assume that $\mathsf{C}$ is an abelian category.
+	Let $A \xrightarrow{f} B$ be a morphism in $\mathsf{C}$, then
+	\begin{enumerate}
+		\item If $f$ is mono and epi, then $f$ is iso.
+		\item If $f$ is mono, then $f = \ker \left( \coker f \right)$.
+		\item If $f$ is epi, then $f = \coker \left( \ker f \right)$.
+	\end{enumerate}
+\end{lem} 
+
+\begin{ex}
+	Let $\mathsf{C} = \mathsf{Ab}$. We say that $G \in \mathsf{Ab}$ is torsion free iff $\,\forall\,  0 \neq x \in G$, for all $n \in \Z$ s.t. $nx = 0$, then $n = 0$.
+	Moreover $G$ is torsion iff $\,\forall\,  x \in G$ there exists $0 \neq n \in \Z$ s.t. $nx = 0$.
+	Given $G \in \mathsf{Ab}$, we denote by $t(G) \leq G$ the torsion subgroup of $G$, i.e.
+	\begin{equation}
+		t(G) := \left\{ x \in G \ \middle|\ \exists\, 0 \neq n \in \Z \text{ s.t. } nx = 0 \right\}
+	.\end{equation} 
+	Clearly, then, $G/t(G)$ is a torsion free group.
+
+	Let's now see a few examples of abelian categories:
+	\begin{itemize}
+		\item Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ the category of abelian groups.
+			$\mathsf{C}$ is \textbf{abelian}: consider $A_R \xrightarrow{f} B_R$, then
+			\begin{equation}
+				\coker \left( \ker f \right) \simeq A/ \ker f \quad \text{ and } \quad
+				\ker \left( \coker f \right) \simeq \ima f
+			.\end{equation} 
+			From the first isomorphism theorem we obtain an isomorphism of the two, hence this category is abelian.
+		\item Let $\mathsf{T} \subset \mathsf{Ab}$  the full subcategory of abelian groups consisting of \textbf{torsion} abelian groups, then $\mathsf{T}$ is abelian.
+			This is the case, since $\ker$ and $\coker$ in $\mathsf{T}$ correspond to the notions in $\mathsf{Ab}$, which is abelian.
+	\end{itemize}
+	The following, instead, are additive, with kernels and cokernels, but not abelian:
+	\begin{itemize}
+		\item Let $\mathsf{F} \subset \mathsf{Ab}$ be the full subcategory consisting of the torsion free abelian groups.
+			Clearly $\mathsf{F}$ is closed under subgroups.
+			Let $A \xrightarrow{f} B$ a morphism in $\mathsf{F}$.
+			Let $K \xrightarrow{\epsilon} A$ a kernel of $f$ in $\mathsf{Ab}$, clearly $K \hookrightarrow A$, hence $K \in \mathrm{Ob} \left(\mathsf{F}\right)$ and $f$ admits kernel in $\mathsf{F}$.
+			Let $\left(C, \pi\right)$ a cokernel in $\mathsf{Ab}$. It might not be in $\mathsf{F}$.
+			Consider $C/t(C) \in \mathrm{Ob} \left(\mathsf{F}\right)$ and $B \xrightarrow{\pi} C \xrightarrow{q} C/t(C)$, then $q \circ \pi$ is a cokernel of $f$ in $\mathsf{F}$.
+			It follows that $f$ admits also cokernel in $\mathsf{F}$.
+
+			In other words we have just proved that $\mathsf{F}$ admits both kernels and cokernels.
+			But $\mathsf{F}$ is not abelian.
+			In order to show this we consider
+			\begin{equation}
+			\begin{tikzcd}
+				\ker \dot{2} = 0 \arrow[r, "0", rightarrow] & \Z \arrow[r, "\dot{2}", rightarrow] \arrow[d, "1_\Z"', rightarrow] &
+				\Z \arrow[r, "0", rightarrow] & 0 = \coker \dot{2}\\
+				 & \Z \arrow[r, "\widetilde{\dot{2}}", rightarrow] & \Z \arrow[u, "1_\Z"', rightarrow] & 
+			\end{tikzcd}
+			,\end{equation} 
+			where $\dot{2}: \Z \to \Z$ is the multiplication by $2$.
+			In $\mathsf{F}$ we have $\coker \dot{2} = 0$, since in $\mathsf{Ab}$ $\coker \dot{2} = \Z/2\Z$, which is torsion.
+			Then, in this example, $\widetilde{f} = \widetilde{\dot{2}}$, which is not an isomorphism in $\mathsf{F}$ (nor in $\mathsf{Ab}$, and $\mathsf{F}$ is a fullsubcategory of $\mathsf{F}$).
+			Also note that $\dot{2}$ is both mono and epi in $\mathsf{F}$, but not an iso.
+		\item Let $G \in \mathrm{Ob} \left(\mathsf{Ab}\right)$ an abelian group. 
+			We say that $G$ is \textbf{divisible} iff $\,\forall\, x \in G$ and $\,\forall\,  0 \neq n \in \Z$, $\exists\, y \in G$ s.t. $ny = x$.
+			Simmetrically an abelian group is called \textbf{reduced} iff it has no nonzero divisible subgroups.
+
+			Let $\mathsf{D} \subset \mathsf{Ab}$ the full subcategory consisting of divisible abelian groups.
+			Then $\mathsf{D}$ has kernels and cokernels, it is also additive, but not abelian.
+	\end{itemize}
+\end{ex} 
+
+I'm actually not sure whether the following definition is correct, but I cannot find it on the internet and I really didn't understand what was part of the defn during te lecture.
+\begin{defn}[Torsion pair of full subcategories]
+	Let $\mathsf{C}$ be an abelian category, and $\mathsf{D} \subset \mathsf{C} \supset \mathsf{E}$ be two full subcategories.
+	We say that the pair $\left(\mathsf{D}, \mathsf{E}\right)$ is a \textbf{torsion pair} iff given any $D \in \mathrm{Ob} \left(\mathsf{D}\right)$ and $E \in \mathrm{Ob} \left(\mathsf{E}\right)$ we have
+	\begin{equation}
+	\mathrm{Hom}_{\mathsf{C}} \left( D, E \right) = 0
+	.\end{equation} 
+\end{defn}
+
+\begin{ex}\leavevmode\vspace{-.2\baselineskip}
+	\begin{itemize}
+		\item Consider the category $\mathsf{Ab}$ of abelian groups and $\mathsf{T} \subset \mathsf{Ab}$ the full subcategory of torsion abelian groups and $\mathsf{F} \subset \mathsf{Ab}$ the full subcategory of torsion-free abelian groups.
+			The pair $\left(T, F\right)$ is a torsion pair, in fact, for any $T \in \mathrm{Ob} \left(\mathsf{T}\right)$ and $F \in \mathrm{Ob} \left(\mathsf{F}\right)$, we have
+			\begin{equation}
+			\mathrm{Hom}_{\mathsf{Ab}} \left( T, F \right) = 0
+			.\end{equation} 
+		\item Consider the full subcategories $\mathsf{D} \subset \mathsf{Ab}$ of all divisible groups and $\mathsf{R} \subset \mathsf{Ab}$ of all reduced groups.
+			The pair $\left(\mathsf{D}, \mathsf{R}\right)$ is torsion, in fact, for any $D \in \mathrm{Ob} \left(\mathsf{D}\right)$ and $R \in \mathrm{Ob} \left(\mathsf{R}\right)$, we have
+			\begin{equation}
+			\mathrm{Hom}_{\mathsf{Ab}} \left( D, R \right) = 0
+			.\end{equation} 
+	\end{itemize}
+\end{ex} 
+
+\section{Pullback and Pushout}
+\begin{defn}[Pullback]
+	Let $\mathsf{C}$ be an arbitrary category.
+	Let $A \xrightarrow{f} C$ and $B \xrightarrow{g} C$ be morphisms in $\mathsf{C}$.
+	A \textbf{pullback} of $f$ and $g$ is a triple $\left(P, p_A, p_B\right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $p_A: P \to A$ and $p_B: P \to B$ s.t. the following conditions are satisfied
+	\begin{description}
+		\item[PB1] The following square is commutative
+			\begin{equation}
+			\begin{tikzcd}
+				P \arrow[r, "p_A", rightarrow] \arrow[d, "p_B"', rightarrow] & A \arrow[d, "f", rightarrow] \\
+				B \arrow[r, "g"', rightarrow] & C
+			\end{tikzcd}
+			.\end{equation} 
+			In other words we ask that $f \circ p_A = g \circ p_B$.
+		\item[PB2] For any pair of morphisms $X \xrightarrow{\alpha} A$ and $X \xrightarrow{\beta} B$, from a fixed $X \in \mathrm{Ob} \left(\mathsf{C}\right)$, s.t. $f \circ \alpha = g \circ \beta$ then $\exists\, !\, X \xrightarrow{\gamma} P$ s.t. the following diagram commutes
+			\begin{equation}
+			\begin{tikzcd}
+				X \arrow[rd, "\exists\, !\, \gamma", rightarrow] \arrow[rrd, "\alpha", rightarrow, bend left] \arrow[rdd, "\beta"', rightarrow, bend right] &  & \\
+			   & P \arrow[r, "p_A", rightarrow] \arrow[d, "p_B"', rightarrow] & A \arrow[d, "f", rightarrow] \\
+			   & B \arrow[r, "g"', rightarrow] & C
+			\end{tikzcd}
+			.\end{equation} 
+			In other words, s.t. $p_B \circ \gamma = \beta$ and $p_A \circ \gamma = \alpha$.
+	\end{description} 
+\end{defn}
+		
+\begin{rem}
+	Notice that \textbf{PB2} is a universal property.
+	This means that, if a \textbf{pullback} of $f$ and $g$ exists, then it is unique up to a unique isomorphism.
+\end{rem}
+
+\begin{ex}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	\begin{itemize}
+	\item Consider $A \xrightarrow{f} C$ and $0 \xrightarrow{0} C$.
+		A pullback of $f$ and $0$ exists iff $\ker f$ exists in $\mathsf{C}$.
+		In particular $\left(P, p_A\right)$ is a kernel of $f$.
+	\item Consider $A \xrightarrow{0} 0$ and $B \xrightarrow{0} 0$.
+		The pullback of $0, 0$ eixsts iff the product of $A$ and $B$ exists, then the triple $\left(P, p_A, p_B\right)$ is a product of $A$ and $B$:
+		\begin{equation}
+		\begin{tikzcd}
+			P \arrow[r, "p_A", rightarrow] \arrow[d, "p_B"', rightarrow] & A \arrow[d, "0", rightarrow] \\
+			B \arrow[r, "0", rightarrow] & 0
+		\end{tikzcd}
+		.\end{equation} 
+	\end{itemize}
+\end{ex} 
+
+\begin{prop}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	If $\mathsf{C}$ admits kernel and finite products, then $\mathsf{C}$ has pullbacks.
+	Moreover these are constructed by means of products and kernels.
+\end{prop} 
+\begin{proof}
+	The construction via kernels and products goes as follows:
+	Consider the morphisms $A \xrightarrow{f} C$ and $B \xrightarrow{g} C$.
+	Let $\left(A \prod B, \pi_A, \pi_B\right)$ be a product.
+	Let $\mu := f \circ \pi_A - g \circ \pi_B: A \prod B \to C$.
+	Finally, consider $\left(K, \epsilon\right)$ a kernel of $\mu$.
+	Then $\left(K, p_A, p_B\right)$, with $p_A := \pi_A \circ \epsilon$ and $p_B = \pi_B \circ \epsilon$, is a pullback of $f$ and $g$.
+	The corresponding diagram is
+	\begin{equation}
+	\begin{tikzcd}
+		K \arrow[rd, "\epsilon", rightarrow] \arrow[rrd, "p_A", rightarrow, bend left] \arrow[rdd, "p_B"', rightarrow, bend right] & & \\
+	   & B \prod A \arrow[r, "\pi_A", rightarrow] \arrow[d, "\pi_B"', rightarrow] \arrow[rd, "\mu", rightarrow] & A \arrow[d, "f", rightarrow] \\
+	   & B \arrow[r, "g"', rightarrow] & C
+	\end{tikzcd}
+	.\end{equation} 
+\end{proof}
+
+\begin{ex}
+	Consider an abelian category $\mathsf{C}$, for example the category $\mathsf{Mod}\text{-}R$.
+	Take two morphisms $A \xrightarrow{f} C$ and $B \xrightarrow{g} C$, then the pullback of $f$ and $g$ is a submodule $P \leq A \oplus B$, in particular it is
+	\begin{align}
+		P &= \left\{ \left( a,b \right) \in A \oplus B \ \middle|\ \mu \left(a, b\right) = 0 \right\}\\
+		  &= \left\{ \left(a, b\right) \in A \oplus B \ \middle|\ f(a) = g(b) \right\}
+	.\end{align} 
+\end{ex} 
+
+\begin{prop}
+	Let $\mathsf{C}$ be preadditive with $0$ object.
+	Let 
+	\begin{equation}
+	\begin{tikzcd}
+		P \arrow[r, "p_A", rightarrow] \arrow[d, "p_B"', rightarrow] & A \arrow[d, "f", rightarrow] \\
+		B \arrow[r, "g"', rightarrow] & C
+	\end{tikzcd}
+	\end{equation} 
+	be a pullback diagram, then:
+	\begin{itemize}
+		\item If $g$ (resp. $f$) is mono, then $p_A$ (resp. $p_B$) [the parallel arrow] is mono.
+		\item If $\mathsf{C}$ is abelian and $g$ (resp. $f$) is epi, then $p_A$ (resp. $p_B$) is epi.
+		\item If $g$ (resp. $f$) is a kernel of $h$, then $p_A$ (resp. $p_B$) is a kernel of $h \circ f$ (resp. $h \circ g$).
+	\end{itemize}
+\end{prop} 
+
+\begin{ex}[An application of the above result]
+	Let $\mathsf{C}$ be an abelian category.
+	Consider the following pullback diagram of the morphisms $f$ and $g$
+	\begin{equation}
+	\begin{tikzcd}
+		P \arrow[r, "p_A", rightarrow] \arrow[d, "p_B"', rightarrow] &
+		A \arrow[d, "f", rightarrow] \\
+		B \arrow[r, "g"', rightarrow] &
+		C
+	\end{tikzcd}
+	.\end{equation} 
+	Assume that $g$ is epi.
+	Take $\left(K, \epsilon\right)$ a kernel of $g$, then
+	$\exists\, ! \delta: K \to P$ s.t. the following diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		K \arrow[r, "\delta", tail] & %\arrow[d, "", equal] &
+		P \arrow[r, "p_A", twoheadrightarrow] \arrow[d, "p_B", rightarrow] &
+		A \arrow[d, "f", rightarrow] \\
+		K \arrow[r, "\epsilon"', tail] \arrow[u, "1_K", equal] &
+		B \arrow[r, "g"', twoheadrightarrow] &
+		C
+	\end{tikzcd}
+	.\end{equation} 
+	Moreover $\delta$ is a kernel of $p_A$ (hence it is a monomorphism).
+\end{ex} 
+
+\begin{defn}[Pushout]
+	Let $\mathsf{C}$ be an arbitrary category.
+	A \textbf{pushout} of morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$ in $\mathsf{C}$ is a \textbf{pullback} in $\mathsf{C}^{op}$.
+	This means that we can dualize every result for the pullback.
+
+	More explicitly, a pushout is a triple $ \left(P, \nu_A, \nu_B \right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $\nu_A: A \to P$,  and $\nu_B: B \to P$ morphisms s.t. the following conditions are satisfied
+	\begin{description}
+		\item[PO1] The following square is commutative
+			\begin{equation}
+			\begin{tikzcd}
+				C \arrow[r, "f", rightarrow] \arrow[d, "g"', rightarrow] &
+				A \arrow[d, "\nu_A", rightarrow] \\
+				B \arrow[r, "\nu_B"', rightarrow] &
+				P
+			\end{tikzcd}
+			.\end{equation} 
+			In other words we ask that $\nu_A \circ f = \nu_B \circ g$.
+		\item[PO2] For any pair of morphisms $A \xrightarrow{\alpha} X$ and $B \xrightarrow{\beta} X$, into a fixed $X \in \mathrm{Ob} \left(\mathsf{C}\right)$, s.t. $\alpha \circ f = \beta \circ g$, then
+			$\exists\, !\, P \xrightarrow{\gamma} X$ s.t. the following diagram commutes
+			\begin{equation}
+			\begin{tikzcd}
+				C \arrow[r, "f", rightarrow] \arrow[d, "g"', rightarrow] &
+				A \arrow[d, "\nu_A", rightarrow] \arrow[rdd, "\alpha", rightarrow, bend left] & \\
+				B \arrow[r, "\nu_B"', rightarrow] \arrow[rrd, "\beta"', rightarrow, bend right] &
+				P \arrow[rd, "\exists\, !\, \gamma", dashrightarrow] & \\
+				& & X
+			\end{tikzcd}
+			.\end{equation} 			
+			In other words, s.t. $\gamma \circ \nu_A = \alpha$ and $\gamma \circ \nu_B = \beta$.
+	\end{description} 
+\end{defn}
+		
+\begin{ex}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	\begin{itemize}
+		\item Consider $C \xrightarrow{f} A$ and $C \xrightarrow{0} 0$.
+			A pushout of $f$ and $0$ exists iff $\coker f$ exists in $\mathsf{C}$.
+			In partcular $\left(P, \nu_A \right)$ is a cokernel of $f$.
+		\item Consider $0 \xrightarrow{0} A$ and $0 \xrightarrow{0} B$.
+			The pushout diagram of $0$ and $0$ exists iff the coproduct of $A$ and $B$ exists.
+			Then the triple $ \left(P, \nu_A, \nu_B\right)$ is a coproduct of $A$ and $B$:
+			\begin{equation}
+			\begin{tikzcd}
+				0 \arrow[r, "0", rightarrow] \arrow[d, "0"', rightarrow] &
+				A \arrow[d, "\nu_A", rightarrow] \\
+				B \arrow[r, "\nu_B"', rightarrow] &
+				P
+			\end{tikzcd}
+			.\end{equation} 
+	\end{itemize}
+\end{ex} 
+
+\begin{prop}
+	Let $\mathsf{C}$ be a preadditive category with $0$ object.
+	If $\mathsf{C}$ admits cokernels and finite coproducts, then $C$ has pushouts.
+	Moreover these are constructed by means of coproducts and cokernels.
+\end{prop} 
+\begin{proof}
+	The construction goes as follows:
+	Consider the morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$.
+	Let $\left(A \coprod B, \epsilon_A, \epsilon_B\right)$ be a coproduct.
+	Let $\delta := \epsilon_A \circ f - \epsilon_B \circ g:C \to A \coprod B$.
+	Finally consider $\left(P, p\right)$ a cokernel of $\delta$.
+	Then $\left(P, p \circ \epsilon_A, p \circ \epsilon_B\right)$ is a pushout of $f$ and $g$.
+	The corresponding diagram is
+	\begin{equation}
+	\begin{tikzcd}
+		C \arrow[rd, "\delta", rightarrow] \arrow[r, "f", rightarrow] \arrow[d, "g"', rightarrow] & 
+		A \arrow[d, "\epsilon_A", rightarrow] \arrow[ddr, "", rightarrow, bend left] & \\
+		B \arrow[r, "\epsilon_B"', rightarrow] \arrow[rrd, "", rightarrow, bend right] &
+		A \coprod B \arrow[rd, "p", rightarrow] & \\
+		& & P
+	\end{tikzcd}
+	.\end{equation} 
+\end{proof}
+
+\begin{prop}
+	Let $\mathsf{C}$ be preadditive with $0$ object.
+	Let 
+	\begin{equation}
+	\begin{tikzcd}
+		C \arrow[r, "f", rightarrow] \arrow[d, "g"', rightarrow] &
+		A \arrow[d, "\nu_A", rightarrow] \\
+		B \arrow[r, "\nu_B"', rightarrow] & P
+	\end{tikzcd}
+	\end{equation} 
+	be a pushout diagram, then:
+	\begin{itemize}
+		\item If $f$ (resp. $g$) is epi, then $\nu_B$ (resp. $\nu_A$) [the parallel arrow] is epi.
+		\item If $\mathsf{C}$ is abelian and $f$ (resp. $g$) is mono, then $\nu_B$ (resp. $\nu_A$) is mono.
+		\item If $f$ (resp. $g$) is a cokernel of $h$, then $\nu_B$ (resp. $\nu_A$) is a kernel of $g \circ h$ (resp. $f \circ h$).
+	\end{itemize}
+\end{prop} 
+
+\begin{ex}
+	Let $\mathsf{C} = \mathsf{Mod}\text{-}R$.
+	Consider the morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$.
+	Then a pushout $P \simeq \frac{A \oplus B}{H}$, where $H$ is the image of $\delta$ as defined above, more explicitly
+	\begin{equation}
+		H := \left\langle \left(f(c), -g(c)\right) \ \middle|\ c \in C \right\rangle
+	.\end{equation} 
+	More explicitly, the image of $C$ in $A$ and $B$ (resp. via $f$ and $g$) are glued together in $P$.
+\end{ex} 
+
+\begin{ex}[An application of the above result]
+	Let $\mathsf{C}$ be an abelian category.
+	Consider the following pushout diagram of the morphisms $f$ and $g$ 
+	\begin{equation}
+	\begin{tikzcd}
+		C \arrow[r, "f", rightarrow] \arrow[d, "g"', rightarrow] &
+		A \arrow[d, "\nu_A", rightarrow] \\
+		B \arrow[r, "\nu_B"', rightarrow] &
+		P
+	\end{tikzcd}
+	.\end{equation} 
+	Assume that $f$ is mono.
+	Take $\left(D, p\right)$ a cokernel of $f$, then $\exists\, !\, q: P \to D$ s.t. the following diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		C \arrow[r, "f", tail] \arrow[d, "g"', rightarrow] &
+		A \arrow[r, "p", twoheadrightarrow] \arrow[d, "\nu_A", rightarrow] &
+		D \arrow[d, "", equal] \\
+		B \arrow[r, "\nu_B"', tail] &
+		P \arrow[r, "q"', twoheadrightarrow] &
+		D
+	\end{tikzcd}
+	.\end{equation} 
+	Moreover $q$ is a cokernel of $\nu_B$ (hence it is an epimorphism).
+\end{ex} 

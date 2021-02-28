@@ -1,0 +1,571 @@
+\subsection{Homotopy category}
+Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mathrm{Ch}(\mathsf{A})$.
+
+\begin{defn}[Nullhomotopic morphism]
+	A morphism $f \in \mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})} \left( X^{\bullet}, Y^{\bullet} \right)$ is
+	\textbf{nullhomotopic}, or \textbf{homotopic to zero}, iff
+	$\exists\, s^n: X^n \to Y^{n-1}$ a family of morphisms s.t.
+	\begin{equation}
+	\begin{tikzcd}
+		\ldots \arrow[r, "", rightarrow] &
+		X^{n-1} \arrow[r, "d_X^{n-1}", rightarrow] \arrow[d, "f^{n-1}"', rightarrow] &
+		X^n \arrow[r, "d^n_X", rightarrow] \arrow[d, "f^n"', rightarrow] \arrow[ld, "s^n"', rightarrow] &
+		X^{n+1} \arrow[r, "", rightarrow] \arrow[d, "f^{n+1}", rightarrow] \arrow[dl, "s^{n+1}"', rightarrow] &
+		\ldots \\
+		\ldots \arrow[r, "", rightarrow] &
+		Y^{n-1} \arrow[r, "d_Y^{n-1}"', rightarrow] &
+		Y^n \arrow[r, "d^n_Y"', rightarrow] &
+		Y^{n+1} \arrow[r, "", rightarrow] &
+		\ldots
+	\end{tikzcd}
+	\end{equation} 
+	$f^n = s^{n+1} \circ d_X^{n} + d_Y^{n-1} \circ s^n$ for all $n \in \Z$.
+	More compactly $f = d \circ d_X + d_Y \circ s$.
+	The morphisms $s^n$ are called \textit{homotopies} or \textit{cochain contractions}.
+	Moreover, if $f$ is nullhomotopic, we write $f \sim 0$.
+\end{defn}
+
+\begin{defn}[Homotopic morphisms]
+	Two cochain maps $f,g: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
+	are called \textbf{homotopic}, denoted by $f \sim g$, iff
+	$f - g$ is nullhomotopic.
+\end{defn}
+
+\begin{rem}[]
+	The relation $\sim$ is an equivalence relation.
+\end{rem}
+
+\begin{defn}[Homotopy category]
+	Given, as before, an additive category $\mathsf{A}$, we define the homotopy category
+	$K(\mathsf{A})$ as follows.
+	Its objects are exactly the objects in $\mathrm{Ch}(\mathsf{A})$.
+	Its morphisms, instead, are equivalence classes of (co)chain maps, under the just defined homotopy relation $\sim$.
+	More explicitly
+	\begin{align}
+		\mathrm{Hom}_{K(\mathsf{A})} \left( X^\bullet, Y^\bullet \right)
+		&\simeq \mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})}\left( X^\bullet, Y^\bullet \right)/\sim\\
+		g &\mapsto \left[ g \right]_{\sim}
+	.\end{align} 
+\end{defn}
+
+\begin{rem}[]
+	The homotopy relation $\sim$ is compatible with addition, hence it is a congruence.
+	In particular, denoted with
+	$\mathrm{Hom}_{t}\left( X^\bullet, Y^\bullet \right) \subset
+	\mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})}\left( X^\bullet, Y^\bullet \right)$ the subgroup of
+	nullhomotopic (co)chain maps, then
+	\begin{equation}
+		\mathrm{Hom}_{K(\mathsf{A})}\left( X^\bullet, Y^\bullet \right) =
+		\frac{\mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})}\left( X^\bullet, Y^\bullet \right)}{
+		\mathrm{Hom}_{t}\left( X^\bullet, Y^\bullet \right)}
+	.\end{equation} 
+	Moreover, let $f,g: X^\bullet \to Y^\bullet$ be homotopic cochain maps.
+	Let $\alpha: Z^\bullet \to X^\bullet$ and $\beta: Y^\bullet \to W^\bullet$ be cochain maps,
+	then $\beta \circ f \circ \alpha \sim \beta \circ g \circ \alpha$.
+\end{rem}
+
+\begin{prop}
+	$K(\mathsf{A})$ is an additive category, and the quotient functor,
+	defined
+	\begin{align}
+		q: \mathrm{Ch}(\mathsf{A}) &\to K(\mathsf{A}) \\
+		X^\bullet &\mapsto X^\bullet\\
+		f &\mapsto [f]_{\sim}
+	\end{align} 
+	is an additive functor.
+\end{prop} 
+
+\begin{defn}[Homotopy equivalence]
+	A cochain map $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
+	is said to be a \textbf{homotopy equivalence} iff
+	$\exists\, g: \left( Y^{\bullet}, d_{Y} \right) \to \left( X^{\bullet}, d_{X} \right)$
+	s.t.
+	$g \circ f \sim 1_X$ and $f \circ g \sim 1_Y$.
+	In other words a homotopy equivalence is an isomorphism in $K(\mathsf{A})$.
+\end{defn}
+
+\begin{prop}
+	Let $\mathsf{A}$ be an abelian category and
+	$f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a
+	nullhomotopic cochain map.
+	Then the induced cohomology map
+	\begin{equation}
+		H^n(f) =: \overline{f^n}: H^n(X) \to H^n(Y)
+	\end{equation} 
+	is the zero map for every $n \in \Z$.
+\end{prop} 
+\begin{proof}
+	We can use Freyd-Mitchell (this proposition deals with a finite number of objects).
+	Then, by definition
+	\begin{equation}
+		H^n(f) \left( x + \ima d_X^{n-1} \right) = f^n(x) + \ima d_Y^{n-1}
+	.\end{equation} 
+	But $f^n(x) = d^{n-1}_Y \circ s^n(x) + s^{n+1} \circ d_X^{n}(x)$,
+	then
+	\begin{equation}
+		H^n(f)(x) = d^{n-1}_Y \circ s^n (x) + \ima d_Y^{n-1} = 0 + \ima d_Y^{n-1}
+	.\end{equation} 
+\end{proof}
+
+\begin{cor}
+	Let $f$ and $g$ be homotopic maps, then
+	\begin{equation}
+		H^n(f) = H^n(g) \qquad \,\forall\, n \in \Z
+	.\end{equation} 
+\end{cor} 
+\begin{proof}
+	$H^n$ is an additive functor for each $n \in \Z$.
+\end{proof}
+
+\begin{rem}[]
+	In general $\mathsf{A}$ abelian implies $\mathrm{Ch}(\mathsf{A})$ abelian,
+	but not $K(\mathsf{A})$ abelian.
+\end{rem}
+
+\begin{defn}[Semisimple ring]
+	A ring $R$ is called \textbf{semisimple} iff every $R$-module is projective.
+	Equivalently iff every s.e.s. splits.
+\end{defn}
+
+\begin{ex}
+	Any field $\K$ is semisimple, but $\Z$ is not.
+	As a consequence of the following proposition, we get that $K(\mathsf{Mod}\text{-}\Z)$
+	is not abelian.
+\end{ex}
+
+\begin{prop}
+	The following statement (and more importantly the proof)
+	should be incorrect. 
+	Here what should be the correct one
+	(I'm not going to copy the proof again, though).
+	Let $\mathsf{A} := \mathsf{Mod}\text{-}R$.
+	If $K(\mathsf{A})$ is abelian, then
+	$R$ is semisimple.
+\end{prop}
+\begin{prop}
+	Let $\mathsf{A} := \mathsf{Mod}\text{-}R$.
+	If $R$ is not semisimple, then $K(\mathsf{A})$ is not abelian.
+\end{prop}
+\begin{proof}
+	Assume that $R$ is not semisimple, but $K(\mathsf{Mod}\text{-}R)$ is abelian.
+	Since $R$ is not semisimple, then there exists a s.e.s.
+	\begin{equation}\label{eqn:sesAbHomCat}
+	0 \to X \xrightarrow{f} Y \xrightarrow{\pi}
+	Z \to 0 \qquad \text{ in } \mathsf{Mod}\text{-}R
+	\end{equation} 
+	which does not split.
+	Consider now $X^\bullet, Y^\bullet, Z^\bullet$ as complexes concentrated in degree $0$.
+	Since $K(\mathsf{Mod}\text{-}R)$ is abelian, then  $f:= q(f)$ has a cokernel
+	And, by uniqueness up to isomorphism of the cokernel,
+	we can assume that $\pi$ is a cokernel of $f$ in $K(\mathsf{Mod}\text{-}R)$.
+
+	Consider the complex $\mathrm{Cone}\, f$:
+	\begin{equation}
+		0 \to X \xrightarrow{f} Y \to 0
+	,\end{equation} 
+	where $Y$ is in degree $0$.
+	Let's define the cochain map $\alpha: Y^\bullet \to \mathrm{Cone}\, f$
+	defined by
+	\begin{equation}
+	\begin{tikzcd}
+		\ldots \arrow[r, "", rightarrow] &
+		0 \arrow[r, "", rightarrow] \arrow[d, "0"', rightarrow] &
+		0 \arrow[r, "", rightarrow] \arrow[d, "0"', rightarrow] &
+		Y \arrow[r, "", rightarrow] \arrow[d, "1_Y", rightarrow] &
+		0 \arrow[r, "", rightarrow] \arrow[d, "0", rightarrow] &
+		\ldots \\
+		\ldots \arrow[r, "", rightarrow] &
+		0 \arrow[r, "", rightarrow] &
+		X \arrow[r, "f"', rightarrow] &
+		Y \arrow[r, "", rightarrow] &
+		0 \arrow[r, "", rightarrow] & \ldots
+	\end{tikzcd}
+	.\end{equation} 
+	Then we claim that there exist $\gamma, \delta$ s.t. $\alpha = \gamma \circ \pi$ and $\delta \circ \alpha = \pi$,
+	i.e. s.t. the following diagram commutes.
+	\begin{equation}
+		\begin{tikzcd}
+		X^\bullet \arrow[r, "f", rightarrow] &
+		Y^\bullet \arrow[r, "\pi", rightarrow] \arrow[dr, "\alpha"', rightarrow] &
+		Z^\bullet \arrow[d, "\gamma"', dashrightarrow, shift right = 0.25em] \\
+		& &
+		\mathrm{Cone}\, f \arrow[u, "\delta"', dashrightarrow, shift right = 0.25em]
+	\end{tikzcd}
+	.\end{equation} 
+	At first we notice that $\alpha \circ f = 0 $ in $K(\mathsf{Mod}\text{-}R)$, in fact:
+	\begin{equation}
+	\begin{tikzcd}
+		&
+		0 \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] \arrow[d, "f", rightarrow] \arrow[ddl, "1_X"' near start, dashrightarrow, crossing over] &
+		0 \arrow[ldd, "0" near end, dashrightarrow, crossing over]\\
+		&
+		0 \arrow[r, "", rightarrow] &
+		Y \arrow[r, "", rightarrow] \arrow[d, "1_Y"', rightarrow] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		X \arrow[r, "f"', rightarrow] &
+		Y \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation} 
+	Since $\pi$ is a cokernel of $f$, then $\exists\, !\, \gamma: Z^\bullet \to \mathrm{Cone}\, f$ s.t. $\gamma \circ \pi = \alpha$.
+	With regard to $\delta: \mathrm{Cone}\, f \to Z^\bullet$, instead, we define $(0, \pi)$, i.e.
+	the family of maps which all correspond to zero, apart from degree $0$, in which it is $\pi$.
+	Then $\delta \circ \alpha = \pi$, as described by the following diagram
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] \arrow[d, "0", rightarrow] &
+		Y \arrow[r, "", rightarrow] \arrow[d, "1_Y", rightarrow] &
+		0 \arrow[d, "0", rightarrow] \\
+		X \arrow[r, "f", rightarrow] \arrow[d, "0", rightarrow] &
+		Y \arrow[r, "", rightarrow] \arrow[d, "\pi", rightarrow] &
+		0 \arrow[d, "0", rightarrow] \\
+		0 \arrow[r, "", rightarrow] &
+		Z \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation} 
+	Then we have $\pi = \delta \circ \alpha = \delta \circ \gamma \circ \pi$.
+	Since $\pi$ is epi (it is a cokernel), we obtain that
+	$\delta \circ \gamma = id_Z$ in $K(\mathsf{Mod}\text{-}R)$.
+	But then, if we denote by $\gamma_0: Z \to Y$ the morphism in degree $0$ of $\gamma$, we obtain
+	that $\pi \circ \gamma_0 = 1_Z$, hence we have found a retraction of $\pi$ in \eqref{eqn:sesAbHomCat}.
+	This is a contradiction, since we assumed it did not split.
+\end{proof}
+
+\subsection{Snake lemma and applications}
+\begin{lem}
+	Let $\mathsf{A}$ be an abelian category, and let
+	\begin{equation}
+	\begin{tikzcd}
+		&
+		A \arrow[r, "\alpha", rightarrow] \arrow[d, "f"', rightarrow] &
+		B \arrow[r, "\beta", rightarrow] \arrow[d, "g"', rightarrow] &
+		C \arrow[r, "", rightarrow] \arrow[d, "h"', rightarrow] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		A' \arrow[r, "\alpha'", rightarrow] &
+		B' \arrow[r, "\beta'", rightarrow] &
+		C' &
+	\end{tikzcd}
+	\end{equation} 
+	be a commutative diagram with exact rows.
+	Then there is an exact sequence:
+	\begin{equation}
+	\ker f \xrightarrow{\underline{\alpha}} \ker g \xrightarrow{\underline{\beta}}
+	\ker h \xrightarrow{\partial} \coker f \xrightarrow{\overline{\alpha'}} 
+	\coker g \xrightarrow{\overline{\beta'}} \coker h
+	,\end{equation} 
+	in which $\partial$ is called the \textbf{connecting morphism}.
+	Moreover $\alpha$ mono implies $\underline{\alpha}$ is mono,
+	whereas $\beta'$ epi implies $\overline{\beta'}$ is epi.
+\end{lem} 	
+
+\begin{rem}[S.e.s. in the category of complexes]
+	Since the abelian structure of $\mathrm{Ch}(\mathsf{A})$ is defined degree wise, we have
+	that a sequence in $\mathrm{Ch}(\mathsf{A})$
+	\begin{equation}
+	0 \to X^\bullet \xrightarrow{f} Y^\bullet \xrightarrow{g} 
+	Z^\bullet \to 0
+	\end{equation} 
+	is exact in $\mathrm{Ch}(\mathsf{A})$ iff, for every $n \in \Z$, the corresponding
+	\begin{equation}
+	0 \to X^n \xrightarrow{f^n} Y^n \xrightarrow{g^n}
+	Z^n \to 0
+	\end{equation} 
+	is exact in $\mathsf{A}$.
+\end{rem}
+
+\begin{thm}[Fundamental theorem in (co)homology]
+	Consider a s.e.s. in $\mathrm{Ch}(\mathsf{A})$, for an abelian category $\mathsf{A}$,
+	\begin{equation}
+	0 \to X^\bullet \xrightarrow{f} Y^\bullet \xrightarrow{g} W^\bullet \to 0
+	.\end{equation} 
+	Then there is a long exact (co)homology sequence in $\mathsf{A}$:
+	\begin{equation}
+		\ldots \to H^n(X^\bullet) \xrightarrow{H^n(f)} H^n(Y^\bullet) \xrightarrow{H^n(g)} 
+		H^n (W^\bullet) \xrightarrow{\partial} H^{n+1}(X^\bullet) \to
+		H^{n+1}(Y^\bullet) \to \ldots
+	,\end{equation} 
+	called \textit{long exact sequence in (co)homology}.
+\end{thm}
+\begin{proof}
+	The proof is essentially an application of the snake lemma.
+	In particular we obtain that $\partial: H^n(W^\bullet) \to H^{n+1}(X^\bullet)$ acts as
+	\begin{align}
+		\partial: H^n(W^\bullet) &\to H^{n+1}(X^\bullet) \\
+		[z^n] &\mapsto \left[ (f^{n+1})^{-1} \left( d_Y^n ((g^n)^{-1}(z^n)) \right) \right]
+	.\end{align} 
+	More visually it is defined by the following diagram chase:
+	\begin{equation}
+	\begin{tikzcd}
+		&
+		Y^n \arrow[r, "g^n", rightarrow] \arrow[d, "d_Y^n"', rightarrow] &
+		Z^n \arrow[d, "0", rightarrow] \\
+		X^{n+1} \arrow[r, "f^{n+1}", rightarrow] \arrow[d, "d_X^{n+1}"', rightarrow] &
+		Y^{n+1} \arrow[r, "g^{n+1}", rightarrow] \arrow[d, "d_Y^{n+1}", rightarrow] &
+		0 \\
+		0 = X^{n+2} \arrow[r, "f^{n+2}", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation} 
+\end{proof}
+
+\begin{rem}[Notation]
+	We denote by $Z^n(X^\bullet) := \ker d_X^n$, the $n$-cycles,
+	and by $B^n(X^\bullet) := \ima d_X^{n-1}$, the $n$-boundaries.
+	They are clearly subobjects of $X^n$.
+\end{rem}
+
+\begin{defn}[Long/short exact sequence category]
+	Let $\mathsf{A}$ be an abelian category.
+	\begin{itemize}
+		\item We define $\mathsf{S}$ the category of short exact sequences
+	in $\mathrm{Ch}(\mathsf{A})$ as the category whose objects
+	are short exact sequences with objects in $\mathrm{Ob} \left(\mathrm{Ch}(\mathsf{A})\right)$,
+	and whose morphisms are triples $(f,g,h)$ of cochain maps s.t.
+	the following diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		A^\bullet \arrow[r, "\alpha", rightarrow] \arrow[d, "f"', rightarrow] &
+		B^\bullet \arrow[r, "\beta", rightarrow] \arrow[d, "g"', rightarrow] &
+		C^\bullet \arrow[r, "", rightarrow] \arrow[d, "h"', rightarrow] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		X^\bullet \arrow[r, "\alpha'"', rightarrow] &
+		Y^\bullet \arrow[r, "\beta'"', rightarrow] &
+		W^\bullet \arrow[r, "", rightarrow] &
+		0 
+	\end{tikzcd}
+	.\end{equation} 
+		\item We define $\mathsf{L}$ the category of long exact sequences
+	in $\mathrm{Ch}(\mathsf{A})$ as the category whose objects
+	are long exact sequences in $\mathrm{Ob} \left(\mathrm{Ch}\mathsf{A}\right)$,
+	and whose morphisms are families of maps $\left\{ f^n \right\}_{n \in \Z}$ making
+	the following diagram commute
+	\begin{equation}
+	\begin{tikzcd}
+		\ldots \arrow[r, "", rightarrow] &
+		A^n \arrow[r, "d_A^n", rightarrow] \arrow[d, "f^n"', rightarrow] &
+		A^{n+1} \arrow[r, "d_A^{n+1}", rightarrow] \arrow[d, "f^{n+1}"', rightarrow] &
+		A^{n+2} \arrow[r, "d_A^{n+2}", rightarrow] \arrow[d, "f^{n+2}"', rightarrow] &
+		\ldots \\
+		\ldots \arrow[r, "", rightarrow] &
+		B^n \arrow[r, "d_B^n"', rightarrow] &
+		B^{n+1} \arrow[r, "d_B^{n+1}"', rightarrow] &
+		B^{n+2} \arrow[r, "d_B^{n+2}"', rightarrow] &
+		\ldots 
+	\end{tikzcd}
+	.\end{equation} 
+	\end{itemize}
+\end{defn}
+
+\begin{prop}
+	Given an abelian category $\mathsf{A}$, then we can define a functor
+	\begin{align}
+		L: \mathsf{S} &\to \mathsf{L}
+	,\end{align} 
+	that, on objects, maps each short exact sequence of complexes to its corresponding long exact
+	(co)homology sequence.
+	In particular, given a morphism in $\mathsf{S}$
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		A^\bullet \arrow[r, "\alpha", rightarrow] \arrow[d, "f"', rightarrow] &
+		B^\bullet \arrow[r, "\beta", rightarrow] \arrow[d, "g"', rightarrow] &
+		C^\bullet \arrow[r, "", rightarrow] \arrow[d, "h"', rightarrow] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		X^\bullet \arrow[r, "\alpha'"', rightarrow] &
+		Y^\bullet \arrow[r, "\beta'"', rightarrow] &
+		W^\bullet \arrow[r, "", rightarrow] &
+		0 
+	\end{tikzcd}
+	\end{equation} 
+	it gets mapped to the following morphism in $\mathsf{L}$ of long exact sequences
+	\begin{equation}
+	\begin{tikzcd}[column sep = small]
+		\ldots \arrow[r, "", rightarrow] &
+		H^n(A^\bullet) \arrow[r, "H^n(\alpha)", rightarrow] \arrow[d, "H^n(f)"', rightarrow] &
+		H^n(B^\bullet) \arrow[r, "H^n(\beta)", rightarrow] \arrow[d, "H^n(g)"', rightarrow] &
+		H^n(C^\bullet) \arrow[r, "\partial_1^n", rightarrow] \arrow[d, "H^n(h)"', rightarrow] &
+		H^{n+1}(A^\bullet) \arrow[r, "H^{n+1}(\alpha)", rightarrow] \arrow[d, "H^{n+1}(f)"', rightarrow] &
+		H^{n+1}(B^\bullet) \arrow[r, "H^{n+1}(\beta)", rightarrow] \arrow[d, "H^{n+1}(g)"', rightarrow] &
+		\ldots \\
+		\ldots \arrow[r, "", rightarrow] &
+		H^n(X^\bullet) \arrow[r, "H^n(\alpha')"', rightarrow] &
+		H^n(Y^\bullet) \arrow[r, "H^n(\beta')"', rightarrow] &
+		H^n(W^\bullet) \arrow[r, "\partial_2^n"', rightarrow] &
+		H^{n+1}(X^\bullet) \arrow[r, "H^{n+1}(\alpha')"', rightarrow] &
+		H^{n+1}(Y^\bullet) \arrow[r, "H^{n+1}(\beta')"', rightarrow] &
+		\ldots 
+	\end{tikzcd}
+	.\end{equation} 
+	In particular also the squares involving the connecting morphisms commute,
+	in other words $H^{n+1}(f) \circ \partial_1^n = \partial_2^n \circ H^n(h)$.
+\end{prop} 
+
+\begin{rem}[Notation]
+	The long exact (co)homology sequence associated to
+	\begin{equation}
+	0 \to A^\bullet \to B^\bullet \to C^\bullet \to 0
+	\end{equation} 
+	can be visualized by the following diagram, called the exact triangle
+	\begin{equation}
+	\begin{tikzcd}[column sep=tiny]
+		H^*(A^\bullet) \arrow[rr, "", rightarrow] & &
+		H^*(B^\bullet) \arrow[dl, "", rightarrow] \\
+		&
+		H^*(C^\bullet) \arrow[lu, "\partial", rightarrow] &
+	\end{tikzcd}
+	.\end{equation} 
+\end{rem}
+
+\begin{lem}[$3 \cross 3$ lemma]
+	Let $\mathsf{A}$ be an abelian category.
+	Consider the following commutative diagram with exact columns
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		A_1 \arrow[r, "", rightarrow] \arrow[d, "", tail] &
+		B_1 \arrow[r, "", rightarrow] \arrow[d, "", tail] &
+		C_1 \arrow[r, "", rightarrow] \arrow[d, "", tail] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		A_2 \arrow[r, "", rightarrow] \arrow[d, "", two heads] &
+		B_2 \arrow[r, "", rightarrow] \arrow[d, "", two heads] &
+		C_2 \arrow[r, "", rightarrow] \arrow[d, "", two heads] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		A_3 \arrow[r, "", rightarrow] &
+		B_3 \arrow[r, "", rightarrow] &
+		C_3 \arrow[r, "", rightarrow] &
+		0 \\
+	\end{tikzcd}
+	.\end{equation} 
+	\begin{enumerate}
+		\item If the $2$nd and $3$rd rows are exact, then so is the $1$st.
+		\item If the $1$st and $2$nd rows are exact, then so is the $3$rd.
+		\item If the $1$st and $2$nd rows are exact, and the $2$nd is a complex,
+			then the $2$nd is also exact.
+	\end{enumerate}
+\end{lem} 
+
+\begin{lem}[$5$ lemma]
+	Let $\mathsf{A}$ be an abelian category.
+	Consider the following commutative diagram with exact rows
+	\begin{equation}
+	\begin{tikzcd}
+		A_1 \arrow[r, "", rightarrow] \arrow[d, "a", rightarrow] &
+		B_1 \arrow[r, "", rightarrow] \arrow[d, "b", rightarrow] &
+		C_1 \arrow[r, "", rightarrow] \arrow[d, "c", rightarrow] &
+		D_1 \arrow[r, "", rightarrow] \arrow[d, "d", rightarrow] &
+		E_1 \arrow[d, "e", rightarrow] \\
+		A_2 \arrow[r, "", rightarrow] &
+		B_2 \arrow[r, "", rightarrow] &
+		C_2 \arrow[r, "", rightarrow] &
+		D_2 \arrow[r, "", rightarrow] &
+		E_2 
+	\end{tikzcd}
+	.\end{equation} 
+	\begin{enumerate}
+		\item If $b$ and $d$ are mono, $a$ is epi, then $c$ is mono.
+		\item If $b$ and $d$ are epi, $e$ is mono, then $c$ is epi.
+	\end{enumerate}
+\end{lem} 
+
+\begin{defn}[quasi-isomorphism]
+	Let $\mathsf{A}$ be an abelian category.
+	Let $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
+	We say that $f$ is a \textbf{quasi-isomorphism} iff the induced cohomology morphism
+	\begin{equation}
+		H^n(f): H^n(X^\bullet) \to H^n(Y^\bullet)
+	\end{equation} 
+	is an isomorphism for every $n \in \Z$.
+\end{defn}
+
+\begin{lem}
+	An homotopy equivalence $f: X^\bullet \to Y^\bullet$, i.e.
+	an iso in $K(\mathsf{A})$, then $f$ is a \textit{quasi-isomorphism}.
+\end{lem} 
+
+\begin{lem}
+	Find an example of quasi-isomorphism, which is not an homotopy equivalence.
+	(Look at morphisms of exact sequences).
+\end{lem} 
+
+\begin{lem}
+	Let $\mathsf{A}$ be an abelian category and $\left( X^{\bullet}, d_{X} \right) \in \mathrm{Ch}(\mathsf{A})$.
+	Define $\left( Z^{\bullet}, d_{Z} \right)$ by:
+	\begin{equation}
+		Z^n := Z^n(X^\bullet) := \ker d_X^n \qquad \text{ and } \qquad
+		d^n_{Z} = 0 \qquad \,\forall\, n \in \Z
+	.\end{equation} 
+	Moreover define the complex $\left( B^{\bullet}, d_{B} \right)$ by
+	\begin{equation}
+		B^n := B^n(X^\bullet) := \ima d_X^{n-1} \qquad \text{ and } \qquad
+		d^n_{B} = 0 \quad \,\forall\, n \in \Z
+	.\end{equation} 
+	Then there is a s.e.s. of complexes
+	\begin{equation}
+	0\to Z^\bullet \to X^\bullet \to
+	B^\bullet[1] \to 0
+	,\end{equation} 
+	whose associated long exact sequence breaks into short exact sequences in $\mathsf{A}$.
+\end{lem} 
+\begin{proof}
+	Apart from the exactness of the s.e.s. of complexes, notice that:
+	$H^n(Z^\bullet) = Z^n$ and $H^n(B^\bullet[1]) = H^{n+1}(B^\bullet) = B^{n+1}$ for all $n \in \Z$.
+	Then the associated long exact sequence is
+	\begin{equation}
+		\ldots B^n \xrightarrow{\partial} Z^n \to H^n(X^\bullet) \to B^{n+1} \xrightarrow{\partial}
+		Z^{n+1} \to H^{n+1}(X^\bullet) \to \ldots
+	.\end{equation} 
+	But, for each $n$ it breaks into the s.e.s.
+	\begin{equation}
+		0 \to B^n \to Z^n \to H^n(X^\bullet) \to 0
+	.\end{equation} 
+\end{proof}
+
+\begin{lem}
+	Let $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
+	Assume that $\left(\ker f^\bullet, d^\bullet\right)$ and $\left(\coker f^\bullet, d^\bullet\right)$
+	are acyclic.
+	Then $f$ is a quasi-isomorphism.
+\end{lem} 
+
+\begin{rem}[]
+	Notice that the converse of the above lemma is not true:
+	for example the complexes
+	\begin{equation}
+	X^\bullet = Y^\bullet = 0 \to \Z \xrightarrow{\dot{2}} 
+	\Z \xrightarrow{\pi} \mathbb{Z}/2\mathbb{Z} \to 0
+	\end{equation} 
+	are both acyclic.
+	Then the map $f = (\dot{4}, \dot{4}, 0)$, represented by
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\Z \arrow[r, "\dot{2}", rightarrow] \arrow[d, "\dot{4}"', rightarrow] &
+		\Z \arrow[r, "\pi", rightarrow] \arrow[d, "\dot{4}"', rightarrow] &
+		\mathbb{Z}/2\mathbb{Z} \arrow[r, "", rightarrow] \arrow[d, "0"', rightarrow] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		\Z \arrow[r, "\dot{2}"', rightarrow] &
+		\Z \arrow[r, "\pi"', rightarrow] &
+		\mathbb{Z}/2\mathbb{Z} \arrow[r, "", rightarrow] &
+		0 \\
+	\end{tikzcd}
+	\end{equation} 
+	is a quasi-isomorphism.
+	Moreover the cochains $(\ker f)^\bullet$ and $(\coker f)^\bullet$ are
+	\begin{align}
+		(\ker f)^\bullet &= 0 \to 0 \to 0 \to \mathbb{Z}/2\mathbb{Z} \to 0\\
+		(\coker f)^\bullet &= 0 \to \mathbb{Z}/4\mathbb{Z} \xrightarrow{\dot{2}} \mathbb{Z}/4\mathbb{Z}
+		\xrightarrow{\pi} \mathbb{Z}/2\mathbb{Z} \to 0
+	.\end{align} 
+	Then we can compute that $H^2((\ker f)^\bullet) = \mathbb{Z}/2\mathbb{Z}$
+	and $H^0((\coker f)^\bullet) = \mathbb{Z}/2\mathbb{Z}$.
+\end{rem}

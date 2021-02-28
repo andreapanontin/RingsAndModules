@@ -1,0 +1,1631 @@
+\section{Derived functors}
+
+\subsection{Left derived functors}
+\begin{rem}[]
+	A functor $F: \mathsf{A} \to \mathsf{B}$ between additive categories
+	induces a functor, again denoted by $F$, 
+	\begin{align}
+		F: \mathrm{Ch}(\mathsf{A}) &\to \mathrm{Ch}(\mathsf{A}) \\
+		\left( X^{\bullet}, d_{X} \right) &\mapsto \left( F(X^{\bullet}), d_{F(X^\bullet)} \right)
+	,\end{align} 
+	where $\left[ F(X^\bullet) \right]^n := F(X^n)$ and $d_{F(X^\bullet)}^n := f(d^n_{X^\bullet})$.
+	Given a morphism $f: X^\bullet \to Y^\bullet$ in $\mathrm{Ch}(\mathsf{A})$, then
+	$d_Y \circ f = f \circ d_X$.
+	Then $F(f) \circ F(d_X) = f(d_Y) \circ F(f)$, i.e. $F(f)$ is a morphism in $\mathrm{Ch}(\mathsf{B})$.
+
+	Moreover, if $F$ is an additive functor, then
+	$f = s \circ d_X + d_Y \circ s$ implies
+	$F(f) = F(s) \circ F(d_X) + F(d_Y) \circ F(s)$,
+	hence $F$ induces a functor
+	\begin{equation}
+		F: K(\mathsf{A}) \to K(\mathsf{B})
+	.\end{equation} 
+\end{rem}
+
+\begin{defn}[Left derived functors]
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories.
+	Assume that $\mathsf{A}$ has enough projectives and $F: \mathsf{A} \to \mathsf{B}$
+	is a right exact functor.
+	We define the left derived functor $L_iF: \mathsf{A} \to \mathsf{B}$
+	s.t. $L_iF(A) := H_i \left( F(P_{\bullet}) \right)$, 
+	for $P_{\bullet} \to A \to 0$ a projective resolution of $A$
+	and $i \geq 0$.
+\end{defn}
+
+\begin{rem}[]
+	One actually needs to prove that the above is a good definition, i.e.
+	that $L_i F$ does not depend on the projective resolution $P_{\bullet} \to A \to 0$.
+
+	Moreover one can prove that $L_0F \simeq F$ as functors.
+	In fact consider any projective resolution $P_{\bullet} \to A \to 0$ of $A$. Then
+	\begin{equation}
+	\ldots \to P_2 \to P_1 \xrightarrow{d_1} P_0 \to A \to 0
+	\end{equation} 
+	is exact, with $F$ right exact.
+	Then 
+	\begin{equation}
+		F(P_1) \xrightarrow{F(d_1)} F(P_0) \to F(A) \to 0
+	\end{equation} 
+	is also exact.
+	In particular $\coker F(d_1) \simeq F(A)$.
+	But then $L_0 F(A) = H_0 \left( F(P_{\bullet}) \right)$.
+	We know that
+	\begin{equation}
+		F(P_{\bullet}) = \ldots \to F(P_1) \xrightarrow{F(d_1)} F(P_0) \to 0
+	\end{equation} 
+	hence that $H_0 \left( F(P_{\bullet}) \right) = \coker F(d_1) = F(A)$.
+\end{rem}
+
+\begin{lem}\leavevmode\vspace{-.2\baselineskip}
+	\begin{enumerate}[label=(\alph*)]
+		\item For each $i \in \N$ $L_i F$ is well defined, up to natural isomorphism.
+		\item Let $\alpha: A \to C$ be a morphism in $\mathsf{A}$.
+			Then there are natural maps
+			\begin{equation}
+				L_i F(\alpha): L_iF(A) \to L_iF(C)
+			.\end{equation} 
+		\item For any $i \geq 0$, the functor $L_i F$ is additive.
+	\end{enumerate}
+\end{lem} 
+
+\begin{lem}
+	Let $f: A \to C$ be a morphism in $\mathsf{A}$.
+	Then $L_0F(f) = F(f)$.
+\end{lem} 
+
+\begin{prop}
+	Let $F$ and $L_i F$ be as in the above definition.
+	If $A \in \mathsf{A}$ is projective, then $L_iF(A) = 0$
+	for all $i > 0$ (recall that $L_0F(A) \simeq F(A)$).
+\end{prop} 
+
+\begin{defn}[F-acyclic object]
+	Let $\mathsf{A}$ be an abelian category with enough projectives
+	and $F: \mathsf{A} \to \mathsf{B}$ be a right exact functor.
+	An object $A \in \mathrm{Ob} \left(\mathsf{A}\right)$ is called
+	$F$-\textbf{acyclic} iff $L_iF(A) = 0$ for all $i > 0$
+\end{defn}
+
+\begin{defn}[F-acyclic resolution]
+	Let $\mathsf{A}$ be an abelian category with enough projectives,
+	$F: \mathsf{A} \to \mathsf{B}$ be a right exact functor and $A \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	A left resolution $Q_{\bullet} \to A \to 0$ of $A$ is called an
+	$F$-\textbf{acyclic resolution} iff $Q_i$ are $F$-acyclic
+	for all $i \geq 0$.	
+\end{defn}
+
+\begin{rem}[]
+	Any projective object $A \in \mathrm{Ob} \left(\mathsf{A}\right)$ is $F$-acyclic
+	for any right exact functor $F$.
+\end{rem}
+
+\begin{thm}[]
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories.
+	Assume that $\mathsf{A}$ has enough projectives and $F: \mathsf{A} \to \mathsf{B}$
+	is a right exact functor.
+	Then the left derived functors $\left\{ L_i F \right\}_{i \geq 0}$
+	form a homological $\partial$-functor.
+\end{thm}
+
+\begin{defn}[Morphism of (co)homological $\partial$-functor]
+	Ler $S,T: \mathsf{A} \to \mathsf{B}$ be cohomological $\partial$-functors.
+	A morphism $S \to T$ is a sequence of natural transformations
+	$\eta^n: S^n \to T^n$ commuting with $\partial$.
+	More explicitly, given any s.e.s. $0 \to A \to B \to C \to 0$ in $\mathsf{A}$,
+	the following diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		S^n(C) \arrow[r, "\partial^n_S", rightarrow] \arrow[d, "\eta^n_C"', rightarrow] &
+		S^{n+1}(A) \arrow[d, "\eta^{n+1}_A", rightarrow] \\
+		T^n(C) \arrow[r, "\partial^n_T"', rightarrow] &
+		T^{n+1}(A)
+	\end{tikzcd}
+	.\end{equation} 
+	(Clearly for homological $\partial$-functors one only has to dualize).
+\end{defn}
+
+\begin{defn}[Universal cohomological $\partial$-functor]
+	A cohomological $\partial$-functor $T$ is called \textbf{universal} iff
+	given any cohomological $\partial$-functor $S$, and any natural
+	transformation $\eta^0: T^0 \to S^0$, then
+	$\exists\, !\, \left\{ \eta^n: T^n \to S^n \right\}_{n \geq 0}$	a natural transformation
+	of $\partial$-functors extending $\eta^0$.
+	(Analogously of homological $\partial$-functors).
+\end{defn}
+
+\begin{lem}
+	Consider an exact functor $F: \mathsf{A} \to \mathsf{B}$.
+	Show that $T^0 := F$ and $T^n := 0$ for all $n > 0$
+	define  a universal cohomological $\partial$-functor $\left\{ T^n \right\}_{n \in \N}$.
+	(Analogously setting $T_0 := F$ and $T_n := 0$, for a universal homological
+	$\partial$-functor).
+\end{lem}  
+
+\begin{thm}[]
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories.
+	Assume that $\mathsf{A}$ has enough projectives and $F: \mathsf{A} \to \mathsf{B}$
+	is a right exact functor.
+	Then the left derived functors $\left\{ L_i F \right\}_{i \geq 0}$
+	form a universal homological $\partial$-functor.
+\end{thm}
+
+\begin{lem}
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories.
+	Assume that $\mathsf{A}$ has enough projectives and $F: \mathsf{A} \to \mathsf{B}$
+	is a right exact functor.
+	Consider $G: \mathsf{B} \to \mathsf{C}$	an exact funcotr, then:
+	\begin{equation}
+		L_i \left( G \circ F \right) \simeq_{\text{nat.}} G \circ L_i F
+		\qquad \,\forall\, i \geq 0
+	.\end{equation} 
+\end{lem} 
+
+\begin{lem}
+	Consider $G: \mathsf{A} \to \mathsf{B}$ an exact functor between abelian categories.
+	Consider $X_{\bullet} \in \mathrm{Ch}(\mathsf{A})$, then for every $i \in \Z$
+	\begin{equation}
+		G \left( H_{i}\left( X_{\bullet} \right) \right) =
+		H_{i}\left( G(X_{\bullet}) \right)
+	.\end{equation} 
+\end{lem} 
+
+\begin{lem}[Dimension shifting]
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories.
+	Assume that $\mathsf{A}$ has enough projectives and $F: \mathsf{A} \to \mathsf{B}$
+	is a right exact functor.
+	Consider a s.e.s. $0 \to K \to Q \to A \to 0$ in $\mathsf{A}$,
+	with $Q$ an $F$-acyclic object (e.g. if $Q$ is projective).
+	Then
+	\begin{enumerate}
+		\item $L_1 F(A) = \ker \left( F(K) \to F(Q) \right)$,
+		\item $L_iF(A) \simeq L_{i-1} F(K)$ for all $i \geq 2$.
+	\end{enumerate}
+\end{lem} 
+
+\begin{rem}[]
+	Let $\mathsf{A}$ be an abelian category. We define
+	\begin{equation}
+	\mathrm{Ch}_{\geq 0}(\mathsf{A}) :=
+	\left\{ \left( X_{\bullet}, d^{X} \right) \in \mathrm{Ch}(\mathsf{A}) \ \middle|\ 
+	X_n = 0 \,\forall\, n < 0\right\}
+	.\end{equation} 
+	By the fundamental theorem on homology, we know that $\left\{ H_n \right\}_{n \in \Z}$,
+	for $H_n: \mathrm{Ch}_{\geq 0}(\mathsf{A}) \to \mathsf{A}$,
+	is a homological $\partial$-functor
+\end{rem}
+
+\begin{lem}
+	Moreover one can prove that $\left\{ H_n \right\}_{n \in \Z}$ is a \textbf{universal}
+	homological $\partial$-functor.
+\end{lem} 
+
+\begin{lem}
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories, s.t. $\mathsf{A}$ has enough projectives.
+	Consider $F: \mathsf{A} \to \mathsf{B}$ an exact functor, then
+	\begin{equation}
+		L_i F(A) = 0 \qquad
+		\,\forall\, A \in \mathrm{Ob} \left(\mathsf{A}\right), \,\forall\, i > 0
+	.\end{equation} 
+	Moreover we also know that $L_0 F \simeq F$.
+\end{lem} 
+
+\subsection{Right derived functors}
+\begin{rem}[Standard assumption]\label{rem:RDFStdAssumption}
+	In the following section we will assume the following:
+	$\mathsf{A}$ and $\mathsf{B}$ are abelian categories.
+	Moreover we assume that $\mathsf{A}$ has enough injectives, and
+	$F: \mathsf{A} \to \mathsf{B}$ is a left exact functor.
+\end{rem}
+
+\begin{defn}[Right derived funtors]
+	Let $\mathsf{A}$, $\mathsf{B}$ and $F$ be as in remark \ref{rem:RDFStdAssumption}.
+	We define the right derived functors
+	$R^i F: \mathsf{A} \to \mathsf{B}$ s.t.
+	$R^iF(A) := H^i \left( F(I^\bullet) \right)$,
+	for $0 \to A \to I^\bullet$ an injective coresolution of $A$, and $i \geq 0$.
+\end{defn}
+
+\begin{rem}[Important!]
+	Recall that $A \in \mathrm{Ob} \left(\mathsf{A}\right)$ is injective
+	iff $A$ is projective in $\mathsf{A}^{op}$.
+	Then, given an injective coresolution $0 \to A \to I^\bullet$ for $A$,
+	then $I_{\bullet} \to A \to 0$ becomes a projective resolution in $\mathsf{A}^{op}$.
+
+	Then, given $F: \mathsf{A} \to \mathsf{B}$ a left exact functor, 
+	we define $F^{op}: \mathsf{A}^{op} \to \mathsf{B}^{op}$ a covariant functor.
+	Clearly $\mathsf{A}^{op}$ has enough projectives, moreover $F^{op}$ is right exact
+	(in fact $F$ is left exact iff $F^{op}$ is right exact).
+	Then we can define the left derived functor $L_iF^{op}(A)$.
+	Finally we have the equality
+	\begin{equation}
+		\left( L_i F^{op} \right)^{op} (A) = R^i F(A)
+	.\end{equation} 
+	In particular $\left\{ R^iF \right\}_{i \geq 0}$ form a universal cohomological $\partial$-functor.
+	Moreover, dualizing the previous results, we obtain
+	\begin{itemize}
+		\item $R^0F \simeq F$,
+		\item Given a s.e.s. in $\mathsf{A}$
+			\begin{equation}
+			0 \to A \to B \to C \to 0
+			\end{equation} 
+			there is an associated long exact sequence
+			\begin{equation}
+				0 \to F(A) \to F(B) \to F(C) \xrightarrow{\partial^0} 
+				R^1F(A) \to R^1F(B) \to R^iF(C) \xrightarrow{\partial^1} 
+				\ldots
+			.\end{equation} 
+	\end{itemize}
+\end{rem}
+
+\begin{defn}[$F$-acyclic objects]
+	Let $\mathsf{A}$, $\mathsf{B}$ and $F$ be as in remark \ref{rem:RDFStdAssumption}.
+	An object $A \in \mathrm{Ob} \left(\mathsf{A}\right)$ is
+	$F$-\textbf{acyclic} iff
+	\begin{equation}
+		R^iF(A) = 0 \qquad \,\forall\, i > 0
+	.\end{equation} 
+\end{defn}
+
+\begin{rem}[]
+	Any injective object $Q \in \mathrm{Ob} \left(\mathsf{A}\right)$ is 
+	$F$-acyclic for any left-exact functor $F$.
+\end{rem}
+
+\begin{lem}
+	Consider $\mathsf{A}$ an abelian category with enough injectives, and
+	$F: \mathsf{A} \to \mathsf{B}$ an exact functor, then
+	$R^iF = 0$ for all $i > 0$.
+\end{lem} 
+
+\begin{ex}
+	Let $\mathsf{A}$ an abelian category with enough injectives.
+	Fix $M \in \mathrm{Ob} \left(\mathsf{A}\right)$, then consider
+	\begin{equation}
+	H_M := \mathrm{Hom}_{\mathsf{A}} \left( M, - \right): \mathsf{A} \to \mathsf{Ab}
+	\end{equation} 
+	the covariant Hom functor.
+	We know that $H_M$ is left exact.
+	Then we can define the right derived functors of $H_M$.
+	In particular they are defined as:
+	For an object $A \in \mathrm{Ob} \left(\mathsf{A}\right)$,
+	take an injective coresolution of $A$: $0 \to A \to I^\bullet$, then
+	\begin{equation}
+		R^iH_M(A) = H^i \left( \mathrm{Hom}_{\mathsf{A}} \left( M, I^\bullet \right) \right)
+	.\end{equation} 
+	Moreover one introduces the notation (which is especially useful in the category of modules)
+	\begin{equation}
+		\mathrm{Ext}_{\mathsf{A}}^i \left( M,A \right) := R^i H_M (A)
+	.\end{equation} 
+\end{ex} 
+
+\begin{prop}
+	Let $\mathsf{A}$ abelian with enough injectives
+	(e.g. $\mathsf{A} = \mathsf{Mod}\text{-}R$).
+	Fix $A \in \mathrm{Ob} \left(\mathsf{A}\right)$, TFAE:
+	\begin{enumerate}
+		\item $A$ is injective,
+			i.e. $\mathrm{Hom}_{\mathsf{A}} \left( -, A \right)$ is exact.
+		\item $\mathrm{Ext}^i_{\mathsf{A}}(M,A) = 0$ for all $M \in \mathrm{Ob} \left(\mathsf{A}\right)$
+			and for all $i \geq 0$.
+		\item $\mathrm{Ext}^1_{\mathsf{A}}(M,A) = 0$ for all $M \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	\end{enumerate}
+\end{prop} 
+We can dualize the above proposition and obtain
+\begin{prop}
+	Let $\mathsf{A}$ abelian with enough injectives
+	(e.g. $\mathsf{A} = \mathsf{Mod}\text{-}R$).
+	Fix $M \in \mathrm{Ob} \left(\mathsf{A}\right)$, TFAE:
+	\begin{enumerate}
+		\item $M$ is projective,
+			i.e. $\mathrm{Hom}_{\mathsf{A}} \left( M, - \right)$ is exact.
+		\item $\mathrm{Ext}^i_{\mathsf{A}}(M,A) = 0$ for all $A \in \mathrm{Ob} \left(\mathsf{A}\right)$
+			and for all $i \geq 0$.
+		\item $\mathrm{Ext}^1_{\mathsf{A}}(M,A) = 0$ for all $A \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	\end{enumerate}
+\end{prop} 
+
+\subsection{Derived functors of contravariant functors}
+\begin{rem}[Right derived functors of a contravariant functor]
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories and $F: \mathsf{A} \to \mathsf{B}$
+	a contravariant left-exact functor (e.g. $F = H^M := \mathrm{Hom}_{\mathsf{A}} \left( -, M \right)$
+	for $M \in \mathrm{Ob} \left(\mathsf{A}\right)$).
+	Then $F: \mathsf{A}^{op} \to \mathsf{B}$ is covariant and, still, left-exact.
+	If $\mathsf{A}^{op}$ has enough injectives (iff $\mathsf{A}$ has enough projectives)
+	we can define the right derived functors $R^iF: \mathsf{A}^{op} \to \mathsf{B}$, for $i \geq 0$.
+	In particular this is computed by taking a projective resolution of $A \in \mathrm{Ob} \left(\mathsf{A}\right)$:
+	$P_{\bullet} \to A \to 0$, which gives an injective coresolution
+	$0 \to A \to P^\bullet$ of $A$ in $\mathsf{A}^{op}$.
+	Then we define
+	\begin{equation}
+		R^iF(A) := H^i(F(P_\bullet))
+	.\end{equation} 
+	Notice that given a chain complex $P_{\bullet}$, then $F(P_{\bullet})$ is a 
+	cochain complex.
+\end{rem}
+
+\begin{rem}[]
+	Let $\mathsf{A}$ be an abelian category with enough injectives and projectives (e.g. for
+	$\mathsf{A} = \mathsf{Mod}\text{-}R$).
+	Then, fixed $M \in \mathrm{Ob} \left(\mathsf{A}\right)$, $H_M := \mathrm{Hom}_{\mathsf{A}} \left( M, - \right)$
+	is a covariant, left-exact, functor.
+	In particular it admits right-derived funtors
+	\begin{equation}
+		R^iH_M(A) = \mathrm{Ext}^i_{\mathsf{A}} \left( M, A \right) =
+		H^i \left( H_M (I^\bullet) \right)
+	,\end{equation} 
+	for an injective coresolution $0 \to A \to I^\bullet$ of $A$.
+	Moreover we can consider $H^A := \mathrm{Hom}_{\mathsf{A}} \left( -, A \right)$, which
+	is a contravariant, left-exact, functor.
+	Also this admits right-derived functors
+	\begin{equation}
+		R^iH^A(M) = H^i \left( H^A(P_{\bullet}) \right)
+	,\end{equation} 
+	for $P_{\bullet} \to M \to 0$ a projective resolution of $M$.
+\end{rem}
+
+\begin{thm}[Balancing of Ext]
+	\begin{equation}
+		R^i H_M(A) = \mathrm{Ext}^i_{\mathsf{A}}(M,A)\simeq R^i H^A (M)
+	.\end{equation} 
+\end{thm}
+
+\begin{rem}[Consequence]
+	This theorem means that $\mathrm{Ext}^i_{\mathsf{A}}(M,A)$
+	can be computed in two equivalent ways:
+	We can consider $0 \to A \to I^\bullet$ an injective coresolution of $A$,
+	or $P_{\bullet} \to M \to 0$ a projective resolution of $M$
+	and
+	\begin{equation}
+		H^i \left( \mathrm{Hom}_{\mathsf{A}} \left( M, I^\bullet \right) \right) \simeq
+		\mathrm{Ext}^i_{\mathsf{A}} (M,A) \simeq
+		H^i \left( \mathrm{Hom}_{\mathsf{A}} \left( P_{\bullet}, A \right) \right)
+	.\end{equation} 
+\end{rem}
+
+\begin{rem}[]
+	Let $\mathsf{A}$ be an abelian category with arbitrary coproducts.
+	Consider $\left( X_i^{\bullet}, d_{X_i} \right)_{i \in I}$ a family
+	of cochain complexes in $\mathrm{Ch}(\mathsf{A})$.
+	Then the cochain complex $( \widetilde{X}^{\bullet}, d_{\widetilde{X}} )$, with
+	objects $( \widetilde{X}^\bullet )^n := \coprod_{i \in I} X_i^n$
+	and differentials $d^n_{\widetilde{X}} := \coprod_{i \in I} d^n_{X_i}$,
+	is a coproduct of $X_i^\bullet$ in $\mathrm{Ch}(\mathsf{A})$.
+	Then one checks that
+	\begin{equation}
+	H^{n}( \widetilde{X} ) = 
+	\coprod_{i \in I} H^{n}\left( X_i \right)
+	\qquad \,\forall\, n \in \Z
+	.\end{equation} 
+	Analogously, if $\mathsf{A}$ admits arbitrary products,
+	consider $( X_i^{\bullet}, d_{X_i} )_{i \in I}$ a family
+	of cochain complexes in $\mathrm{Ch}(\mathsf{A})$.
+	Then the cochain complex $( \widetilde{X}^{\bullet}, d_{\widetilde{X}} )$, with
+	objects $( \widetilde{X}^\bullet )^n := \prod_{i \in I} X_i^n$
+	and differentials $d^n_{\widetilde{X}} := \prod_{i \in I} d^n_{X_i}$,
+	is a product of $X_i^\bullet$ in $\mathrm{Ch}(\mathsf{A})$.
+	Then one checks that
+	\begin{equation}
+	H^{n}( \widetilde{X} ) = 
+	\prod_{i \in I} H^{n}\left( X_i \right)
+	\qquad \,\forall\, n \in \Z
+	.\end{equation} 
+\end{rem}
+
+\begin{lem}
+	Let $\left(L, R\right)$ be an adjoint pair of functors
+	$L: \mathsf{A} \to \mathsf{B}$ and $R: \mathsf{B} \to \mathsf{A}$,
+	between additive categories.
+	Then $\left(L, R\right)$ induces an adjoint pair of morphisms
+	\begin{equation}
+	L: \mathrm{Ch}(\mathsf{A}) \to \mathrm{Ch}(\mathsf{B})
+	\qquad \text{ and } \qquad
+	R: \mathrm{Ch}(\mathsf{B}) \to \mathrm{Ch}(\mathsf{A})
+	.\end{equation} 
+\end{lem} 
+
+\begin{prop}
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories.
+	Consider an adjoint pair of functors $\left(F, G\right)$,
+	for $F: \mathsf{A} \to \mathsf{B}$ and $G: \mathsf{B} \to \mathsf{A}$.
+	Assume that $\mathsf{A}$ has enough projectives and arbitrary coproducts,
+	whereas $\mathsf{B}$ has enough injectives and arbitrary products.
+	Let $\left\{ A_\alpha \right\}_{\alpha \in \mathcal{A}} \subset \mathrm{Ob} \left(\mathsf{A}\right)$
+	be a family of objects of $\mathsf{A}$
+	and $\left\{ B_\beta \right\}_{\beta \in \mathcal{B}} \subset \mathrm{Ob} \left(\mathsf{B}\right)$
+	be a family of objects of $\mathsf{B}$.
+	Then
+	\begin{equation}
+		L_iF \bigg( \coprod_{\alpha \in \mathcal{A}} A_\alpha \bigg) \simeq
+		\coprod_{\alpha \in \mathcal{A}} L_i F(A_\alpha)
+	\end{equation} 
+	and
+	\begin{equation}
+		R^iF \bigg( \prod_{\beta \in \mathcal{B}} B_\beta \bigg) \simeq
+		\prod_{\beta \in \mathcal{B}} R^iG \left( B_\beta \right)
+	.\end{equation} 
+\end{prop} 
+
+\subsection{Derived functors of tensor product functors}
+Recall that, for a ring $R$, and $M_R \in \mathsf{Mod}\text{-}R$,
+then 
+\begin{equation}
+M_R \otimes_R - : R\text{-}\mathsf{Mod} \to \mathsf{Ab}
+\qquad \text{ and } \qquad
+\mathrm{Hom}_{\Z}\left( M, - \right): R\text{-}\mathsf{Mod} \to \mathsf{Ab}
+\end{equation} 
+constitute an adjoint pair $\left(M_R \otimes_R -, \mathrm{Hom}_{ \Z}\left( M, - \right)\right)$.
+
+As a consequence $T_M := M_R \otimes_R -$ is a left adjoint, hence it is
+right exact, preserves coproducts, $\varinjlim$.
+
+\begin{defn}[Flat module]
+	Consider $M_R \in \mathsf{Mod}\text{-}R$.
+	We say that $M_R$ if \textbf{flat} iff $T_M := M_R \otimes_R -$ is exact
+	(i.e. iff $T_M$ is also left exact).
+	Simmetrically ${}_RN \in R\text{-}\mathsf{Mod}$ is flat iff $- \otimes_R N$ is exact.
+\end{defn}
+
+\begin{prop}
+	Let $M_R \in \mathsf{Mod}\text{-}R$.
+	TFAE:
+	\begin{enumerate}
+		\item $M_R$ is flat,
+		\item for every mono $0 \to {}_RA \xrightarrow{\mu} {}_RB$ of left $R$-modules, then
+			$M \otimes A \xrightarrow{id_M \otimes \mu} M \otimes B$ is mono (in $\mathsf{Ab}$),
+		\item $L_i \left( M \otimes_R - \right) (N) = 0$ for all $i \geq 1$ and for all $N \in R\text{-}\mathsf{Mod}$,
+		\item $L_1 \left( M \otimes_R - \right) (N) = 0$ for all $N \in R\text{-}\mathsf{Mod}$.
+	\end{enumerate}
+\end{prop} 
+Dually:
+\begin{prop}
+	Let ${}_RN \in R \text{-}\mathsf{Mod}$.
+	TFAE:
+	\begin{enumerate}
+		\item ${}_RN$ is flat,
+		\item for every mono $0 \to A_R \xrightarrow{\mu} B_R$ of right $R$-modules, then
+			$A \otimes N \xrightarrow{\mu \otimes id_N} B \otimes N$ is mono (in $\mathsf{Ab}$),
+		\item $L_i \left( - \otimes_R N\right) (M) = 0$ for all $i \geq 1$ and for all $M \in \mathsf{Mod}\text{-}R$,
+		\item $L_1 \left( - \otimes_R N \right) (M) = 0$ for all $M \in \mathsf{Mod}\text{-}R$.
+	\end{enumerate}
+\end{prop} 
+
+\begin{rem}[]
+	Combining the above propositions we obtain that
+	$M_R$ is flat iff $M_R$ is $\left( - \otimes_R N \right)$-acyclic for all ${}_R N$ left $R$-modules.
+	Analogously ${}_RN$ is flat iff ${}_RN$ is $\left( M \otimes_R - \right)$-acyclic for all $M_R$ right $R$-modules.
+\end{rem}
+
+\begin{defn}[Notation]
+	Called $T_M := M \otimes_R -$, then we define
+	\begin{equation}
+		\mathrm{Tor}^R_i (M,N) := L_i \left( M \otimes_R - \right) (N)
+	.\end{equation} 
+\end{defn}
+
+\begin{thm}[Balancing of Tor]
+	\begin{equation}
+		\mathrm{Tor}_i^R(M,N) = L_i \left( M \otimes_R - \right)(N) =
+		L_i \left( - \otimes_R N \right)(M)
+	\end{equation}
+	for all $i \geq 0$, all $M \in \mathsf{Mod}\text{-}R$ and all $N \in R\text{-}\mathsf{Mod}$.
+\end{thm}
+
+\begin{rem}[Consequence]
+	The above theorem means that $\mathrm{Tor}_i^R(M,N)$ can be computed in two equivalent ways:
+	Consider $P_{\bullet} \to {}_RN \to 0$ a projective resolution of $N$
+	or $Q_{\bullet} \to M_R \to 0$ a projective resolution of $M_R$, then
+	\begin{equation}
+		H_i \left( M \otimes_R P_{\bullet} \right) \simeq
+		\mathrm{Tor}_i^R (M,N) \simeq
+		H_i \left( Q_{\bullet} \otimes_R N \right)
+	.\end{equation} 
+\end{rem}
+
+\begin{prop}
+	Let $\left\{ M_i \right\}_{i \in I}$ be a family of right $R$-modules.
+	Then
+	\begin{enumerate}
+		\item $\bigoplus_{i \in I} M_i$ is flat iff $M_i$ is flat for all $i \in I$,
+		\item If $\left\{ M_i \right\}_{i \in I}$ is a direct system of flat $R$-modules, 
+			then the filtered direct limit $\varinjlim_{i \in I} M_i$ is flat.
+	\end{enumerate}
+\end{prop} 
+
+\begin{rem}[]
+	For every ${}_RN$ $T_N := - \otimes_R N$ is a left adjoint.
+	This means that $T_N$ preserves colimts, 
+	in particular, for every direct system $\left\{ M_i, F_{ij} \right\}_{i \leq j}$, then
+	\begin{equation}
+		\big( \varinjlim_{i \in I} M_i \big) \otimes_R N \simeq
+		\varinjlim_{i \in I} \left( M_i \otimes_R N \right)
+	.\end{equation} 
+\end{rem}
+
+\begin{rem}[]
+	\begin{equation}
+	\varinjlim_{i \in I} M_i \text{ flat } \centernot\implies M_i \text{ flat}
+	.\end{equation} 
+	In fact every module is the filtered direct limit of its finitely generated
+	submodules.
+	Though it is not true that, given $M$ flat, then its finitely generated submodules are flat.
+
+	As an example any ring $R$ is a free, hence flat, $R$-module.
+	Though this doesn't imply that its (finitely generated) ideals are flat.
+	For instance, take $R := \K[x,y]$, for a field $\K$.
+	Consider $\mathfrak{m} := (x,y)$ the maximal ideal generated by $x$ and $y$.
+	Consider the mono $0 \to \mathfrak{m} \xrightarrow{\epsilon} R$, and
+	\begin{align}
+		\mathfrak{m} \otimes_R \mathfrak{m} &\to \mathfrak{m} \otimes_R R \simeq \mathfrak{m} \\
+		a \otimes b &\mapsto a \cdot b
+	.\end{align} 
+	In fact $0 \neq x \otimes y - y \otimes x \mapsto xy - yx = 0$,
+	then $\mathfrak{m}$ is finitely generated, but not flat.
+\end{rem}
+
+\begin{lem}
+	Let $\mathsf{A}$ and $\mathsf{B}$ be abelian categories with enough projectives.
+	Consider $F: \mathsf{A} \to \mathsf{B}$ a right exact functor.
+	Then $L_iF$ can be computed using $F$-acyclic resolutions, instead of projective resolutions.
+	More explicitly, given
+	$Q_{\bullet} \to A \to 0$ a resolution of $A$ s.t. $Q_i$ is $F$-acyclic for each $i$, then
+	\begin{equation}
+		L_iF(A) \simeq H_i \left( F(Q_{\bullet}) \right)
+	.\end{equation} 
+\end{lem} 
+
+\begin{rem}[]
+	In particular $\mathrm{Tor}_i^R(-,-)$ can be computed using flat resolutions.
+\end{rem}
+
+\begin{ex}[Flat modules]
+	Clearly any projective $P_R$ right $R$-module is flat, since it is $- \otimes_R N$-acyclic for
+	all ${}_RN$ modules.
+	Analogously a a projective left $R$-module ${}_RP$ is flat.
+	In particular any free module is flat.
+\end{ex}
+
+\begin{ex}[Flat modules]
+	Recall the definition of localization:
+	given a commutative ring $R$ and a multiplicatively closed subset $S \subset R$, 
+	i.e. s.t. $0 \notin S, 1 \in S$ and $s,t \in S \implies st \in S$, 
+	we can consider the localization
+	\begin{equation}
+	R_S = R \left[ S^{-1} \right] :=
+	\left\{ \frac{r}{s} \ \middle|\ r \in R, \, s \in S \text{ and } \frac{r}{s} = \frac{r'}{s'}
+	\iff \exists\, t \in S \text{ s.t. } t \left( rs' - r's \right) = 0 \right\}
+	.\end{equation} 
+	Notice, moreover, that given any module $M$, then
+	\begin{equation}
+	M \otimes_R R_S =: M_S =
+	\left\{ \frac{x}{s} \ \middle|\ x \in M, \, s \in S \right\}
+	\end{equation} 
+	and $\frac{x}{s} = \frac{x'}{s'}$ iff there exists $t \in S \text{ s.t. } t \left( xs' - x's \right) = 0$.
+	In particular $\frac{x}{1} = 0$ iff $\exists\, t \in S$ s.t. $tx = 0$.
+	Moreover any element $\zeta \in M_R \otimes_R R_S$ can be represented as $y \otimes \frac{1}{s}$,
+	for $s \in S$ and $y \in M$.
+
+	Let's prove that $R_S$ is a flat $R$-module.
+	Consider a mono $0 \to A_R \xrightarrow{\mu} B_R$, we have to prove that
+	\begin{equation}
+	A_R \otimes_R R_S \xrightarrow{\mu \otimes 1_{R_S}} B_R \otimes_R R_S
+	\end{equation}
+	is still mono.
+	Let's consider $x \otimes \frac{1}{t} \in A_R \otimes_R R_S$, then 
+	$\frac{x}{t} \xmapsto{\mu} \frac{\mu(x)}{t}$.
+	Assume $\frac{\mu(x)}{t} = 0$, i.e. there exists $s \in S$ s.t. $s \mu(x) = 0$,
+	which means $\mu(sx) = 0$, hence $sx = 0$, since $\mu$ is mono.
+	But this means that $\frac{x}{t} = 0$.
+\end{ex}
+
+\begin{thm}[Lazard]
+	A module is flat iff
+	it is a filtered direct limit of projective modules,
+	or a direct limit of finitely generated free modules.
+	(It can be specialized to left or right modules, then every module in the
+	statement has to be either left or right, accordingly).
+\end{thm}
+
+\begin{lem}
+	Let $\mathsf{C}$ and $\mathsf{D}$ be abelian categories, and $L: \mathsf{C} \to \mathsf{D}$ and
+	$R: \mathsf{D} \to \mathsf{C}$ be an adjoint pair $\left(L, R\right)$.
+	Assume that $L$ is an exact functor.
+	Then, if $I$ is an injective object of $\mathsf{D}$,
+	then $R(I)$ is injective in $\mathsf{C}$.
+	Dually, if $R$ is exact, and $P$ is a projective object of $\mathsf{C}$, then
+	$L(P)$ is a projective object of $\mathsf{D}$.
+\end{lem} 
+
+\begin{prop}
+	Let ${}_SF_R$ be an $S$-$R$-bimodule and ${}_SE$ be an injective left $S$-module, then
+	\begin{itemize}
+		\item If $F_R$ is flat, then $\mathrm{Hom}_{S}\left( {}_SF_R, {}_SE \right)$ is 
+			an injective left $R$-module.
+		\item Conversely, if ${}_SE$ is an injective cogenerator of $S$-Mod
+			and $\mathrm{Hom}_{S}\left( {}_SF_R, {}_SE \right)$
+			is an injective left $R$-module, then $F_R$ is flat.
+	\end{itemize}
+\end{prop} 
+
+\begin{cor}
+	Since $\mathbb{Q}/\Z$ is an injective cogenerator in the category $\mathsf{Ab} = \mathsf{Mod}\text{-}\Z$:
+	it is the direct sum of the injective envelopes of the simple modules $\mathbb{Z}/p\mathbb{Z}$:
+	\begin{equation}
+		\mathbb{Q}/\Z = \bigoplus_{p \in P} E \left( \mathbb{Z}/p\mathbb{Z} \right)
+	.\end{equation} 
+	The module ${}_{\Z}F_R$ is flat iff
+	$\mathrm{Hom}_{\Z}\left( F, \mathbb{Q}/\Z \right)$ is an injective left
+	$R$-module.
+	Moreover we use the notation for the above, which is also called the \textbf{character module}
+	\begin{equation}
+	F_R^*:= \mathrm{Hom}_{\Z}\left( F_R, \mathbb{Q}/\Z \right)
+	.\end{equation} 
+\end{cor} 
+
+\begin{thm}[Dimension shifting for right derived functors]\leavevmode\vspace{-.2\baselineskip}
+	\begin{enumerate}
+		\item Let $F: \mathsf{A} \to \mathsf{B}$ be a covariant left-exact functor
+			between abelian categories, with $\mathsf{A}$ having enough injectives.
+			Let $Q$ be an $F$-acyclic object (e.g. $Q$ injective) and
+			\begin{equation}
+			0 \to K \to Q \to A \to 0
+			\end{equation} 
+			be a s.e.s.
+			Then, for all $i \geq 1$,
+			\begin{equation}
+				R^iF(A) \simeq R^{i+1}F(K)
+			.\end{equation} 
+		\item Let $F: \mathsf{A} \to \mathsf{B}$ be a contravariant left-exact functor
+			between abelian categories, with $\mathsf{A}$ having enough projectives.
+			Let $Q$ be an $F$-acyclic object (e.g. $Q$ projective) and
+			\begin{equation}
+			0 \to K \to Q \to A \to 0
+			\end{equation} 
+			be a s.e.s.
+			Then, for all $i \geq 1$,
+			\begin{equation}
+				R^iF(K) \simeq R^{i+1}F(A)
+			.\end{equation} 
+	\end{enumerate}
+\end{thm}
+\begin{proof}\leavevmode\vspace{-.2\baselineskip}
+	\begin{enumerate}
+		\item Consider the long exact sequence
+			\begin{equation}
+				R^1F(K) \to R^1F(Q) = 0 \to R^1F(A) \to
+				R^2F(K) \to R^2F(Q) = 0 \to \ldots
+			.\end{equation} 
+			Since $R^iF(Q) = 0$ for all $i$, we have our thesis.
+		\item Consider the long exact sequence
+			\begin{equation}
+				R^1F(A) \to R^1F(Q) = 0 \to R^1F(K) \to
+				R^2F(A) \to R^2F(Q) = 0 \to \ldots
+			.\end{equation} 
+			Since $R^iF(Q) = 0$ for all $i$, we have our thesis.\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{rem}[]
+	Assume that $\mathsf{A}$ is an abelian category with enough projectives.
+	Consider $M \in \mathrm{Ob} \left(\mathsf{A}\right)$ s.t. for all $N \in \mathrm{Ob} \left(\mathsf{A}\right)$
+	\begin{equation}
+		\mathrm{Ext}^{n+i}_{\mathsf{A}}(M,N) = 0 \qquad \,\forall\, i \geq 0
+	.\end{equation} 
+	By dimension shifting $\mathrm{Ext}^1_{\mathsf{A}}(K_n,N) = \mathrm{Ext}^2_{\mathsf{A}}(K_{n-1},N) =
+	\ldots = \mathrm{Ext}^{n+1}_{\mathsf{A}}(M,N)$ for all $N \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	And, moreover, for $K_n = \Omega_n(M)$, the $n$-th syzygy of $M$, we have
+	\begin{equation}
+		\mathrm{Ext}^{n+1}_{\mathsf{A}}(M,N) \simeq
+		\mathrm{Ext}^1_{\mathsf{A}}(K_n,N)
+	.\end{equation} 
+	In particular the above condition holds iff $K_n$ is projective.
+
+	Analogously, if $\mathsf{A}$ has enough injectives we obtain:
+	By dimension shifting $\mathrm{Ext}^1_{\mathsf{A}}(M,C_n) = \mathrm{Ext}^2_{\mathsf{A}}(M,C_{n-1}) =
+	\ldots = \mathrm{Ext}^{n+1}_{\mathsf{A}}(M,N)$ for all $N \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	And, moreover, for $C_n = \Omega^n(N)$, the $n$-th cosyzygy of $N$, we have
+	\begin{equation}
+		\mathrm{Ext}^{n+1}_{\mathsf{A}}(M,N) \simeq
+		\mathrm{Ext}^1_{\mathsf{A}}(M,C_n)
+	.\end{equation} 
+	In particular $\mathrm{Ext}^{n+i}_{\mathsf{A}}(M,N) = 0 \,\forall\, i \geq 0$
+	iff $C_n$ is injective.
+\end{rem}
+
+\begin{lem}[Schanuel]
+	Let $\mathsf{A}$ be an abelian category. Let $P,Q \in \mathrm{Ob} \left(\mathsf{A}\right)$
+	be projective objects.
+	Assume that the following are s.e.s.
+	\begin{equation}
+	0\to K\to P \to M \to 0
+	\qquad \text{ and } \qquad
+	0 \to H \to Q \to M \to 0
+	.\end{equation} 
+	Then $K \oplus Q \simeq H \oplus P$.
+	In particular $K$ is projective iff $H$ is projective.
+\end{lem} 
+\begin{cor}
+	Consider the two long exact sequences with $P_{i}, Q_{i}$ projective
+	\begin{equation}
+	0 \to K_n \to P_{n-1} \to P_{n-2} \to \ldots \to P_1 \to P_0 \to M \to 0
+	\end{equation} 
+	and
+	\begin{equation}
+	0 \to H_n \to Q_{n-1} \to Q_{n-2} \to \ldots \to Q_1 \to Q_0 \to M \to 0
+	.\end{equation} 
+	Then
+	\begin{equation}
+	K_n \oplus Q_{n-1} \oplus P_{n-2} \oplus \ldots \simeq
+	K_n \oplus P_{n-1} \oplus Q_{n-2} \oplus \ldots
+	.\end{equation} 
+	In particular $K_n$ is projective iff $H_n$ is projective.
+\end{cor} 
+
+\begin{defn}[Projective dimension]
+	Let $\mathsf{A}$ be an abelian category, with enough proectives.
+	Consider $M \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	We define the \textbf{projective dimension} of $M$, denoted by $\mathrm{p.d.}(M)$, 
+	as the smallest integer $n \in \N$ s.t. there exist $P_i \in \mathrm{Ob} \left(\mathsf{A}\right)$
+	projective and an exact sequence
+	\begin{equation}
+	0 \to P_n \to P_{n-1} \to \ldots \to P_1 \to P_0 \to M \to 0
+	,\end{equation} 
+	i.e. it is the minimal length of a projective resolution of $M$.
+	Equivalently $n$ is the minimal index s.t. the $n$-th syzygy of $M$ is
+	already a projective object.
+	If no finite resolution exists, we define $\mathrm{p.d.}\, M = \infty$.
+\end{defn}
+
+\begin{rem}[]
+	The projective dimension is well defined thanks to Schanuel lemma.
+\end{rem}
+
+\begin{ex}[Infinite projective dimension]
+	Let $R := \mathbb{Z}/2\mathbb{Z}$ and $M := \mathbb{Z}/2\mathbb{Z}$ as an $R$-module.
+	Then
+	\begin{equation}
+	0 \to \mathbb{Z}/2\mathbb{Z} \to \mathbb{Z}/4\mathbb{Z} \xrightarrow{\pi} \mathbb{Z}/2\mathbb{Z} \to 0
+	\end{equation} 
+	is exact.
+	This means that $\Omega_1(M) = M$, hence $\mathrm{p.d.}\, M = \infty$.
+
+	Analogouusly for $R := \mathbb{K}[x]/ \left( x^2 \right)$, for a field $\K$,
+	$R$ is called the ring of dual numbers.
+	Then $M_R := (x) / (x^2)$ has infinite projective dimension.
+\end{ex} 
+
+\begin{prop}
+	Let $\mathsf{A}$ be an abelian category with enough projectives.
+	Let $M \in \mathrm{Ob} \left(\mathsf{A}\right)$, then TFAE
+	\begin{enumerate}
+		\item $\mathrm{p.d.}\, M \leq n$,
+		\item $\mathrm{Ext}^{n+i}_{\mathsf{A}} (M,N) = 0$ for all $N \in \mathsf{A}$, and all $i \geq 1$,
+		\item $\mathrm{Ext}^{n+1}_{\mathsf{A}} (M,N) = 0$ for all $N \in \mathsf{A}$.
+	\end{enumerate}
+\end{prop} 
+\begin{cor}
+	If $M \in \mathrm{Ob} \left(\mathsf{A}\right)$ (for $\mathsf{A}$ as above) 
+	has $\mathrm{p.d.}\, M = n$, then
+	$\mathrm{Ext}^{n+1}_{\mathsf{A}}(M,N) = 0$ for all $N \in \mathrm{Ob} \left(\mathsf{A}\right)$
+	and $\exists\, N_0 \in \mathrm{Ob} \left(\mathsf{A}\right)$ s.t.
+	$\mathrm{Ext}^n_{\mathsf{A}}(M,N_0) \neq 0$.
+\end{cor} 
+Let's now dualize everything for injectives
+\begin{lem}[Schanuel for injectives]
+	Let $\mathsf{A}$ an abelian category and $M \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	Let $I, E \in \mathrm{Ob} \left(\mathsf{A}\right)$ be injective objects.
+	Assume the following are s.e.s.
+	\begin{equation}
+	0 \to M \to I \to C \to 0
+	\qquad \text{ and } \qquad
+	0 \to M \to E \to D \to 0
+	.\end{equation} 
+	Then $C \oplus E \simeq I \oplus D$.
+	In particular $D$ is injective iff $C$ is injective.
+\end{lem} 
+
+\begin{cor}
+	Consider the two long exact sequences with $I^n, E^n$ injective
+	\begin{equation}
+	0 \to M \to I^0 \to I^1 \to \ldots \to I^{n-1} \to C \to 0
+	\end{equation} 
+	and
+	\begin{equation}
+	0 \to M \to E^0 \to E^1 \to \ldots \to E^{n-1} \to D \to 0
+	.\end{equation} 
+	Then 
+	\begin{equation}
+	C \oplus E^{n-1} \oplus I^{n-2} \oplus \ldots \simeq
+	D \oplus I^{n-1} \oplus E^{n-2} \oplus \ldots
+	.\end{equation} 
+	In particular $C$ is injective iff $D$ is injective.
+\end{cor} 
+
+\begin{defn}[Injective dimension]
+	Let $\mathsf{A}$ be an abelian category with enough injectives.
+	Consider $M \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	We define the \textbf{injective dimension} of $M$, 
+	denoted by $\mathrm{i.d.}\, M$, as the smallest integer $n \in \N$ s.t.
+	there exist $I^n \in \mathrm{Ob} \left(\mathsf{A}\right)$ injective and an exact sequence
+	\begin{equation}
+	0 \to M \to I^0 \to I^1 \to \ldots \to
+	I^{n-1} \to I^n \to 0
+	,\end{equation} 
+	i.e. $n$ is the minimal legth of an injective coresolution of $M$.
+	Equivalently $n$ is the minimal index s.t. the $n$-th cosyzygy of $M$ is already
+	an injective object.
+	If no finite resolution exists, we define $\mathrm{i.d.}\, M = \infty$.
+\end{defn}
+
+\begin{ex}[Infinite injective dimension]
+	Consider $R := \mathbb{Z}/4\mathbb{Z}$.
+	Prove that $R$ is self injective, i.e. $R$ is injective as an $R$-module
+	(you can prove using Baer's criterion).
+	Let $M_R := \mathbb{Z}/2\mathbb{Z}$.
+	Prove that $\mathrm{i.d.}\, M_R = \infty$.
+\end{ex} 
+
+\begin{prop}
+	Let $\mathsf{A}$ be an abelian category with enough projectives.
+	Let $M \in \mathrm{Ob} \left(\mathsf{A}\right)$, then TFAE
+	\begin{enumerate}
+		\item $\mathrm{i.d.}\, M \leq n$,
+		\item $\mathrm{Ext}^{n+i}_{\mathsf{A}} (N,M) = 0$ for all $N \in \mathsf{A}$, and all $i \geq 1$,
+		\item $\mathrm{Ext}^{n+1}_{\mathsf{A}} (N,M) = 0$ for all $N \in \mathsf{A}$.
+	\end{enumerate}
+\end{prop} 
+
+\begin{defn}[Right global dimension of $R$]
+	Let $R$ be a ring.
+	We define the \textbf{right global dimension} of $R$, denoted by
+	$\mathrm{r.gld}\, R$, as
+	\begin{equation}
+	\mathrm{r.gld}\, R := \sup \left\{ \mathrm{p.d.}\, M_R \ \middle|\ M_R \in \mathsf{Mod}\text{-}R \right\}
+	.\end{equation} 
+\end{defn}
+
+\begin{thm}[Global dimension]
+	Consider the following numbers:
+	\begin{align}
+		(2) &:= \sup \left\{ \mathrm{i.d.}\, M_R \ \middle|\ M_R \in \mathsf{Mod}\text{-}R \right\}\\
+		(3) &:= \sup \left\{ \mathrm{p.d.}\, R/I_R \ \middle|\ I_R \triangleleft R 
+		\text{ is a right ideal}\, \right\}\\
+		(4) &:= \sup \left\{n \in \N \ \middle|\ \mathrm{Ext}^n_{\mathsf{A}}(M,N) \neq 0
+		\text{ for some } M_R, N_R \in \mathsf{Mod}\text{-}R \right\}
+	.\end{align} 
+	Let's call $(1) := \mathrm{r.gld}\, R$.
+	Then, if finite, $(1) = (2) = (3) = (4)$.
+	Moreover, if any is infinite, also all the others are.
+\end{thm}
+
+\begin{lem}
+	Let $R$ be a ring.
+	Consider the s.e.s.
+	\begin{equation}
+	0 \to K \to F \to M \to 0
+	\qquad \text{ and } \qquad
+	0 \to H \to G \to M \to 0
+	,\end{equation} 
+	with $F, G$ flat.
+	Then $K$ is flat iff $H$ is flat.
+\end{lem} 
+
+\begin{defn}[Flat (weak) dimension]
+	Let $R$ be a ring and $M_R \in \mathsf{Mod}\text{-}R$.
+	We define the \textbf{flat (or weak) dimension} of $M_R$,
+	denoted by $\mathrm{f.d}_R\, M_R$ or $\mathrm{w.d.}\, M_R$,
+	as the minimum length of a flat resolution of $M$.
+\end{defn}
+\begin{rem}[]
+	Clearly, by the above lemma, this is a good definition.
+\end{rem}
+
+\begin{prop}
+	For $M_R \in \mathsf{Mod}\text{-}R$, the following are equivalent:
+	\begin{enumerate}
+		\item $\mathrm{w.d.}\, M \leq n$,
+		\item $\mathrm{Tor}_{n+i}^R (N,M) = 0$ for all $N \in \mathsf{A}$, and all $i \geq 1$,
+		\item $\mathrm{Tor}_{n+1}^R (N,M) = 0$ for all $N \in \mathsf{A}$.
+	\end{enumerate}
+\end{prop} 
+
+\begin{defn}[Right weak-global dimension]
+	Let $R$ be a ring.
+	We define the \textbf{right weeak global dimension} of $R$,
+	denoted by $\mathrm{r.w.gld}\, R$,
+	as
+	\begin{equation}
+	\mathrm{r.w.gl.dim}\, R := \sup \left\{ \mathrm{w.d.}\, M_R \ \middle|\ M_R \in \mathsf{Mod}\text{-}R \right\}
+	.\end{equation} 
+\end{defn}
+
+\begin{rem}[]
+	Notice that $\mathrm{r.w.gl.dim}\, R = \sup \left\{ \mathrm{w.d.}\, {}_RN \ \middle|\ {}_RN \in R\text{-}\mathsf{Mod} \right\}$.
+	Then we can anlogoulsy define the \textbf{left weak global dimension} of $R$
+	and $\mathrm{r.w.gl.dim}\, R = \mathrm{l.w.gl.dim}\, R$.
+\end{rem}
+
+\begin{rem}[]
+	Consider $M_R \in \mathsf{Mod}\text{-}R$.
+	We defined its character module $M^* := \mathrm{Hom}_{\Z}\left( M, \mathbb{Q}/\Z \right)$
+	and proved that $M_R$ is flat iff $M^*$ is injective.
+	Moreover we can define a canonical map $\mu: M \to M^{**}$ that
+	acts as: given $x \in M_R$, $\mu(x) \in \mathrm{Hom}_{ \Z}\left( M^*, \mathbb{Q}/\Z \right)$
+	s.t. for $f \in M^* = \mathrm{Hom}_{\Z}\left( M, \mathbb{Q}/\Z \right)$,
+	we define $\mu(x) (f) := f(x)$.
+	Notice that $\mu$ is mono, since $\mathbb{Q}/\Z$ is an injective cogenerator of $\mathsf{Ab}$.
+	Moreover, for any $0 \neq x \in M$, we can define a nonzero map
+	$g: \left\langle x \right\rangle_{\Z} \to \mathbb{Q}/\Z$
+	which can be extended to the whole $M$.
+\end{rem}
+
+\begin{prop}
+	Let $M_R$ be a right $R$-module, then TFAE
+	\begin{enumerate}
+		\item $M_R$ is flat,
+		\item $M^*$ is an injective left $R$-module,
+		\item for all ${}_RI \triangleleft {}_RR$ (a left ideal)
+			\begin{equation}
+			M_R \otimes_R I \simeq MI =
+			\left\{ \sum_{i=1}^{n} x_i a_i \ \middle|\ x_i \in M_R,\, a_i \in {}_RI,\, n \in \N \right\}
+			,\end{equation} 
+		\item $\mathrm{Tor}^R_1(M, R/{}_RI) = 0$ for all ${}_RI \triangleleft {}_RR$.
+	\end{enumerate}
+	(Clearly all of the above holds true even for left $R$-modules).
+\end{prop} 
+
+\begin{rem}[]
+	Consider the embedding $0 \to I \xrightarrow{\epsilon} R$ of $I$ into $R$ and $M_R \in \mathsf{Mod}\text{-}R$,
+	then we can take the tensor
+	$M \otimes_R I \xrightarrow{id_M \otimes \epsilon} M \otimes_R R \simeq M$ acting as
+	$x \otimes a \mapsto xa$.
+	Then
+	\begin{equation}
+		\ima (id_M \otimes \epsilon) = \left\{ \sum_{i=1}^{n} x_ia_i \ \middle|\ x_i \in M, a_i \in I \right\} =
+		MI
+	.\end{equation} 
+	Thus $M \otimes I \simeq MI$ iff $id_M \otimes \epsilon$ is mono.
+\end{rem}
+
+\begin{lem}
+	Consider $f: M_R \to N_R$ a morphism in the catogory of right $R$-modules.
+	Let $f^* := \mathrm{Hom}_{\Z}\left( f, \mathbb{Q}/\Z \right)$.
+	\begin{itemize}
+		\item $f$ is mono iff $f^*$ is epi,
+		\item $f$ is epi iff $f^*$ is mono.
+	\end{itemize}
+\end{lem} 
+
+\begin{lem}
+	Consider $M_R$ and ${}_RN$. Then there are canonical isomorphisms:
+	\begin{itemize}
+		\item $M_R \otimes_R R \simeq R$ as right $R$-modules 
+			(resp. $R \otimes_R N \simeq {}_RN$ as left $R$-modules),
+		\item $\mathrm{Hom}_{ R}\left( R, M \right) \simeq M$ as right $R$-modules
+			(resp. $\mathrm{Hom}_{ R}\left( R, N \right) \simeq N$ as left $R$-modules),
+		\item $M \otimes_R R/{}_RI \simeq M/MI$ as abelian groups
+			(resp. $R/I_R \otimes N \simeq N/IN$ as abelian groups).
+	\end{itemize}
+\end{lem} 
+
+\begin{lem}
+	Let $\K$ be a field.
+	Consider $R := \K[x,y]$ and $\mathfrak{m} := (x,y)$.
+	Then $R/\mathfrak{m} \simeq \K$.
+	\begin{itemize}
+		\item Show that $\K$ has a projective resolution
+			\begin{equation}
+			0 \to R \xrightarrow{\beta} R \oplus R \xrightarrow{\alpha} R \to
+			R/\mathfrak{m} \simeq \K \to 0
+			,\end{equation} 
+			where $\beta = \begin{bmatrix}-y \\ x\end{bmatrix}$ and $\alpha(e_1) = x$, $\alpha(e_2) = y$.
+		\item Show that $\mathrm{Tor}^R_2(\K,\K) \simeq \mathrm{Tor}^R_1(\mathfrak{m}, \K) \simeq \K$,
+			sot that $\mathfrak{m}$ is torsion-free and not flat.
+		\item $\mathrm{p.d.}\, \mathfrak{m} = 1$, $\mathrm{p.d.}\, \K = 2$
+			and $\mathrm{w.d.}\, \K = 2$.
+	\end{itemize}
+\end{lem} 
+
+\begin{prop}\leavevmode\vspace{-.2\baselineskip}
+	\begin{enumerate}
+		\item $\mathrm{Tor}^R_n \left( \bigoplus_{i \in I} M_i, N \right) \simeq
+			\bigoplus_{i \in I} \mathrm{Tor}^R_n(M_i,R)$
+
+		\item For a (from the proof I guess it is filtered)
+			direct system of modules $\left\{ M_i, f_{ji} \right\}_{i \leq j}$
+			\begin{equation}
+				\mathrm{Tor}^R_n \big( \varinjlim_{i \in I} M_I, N \big) \simeq
+				\varinjlim_{i \in I} \mathrm{Tor}^R_n(M_i, N)
+			.\end{equation} 
+	\end{enumerate}
+	This theorem holds also for the second component of $\mathrm{Tor}$.
+\end{prop}
+
+\begin{lem}
+	Let $M_R \in \mathsf{Mod}\text{-}R$.
+	$M$ is flat iff 
+	\begin{equation}
+		\mathrm{Tor}^R_1 (M, R/I) = 0
+	\end{equation} 
+	for all ${}_RI \triangleleft R$ finitely generated left ideal.
+\end{lem} 
+
+\begin{prop}
+	Let $\mathsf{A}$ be an abelian category with products, coproducts,
+	enough injectives and projectives.
+	For any family $\left\{ M_i \right\}_{i \in I}$, $\left\{ N_i \right\}_{i \in I}$,
+	any object $M,N \in \mathrm{Ob} \left(\mathsf{A}\right)$ and any $n \in \N$:
+	\begin{enumerate}
+		\item $\mathrm{Ext}^n_{\mathsf{A}} \left( M, \prod_{i \in I} N_i\right) \simeq
+			\prod_{i \in I} \mathrm{Tor}^n_{\mathsf{A}}(M,N_i)$
+		\item $\mathrm{Ext}^n_{\mathsf{A}} \left( \bigoplus_{i \in I}M_i, N \right) \simeq
+			\prod_{i \in I} \mathrm{Tor}^n_{\mathsf{A}}(M_i,N)$
+	\end{enumerate}
+	This theorem holds also for the second component of $\mathrm{Tor}$.
+\end{prop}
+
+\begin{rem}[]
+	Let $\left\{ M_i, f_{ji} \right\}_{i \leq j}$ be a directed system of modules.
+	In general
+	\begin{equation}
+		\mathrm{Ext}^R_n \big( \varinjlim_{i \in I} M_i, N\big)
+		\not\simeq \varinjlim_{i \in I} \mathrm{Ext}^R_n (M_i, N)
+	.\end{equation} 
+\end{rem}
+
+\begin{ex}
+	Let $F_R$ be a flat, but not projective right $R$-module.
+	Then there exists a module $N$ s.t. $\mathrm{Ext}^1_R(F,N) \neq 0$.
+	Moreover $F = \varinjlim_{i \in I} G_i$,
+	for $G_i$ finitely generated free modules (by Lazard theorem).
+	Then, for all $i \in I$, $\mathrm{Ext}^1_R(G_i, N) = 0$.
+	In other words we have a counterexample to the adove "equality".
+
+	(Notice that there exist module such as $F_R$, in fact $\mathbb{Q}$
+	is a flat, but not projective, module;
+	in particular it is flat, since it is a localization of $\Z$).
+\end{ex} 
+
+\begin{defn}[Right (left) hereditary ring]
+	A ring $R$ is right (resp left) \textbf{hereditary} iff every submodule of a projective right
+	(resp left) $R$-module is projective.
+\end{defn}
+
+\begin{prop}[Characterization of hereditary rings]
+	Let $R$ be a ring, TFAE:
+	\begin{enumerate}
+		\item $R$ is right hereditary,
+		\item $\mathrm{r.gl.dim}\, R \leq 1$,
+		\item $\mathrm{Ext}^2_R(M,N) = 0$ for all $M, N \in \mathsf{Mod}\text{-}R$,
+		\item $\mathrm{Ext}^2_R(R/I,N) = 0$ for all $N_R \in \mathsf{Mod}\text{-}R$ and $I_R \triangleleft R$
+			right ideal,
+		\item $I_R$ is projective for every right ideal $I_R \triangleleft R$.
+	\end{enumerate}
+	Clearly there exists also a left version of this proposition
+	(instead of the right global dimension one checks left global dimension).
+\end{prop} 
+
+\begin{ex}
+	Being right or left hereditary is not symmetrical
+	In particular Kaplansky constructed an example of a ring $R$ which is right hereditary,
+	but has $\mathrm{l.gl.dim}\, R = 2$, i.e. it is not left hereditary.
+	Small gave another example of a right hereditary ring $R$, 
+	with $\mathrm{l.gl.dim}\, R = 3$.
+\end{ex} 
+
+Recall the definition of weak global dimension of a ring $R$:
+\begin{equation}
+\mathrm{w.gl.dim}\, R = \sup \left\{ \mathrm{w.dim.}\, M_R \ \middle|\ M_R \in \mathsf{Mod}\text{-}R \right\}
+.\end{equation} 
+(By symmetry of $\mathrm{Tor}$ functor this coincides with the left weak global dimension).
+
+\begin{prop}
+	Let $R$ be a ring. TFAE:
+	\begin{enumerate}
+		\item $\mathrm{w.gl.dim}\, R \leq 1$,
+		\item $\mathrm{Tor}^R_2(M,N) = 0$ for all $M \in \mathsf{Mod}\text{-}R$ and $N \in R\text{-}\mathsf{Mod}$,
+		\item Every submodule of a flat module is flat,
+		\item $\mathrm{Tor}^2_R(R/I_R, N) = 0$ for all $I_R \triangleleft R$ right ideals
+			and $N \in R\text{-}\mathsf{Mod}$,
+		\item Every right ideal $I_R \triangleleft R$ is a flat $R$-module.
+	\end{enumerate}
+\end{prop} 
+
+\begin{rem}[]
+	Recall that we have the following implications:
+	choose a ring $R$, and an $R$-module $M$, then
+	\begin{itemize}
+		\item $M$ free $\implies$ $M$ projective,
+		\item $M$ projective $\implies$ $M$ flat,
+		\item direct limits of projective modules are flat,
+		\item in general, it is not true that any flat module is projective.
+	\end{itemize}
+	We now want to show that in the particular case where $M$ is finitely presented, then
+	it is projective as soon as it is flat.
+\end{rem}
+
+\begin{defn}[Finitely presented module]
+	Recall that $M \in R\text{-}\mathsf{Mod}$ is finitely presented iff there is a s.e.s.
+	\begin{equation}
+	0 \to K \to R^n \to M \to 0
+	,\end{equation} 
+	with $n \in \N$ and $K$ a finitely generated $R$-module.
+\end{defn}
+
+\begin{lem}
+	Let $M_R$ be a finitely presented module and consider the s.e.s.
+	\begin{equation}
+	0 \to H \to P \to M \to 0
+	,\end{equation} 
+	with $P$ projective and finitely generated.
+	Then $H$ is finitely generated.
+\end{lem} 
+\begin{rem}[]
+	The above implies that $M_R$ is finitely presented iff there is an exact sequence
+	\begin{equation}
+	R^m \to R^n \to M \to 0
+	,\end{equation} 
+	for some $m,n \in \N$.
+\end{rem}
+
+\begin{rem}[Pano's guess]
+	I guess that any finitely generated projective $R$-module $P$ is also finitely presented:
+	\begin{equation}
+		0 \to K \to R^n \to P \to 0
+	\end{equation} 
+	given such an exact sequence, by projectivity it splits.
+	Then $K$ is a direct summand of a free module, hence it is finitely generated.
+\end{rem}
+
+
+\begin{rem}[]
+	Recall that, fixed a pair of right $R$-modules $M_R, N_R \in \mathsf{Mod}\text{-}R$,
+	then $\mathrm{Hom}_{\Z}\left( N, \mathbb{Q}/\Z \right) = 
+	\left( N_R \right)^* \in R\text{-}\mathsf{Mod}$ is a left $R$-module.
+	Moreover there exists a morphism in $\mathsf{Ab}$
+	\begin{align}
+		\sigma_{M,N}: M \otimes N^* &\to \left[ \mathrm{Hom}_{R}\left( M, N \right) \right]^* 
+		= \mathrm{Hom}_{\Z}\left( \mathrm{Hom}_{ R}\left( M, N \right), \mathbb{Q}/\Z \right)\\
+		x \otimes f &\mapsto g
+	,\end{align} 
+	where $g$ acts as follows on $\alpha \in \mathrm{Hom}_{R}\left( M, N \right)$
+	\begin{equation}
+		g(\alpha) := f \left( \alpha(x) \right)
+	.\end{equation} 
+\end{rem}
+
+\begin{lem}
+	Let $M_R$ be a finitely presented $R$-module,
+	then $\sigma_{M,N}$, as defined above, is an isomorphism for all $N \in \mathsf{Mod}\text{-}R$.
+\end{lem} 
+
+\begin{thm}[]
+	A finitely presented flat module $M_R$ is projective.
+\end{thm}
+
+\subsubsection{Tor under change of rings}
+Let $R,S$ be rings, and $f: R \to S$ a ring homomorphism.
+Then $S$ is an $R$-$R$ bimodule via $f$ and every $S$-module
+is an $R$-module via restriction of scalars.
+Moreover, given any $M_R \in \mathsf{Mod}\text{-}R$, then
+$M_R \otimes_R S$ is a right $S$-module via extension of scalars.
+
+\begin{prop}
+	Let $f: R \to S$ be a ring homomorphism.
+	Assume that ${}_RS$ is a flat left $R$-module.
+	Then for all $M_R \in \mathsf{Mod}\text{-}R$, $n \in \N$ and ${}_SC \in S\text{-}\mathsf{Mod}$
+	(hence we also have ${}_SC \in R\text{-}\mathsf{Mod}$)
+	\begin{equation}
+		\mathrm{Tor}^R_n (M_R, {}_SC) \simeq
+		\mathrm{Tor}^S_n (M \otimes_R S, {}_SC)
+	.\end{equation} 
+\end{prop} 
+
+\begin{prop}
+	Let $f: R \to S$ be a ring homomorphism.
+	Assume that ${}_RS$ is a flat left $R$-module.
+	Then, for all $M_R \in \mathsf{Mod}\text{-}R$, $C_S \in \mathsf{Mod}\text{-}S$ and $n \in \N$
+	\begin{equation}
+		\mathrm{Ext}^n_R (M, C) \simeq
+		\mathrm{Ext}^n_S (M \otimes_R S, C)
+	.\end{equation} 
+\end{prop} 
+
+\begin{prop}
+	Let $R, S$ be commutative rings, and $f: R \to S$ a ring homomorphism.
+	Assume $S$ is a flat $R$-module.
+	Then for all modules $M$ and $N$, and $n \in \N$
+	\begin{equation}
+		\mathrm{Tor}^R_n (M,N) \otimes_R S \simeq
+		\mathrm{Tor}^S_n (M \otimes_R S, N \otimes_R S)
+	.\end{equation} 
+\end{prop} 
+
+
+\begin{cor}
+	Let $R$ be a commutative ring, $M$ and $N$ be $R$-modules and $n \in \N$.
+	TFAE:
+	\begin{enumerate}
+		\item $\mathrm{Tor}^R_n (M,N) = 0$,
+		\item $\mathrm{Tor}_n^{R_P}(M_P, N_P) = 0$ for all $P \in \mathrm{Spec}\, R$,
+		\item $\mathrm{Tor}_n^{R_{\mathfrak{m}}} (M_{\mathfrak{m}}, N_{\mathfrak{m}})$
+			for all $\mathfrak{m} \in \mathrm{MaxSpec}\, R$.
+	\end{enumerate}
+\end{cor} 
+
+\subsubsection{Hom and Ext with finitely presented modules}
+Let $R, S$ be commutative rings, $\varphi: R \to S$ be a ring homomorphism
+and $S$ be flat (e.g. $T$ a multiplicatively closed subset of $R$
+and $S := R_T = RT^{-1}$).
+
+\begin{prop}
+	Let $R,S$ be commutative rings, $\varphi: R \to S$ be a ring homomorphism.
+	Assume $S$ is a flat $R$-module
+	and consider $M_R$ a finitely presented $R$-module.
+	Then, for any $N \in \mathsf{Mod}\text{-}R$
+	\begin{equation}
+	\mathrm{Hom}_{ S}\left( M \otimes_R S, N \otimes_R S \right) \simeq
+	\mathrm{Hom}_{ R}\left( M, N \right) \otimes_R S
+	.\end{equation} 	
+\end{prop} 
+
+Let's now extend this result for the $\mathrm{Ext}$ functor:
+\begin{defn}
+	We denote by $\mathsf{mod}\text{-}R$ (using the lowercase m to differentiate from the
+	bigger category) the category of right $R$-modules $M$ with a projective
+	resolution of finitely generated projective modules
+	(i.e. all the syzygys $\Omega_n(M)$ are finitely generated:
+	at each point the kernel [i.e. the syzygy] is an epimorphic image of a finitely generated module).
+\end{defn}
+
+\begin{rem}[]
+	If $R$ is a right Noetherian ring, then
+	the objects of $\mathrm{mod}\text{-}R$ are exactly the finitely generated $R$-modules.
+\end{rem}
+
+\begin{defn}[Right coherent ring]
+	a ring $R$ is \textbf{right coherent} iff every finitely generated right ideal
+	is also finitely presented.
+	Equivalently iff every finitely generated submodule of a finitely
+	presented right $R$-module is finitely presented.
+\end{defn}
+\begin{rem}[]
+	Let $R$ be right coherent, then
+	$\mathsf{mod}\text{-}R$ is the category of finitely presented right $R$-modules.
+\end{rem}
+
+\begin{prop}
+	Let $R,S$ be commutative rings, $\varphi: R \to S$ a ring homomorphism
+	and assume that $S$ is a flat $R$-module.
+	Consider $M \in \mathsf{mod}\text{-}R$ and $N \in \mathsf{Mod}\text{-}R$,
+	then for all $n \in \N$
+	\begin{equation}
+		\mathrm{Ext}^n_S \left( M \otimes_R S, N \otimes_R S \right) \simeq
+		\mathrm{Ext}^n_R \left( M,N \right) \otimes_R S
+	.\end{equation} 
+\end{prop} 
+
+\begin{cor}
+	Let $R$ be a commutative ring,
+	$M_R \in \mathsf{mod}\text{-}R$, $N \in \mathsf{Mod}\text{-}R$ and $n \in \N$.
+	TFAE:
+	\begin{enumerate}
+		\item $\mathrm{Ext}^n_R = 0$,
+		\item $\mathrm{Ext}^{ n}_{ R_P} \left( M_P, N_P \right) = 0$ for all $P \in \mathrm{Spec}\, R$,
+		\item $\mathrm{Ext}^{ n}_{ R_{\mathfrak{m}}} \left( M_{\mathfrak{m}}, N_{\mathfrak{m}} \right) = 0$
+			for all $\mathfrak{m} \in \mathrm{MaxSpec}\, R$.
+	\end{enumerate}
+\end{cor} 
+
+\subsection{Homological formulas relating Ext and Hom}
+\begin{prop}
+	Consider $R,S$ rings.
+	Let ${}_RN_S$ be an $S$-$R$ bimodule and $M_R \in \mathsf{Mod}\text{-}R$.
+	Consider $C_S$ an injective right $S$-module.
+	Then for all $n \geq 0$
+	\begin{equation}
+	\mathrm{Ext}^{ n}_{ R} \left( M_R, \mathrm{Hom}_{ S}\left( N_S, C_S \right)_R \right) \simeq
+	\mathrm{Hom}_{ S}\left( \mathrm{Tor}^{ R}_{ n} \left( M, N \right)_S, C_S  \right)
+	.\end{equation} 
+	In particular, if $S := \Z$ and $C := \mathbb{Q}/\Z$, then
+	\begin{equation}
+	\mathrm{Ext}^{ n}_{ R} \left( M_R, N^* \right) \simeq
+	\left[ \mathrm{Tor}^{ R}_{ n} \left( M, N \right)\right]^*
+	.\end{equation} 
+\end{prop} 
+
+\begin{prop}
+	Consider $R,S$ rings.
+	Let ${}_RN_S$ be an $S$-$R$ bimodule and $M_R \in \mathsf{mod}\text{-}R$.
+	Consider ${}_SC$ an injective left $S$-module.
+	Then for all $n \geq 0$
+	\begin{equation}
+		\mathrm{Tor}^{ R}_{ n} \left( M_R, \mathrm{Hom}_{ S}\left( {}_SN_R, {}_SC \right) \right) \simeq
+		\mathrm{Hom}_{ S}\left( \mathrm{Ext}^{ n}_{ R} \left( M_R, {}_SN_R \right), {}_SC \right)
+	.\end{equation} 
+	In particular, if $S := \Z$ and $C := \mathbb{Q}/\Z$, then
+	\begin{equation}
+		\mathrm{Tor}^{ R}_{ n} \left( M, N^* \right) \simeq
+		\left[ \mathrm{Ext}^{ n}_{ R} \left( M, N \right) \right]^*
+	.\end{equation} 
+\end{prop} 
+
+\begin{ex}
+	Let $M_R \in \mathsf{Mod}\text{-}R$,
+	${}_RG_S$ and $R$-$S$ bimodule and $C_S \in \mathsf{Mod}\text{-}S$.
+	Assume that $\mathrm{Tor}^{ R}_{ 1} \left( M, G \right) = 0$, then
+	there is a monomorphism (of abelian groups)
+	\begin{equation}
+		\mathrm{Ext}^{ 1}_{ R} \left( M_R, \mathrm{Hom}_{ S}\left( {}_RG_S, C_S \right) \right) \hookrightarrow 
+		\mathrm{Ext}^{ 1}_{ S} \left( M \otimes_R G, C_S \right)
+	.\end{equation}
+\end{ex} 
+
+\subsubsection{Yoneda extension}
+Our next aim is, given an abelian category $\mathsf{A}$ and objects $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$,
+to define $\mathrm{Ext}^{ }_{ \mathsf{A}} \left( A, B \right)$ even though
+$\mathsf{A}$ might not have enough injectives nor projectives.
+\begin{defn}[Extension]
+	Let $\mathsf{A}$ be an abelian category, $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	An extension of $A$ by $B$ is a s.e.s.
+	\begin{equation}
+		\zeta := 0 \to B \to  X \to A \to 0
+	.\end{equation} 
+	We say that two extensions $\zeta$ and $\zeta'$ are equivalent, denoted by $\zeta \sim \zeta'$,
+	iff there is a commutative diagram s.t. the nontrivial vertical arrow is an isomorphism
+	\begin{equation}
+	\begin{tikzcd}
+		\zeta : &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		X \arrow[r, "", rightarrow] \arrow[d, "\simeq", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\zeta' : &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X' \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation} 
+\end{defn}
+\begin{rem}[Split extensions]
+	Recall the characterization of splitting s.e.s.s: an extension
+	\begin{equation}
+	\zeta := 0 \to B \xrightarrow{\mu} X \xrightarrow{p} A \to 0
+	\end{equation} 
+	splits iff it is equivalent to the following extension of $A$ by $B$:
+	\begin{equation}
+	0 \to B \xrightarrow{\epsilon_B} A \oplus B \xrightarrow{\pi_A} A \to 0
+	.\end{equation} 
+	Equivalently iff there is $f: X \to B$ s.t. $f \circ \mu = 1_B$
+	iff there is $g: A \to X$ s.t. $p \circ g = 1_A$.
+\end{rem}
+
+\begin{rem}[Class of extensions and Ext]
+	Denote by $\mathrm{E}(A,B)$ the class of all extensions of $A$ by $B$.
+	If we denote by $\sim$ the above equivalence relation, and we can
+	define $\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)$ (i.e. if $\mathsf{A}$
+	has enough injectives of projectives), then we want to construct an isomorphism
+	$\theta$ of abelian groups
+	\begin{equation}
+	\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right) \simeq_{\theta}
+	\frac{\mathrm{E}(A,B)}{\sim}
+	.\end{equation} 
+	Let's define $\theta$:
+	Fix $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$, and consider an extension of $A$ by $B$
+	\begin{equation}
+	\zeta := 0 \to B \to X \to A \to 0
+	.\end{equation} 
+	Assume that $\mathrm{Ext}^{ n}_{ \mathsf{A}} \left( -, B \right)$ exist,
+	forming a cohomological $\partial$-functor (e.g. if $\mathsf{A}$ has enough
+	projectives).
+	Apply $\mathrm{Hom}_{\mathsf{A}} \left( -, B \right)$ to $\zeta$, and obtain
+	\begin{equation}
+	0 \to \mathrm{Hom}_{\mathsf{A}} \left( A, B \right) \to \mathrm{Hom}_{\mathsf{A}} \left( X, B \right) \to 
+	\mathrm{Hom}_{\mathsf{A}} \left( B, B \right) \xrightarrow{\partial} \mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)
+	.\end{equation} 
+	Finally we define $\theta(\zeta) := \partial(1_B) \in \mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)$.
+\end{rem}
+
+\begin{lem}
+	Fixed $\mathsf{A}$ and $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$ as before, 
+	if $\zeta \sim \zeta' \in \mathrm{E}(A,B)$, then $\theta(\zeta) = \theta(\zeta')$.
+
+	In other words $\theta: \mathrm{E}(A,B) \to \mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)$
+	induces a map on the quotient $\frac{\mathrm{E}(A,B)}{\sim}$.
+\end{lem} 
+
+\begin{thm}[]
+	Given $\mathsf{A}$, $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$ as before,
+	$\theta$ gives a bijective correspondance
+	\begin{equation}
+	\begin{tikzcd}[column sep=small]
+		\frac{\mathrm{E}(A,B)}{\sim} \arrow[r, "\theta", leftrightarrow] &
+		\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)
+	\end{tikzcd}
+	.\end{equation} 
+\end{thm}
+
+\begin{lem}
+	Let $\mathsf{A}$ be an abelian category.
+	Conider a commutative diagram
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		K \arrow[r, "\nu", rightarrow] \arrow[d, "\beta"', rightarrow] &
+		M \arrow[r, "", rightarrow] \arrow[d, "h", rightarrow] \arrow[ld, "\zeta"', dashrightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		Y \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	,\end{equation} 
+	with exact rows and where the leftmost square is a pushout.
+	Show that there is $g: M \to B$ s.t. $g \circ \nu = \beta$
+	iff the second row splits.
+\end{lem} 
+
+\begin{lem}
+	Let $\mathsf{A}$, $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$ as before,
+	then $\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right) = 0$ (as abelian groups)
+	iff every extension of $A$ by $B$ splits.
+\end{lem} 
+
+\begin{rem}[]
+	Consider $\zeta \in \mathrm{E}(A,B)$,
+	then $\gamma \in \mathrm{Hom}_{\mathsf{A}} \left( A', A \right)$
+	gives $\zeta\gamma \in \mathrm{E}(A',B)$
+	\begin{equation}
+	\begin{tikzcd}
+		\zeta\gamma: &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		X' \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] &
+		A' \arrow[r, "", rightarrow] \arrow[d, "\pi", rightarrow] &
+		0\\
+		\zeta: &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	,\end{equation} 
+	where $X'$ is a pullback of the diagram
+	\begin{equation}
+	\begin{tikzcd}
+		& A' \arrow[d, "\pi", rightarrow] \\
+		X \arrow[r, "", rightarrow] & A
+	\end{tikzcd}
+	.\end{equation} 
+	Analogously $\beta \in \mathrm{Hom}_{\mathsf{A}} \left( B, B' \right)$ gives
+	$\beta\zeta \in \mathrm{E}(A,B')$:
+	\begin{equation}
+	\begin{tikzcd}
+		\zeta: &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "\beta", rightarrow] &
+		X \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\beta\zeta: &
+		0 \arrow[r, "", rightarrow] &
+		B' \arrow[r, "", rightarrow] &
+		X' \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	,\end{equation} 
+	where $X'$ is a pushout of the diagram
+	\begin{equation}
+	\begin{tikzcd}
+		B \arrow[r, "", rightarrow] \arrow[d, "p"', rightarrow] & X\\
+		B' &
+	\end{tikzcd}
+	.\end{equation} 
+\end{rem}
+
+\begin{defn}[Baer sum in $\mathrm{E}(A,B)/\sim$]
+	Consider $\mathsf{A}$, $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$ as before.
+	Let $\left[ \zeta \right], \left[ \zeta' \right]$ be the equivalence classes, wrt $\sim$,
+	of $\zeta,\zeta' \in \mathrm{E}(A,B)$:
+	\begin{equation}
+	\zeta := 0 \to B \xrightarrow{i} X \xrightarrow{\pi} A \to 0
+	\qquad \text{ and } \qquad
+	\zeta' := 0 \to B \xrightarrow{i'} X' \xrightarrow{\pi'} A \to 0
+	.\end{equation} 
+	Now consider the extension of $A \oplus A$ by $B \oplus B$, given by the direct sum
+	\begin{equation}
+	\zeta \oplus \zeta' :=
+	0 \to B \oplus B \xrightarrow{i \oplus i'} X \oplus X' \xrightarrow{\pi \oplus \pi'} 
+	A \oplus A \to 0
+	\end{equation} 
+	and $\Delta_A: A \to A \oplus A$ the diagonal map, i.e. $\Delta_A = \begin{bmatrix} 1_A \\ 1_A \end{bmatrix}$,
+	and $\nabla_B: B \to B \oplus B$ the codiagonal map, i.e. $\nabla_B = \begin{bmatrix} 1_B & 1_B \end{bmatrix}$.
+	By the above remark we can construct
+	\begin{equation}
+	\begin{tikzcd}
+		\nabla_B \left( \zeta \oplus \zeta' \right) \Delta_A: &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		Z \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\left( \zeta \oplus \zeta' \right) \Delta_A : &
+		0 \arrow[r, "", rightarrow] &
+		B \oplus B \arrow[r, "", rightarrow] \arrow[d, "", equal] \arrow[u, "\nabla_B", rightarrow] &
+		Y \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] \arrow[u, "", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "\Delta_A", rightarrow] &
+		0\\
+		\zeta \oplus \zeta' : &
+		0 \arrow[r, "", rightarrow] &
+		B \oplus B \arrow[r, "", rightarrow] &
+		X \oplus X' \arrow[r, "", rightarrow] &
+		A \oplus A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation} 
+	Finally we define $\left[ \zeta \right] + \left[ \zeta' \right] :=
+	\left[ \nabla_B \left( \zeta \oplus \zeta' \right)\Delta_A \right]$.
+	We can also see that this definition is independent of the choice
+	of representatives.
+\end{defn}
+
+\begin{prop}
+	$\mathrm{E}(A,B)/\sim$, with the just defined Baer sum, is an abelian group,
+	and 
+	\begin{equation}
+		\theta: \frac{\mathrm{E}(A,B)}{\sim} \to \mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)
+	\end{equation} 
+	is a group homomorphism.
+\end{prop} 
+By this proposition, one can also define $\mathrm{Ext}^1_R$
+to be $\mathrm{E}(A,B)/\sim$, and this definition does not require the 
+abelian category $\mathsf{A}$ to have enough injectives/projectives.
+
+Analogously this construction can be carried out for every $n \in \N$:
+\begin{defn}[$n$ extension]
+	Let $\mathsf{A}$ be an abelian category, $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	An $n$ extension of $A$ by $B$, denoted by $\zeta \in \mathrm{E}_n(A,B)$, is an exact sequence
+	\begin{equation}
+		\zeta := 0 \to B \to X_n \to X_{n-1} \to \ldots \to X_1 \to A \to 0
+	.\end{equation} 
+	We say that two extensions $\zeta$ and $\zeta'$ are equivalent, denoted by $\zeta \sim \zeta'$,
+	iff there is a commutative diagram s.t. the nontrivial vertical arrows are all isomorphisms
+	\begin{equation}
+	\begin{tikzcd}
+		\zeta : &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		X_n \arrow[r, "", rightarrow] \arrow[d, "f_n", rightarrow] &
+		X_{n-1} \arrow[r, "", rightarrow] \arrow[d, "f_{n-1}", rightarrow] &
+		\ldots \arrow[r, "", rightarrow] &
+		X_1 \arrow[r, "", rightarrow] \arrow[d, "f_1", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\zeta' : &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X'_n \arrow[r, "", rightarrow] &
+		X'_{n-1} \arrow[r, "", rightarrow] &
+		\ldots \arrow[r, "", rightarrow] &
+		X'_1 \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation} 
+\end{defn}
+
+\begin{prop}
+	For every $n \in \N$, if $\mathrm{Ext}^{ n}_{ \mathsf{A}} \left( A, B \right)$ is defined
+	in $\mathsf{A}$ abelian,
+	then we have the isomorphism of abelian groups
+	\begin{equation}
+		\frac{\mathrm{E}_n(A,B)}{\sim} \simeq
+		\mathrm{Ext}^{ n}_{ \mathsf{A}} \left( A, B \right)
+	.\end{equation} 
+\end{prop} 
