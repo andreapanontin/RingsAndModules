@@ -1,0 +1,188 @@
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
+'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS',
+'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+
+texIgnoreMathZones = ['texMathText']
+
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+
+ignore = texIgnoreMathZoneIds[0]
+
+def math():
+        synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+        try:
+                first = next(
+            i for i in reversed(synstackids)
+            if i in texIgnoreMathZoneIds or i in texMathZoneIds
+        )
+                return first != ignore
+        except StopIteration:
+                return False
+endglobal
+
+snippet VFF "Vector Field" wA
+Vector Field $0
+endsnippet
+
+snippet up "Universal Property" w
+universal property
+endsnippet
+
+snippet Up "Universal Property" w
+Universal property
+endsnippet
+
+snippet UP "Universal Property" w
+Universal property
+endsnippet
+
+context "math()"
+snippet man "Manifold" w
+\mathcal{$1}$0
+endsnippet
+
+snippet fcc "Functor Category" wA
+\mathsf{Fct}\left($1, $2 \right) $0
+endsnippet
+
+snippet fct "functor" wA
+functor
+endsnippet
+
+snippet Fct "Functor" wA
+Functor
+endsnippet
+
+snippet op "Opposite category" i
+^{op}
+endsnippet
+
+snippet psh "Presheaves" wA
+\mathsf{PSh}\left( $1 \right)$0
+endsnippet
+
+snippet rmod "Cat of modules" wA
+R$1\text{-}\mathsf{Mod}
+endsnippet
+
+snippet modr "Cat of modules" wA
+\mathsf{Mod}\text{-}R
+endsnippet
+
+snippet cat "category" i
+\mathsf{$1}
+endsnippet
+
+#snippet opnss "Open subset" wA
+#\stackrel{\text{open}}{\subset} $0
+#endsnippet
+#
+snippet flsct "Full subcategory" wA
+\stackrel{\text{full}}{\subset} $0
+endsnippet
+
+#snippet hom "Hom set" w
+#\mathrm{Hom}_{$1} \left( $2, $3 \right)
+#endsnippet
+
+snippet Hom "Hom set" w
+\mathrm{Hom}_{$1} \left( $2, $3 \right)
+endsnippet
+
+snippet homc "Hom set of a category" wA
+\mathrm{Hom}_{\mathsf{$1}} \left( $2, $3 \right)
+endsnippet
+
+snippet Homc "Hom set of a category" wA
+\mathrm{Hom}_{\mathsf{$1}} \left( $2, $3 \right)
+endsnippet
+
+snippet ihom "internal Hom set" w
+\mathcal{H}\mathrm{om}_{$1} \left( $2, $3 \right)
+endsnippet
+
+snippet prlim "projective limit" wA
+\varprojlim
+endsnippet
+
+snippet inlim "injective limit" wA
+\varinjlim
+endsnippet
+
+#snippet tns "Tensor product" iA
+#\otimes_{$1} $0
+#endsnippet
+
+snippet obc "set of objects of a category" wA
+\mathrm{Ob} \left(\mathsf{$1}\right)
+endsnippet
+
+snippet ccc "Category C" iA
+\mathsf{C}
+endsnippet
+
+snippet ccd "Category D" iA
+\mathsf{D}
+endsnippet
+
+snippet ccs "Category of Sets" iA
+\mathsf{Sets}
+endsnippet
+
+snippet cci "Category I" iA
+\mathsf{I}
+endsnippet
+
+snippet cct "Category of functors from I to C" iA
+\mathsf{C}^{\mathsf{I}}
+endsnippet
+
+snippet dp "p-simplex" w
+\Delta^{p$1}
+endsnippet
+
+snippet rmd "R-module" wA
+$R$-module
+endsnippet
+
+snippet ntt "Natural transformation set" wA
+\mathrm{Nat} \left( $2, $3 \right)
+endsnippet
+
+snippet dsm "Direct sum" wA
+\bigoplus_{$1}
+endsnippet
+
+snippet chc "Chain complex category" wA
+\mathrm{Ch}(\mathsf{$1})
+endsnippet
+
+snippet cchc "Cochain complex category" wA
+\mathrm{Cch}(\mathsf{$1})
+endsnippet
+
+snippet chx "Chain complex" wA
+\left( $1_{\bullet}, d^{$1} \right)
+endsnippet
+
+snippet cchx "Cochain complex" wA
+\left( $1^{\bullet}, d_{$1} \right)
+endsnippet
+
+snippet funcotr "Functor misspell" wA
+functor
+endsnippet
+
+snippet Funcotr "Functor misspell" wA
+Functor
+endsnippet
+
+snippet ext "Ext" i
+\mathrm{Ext}^{ $1}_{ $2} \left( $3, $4 \right)
+endsnippet
+
+snippet tor "Tor" i
+\mathrm{Tor}^{ $1}_{ $2} \left( $3, $4 \right)
+endsnippet
