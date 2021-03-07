@@ -11,7 +11,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	Consider a family $\left\{ \alpha_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$ of morphisms 
 	$\alpha_i: X \to F(i)$ for a fixed $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
 	It is said to be a \textbf{compatible family} with respect to $F$ iff
-	given any morphism $\lambda: i \to j$ in $\mathsf{I}$, the following trangle commutes
+	given any morphism $\lambda: i \to j$ in $\mathsf{I}$, the following triangle commutes
 	\begin{equation}
 	\begin{tikzcd}
 		X \arrow[r, "\alpha_i", rightarrow] \arrow[rd, "\alpha_j"', rightarrow] &
@@ -25,7 +25,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 
 \begin{defn}[Projective (inverse) limit]
 	A (projective/inverse) \textbf{limit} of $F$ is an object in $\mathsf{C}$, denoted with $\varprojlim F$, with morphisms
-	$p_i: \varprojlim F \to F(i)$ for all $i \in \mathrm{Ob} \left(\mathsf{I}\right)$ stasfying the following conditions
+	$p_i: \varprojlim F \to F(i)$ for all $i \in \mathrm{Ob} \left(\mathsf{I}\right)$ satisfying the following conditions
 	\begin{description}
 		\item[LIM1] $\left\{ p_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$ is a compatible family of morphisms, i.e.
 			\begin{equation}
@@ -151,14 +151,14 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	in other words $f_{ij} \circ f_{jk} = f_{ik}$.
 	Moreover we require $f_{ii} = id_{M_i}$.
 
-	We have, in fact, a correspondance, between contravariant functors from partially ordered sets and
+	We have, in fact, a correspondence, between contravariant functors from partially ordered sets and
 	inverse systems of modules, which are families $\left\{ M_i, F_{ij} \right\}_{i \leq j}$ of modules $M_i$ and morphism $f_{ij}$ between them, satisfying the above compatibility conditions.
 
 	Then, $\varprojlim F$ is called the \textbf{inverse limit} of $\left\{ M_i, f_{ij} \right\}_{i \leq j}$.
 	The morphisms $f_{ij}$ are called the structural morphisms of the inverse system.
 	Sometimes this is also denoted with $\varprojlim M_i$.
 	
-	Let's describe $\varprojlim M_i$ explicitly: for every $i \leq j$ we have the (not necessairily commutative) diagram
+	Let's describe $\varprojlim M_i$ explicitly: for every $i \leq j$ we have the (not necessarily commutative) diagram
 	\begin{equation}
 	\begin{tikzcd}
 		\prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i \arrow[r, "\pi_j", rightarrow] \arrow[rd, "\pi_i"', rightarrow] &
@@ -276,7 +276,7 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 	More explicitly if $\mathsf{C}$ is preadditive/additive/abelian, then also
 	$\mathsf{C}^{\mathsf{I}}$ is preadditive/additive/abelian.
 	
-	Morever construction in $\mathsf{C}$ can be done in $\mathsf{C}^{\mathsf{I}}$ locally, for every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$.
+	Moreover construction in $\mathsf{C}$ can be done in $\mathsf{C}^{\mathsf{I}}$ locally, for every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$.
 	For instance:
 	\begin{itemize}
 		\item Given $\eta, \zeta \in \mathrm{Hom}_{\mathsf{C}^{\mathsf{I}}} \left( F, G \right)$, if $\mathsf{C}$ is preadditive, then
@@ -320,7 +320,8 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 			From this we define $K(\lambda) := \nu$.
 			Then, the couple $\left(K, \left\{ \epsilon_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} \right)$
 			is the kernel of $\left\{ \eta_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} $
-		\item As an exercise to the writer: when you'll next read this line, please try to define the cokernel of a functor.
+		\item As an exercise to the writer: when you'll next read this line,
+			please try to define the cokernel of a functor.
 	\end{itemize}
 \end{prop} 
 
@@ -468,7 +469,7 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 	Moreover the colimit is constructed by cokernels and (infinite) coproducts.
 \end{prop} 
 \begin{proof}
-	As above, the proof wants to show that the following construction asctually is a direct limit for $F$.
+	As above, the proof wants to show that the following construction actually is a direct limit for $F$.
 	Consider $\left(\coprod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i), \epsilon_i\right)$ the coproduct of $F(i)$.
 	Define
 	\begin{equation}
@@ -542,17 +543,17 @@ Let's now describe a particular case of colimits:
 	,\end{equation} 
 	in other words $f_{kj} \circ f_{ji} = f_{ki}$. Moreover we require $f_{ii} = id_{M_i}$.
 
-	We have, in fact, a correspondance, between functors from partially ordered sets and
+	We have, in fact, a correspondence, between functors from partially ordered sets and
 	direct systems of modules, which are families $\left\{ M_i, f_{ij} \right\}_{i \leq j}$ of modules $M_i$ and morphism $f_{ij}$ between them, satisfying the above compatibility conditions.
 
 	Then, $\varinjlim F$ is called the \textbf{direct limit} of $\left\{ M_i, f_{ij} \right\}_{i \leq j}$.
 	The morphisms $f_{ij}$ are called the structural morphisms of the direct system.
 	Sometimes this is also denoted with $\varinjlim M_i$.
 	
-	Let's describe $\varinjlim M_i$ explicitly: for every $i \leq j$ we have the (not necessairily commutative) diagram
+	Let's describe $\varinjlim M_i$ explicitly: for every $i \leq j$ we have the (not necessarily commutative) diagram
 	\begin{equation}
 	\begin{tikzcd}
-		M_i \arrow[r, "\epsilon_j", rightarrow] \arrow[d, "f_{ji}"', rightarrow] &
+		M_i \arrow[r, "\epsilon_i", rightarrow] \arrow[d, "f_{ji}"', rightarrow] &
 		\bigoplus_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i \\
 		M_j \arrow[ru, "\epsilon_j"', rightarrow] & 
 	\end{tikzcd} 
@@ -573,13 +574,14 @@ Let's now describe a particular case of colimits:
 		x_i \in M_i,\ i \leq j \right\} \subset
 		\bigoplus_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i
 	.\end{equation} 
-	In particualr the generators of $\Ima \psi$ are of the form
+	In particular the generators of $\Ima \psi$ are of the form
 	\begin{equation}
 		\left( \ldots, 0, \ldots, 
 		0, x_i, 0, \ldots, 0, - f_{ji}(x_i),
 		0, \ldots, 0, \ldots \right)
 	.\end{equation} 	
-	It is a submodule of the product, in which, $x_i$ in position $i$ and $f_{ji}(x_i)$ in position $j$ are identified.
+	It is a submodule of the product, in which $x_i$, in position $i$,
+	and $f_{ji}(x_i)$, in position $j$, are identified.
 \end{ex}
 
 \begin{defn}[Directed poset]
@@ -588,7 +590,7 @@ Let's now describe a particular case of colimits:
 	\,\forall\,  i, j \in I \ \exists\, k \in I \text{ s.t. } i \leq k \text{ and } i \leq k
 	.\end{equation} 
 \end{defn}
-Morevoer, if $\left(M_i, f_{ji}\right)_{i \leq j}$, for $I$ filtered, then $\varinjlim M_i$ is called
+Moreover, if $\left(M_i, f_{ji}\right)_{i \leq j}$, for $I$ filtered, then $\varinjlim M_i$ is called
 directed (or filtered) limit.
 In general it is easier to describe a colimit on a directed poset.
 
@@ -622,7 +624,7 @@ Before giving an example of one such limit, let's recall a definition:
 	\mathcal{F} := \left\{ N \leq M \ \middle|\ 
 	N \text{ is finitely generated } \right\}
 	.\end{equation} 
-	Let's label the elements $N \in \mathcal{F}$ as $N= N_i$, for some index $i \in \mathsf{I}$, with $\mathsf{I}$ a set of indeces.
+	Let's label the elements $N \in \mathcal{F}$ as $N= N_i$, for some index $i \in \mathsf{I}$, with $\mathsf{I}$ a set of indices.
 	Let's define a partial order on $\mathsf{I}$:
 	$i \leq j$ iff $N_i \subset N_j$.
 	Moreover, if $i, j \in \mathsf{I}$, then $N_i + N_j$ is finitely generated, hence $\exists\, k \in \mathsf{I}$ s.t.
@@ -689,7 +691,7 @@ Before giving an example of one such limit, let's recall a definition:
 	every element $x \in \varinjlim M_i = (\bigoplus M_i)/D$ can be written as
 	$\mu_i(x_i)$, for some $i \in \mathsf{I}$ and $x_i \in M_i$.
 
-	(Then we can interpet $\varinjlim M_i = \sum_{i \in \mathsf{I}}^{} \mu_i (M_i)$).
+	(Then we can interpret $\varinjlim M_i = \sum_{i \in \mathsf{I}}^{} \mu_i (M_i)$).
 \end{lem} 
 \begin{proof}
 	The idea is simply the fact that $\mathsf{I}$ is filtered 
