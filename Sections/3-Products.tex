@@ -90,13 +90,15 @@
 \begin{defn}[Ker functor]
 	Let $\mathsf{C}$ be a preadditive category admitting zero object.
 	Consider $A \xrightarrow{f} B$ a morphism in $\mathsf{C}$.
-	This induces a natural transformation, given by the collection of maps
+	This induces a natural transformation 
+	$f_*\colon h^A \to h^B$, given by the collection of maps
 	\begin{align}
 		f_*(X): h^A(X) = \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, B \right) = h^B(X) \\
 		\alpha &\mapsto f \circ \alpha
 	\end{align} 
 	for $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
-	For any $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ $f_*(X)$ is a morphism of abelian groups, hence it admits a kernel.
+	For any $X \in \mathrm{Ob} \left(\mathsf{C}\right)$,
+	$f_*(X)$ is a morphism of abelian groups, hence it admits a kernel.
 	\begin{equation}
 		\ker f_*(X) = \left\{ X \xrightarrow{\alpha} A  \ \middle|\ f \circ \alpha = 0\right\} \leq \mathrm{Hom}_{\mathsf{C}} \left( X, A \right)
 	.\end{equation} 
@@ -117,7 +119,8 @@
 	Let $F \simeq_\eta \mathrm{Hom}_{\mathsf{C}} \left( -, K \right)$, for $K \in \mathrm{Ob} \left(\mathsf{C}\right)$ a representative of $F$.
 	Then $\epsilon$ is given by
 	\begin{align}
-		\mathrm{Hom}_{\mathsf{C}} \left( K, K \right) &\xrightarrow{\eta_K} F(K) \\
+		\mathrm{Hom}_{\mathsf{C}} \left( K, K \right) &\xrightarrow{\eta_K} F(K) 
+		\subset \mathrm{Hom}_{\mathsf{C}} \left( K, A \right)\\
 		1_K &\mapsto \epsilon
 	.\end{align} 
 \end{prop} 
@@ -125,9 +128,11 @@
 \begin{defn}[Coker functor]
 	Let $\mathsf{C}$ be a preadditive category admitting zero object.
 	Consider $A \xrightarrow{f} B$ a morphism in $\mathsf{C}$.
-	This induces a natural transformation, given by the collection of maps
+	This induces a natural transformation
+	$f^*\colon h_B \to h_A$, given by the collection of maps
 	\begin{align}
-		f^*(X): h_B(X) = \mathrm{Hom}_{\mathsf{C}} \left( B, X \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) h_A(X) \\
+		f^*(X): h_B(X) = \mathrm{Hom}_{\mathsf{C}} \left( B, X \right) &\to
+		\mathrm{Hom}_{\mathsf{C}} \left( A, X \right) = h_A(X) \\
 		\beta &\mapsto \beta \circ f
 	\end{align} 
 	for $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
@@ -155,7 +160,8 @@
 	.\end{equation} 
 	In this case a cokernel is given by $\left(C, p\right)$, with $C \in \mathrm{Ob} \left(\mathsf{C}\right)$ a representative of $F$ and $p$ given by
 	\begin{align}
-		\mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) \\
+		\mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) 
+		\subset \mathrm{Hom}_{\mathsf{C}} \left( B, C \right)\\
 		1_C &\mapsto p
 	.\end{align} 
 \end{prop} 
@@ -215,11 +221,15 @@
 		\left(\alpha, \beta\right) &\mapsto \left(\alpha \circ f, \beta \circ f \right)
 	.\end{align} 
 	A product $\left(A \prod B, \pi_A, \pi_B \right)$ exists iff the functor $F$ is representable.
-	In other words iff $F \simeq_\eta \mathrm{Hom}_{\mathsf{C}} \left( -, C \right)$ for some $C \in \mathrm{Ob} \left(\mathsf{C}\right)$.
-	In this case $\left(C, \pi_A, \pi_B\right)$ is a product of $A$ and $B$, where $\left(\pi_A, \pi_B\right)$ are given by
+	In other words iff $F \simeq_\eta \mathrm{Hom}_{\mathsf{C}} \left( -, P \right)$
+	for some $P \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+	In this case $\left(P, \pi_A, \pi_B\right)$ is a product of $A$ and $B$,
+	where $\left(\pi_A, \pi_B\right)$ are given by
 	\begin{align}
-		\eta_C: \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) = \mathrm{Hom}_{\mathsf{C}} \left( C, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( C, B \right)  \\
-		1_C &\mapsto \left(\pi_A, \pi_B\right)
+		\eta_P: \mathrm{Hom}_{\mathsf{C}} \left( P, P \right) &\to F(P) =
+		\mathrm{Hom}_{\mathsf{C}} \left( P, A \right) \cross 
+		\mathrm{Hom}_{\mathsf{C}} \left( P, B \right)  \\
+		1_P &\mapsto \left(\pi_A, \pi_B\right)
 	.\end{align} 
 \end{prop} 
 
@@ -233,7 +243,10 @@
 
 \begin{defn}[Coproduct]
 	Let $A,B \in \mathrm{Ob} \left(\mathsf{C}\right)$ for an arbitrary category $\mathsf{C}$.
-	A \textbf{coproduct} of $A$ and $B$, if it exists, is a triple $\left(A \coprod B, \epsilon_A, \epsilon_B \right)$, whew $A \coprod B \in \mathrm{Ob} \left(\mathsf{C}\right)$ and the morphisms $\epsilon_A$ and $\epsilon_B$, called \textbf{embeddings}, 
+	A \textbf{coproduct} of $A$ and $B$, if it exists,
+	is a triple $\left(A \coprod B, \epsilon_A, \epsilon_B \right)$,
+	where $A \coprod B \in \mathrm{Ob} \left(\mathsf{C}\right)$
+	and the morphisms $\epsilon_A$ and $\epsilon_B$, called \textbf{embeddings}, 
 	\begin{equation}
 	A \xrightarrow{\epsilon_A} A \coprod B \quad \text{ and } \quad B \xrightarrow{\epsilon_B} A \coprod B
 	\end{equation} 
@@ -340,9 +353,9 @@
 	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$ an arbitrary family of objects in the category $\mathsf{C}$.
 	 \begin{itemize}
 		 \item A \textbf{product} of the $A_i$s is the couple $\left(\prod_i A_i, (\pi_i)_{i \in I} \right)$, with $\prod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\pi_i: \prod_j A_j \to A_i$ for any $i \in I$, satisfying the universal property:
-			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $X \xrightarrow{\alpha_i} A_i$, then $\exists\, !\, \alpha: X \to \prod_i A_i$ s.t. $\pi_i \circ \alpha = \alpha_i$ for any $i$.
+			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $X \xrightarrow{\alpha_i} A_i$, then $\exists\, !\, \alpha: X \to \prod_i A_i$ s.t. $\pi_i \circ \alpha = \alpha_i$ for all $i$.
 		 \item A \textbf{coproduct} of the $A_i$s is the couple $\left(\coprod_i A_i, (\epsilon_i)_{i \in I} \right)$, with $\coprod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\epsilon_i: A_i \to \coprod_j A_j$ for any $i \in I$, satisfying the universal property:
-			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $A_i \xrightarrow{\alpha_i} X$, then $\exists\, !\, \alpha: \coprod_i A_i \to X$ s.t. $\alpha \circ \epsilon_i = \alpha_i$ for any $i$.
+			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $A_i \xrightarrow{\alpha_i} X$, then $\exists\, !\, \alpha: \coprod_i A_i \to X$ s.t. $\alpha \circ \epsilon_i = \alpha_i$ for all $i$.
 			 In other words it is a product in $\mathsf{C}^{op}$.
 	\end{itemize}
 \end{defn}
@@ -427,7 +440,8 @@
 
 \begin{prop}
 	Let $\mathsf{C}$ be an arbitrary category.
-	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob}, \left\{ B_i \right\}_{i \in I}
+	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right),
+	\left\{ B_i \right\}_{i \in I}
 	\subset \mathrm{Ob} \left(\mathsf{C}\right)$.
 	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i: A_i \to B_i$.
 	Assume that both products $\left(\prod_{i \in I} A_i , \pi_i\right)$ and $\left(\prod_{i \in I} B_i, p_i\right)$ exist in $\mathsf{C}$.
@@ -436,12 +450,14 @@
 	\exists\, !\, \alpha: \prod_{i \in I} A_i  \to \prod_{i \in I} B_i
 	\end{equation} 
 	s.t. $p_i \circ \alpha = \alpha_i \circ \pi_i$.
-	Moreover if, for all $i$, the morphism $\alpha_i$ is a mono, then also $\alpha$ is a monomorphism.
+	Moreover if, for all $i$, the morphism $\alpha_i$ is a monomorphism,
+	then also $\alpha$ is a monomorphism.
 \end{prop} 
 
 \begin{prop}
 	Let $\mathsf{C}$ be an arbitrary category.
-	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob}, \left\{ B_i \right\}_{i \in I}
+	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right),
+	\left\{ B_i \right\}_{i \in I}
 	\subset \mathrm{Ob} \left(\mathsf{C}\right)$.
 	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i: A_i \to B_i$.
 	Assume that both coproducts $\left(\coprod_{i \in I} A_i , \epsilon_i\right)$ and
@@ -451,7 +467,8 @@
 	\exists\, !\, \alpha: \coprod_{i \in I} A_i  \to \coprod_{i \in I} B_i
 	\end{equation} 
 	s.t. $\alpha \circ \epsilon_i = \delta_i \circ \alpha_i$.
-	Moreover if, for all $i$, the morphism $\alpha_i$ is am epi, then also $\alpha$ is a epimorphism.
+	Moreover if, for all $i$, the morphism $\alpha_i$ is am epimorphism,
+	then also $\alpha$ is a epimorphism.
 \end{prop} 
 
 \begin{prop}
@@ -465,7 +482,7 @@
 \begin{cor}
 	In particular, if $\mathsf{C}$ is preadditive with $0$ object, then every $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \neq \emptyset$.
 	This means that $\pi_i$ and $\epsilon_i$ in the above proposition are always respectively epi and mono.
-	In other words, given $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$, then 
+	In particular, given $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$, then 
 	$\pi_A: A \prod B \to A$ and $\pi_B: A \prod B \to B$ are epi, whereas
 	$\epsilon_A: A \to A \prod B$ and $\epsilon_B: B \to A \prod B$ are mono.
 \end{cor} 

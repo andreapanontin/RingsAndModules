@@ -30,7 +30,7 @@
 		\item $\mathsf{Top}$: $\mathrm{Ob} \left(\mathsf{Top}\right)$ are topological spaces, morphisms are continuous maps,
 		\item $\mathsf{Semigroups}$: $\mathrm{Ob} \left(\mathsf{Semigrousp}\right)$ are sets with an associative operation, morphisms are homomorphisms of semigroups,
 		\item $\mathsf{Monoids}$: $\mathrm{Ob} \left(\mathsf{Monoids}\right)$ are semigroups with a unit, morphisms are monoid morphisms,
-		\item If you want to keep going you can...
+		\item Clearly one can construct a lot more examples, we'll stop here.
 	\end{itemize}
 \end{ex} 
 
@@ -114,10 +114,11 @@
 \end{defn}
 
 \begin{defn}[Zero morphism]
-	Let $\mathsf{C}$ be category with a zero object $Z$.
-	Given $X, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$ we can define the $0$-morphism from $X$ into $Y$ as the unique map $\beta \circ \alpha$
+	Let $\mathsf{C}$ be category with a zero object $0_{\mathsf{C}}$.
+	Given $X, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$ we can define the
+	$0$-morphism from $X$ into $Y$ as the unique map
 	\begin{equation}
-	X \xrightarrow{\alpha} Z \xrightarrow{\beta} Y
+		X \xrightarrow{\alpha} 0_{\mathsf{C}} \xrightarrow{\beta} Y
 	.\end{equation} 
 \end{defn}
 
@@ -183,7 +184,7 @@
 	.\end{equation}
 	In particular, fixed $X \in \mathsf{C}$ and $Y \in \mathsf{D}$,
 	then $F \left(X, - \right): \mathsf{D} \to \mathsf{E}$ and
-	$F \left( - , Y \right): \mathsf{C} \to \mathsf{E}$ are funcotrs.
+	$F \left( - , Y \right): \mathsf{C} \to \mathsf{E}$ are functors.
 	Moreover, for any morphism $f: X \to X'$ in $\mathsf{C}$ and
 	$g: Y \to Y'$ in $\mathsf{D}$, then the following diagram commutes:
 	\begin{equation}
@@ -230,7 +231,7 @@
 	,\end{equation} 
 	i.e. $G(f) \circ \theta(X) = \theta(X') \circ F(f)$.
 
-	We denote one such transformation with the following diagram
+	Some authors denote one such transformation with the following diagram
 	\begin{equation}
 	\begin{tikzcd}[row sep=tiny]
 %		& \ \arrow[dd, "\theta"', Rightarrow] & \\
@@ -385,8 +386,10 @@
 	,\end{equation} 
 	and the functors
 	\begin{align}
-		h_\mathsf{C}: \mathsf{C} \to \mathsf{C}^\wedge &\text{ s.t. } X \mapsto \mathrm{Hom}_{\mathsf{\mathsf{C}}} \left( ., X \right)\\
-		k_\mathsf{C}: \mathsf{C} \to \mathsf{C}^\vee &\text{ s.t. } X \mapsto \mathrm{Hom}_{\mathsf{\mathsf{C}}} \left( X, . \right)
+		h_\mathsf{C}: \mathsf{C} \to \mathsf{C}^\wedge &\text{ s.t. }
+		X \mapsto \mathrm{Hom}_{\mathsf{\mathsf{C}}} \left( -, X \right)\\
+		k_\mathsf{C}: \mathsf{C} \to \mathsf{C}^\vee &\text{ s.t. }
+		X \mapsto \mathrm{Hom}_{\mathsf{\mathsf{C}}} \left( X, - \right)
 	.\end{align}
 \end{defn}
 
@@ -416,7 +419,8 @@
 	One says that $\left(F, G\right)$ is an \textbf{adjoint} pair, or equivalently that $F$ is a \textbf{left adjoint} to $G$ or that $G$ is a \textbf{right adjoint} to $F$,
 	iff there exists an isomorphism of bifunctors:
 	\begin{equation}
-		\mathrm{Hom}_{\mathsf{D}} \left( F(.), . \right) \simeq \mathrm{Hom}_{\mathsf{C}} \left( ., G(.) \right)
+		\mathrm{Hom}_{\mathsf{D}} \left( F(-), - \right) \simeq
+		\mathrm{Hom}_{\mathsf{C}} \left( -, G(-) \right)
 	.\end{equation} 
 \end{defn}
 
@@ -426,10 +430,3 @@
 	F \circ G \to id_\mathsf{D}, \quad G \circ F \to id_\mathsf{C}
 	.\end{equation} 
 \end{rem}
-
-%\begin{rem}[Abelian categories]
-%	Note that for an \textbf{abelian} category $\mathsf{C}$ we have $\mathrm{Hom}_{\mathsf{C}} \left(X, Y \right) \in \mathsf{Mod}\left( \Z \right)$, for ${X,Y \in \mathsf{C}}$.
-%	This means that we can also have representable functors that take values in the category of modules, i.e.
-%	$F: \mathsf{C}^{op} \to \mathsf{Mod}\left( \Z \right)$.
-%\end{rem}
-

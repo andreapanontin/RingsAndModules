@@ -1,5 +1,8 @@
 \section{Limit}
-We will concentrate on an arbitrary category $\mathsf{C}$, and on a small category $\mathsf{I}$, i.e. a category with $\mathrm{Ob} \left(\mathsf{I}\right)$ is a set.
+We will concentrate on an arbitrary category $\mathsf{C}$,
+and on a small category $\mathsf{I}$,
+i.e. a category where $\mathrm{Ob} \left(\mathsf{I}\right)$ and $\mathrm{Morph}\, \mathsf{I}$,
+the family of all morphisms in the category $\mathsf{I}$, are sets.
 Consider a functor 
 \begin{equation}
 F: \mathsf{I} \to \mathsf{C}
@@ -78,7 +81,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 			 F( 2 \to 3) = f_2,
 		 \end{matrix} 
 	.\end{equation} 
-	Then any $\varprojlim F$ corresponds with a pullback of the above diagram.
+	Then any $\varprojlim F$ corresponds to a pullback of the above diagram.
 \end{ex} 
 
 \begin{defn}[Complete category]
@@ -87,14 +90,16 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 \end{defn}
 
 \begin{rem}[Some terminology]
-	Assume that a preadditive category $\mathsf{C}$ has infinite products.
+	Assume that a preadditive category $\mathsf{C}$ has arbitrary products.
 	Consider a functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$.
 	For any morphism $\lambda: i \to j$ in $\mathsf{I}$, let's define
 	\begin{equation}
 		s(\lambda) := i \quad \text{ and } \quad t(\lambda) := j
 	,\end{equation} 
 	where $s$ denotes the source and $t$ the target of the morphism.
-	Consider $\left(\prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i),  \pi_i \right)$ a product of $\left\{ F(i) \right\}_{i \in I}$ and the diagram
+	Consider a product
+	$\left(\prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i),  \pi_i \right)$
+	of $\left\{ F(i) \right\}_{i \in I}$, and the diagram
 	\begin{equation}
 	\begin{tikzcd}
 		\prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \arrow[r, "\pi_{s(\lambda)}", rightarrow] 
@@ -116,14 +121,14 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 \end{rem}
 
 \begin{prop}\label{prop:LimConstr}
-	If a (preadditive) category $\mathsf{C}$ admits kernels and (infinite) products,
+	If a (preadditive) category $\mathsf{C}$ admits kernels and (arbitrary) products,
 	then for every functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, 
 	$\mathsf{C}$ admits $\varprojlim F$.
-	Moreover the limit is constructed by kernels and (infinite) products.
+	Moreover the limit is constructed by means of kernels and products.
 \end{prop} 
 \begin{proof}
 	The proof wants to show that the following construction actually is a limit for $F$.
-	Consider $\left(K, \epsilon\right)$ a kernel for the above constructed morphism
+	Consider $\left(K, \epsilon\right)$ a kernel for the morphism constructed above
 	\begin{equation}
 		\sigma: \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \to \prod_{\lambda \in \Lambda} F \left( t(\lambda) \right)
 	.\end{equation} 
@@ -178,11 +183,11 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 			M_i \ \middle|\ \sigma(\mathbf{x}) = 0
 		\text{ i.e. } \sigma_{ij}(\mathbf{x}) =0 \,\forall\, i \leq j \right\} \\
 				&=
-		\left\{ \mathbf{x} = \left( x_i \right)_{i \in \mathrm{Ob} \left(\mathsf{C}\right)} \in
+		\left\{ \mathbf{x} = \left( x_i \right)_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} \in
 		\prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i \ \middle|\ 
 		f_{ij}(x_j) = x_i, \ \,\forall\, i \leq j \right\}
 	.\end{align} 
-	It is a submodule of the product, in which, determined $x_j$, then $\,\forall\, i \leq j$, $x_i$ is determined by $x_j$, via the structural morphisms.
+	It is a submodule of the product, in which, chosen $x_j$, then $\,\forall\, i \leq j$, $x_i$ is determined by $x_j$, via the structural morphisms.
 \end{ex} 
 
 \begin{defn}[$I$-adic topology on a ring]
@@ -196,7 +201,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	The \textbf{$\mathbf{I}$-adic topology} on $R$ is Hausdorff iff $\bigcap_{n \in \N} I^n = 0$.
 \end{rem} 
 
-\begin{ex}[Completion of a ring in the $i$-adic topology]
+\begin{ex}[Completion of a ring in the $I$-adic topology]
 	Let $R$ be a commutative ring and $I \triangleleft R$ an ideal of $R$.
 	For $n \leq m$, then $I^m \subset I^n$, hence the canonical projections
 	\begin{align}
@@ -265,9 +270,9 @@ Let $\mathsf{C}^{\mathsf{I}}$ be the functor category.
 \begin{proof}
 	Given $\eta: F \to G$ a natural transformation between the functors
 	$F, G \in \mathsf{C}^{\mathsf{I}}$, the functor associates it a morphism in the natural way
-	\begin{equation}
+	\begin{equation*}
 	\varprojlim \eta: \varprojlim F \to \varprojlim G
-	.\end{equation} 
+	.\qedhere\end{equation*} 
 \end{proof}
 
 Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small category $\mathsf{I}$.
@@ -302,8 +307,8 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 			\begin{equation}
 				(\pi_F)_i := \pi_{F(i)} \qquad \text{ and } \qquad \left( \pi_G \right)_i := \pi_{G(i)}
 			.\end{equation} 
-		\item If $\mathsf{C}$ has kernels, then also $\mathsf{C}^{\mathsf{I}}$ has kernels.
-			Let $\eta: F \to G$ a natural transformation.
+		\item If $\mathsf{C}$ has kernels, then also $\mathsf{C}^{\mathsf{I}}$ has.
+			Let $\eta: F \to G$ be a natural transformation.
 			Let's define $\ker \eta$ as an object of $\mathsf{C}^{\mathsf{I}}$.
 			For every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$ we define $K(i) := \ker \eta_i$ as an object in $\mathsf{C}$.
 			This, for any morphism $\lambda: i \to j$, gives rise to the commutative diagram
@@ -319,9 +324,31 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 			.\end{equation} 
 			From this we define $K(\lambda) := \nu$.
 			Then, the couple $\left(K, \left\{ \epsilon_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} \right)$
-			is the kernel of $\left\{ \eta_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} $
-		\item As an exercise to the writer: when you'll next read this line,
-			please try to define the cokernel of a functor.
+			is the kernel of $\left\{ \eta_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$.
+
+		\item If $\mathsf{C}$ has cokernels, 
+			then also $\mathsf{C}^{\mathsf{I}}$ has.
+			Let $\eta: F \to G$ be a natural transformation.
+			Let's define $\coker \eta$ as an object of $\mathsf{C}^{\mathsf{I}}$.
+			For every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$
+			we define $C(i) := \coker \eta_i$ as an object in $\mathsf{C}$.
+			This, for any morphism $\lambda: i \to j$, gives rise to the commutative diagram
+			\begin{equation}
+			\begin{tikzcd}
+				F(i) \arrow[r, "\eta_i", rightarrow] \arrow[d, "F(\lambda)", rightarrow] &
+				G(i) \arrow[d, "G(\lambda)", rightarrow] 
+				\arrow[r, "p_i", rightarrow] &
+				C(i) \arrow[d, "\exists !\, \nu", dashrightarrow] \\
+				F(j) \arrow[r, "\eta_j"', rightarrow] &
+				G(j) \arrow[r, "p_j"', rightarrow] &
+				C(j).
+			\end{tikzcd}
+			\end{equation} 
+			From this we define $C(\lambda) := \nu$.
+			Then, the couple
+			$\left(C, \left\{ p_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} \right)$
+			is the cokernel of 
+			$\left\{ \eta_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$.
 	\end{itemize}
 \end{prop} 
 
@@ -366,15 +393,17 @@ Let, as before, $\mathsf{I}$ be a small category, and $\mathsf{C}^{\mathsf{I}}$ 
 \begin{prop}
 	Given a functor $F \in \mathsf{C}^{\mathsf{I}}$, then
 	$\varprojlim F$ exists iff the functor $H$ defined above is representable.
-	In other words iff $\exists\, C \in \mathrm{Ob} \left(\mathsf{C}\right)$ s.t.
+	In other words iff $\exists\, P \in \mathrm{Ob} \left(\mathsf{C}\right)$ s.t.
 	the following two functors are naturally isomorphic
 	\begin{equation}
-	\mathrm{Hom}_{\mathsf{C}} \left( -, C \right) \simeq_{\varphi} H = \mathrm{Nat} \left( \Delta_{(-)}, F \right)
+	\mathrm{Hom}_{\mathsf{C}} \left( -, P \right) \simeq_{\varphi} H =
+	\mathrm{Nat} \left( \Delta_{(-)}, F \right)
 	.\end{equation} 
-	In such case $C \simeq \varprojlim F$, and the compatible family is defined as
+	In such case $P \simeq \varprojlim F$, and the compatible family is defined as
 	\begin{align}
-		\varphi_C: \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to \mathrm{Nat} \left( \Delta_C, F \right) \\
-		1_C &\mapsto \bar{p} = \left\{ p_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}
+		\varphi_P: \mathrm{Hom}_{\mathsf{C}} \left( P, P \right) &\to
+		\mathrm{Nat} \left( \Delta_P, F \right) \\
+		1_P &\mapsto \bar{p} = \left\{ p_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}
 	.\end{align} 
 \end{prop} 
 
@@ -456,7 +485,7 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 		F(i) = A_i, \qquad F( 3 \to 1 ) = f_1, \qquad
 		F( 3 \to 2 ) = f_2
 	.\end{equation} 
-	Then any colimit of $F$ corresponds with a pushout of the above diagram.
+	Then any colimit of $F$ corresponds to a pushout of the above diagram.
 \end{ex} 
 
 \begin{defn}[Cocomplete category]
@@ -464,9 +493,9 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 \end{defn}
 
 \begin{prop}\label{prop:ColimConstr}
-	If a (preadditive) category $\mathsf{C}$ admits cokernels and (infinite) coproducts, then
+	If a (preadditive) category $\mathsf{C}$ admits cokernels and (arbitrary) coproducts, then
 	for every functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, $\mathsf{C}$ admits $\varinjlim F$.
-	Moreover the colimit is constructed by cokernels and (infinite) coproducts.
+	Moreover the colimit is constructed by means of cokernels and coproducts.
 \end{prop} 
 \begin{proof}
 	As above, the proof wants to show that the following construction actually is a direct limit for $F$.
@@ -497,9 +526,9 @@ Fix a small category $\mathsf{I}$ and let $\mathsf{C}$ be a cocomplete category.
 	It is clear how the functor acts on objects.
 	Let's define how it acts on $\eta: F \to G$ a natural transformation between the functors $F, G \in \mathsf{C}^{\mathsf{I}}$.
 	It associates to $\eta$ a morphism in the natural way
-	\begin{equation}
-	\varinjlim \eta: \varinjlim F \to \varinjlim G
-	.\end{equation} 
+	\begin{equation*}
+	\varinjlim \eta: \varinjlim F \to \varinjlim G.\qedhere
+	\end{equation*} 
 \end{proof}
 
 \begin{prop}
@@ -581,7 +610,7 @@ Let's now describe a particular case of colimits:
 		0, \ldots, 0, \ldots \right)
 	.\end{equation} 	
 	It is a submodule of the product, in which $x_i$, in position $i$,
-	and $f_{ji}(x_i)$, in position $j$, are identified.
+	and $f_{ji}(x_i)$, in position $j \geq i$, are identified.
 \end{ex}
 
 \begin{defn}[Directed poset]
@@ -591,7 +620,7 @@ Let's now describe a particular case of colimits:
 	.\end{equation} 
 \end{defn}
 Moreover, if $\left(M_i, f_{ji}\right)_{i \leq j}$, for $I$ filtered, then $\varinjlim M_i$ is called
-directed (or filtered) limit.
+\textbf{directed} (or \textbf{filtered}) limit.
 In general it is easier to describe a colimit on a directed poset.
 
 Before giving an example of one such limit, let's recall a definition:
@@ -599,10 +628,11 @@ Before giving an example of one such limit, let's recall a definition:
 	A module $M_R$ is \textbf{finitely generated} iff there is an epimorphism
 	$\phi: R^N := \bigoplus_{i=1}^N R \to M$, for some $N \in \N$.
 	If we denote by $e_i$ the generators of $R^N$, then $\phi(e_i) = x_i$ are the generators of $M$.
-	In other words we are saying that $\exists\, \left\{ x_1, \ldots, x_N \right\} \subset M$ a finite set of generators 
-	s.t.
+	In other words we are saying that there exists
+	$\left\{ x_1, \ldots, x_N \right\} \subset M$ a finite set of generators 
+	such that, for all $x \in R$ there exist $r_1, \ldots, r_n \in R$ s.t.
 	\begin{equation}
-	\,\forall\,  x \in R, \text{ then } x = \sum_{i=1}^{N} x_i r_i
+	x = \sum_{i=1}^{N} x_i r_i
 	.\end{equation} 
 \end{defn}
 
@@ -631,7 +661,7 @@ Before giving an example of one such limit, let's recall a definition:
 	$N_i + N_j = N_k$, for some $k \in \mathsf{I}$.
 	This makes $\left( \mathsf{I}, \leq \right)$ a filtered poset.
 	We then label the inclusions as $\epsilon_{ji}: N_i \to N_j$ and $\epsilon_i: N_i \to M$.
-	Clearly this makes $\left(N_i, \epsilon_{ji}\right)_{i \leq j}$ into a direct system.
+	Clearly this makes $\left(N_i, \epsilon_{ji}\right)_{i \leq j}$ into a directed system.
 \end{ex} 
 
 \begin{prop}
@@ -645,7 +675,7 @@ Before giving an example of one such limit, let's recall a definition:
 \begin{ex}[Prüfer group]
 	An example of a direct limit construction in $\mathsf{C} = \mathsf{Ab}$.
 	Let $M_n := \mathbb{Z}/p^n\mathbb{Z} = \left\langle c_n \right\rangle$, for $n \in \N$ and $p \in \N$ a prime number.
-	Notice that $c_n$ ha order $p^n$, hence $p^n c_n = 0$.
+	Notice that $c_n$ has order $p^n$, hence $p^n c_n = 0$.
 	We define the structural morphisms of the direct system as
 	\begin{align}
 		f_{n+1, n}: \mathbb{Z}/p^n\mathbb{Z} &\to \mathbb{Z}/p^{n+1}\mathbb{Z} \\
@@ -657,10 +687,10 @@ Before giving an example of one such limit, let's recall a definition:
 		f_{m, n}: \mathbb{Z}/p^n\mathbb{Z} &\to \mathbb{Z}/p^m\mathbb{Z} \\
 		c_n &\mapsto p^{m-n} c_m
 	\end{align} 
-	and extending also this by linearity.
-	Clearly $\left\{ \mathbb{Z}/p^n\mathbb{Z}, f_{m,n} \right\}_{n \leq m}$ is a direct system 
+	(also this extended by linearity).
+	Clearly $\left\{ \mathbb{Z}/p^n\mathbb{Z}, f_{m,n} \right\}_{n \leq m}$ is a directed system 
 	(compatibility follows from the definition of $f_{m,n}$).
-	We can consider the direct limit, denoted as follows, and called Prüfer group
+	We can consider the directed limit, denoted as follows, and called \textbf{Prüfer} group
 	\begin{equation}
 		\varinjlim \mathbb{Z}/p^n\mathbb{Z} = \Z (p^{\infty}) \simeq \bigcup_{n \in \N} \left\langle c_n \right\rangle
 	,\end{equation} 
@@ -677,7 +707,7 @@ Before giving an example of one such limit, let's recall a definition:
 \begin{lem}
 	Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $\left(\mathsf{I}, \leq\right)$ be a filtered poset.
 	Let $\left\{ M_i, f_{ji} \right\}_{i \leq j}$ be a directed system of modules.
-	In the notation of proposition \ref{prop:ColimConstr}, the direct limit $\left(\varinjlim M_i, \mu_i\right)$, has the
+	In the notation of proposition \ref{prop:ColimConstr}, the directed limit $\left(\varinjlim M_i, \mu_i\right)$, has the
 	compatible family of maps
 	\begin{equation}
 	\begin{tikzcd}

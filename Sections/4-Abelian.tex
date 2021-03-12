@@ -63,7 +63,7 @@
 
 \begin{ex}
 	Let $\mathsf{C} = \mathsf{Ab}$. We say that $G \in \mathsf{Ab}$ is torsion free iff $\,\forall\,  0 \neq x \in G$, for all $n \in \Z$ s.t. $nx = 0$, then $n = 0$.
-	Moreover $G$ is torsion iff $\,\forall\,  x \in G$ there exists $0 \neq n \in \Z$ s.t. $nx = 0$.
+	Instead $G$ is torsion iff $\,\forall\,  x \in G$ there exists $0 \neq n \in \Z$ s.t. $nx = 0$.
 	Given $G \in \mathsf{Ab}$, we denote by $t(G) \leq G$ the torsion subgroup of $G$, i.e.
 	\begin{equation}
 		t(G) := \left\{ x \in G \ \middle|\ \exists\, 0 \neq n \in \Z \text{ s.t. } nx = 0 \right\}
@@ -78,7 +78,8 @@
 				\coker \left( \ker f \right) \simeq A/ \ker f \quad \text{ and } \quad
 				\ker \left( \coker f \right) \simeq \ima f
 			.\end{equation} 
-			From the first isomorphism theorem we obtain an isomorphism of the two, hence this category is abelian.
+			From the first isomorphism theorem we obtain an isomorphism of the two.
+			Then one can show that this category is abelian.
 		\item Let $\mathsf{T} \subset \mathsf{Ab}$  the full subcategory of abelian groups consisting of \textbf{torsion} abelian groups, then $\mathsf{T}$ is abelian.
 			This is the case, since $\ker$ and $\coker$ in $\mathsf{T}$ correspond to the notions in $\mathsf{Ab}$, which is abelian.
 	\end{itemize}
@@ -104,18 +105,21 @@
 			,\end{equation} 
 			where $\dot{2}: \Z \to \Z$ is the multiplication by $2$.
 			In $\mathsf{F}$ we have $\coker \dot{2} = 0$, since in $\mathsf{Ab}$ $\coker \dot{2} = \Z/2\Z$, which is torsion.
-			Then, in this example, $\widetilde{f} = \widetilde{\dot{2}}$, which is not an isomorphism in $\mathsf{F}$ (nor in $\mathsf{Ab}$, and $\mathsf{F}$ is a fullsubcategory of $\mathsf{F}$).
+			Then, in this example, $\widetilde{f} = \widetilde{\dot{2}}$, which is not an isomorphism in $\mathsf{F}$ 
+			(nor in $\mathsf{Ab}$, and $\mathsf{F}$ is a full subcategory of $\mathsf{Ab}$).
 			Also note that $\dot{2}$ is both mono and epi in $\mathsf{F}$, but not an iso.
+
+
 		\item Let $G \in \mathrm{Ob} \left(\mathsf{Ab}\right)$ an abelian group. 
 			We say that $G$ is \textbf{divisible} iff $\,\forall\, x \in G$ and $\,\forall\,  0 \neq n \in \Z$, $\exists\, y \in G$ s.t. $ny = x$.
-			Simmetrically an abelian group is called \textbf{reduced} iff it has no nonzero divisible subgroups.
+			Instead an abelian group is called \textbf{reduced} iff it has no nonzero divisible subgroups.
 
 			Let $\mathsf{D} \subset \mathsf{Ab}$ the full subcategory consisting of divisible abelian groups.
 			Then $\mathsf{D}$ has kernels and cokernels, it is also additive, but not abelian.
 	\end{itemize}
 \end{ex} 
 
-I'm actually not sure whether the following definition is correct, but I cannot find it on the internet and I really didn't understand what was part of the defn during te lecture.
+I'm actually not sure whether the following definition is correct, but I cannot find it on the internet and I really didn't understand what was part of the definition during the lecture.
 \begin{defn}[Torsion pair of full subcategories]
 	Let $\mathsf{C}$ be an abelian category, and $\mathsf{D} \subset \mathsf{C} \supset \mathsf{E}$ be two full subcategories.
 	We say that the pair $\left(\mathsf{D}, \mathsf{E}\right)$ is a \textbf{torsion pair} iff given any $D \in \mathrm{Ob} \left(\mathsf{D}\right)$ and $E \in \mathrm{Ob} \left(\mathsf{E}\right)$ we have
@@ -177,7 +181,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 		A pullback of $f$ and $0$ exists iff $\ker f$ exists in $\mathsf{C}$.
 		In particular $\left(P, p_A\right)$ is a kernel of $f$.
 	\item Consider $A \xrightarrow{0} 0$ and $B \xrightarrow{0} 0$.
-		The pullback of $0, 0$ eixsts iff the product of $A$ and $B$ exists, then the triple $\left(P, p_A, p_B\right)$ is a product of $A$ and $B$:
+		The pullback of $0$ and $0$ exists iff the product of $A$ and $B$ exists, then the triple $\left(P, p_A, p_B\right)$ is a product of $A$ and $B$:
 		\begin{equation}
 		\begin{tikzcd}
 			P \arrow[r, "p_A", rightarrow] \arrow[d, "p_B"', rightarrow] & A \arrow[d, "0", rightarrow] \\

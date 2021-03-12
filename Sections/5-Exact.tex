@@ -10,7 +10,7 @@
 		A \arrow[r, "i", rightarrow] \arrow[d, "1_A"', equal] &
 		B \arrow[r, "d", rightarrow] &
 		C \\
-		& \mathrm{coim}\, i = A \arrow[r, "\simeq", rightarrow] &
+		& \mathrm{coim}\, i = A \arrow[r, "\sim", rightarrow] &
 		\ker d = \ima i \arrow[u, "", rightarrow] & \\
 	\end{tikzcd}
 	.\end{equation} 
@@ -38,7 +38,8 @@
 \end{defn}
 
 \begin{defn}[Exact structure]
-	Given an additive category $\mathsf{C}$, an \textbf{exact structure} in $\mathsf{C}$ is a class $\mathcal{E}$ of ker-coker pairs satisfying the following axioms and closed under isomorphisms, i.e.
+	Given an additive category $\mathsf{C}$, an \textbf{exact structure} on $\mathsf{C}$
+	is a class $\mathcal{E}$ of ker-coker pairs satisfying the following axioms and closed under isomorphisms, i.e.
 	given a commutative diagram
 	\begin{equation}
 	\begin{tikzcd}
@@ -79,6 +80,9 @@
 	The interpetation is as follows (for the first diagram):
 	given a deflation $d: Y \to Z$ and a morphism $f: Z' \to Z$, then,
 	if the pullback of $\left(d, f\right)$ exists, let's denote it with $\left(Y', f', d'\right)$, also $d': Y' \to Z'$ is a deflation.
+	(These axioms are defined to reflect the properties one can find
+	in abelian categories.
+	In fact these last diagrams are a parallel to the last ones of the previous section).
 \end{defn}
 
 \begin{defn}[Exact category]
@@ -137,7 +141,7 @@ Also in the PhD thesis of  T. Bühler \textit{Exact categories}
 			} Z
 			.\end{equation} 
 		\item[b] \textbf{Ex1}$^{op}$.
-		\item[c] \textbf{Quillem's obscure axioms}: If a morphism $d$ has a kernel and if $d \circ e$ is a deflation for some morphism $e$, then also $d$ is a deflation.
-		\item[c$^{op}$] \textbf{Quillem's obscure axioms}: If a morphism $i$ has a cokernel and if $k \circ i$ is an inflation for some morphism $k$, then also $i$ is an inflation.
+		\item[c] \textbf{Quillen's obscure axioms}: If a morphism $d$ has a kernel and if $d \circ e$ is a deflation for some morphism $e$, then also $d$ is a deflation.
+		\item[c$^{op}$] \textbf{Quillen's obscure axioms}: If a morphism $i$ has a cokernel and if $k \circ i$ is an inflation for some morphism $k$, then also $i$ is an inflation.
 	\end{description} 
 \end{prop} 
