@@ -1,0 +1,145 @@
+\documentclass[a4paper,10pt,titlepage]{article}% use option titlepage to get the title on a page of its own.
+\usepackage[utf8]{inputenc}
+
+%Font
+\usepackage{crimson}
+\usepackage[T1]{fontenc}
+%\setmathfont{XITS Math}
+
+%Packages from old files
+%\usepackage{ucs}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{centernot}
+
+%From the internet
+%Questo Pacchetto serve per modificare le impostazioni del line spacing inline
+\usepackage{setspace}
+\usepackage{graphicx}
+%Per le liste nelle descrizioni degli algoritmi
+\usepackage{enumitem}
+
+%Commutative diagrams
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathmorphing} %For squiggly lines
+% To use some colours
+\usepackage{xcolor}
+
+%Appendices
+\usepackage[title]{appendix}
+
+%Legacy: I used them for the titlepage
+\usepackage{tabularx}
+\usepackage{geometry}
+
+%From Darione
+%Modifies the margins and aspect ratio
+\usepackage{layaureo}
+%Allows to load subfiles which can be compiled on their own
+\usepackage{subfiles}
+
+\usepackage{mathtools}
+\setlist[description]{leftmargin=3.2em,labelindent=3.2em}
+
+%New useful operators:
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\ima}{im}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\coim}{coim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\fct}{Fct}
+%Legacy operators:
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}[1]{\mathbb{C}^{#1}}
+\newcommand{\Zn}[1]{\mathbb{Z}/{#1}\mathbb{Z}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\T}{\mathbb{T}}
+
+%QED symbol
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+
+%Bibliography
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+%Theorem environments
+\newtheoremstyle{example}
+{1.0em}%〈Space above〉
+{0.7em}%〈Space below〉
+{}%〈Body font〉
+{}%〈Indent amount〉
+{\bfseries}%〈Theorem head font〉
+{}%〈Punctuation after theorem head〉
+{.5em}%〈Space after theorem head〉
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head can be left empty, meaning ‘normal’)
+
+\newtheoremstyle{definition}
+{1.0em}
+{0.7em}
+{}
+{}
+{\bfseries}
+{}
+{1.0em}
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3. \\*}}
+
+%Theorems-propositions
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+%Examples-exercises
+\theoremstyle{example}
+\newtheorem*{ex}{Example}
+\newtheorem{exr}{Exercise}
+
+%Definitions-remarks
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ntt}[thm]{Notation}
+\newtheorem{rem}[thm]{Remark}
+
+
+\numberwithin{equation}{section}
+
+
+%Mock title
+\usepackage{blindtext}
+\title{Rings and Modules - Definitions}
+\author{Andrea Panontin}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\tableofcontents
+
+\newpage
+
+\subfile{Sections/1-Preliminaries}
+\subfile{Sections/2-Categories}
+\subfile{Sections/3-Products}
+\subfile{Sections/4-Abelian}
+\subfile{Sections/5-Exact}
+\subfile{Sections/6-Limits}
+\subfile{Sections/7-Exact2}
+\subfile{Sections/8-Injectives}
+\subfile{Sections/9-Adjoint}
+\subfile{Sections/10-Complexes}
+\subfile{Sections/11-Homotopy}
+\subfile{Sections/12-Complexes2}
+\subfile{Sections/13-Resolutions}
+\subfile{Sections/14-DerivedFct}
+\end{document}
