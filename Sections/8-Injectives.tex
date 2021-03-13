@@ -17,7 +17,7 @@ Let $\mathsf{C}$ be an \textit{arbitrary} category.
 	.\end{equation} 
 	In such case $g$ is called a \textit{lift} of $f$.\newline
 	Equivalently:
-	$P$ is surjective iff
+	$P$ is projective iff
 	\begin{equation}
 	\mathrm{Hom}_{\mathsf{C}} \left( P, B \right) \xrightarrow{\mathrm{Hom}_{\mathsf{C}} \left( P, \varphi \right)} 
 	\mathrm{Hom}_{\mathsf{C}} \left( P, C \right)
@@ -114,7 +114,9 @@ Dually we have the following
 	\begin{equation}
 	x = \sum_{i \in I}^{} x_i r_i \qquad \text{with } r_i \text{ almost all zero}
 	.\end{equation} 
-	Clearly $M$ is free iff $M = \bigoplus_{i \in I}R_i$, with $R_i \simeq R$ for all $i$.
+	Clearly $M$ is free iff $M = \bigoplus_{i \in I}R_i$
+	(clearly interpreting the direct sum as a coproduct in the infinite case),
+	with $R_i \simeq R$ for all $i$.
 	In such case it has $\left\{ e_i \right\}_{i \in I}$ as a basis.
 	Another notation for $\bigoplus_{i \in I} R_i$ is $R^{(I)}$.
 \end{defn}
@@ -216,15 +218,19 @@ Dually we have the following
 \begin{rem}
 	Let $\mathsf{I}$ be a small and preadditive category.
 	Let $\mathsf{C}$ be an abelian category.
-	Define $\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}, \mathsf{C} \right) \subset \mathsf{C}^{\mathsf{I}}$
+	Define
+	$\underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}, \mathsf{C} \right)} 
+	\subset \mathsf{C}^{\mathsf{I}}$
 	the subcategory of all additive functors $F: \mathsf{I} \to \mathsf{C}$.
-	In this situation $\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}, \mathsf{C} \right)$ is abelian.
+	In this situation 
+	$\underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}, \mathsf{C} \right)}$ is abelian.
 \end{rem}
 
 \begin{lem}[Yoneda]
 	Let $\mathsf{I}$ be as above.
 	Let $\mathsf{C} := \mathsf{Ab}$.
-	Fix $X \in \mathrm{Ob} \left(\mathsf{I}\right)$ and $F \in \mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)$.
+	Fix $X \in \mathrm{Ob} \left(\mathsf{I}\right)$ and
+	$F \in \underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$.
 	There is an isomorphism
 	\begin{equation}
 	\mathrm{Nat} \left( h^X, F \right) \xrightarrow{\theta_{X,F}} 
@@ -234,7 +240,7 @@ Dually we have the following
 	Recall that $h^X := \mathrm{Hom}_{\mathsf{I}} \left( -, X \right)$.
 \end{lem} 
 
-\begin{rem}[An application of Yoned lemma]
+\begin{rem}[An application of Yoneda lemma]
 	Consider $X, X' \in \mathrm{Ob} \left(\mathsf{I}\right)$. 
 	Let $F := h^{X'}$, then \textit{Yoneda lemma} implies
 	\begin{equation}
@@ -245,9 +251,10 @@ Dually we have the following
 \begin{defn}[Yoneda embedding]
 	Consider $\mathsf{I}$ small and preadditive, $\mathsf{C} = \mathsf{Ab}$.
 	We define the \textbf{Yoneda embedding} as the functor
-	$Y: \mathsf{I} \to \mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)$, defined on objects as
+	$Y: \mathsf{I} \to \underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$,
+	defined on objects as
 	\begin{align}
-		Y: \mathsf{I} &\to \mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right) \\
+	Y: \mathsf{I} &\to \underline{\mathrm{Hom} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)} \\
 		X &\mapsto h^X
 	\end{align} 
 	and on morphisms, given $f: X \to X'$, by
@@ -258,18 +265,22 @@ Dually we have the following
 
 \begin{prop}
 	The Yoneda embedding $Y$ is \textbf{fully faithful}.
-	Moreover it sends distinct objects of $\mathsf{I}$ to distinct objects of $\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)$.
+	Moreover it sends distinct objects of $\mathsf{I}$ to distinct objects of
+	$\underline{\mathrm{Hom}\left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$.
 \end{prop} 
 
 \begin{cor}
 	Consider a small preadditive category $\mathsf{I}$.
-	Then $\mathsf{I}$ is equivalent to the full subcategory of $\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)$ 
+	Then $\mathsf{I}$ is equivalent to the full subcategory of
+	$\underline{\mathrm{Hom}\left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$ 
 	consisting of the representable functors.
 \end{cor} 
 
 \begin{prop}
-	For $\mathsf{I}$ as before (small and preadditive) and $X \in \mathrm{Ob} \left(\mathsf{I}\right)$, then
-	$h^X$ is a projective object of $\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)$.
+	For $\mathsf{I}$ as before (small and preadditive) and
+	$X \in \mathrm{Ob} \left(\mathsf{I}\right)$, then
+	$h^X$ is a projective object of 
+	$\underline{\mathrm{Hom} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$.
 \end{prop} 
 
 \begin{defn}[Generator of a category]
@@ -315,7 +326,7 @@ Dually we have the following
 	\begin{enumerate}
 		\item $G$ is a generator of $\mathsf{C}$,
 		\item $\,\forall\, X \in \mathrm{Ob} \left(\mathsf{C}\right)$, there is an epimorphism
-			$G^{(I)} \to X$, for some set $I$.
+			$G^{(I)} \twoheadrightarrow X$, for some set $I$.
 	\end{enumerate}
 \end{prop} 
 
@@ -349,7 +360,7 @@ Dually we have the following
 	\begin{enumerate}
 		\item $C$ is a cogenerator of $\mathsf{C}$,
 		\item $\,\forall\, X \in \mathrm{Ob} \left(\mathsf{C}\right)$, there is a monomorphism
-			$\mu: X \to C^{I}$, for some set $I$.
+			$\mu: X \rightarrowtail C^{I}$, for some set $I$.
 	\end{enumerate}
 \end{prop} 
 
@@ -408,7 +419,7 @@ Dually we have the following
 	\exists\, !\, f: X \hookrightarrow C^X
 	\end{equation} 
 	induced by the various $f_x$.
-	Moreover this $f$ is mono, since for any $0 \neq x$ $f_x(x) \neq 0$.
+	Moreover this $f$ is mono, since $f_x(x) \neq 0$ for any $0 \neq x$.
 \end{ex} 
 
 \begin{rem}

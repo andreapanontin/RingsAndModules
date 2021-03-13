@@ -13,12 +13,13 @@
 		C \arrow[u, "g"', rightarrow] 
 	\end{tikzcd}
 	\end{equation} 
-	i.e. s.t. $g \circ \alpha = f$.
+	in other words s.t. $g \circ \alpha = f$.
 	Clearly this is an equivalence relation.
 	An equivalence class of monomorphisms ending in $A$ is called a \textbf{subobject} of $A$.
 	Chosen a representative $f: B \to A$ we denote the corresponding subobject by $B \subseteq A$.
 
-	Moreover, given $B_1$ and $B_2$ subobjects of $A$, we say that $B_1 \subseteq B_2$, $B_1$ is a subobject of $B_2$, iff
+	Moreover, given $B_1$ and $B_2$ subobjects of $A$, we say that $B_1$ is a subobject of $B_2$, 
+	denoted by $B_1 \subseteq B_2$, iff
 	$\exists\, \alpha: B_1 \to B_2$ a morphism s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -95,7 +96,7 @@ Let's now give the dual definition.
 	\begin{equation}
 	0 \to A_1 \xrightarrow{f_1} A_2 \xrightarrow{f_2} A_3 \to 0 
 	\end{equation} 
-	is called \textbf{short exact sequence}, abbreviated as s.e.q.
+	is called \textbf{short exact sequence}.
 	In particular this sequence is exact iff
 	$f_1$ is a mono, $f_2$ is an epi, and $\Ima f_1 = \ker f_2$.
 \end{defn}
@@ -129,7 +130,7 @@ Let's combine the above lemmas
 In this section we'll always work with abelian categories $\mathsf{C}$ and $\mathsf{D}$.
 
 \begin{defn}[Exact functor]
-	Let $F: \mathsf{C} \to \mathsf{D}$ be an additive functor.
+	Let $F: \mathsf{C} \to \mathsf{D}$ be an {\em additive} functor.
 	We say that $F$ is \textbf{exact} iff, for every exact sequence
 	\begin{equation}
 	A \xrightarrow{f} B \xrightarrow{g} C \quad \text{ in } \mathsf{C}
@@ -233,11 +234,13 @@ Clearly, if $\mathsf{C}$ is preadditive, $F$ is an additive functor. Moreover
 \end{rem}
 \begin{rem}
 Consider $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $\left(\mathsf{I}, \leq \right)$ a filtered poset, then
-the functors $F: \mathsf{I} \to \mathsf{Mod}\text{-}R$ are in correspondance with the direct systems of modules
+the functors $F: \mathsf{I} \to \mathsf{Mod}\text{-}R$ are in correspondence
+with the directed systems of modules
 $\left\{ M_i, f_{ji} \right\}_{i \leq j }$.
 Consider the functors $F, G, L \in \mathsf{C}^{\mathsf{I}}$ and their corresponding
-direct systems $\left\{ M_i, f_{ji} \right\}_{i \leq j}$, $\left\{ N_i, g_{ji} \right\}_{i \leq j}$ and $\left\{ L_i, l_{ji} \right\}_{i \leq j}$.
-Then the the sequence 
+directed systems $\left\{ M_i, f_{ji} \right\}_{i \leq j}$, $\left\{ N_i, g_{ji} \right\}_{i \leq j}$
+and $\left\{ L_i, l_{ji} \right\}_{i \leq j}$.
+Then the sequence 
 \begin{equation}
 0 \to F \xrightarrow{\eta} G \xrightarrow{\zeta} L \to 0
 \end{equation} 
@@ -269,7 +272,7 @@ for each $i \leq j$ in $\mathsf{I}$.
 	Consider, in fact, the category $\mathsf{I}$, characterized by
 	$\mathrm{Ob} \left(\mathsf{I}\right) := \left\{ 1, 2, 3 \right\}$ and nontrivial arrows
 	$1 \to 2$ and $1 \to 2$.
-	Consider $F, G, H \in \mathsf{Ab}^{\mathsf{I}}$, defined as follows:
+	Consider $F, G, H \in \mathsf{Ab}^{\mathsf{I}}$, defined by:
 	\begin{equation}
 	F : \ \, 
 	\begin{tikzcd}
@@ -288,7 +291,8 @@ for each $i \leq j$ in $\mathsf{I}$.
 	\end{tikzcd}
 	.\end{equation} 
 	Then $\varinjlim F = \coker \dot{4} = \varinjlim G$ and $\varinjlim H \simeq \mathbb{Z}/2\mathbb{Z}$.
-	Consider the natural transofrmation $\dot{2}$ and $\pi$, that give rise to the sequence
+	(Indeed these are just cokernels of the horizontal maps).
+	Consider the natural transformation $\dot{2}$ and $\pi$, that give rise to the sequence
 	\begin{equation}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &

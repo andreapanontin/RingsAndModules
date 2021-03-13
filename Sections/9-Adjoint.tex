@@ -1,10 +1,10 @@
 \section{Adjoint functors}
 Let's introduce this topic with an example
 \begin{ex}
-	Let $\K$ be a field, and $\mathsf{C} := \mathsf{Vect-}\K$ the category of $\K$-Vector Spaces.
+	Let $\K$ be a field, and $\mathsf{C} := \mathsf{Vect}\text{-}\K$ the category of $\K$-Vector Spaces.
 	Clearly we can define the forgetful functor, which acts on objects as
 	\begin{align}
-		\mathrm{For}: \mathsf{Vect-}\K &\to \mathsf{Sets} \\
+		\mathrm{For}: \mathsf{Vect}\text{-}\K &\to \mathsf{Sets} \\
 		V_K &\mapsto V
 	,\end{align} 
 	forgetting about the structure of Vector Space.
@@ -12,7 +12,7 @@ Let's introduce this topic with an example
 	which is the Vector Space  for which $X$ is a basis.
 	This induces a functor
 	\begin{align}
-		 \mathsf{Sets} &\to \mathsf{Vect-}\K \\
+		 \mathsf{Sets} &\to \mathsf{Vect}\text{-}\K \\
 		 X&\mapsto \left\langle X \right\rangle =: V
 	.\end{align} 
 	Recall that, fixed $X \in \mathrm{Ob} \left(\mathsf{Sets}\right)$, and $W \in \mathrm{Ob} \left(\mathsf{Vect}-\K\right)$,
@@ -26,7 +26,7 @@ Let's introduce this topic with an example
 	\end{tikzcd}
 	\end{equation} 
 	i.e. s.t. $f(x) = \alpha(x)\ \,\forall\, x \in X$.
-	In particualr we have a bijection
+	In particular we have a bijection
 	\begin{equation}
 	\begin{tikzcd}
 		\mathrm{Hom}_{\mathsf{Sets}} \left( X, \mathrm{For}\, W \right) \arrow[r, "", leftrightarrow] &
@@ -47,13 +47,18 @@ Let's introduce this topic with an example
 	\end{equation} 
 	a bijection natural in $C$ and $D$.
 	In particular $L$ is the left adjoint of $R$ and $R$ is the right adjoint of $L$.
-	An adjoint pair is sometimes referred to as adjunction, and denoted by
+	An adjoint pair is sometimes referred to as an adjunction, and denoted by
 	\begin{equation}
 	\begin{tikzcd}
 		\mathsf{C} \arrow[r, "L", rightarrow, shift left = .5ex] &
 		\mathsf{D} \arrow[l, "R", rightarrow, shift left = .5ex] 
 	\end{tikzcd}
-	.\end{equation} 
+	\quad\text{ or }\quad
+	\begin{tikzcd}
+		L\colon\mathsf{C} \arrow[r, "", rightarrow, shift left = .5ex] &
+		\mathsf{D}\colon R \arrow[l, "", rightarrow, shift left = .5ex] 
+	.\end{tikzcd}
+	\end{equation} 
 \end{defn}
 
 \begin{rem}
@@ -61,7 +66,9 @@ Let's introduce this topic with an example
 \end{rem} 
 
 \begin{rem}
-	Naturality of $\varphi$ in $C$ and $D$, more explicitly, means that the following diagrams commute
+	Naturality of $\varphi$ in $C$ and $D$, more explicitly,
+	means that, for all $f\colon C \to C'$ and all $g\colon D \to D'$,
+	the following diagrams commute
 	\begin{equation}
 	\begin{tikzcd}
 		C \arrow[d, "f", rightarrow] &
@@ -116,16 +123,28 @@ Let's introduce this topic with an example
 
 \begin{rem}[]
 	It is not obvious from the definition that the family of morphisms given by the unit and counit
-	are natural transformation.
+	are natural transformation, but they are.
+	Moreover I find it useful to visualize the following diagram to remember how to construct
+	unit and counit of an adjunction (to be read from left to right):
+	\begin{equation}
+	\begin{tikzcd}[row sep=0.7em]
+		\mathsf{C} \arrow[rd, "L", rightarrow] 
+		\arrow[dd, "\mathrm{id}_{ \mathsf{C} }"', rightarrow] 
+		& \\
+		& \mathsf{D} 
+		\arrow[dd, "\mathrm{id}_{ \mathsf{D} }", rightarrow] 
+		\arrow[ld, "R"', rightarrow] \\
+		\mathsf{C} \arrow[rd, "L", rightarrow] 
+		& \\
+		& \mathsf{D}
+	.\end{tikzcd}
+	\end{equation}
 \end{rem}
 
 \begin{prop}
-	Given two right adjoints $R$ and $R'$ of the same functor $L$,
+	Given two right adjoints, $R$ and $R'$, of the same functor $L$,
 	then $R$ and $R'$ are naturally isomorphic.
-\end{prop} 
-
-\begin{prop}
-	Given two left adjoints $L$ and $L'$ of the same functor $R$,
+	Analogously, given two left adjoints, $L$ and $L'$, of the same functor $R$,
 	then $L$ and $L'$ are naturally isomorphic.
 \end{prop} 
 
@@ -138,7 +157,7 @@ Let's introduce this topic with an example
 			\begin{equation}
 			\eta: id_{\mathsf{C}} \to R \circ L \qquad \text{ and }\qquad \zeta: L \circ R \to id_{\mathsf{D}}
 			\end{equation} 
-			s.t.
+			such that
 			\begin{align}
 				\zeta_{L(C)} \circ L(\eta_C) &= id_{L(C)} \qquad
 				\,\forall\, C \in \mathrm{Ob} \left(\mathsf{C}\right)\\
@@ -178,7 +197,7 @@ Let's introduce this topic with an example
 
 \begin{rem}[]
 	Given the definitions in the preliminaries, fix two rings $S$ and $R$, and an $R$-$S$ bimodule ${}_SM_R$,
-	we can construct the functors (acting on the objects as)
+	we can construct the functors (acting on objects as)
 	\begin{align}
 		- \otimes_S M: \mathsf{Mod}\text{-}S &\to \mathsf{Mod}\text{-}R \\
 		 N_S &\mapsto \left[ N \otimes_S M_R \right]_R
@@ -192,7 +211,8 @@ Let's introduce this topic with an example
 \begin{prop}
 	The pair $\left(- \otimes_S M_R, \mathrm{Hom}_{R}\left( M_R, - \right)\right)$
 	is an adjoint pair.
-	Moreover also the pair $\left(M_R \otimes_R -, \mathrm{Hom}_{S}\left( M, - \right) \right)$ is an adjoint pair.
+	Moreover also the pair $\left(M_R \otimes_R -, 
+	\mathrm{Hom}_{S}\left( {}_SM, - \right) \right)$ is an adjoint pair.
 	Notice that, if the above functors are between categories of right modules,
 	these are between categories of left modules.
 \end{prop} 
@@ -203,7 +223,7 @@ Let's introduce this topic with an example
 	\begin{equation}
 		r \cdot x := \phi(r) \cdot x \qquad \,\forall\, x \in N,\ \,\forall\, r \in R
 	.\end{equation} 
-	And analogously for any $N_S \in \mathsf{Mod}\text{-}S$.
+	And analogously for any right module $N_S \in \mathsf{Mod}\text{-}S$.
 	In particular $S$ becomes both a left and right $R$-module via $\phi$.
 	We can then define the following functors:
 	\begin{align}
@@ -223,7 +243,7 @@ Let's introduce this topic with an example
 		\mathrm{Hom}_{ R}\left( S_R, - \right): \mathsf{Mod}\text{-}R &\to \mathsf{Mod}\text{-}S\\
 		M_R &\mapsto \left[ \mathrm{Hom}_{R}\left({}_SS_R, M_R \right) \right]_S
 	,\end{align} 
-	and the pair $\left(\phi_*, \mathrm{Hom}_{ R}\left( S, - \right)\right)$ is an adjoint pair.
+	and the pair $\left(\phi_*, \mathrm{Hom}_{ R}\left( S_R, - \right)\right)$ is an adjoint pair.
 \end{ex} 	
 
 \begin{prop}
@@ -232,9 +252,9 @@ Let's introduce this topic with an example
 	$R: \mathsf{D} \to \mathsf{C}$.
 	Then
 	\begin{enumerate}
-		\item $L$ preserves colimts, and in particular coproducts, pushouts, cokernels,
+		\item $L$ preserves colimts, and in particular coproducts, pushouts and cokernels,
 			when they exist,
-		\item $R$ preserves limts, and in particular products, pullbacks, kernels,
+		\item $R$ preserves limts, and in particular products, pullbacks and kernels,
 			when they exist.
 	\end{enumerate}
 \end{prop} 
@@ -274,4 +294,12 @@ Let's introduce this topic with an example
 
 	Dually, if $\mathsf{C}$ is complete, then $\varprojlim$	is a right adjoint.
 	Again, if $\mathsf{C}$ is abelian, then $\varprojlim$ is also left exaxct.
+
+	More explicitly, denoting by $\Delta\colon \mathsf{C} \to \mathsf{C}^{\mathsf{I}}$
+	the diagonal functors, we have the following adjoint pairs:
+	\begin{equation*}
+	\left(\varinjlim, \Delta\right)
+	\qquad \text{ and } \qquad
+	\left(\Delta, \varprojlim\right)
+	.\end{equation*}
 \end{prop} 
