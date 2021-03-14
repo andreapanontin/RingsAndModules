@@ -3,8 +3,9 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 
 \begin{defn}[Nullhomotopic morphism]
 	A morphism $f \in \mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})} \left( X^{\bullet}, Y^{\bullet} \right)$ is
-	\textbf{nullhomotopic}, or \textbf{homotopic to zero}, iff
-	$\exists\, s^n: X^n \to Y^{n-1}$ a family of morphisms s.t.
+	{\em nullhomotopic}, or {\em homotopic to zero}, iff there exists
+	a family of morphism $\left\{ s^n \right\}_{n \in \mathbb{N}}$, with
+	$s^n\colon X^n \to Y^{n-1}$, in pictures
 	\begin{equation}
 	\begin{tikzcd}
 		\ldots \arrow[r, "", rightarrow] &
@@ -18,16 +19,16 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		Y^{n+1} \arrow[r, "", rightarrow] &
 		\ldots
 	\end{tikzcd}
-	\end{equation} 
-	$f^n = s^{n+1} \circ d_X^{n} + d_Y^{n-1} \circ s^n$ for all $n \in \Z$.
-	More compactly $f = d \circ d_X + d_Y \circ s$.
-	The morphisms $s^n$ are called \textit{homotopies} or \textit{cochain contractions}.
+	\end{equation}
+	such that $f^n = s^{n+1} \circ d_X^{n} + d_Y^{n-1} \circ s^n$ for all $n \in \Z$.
+	More compactly we write $f = s \circ d_X + d_Y \circ s$.
+	The morphisms $s^n$ are called {\em homotopies} or {\em cochain contractions}.
 	Moreover, if $f$ is nullhomotopic, we write $f \sim 0$.
 \end{defn}
 
 \begin{defn}[Homotopic morphisms]
 	Two cochain maps $f,g: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
-	are called \textbf{homotopic}, denoted by $f \sim g$, iff
+	are called {\em homotopic}, denoted by $f \sim g$, iff
 	$f - g$ is nullhomotopic.
 \end{defn}
 
@@ -39,7 +40,8 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	Given, as before, an additive category $\mathsf{A}$, we define the homotopy category
 	$K(\mathsf{A})$ as follows.
 	Its objects are exactly the objects in $\mathrm{Ch}(\mathsf{A})$.
-	Its morphisms, instead, are equivalence classes of (co)chain maps, under the just defined homotopy relation $\sim$.
+	Its morphisms, instead, are equivalence classes of (co)chain maps,
+	under the homotopy relation $\sim$ we just defined.
 	More explicitly
 	\begin{align}
 		\mathrm{Hom}_{K(\mathsf{A})} \left( X^\bullet, Y^\bullet \right)
@@ -61,7 +63,8 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	.\end{equation} 
 	Moreover, let $f,g: X^\bullet \to Y^\bullet$ be homotopic cochain maps.
 	Let $\alpha: Z^\bullet \to X^\bullet$ and $\beta: Y^\bullet \to W^\bullet$ be cochain maps,
-	then $\beta \circ f \circ \alpha \sim \beta \circ g \circ \alpha$.
+	then, by linearity of composition, we obtain
+	$\beta \circ f \circ \alpha \sim \beta \circ g \circ \alpha$.
 \end{rem}
 
 \begin{prop}
@@ -77,7 +80,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 
 \begin{defn}[Homotopy equivalence]
 	A cochain map $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
-	is said to be a \textbf{homotopy equivalence} iff
+	is said to be a {\em homotopy equivalence} iff
 	$\exists\, g: \left( Y^{\bullet}, d_{Y} \right) \to \left( X^{\bullet}, d_{X} \right)$
 	s.t.
 	$g \circ f \sim 1_X$ and $f \circ g \sim 1_Y$.
@@ -95,16 +98,17 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	is the zero map for every $n \in \Z$.
 \end{prop} 
 \begin{proof}
-	We can use Freyd-Mitchell (this proposition deals with a finite number of objects).
+	We can use Freyd-Mitchell
+	(this proposition deals with a finite number of objects and morphisms).
 	Then, by definition
 	\begin{equation}
 		H^n(f) \left( x + \ima d_X^{n-1} \right) = f^n(x) + \ima d_Y^{n-1}
 	.\end{equation} 
 	But $f^n(x) = d^{n-1}_Y \circ s^n(x) + s^{n+1} \circ d_X^{n}(x)$,
 	then
-	\begin{equation}
-		H^n(f)(x) = d^{n-1}_Y \circ s^n (x) + \ima d_Y^{n-1} = 0 + \ima d_Y^{n-1}
-	.\end{equation} 
+	\begin{equation*}
+		H^n(f)(x) = d^{n-1}_Y \circ s^n (x) + \ima d_Y^{n-1} = 0 + \ima d_Y^{n-1}.\qedhere
+	\end{equation*} 
 \end{proof}
 
 \begin{cor}
@@ -123,8 +127,8 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{rem}
 
 \begin{defn}[Semisimple ring]
-	A ring $R$ is called \textbf{semisimple} iff every $R$-module is projective.
-	Equivalently iff every s.e.s. splits.
+	A ring $R$ is called {\em semisimple} iff every $R$-module is projective.
+	Equivalently iff every short exact sequence splits.
 \end{defn}
 
 \begin{ex}
@@ -257,12 +261,12 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	\ker h \xrightarrow{\partial} \coker f \xrightarrow{\overline{\alpha'}} 
 	\coker g \xrightarrow{\overline{\beta'}} \coker h
 	,\end{equation} 
-	in which $\partial$ is called the \textbf{connecting morphism}.
+	in which $\partial$ is called the {\em connecting morphism}.
 	Moreover $\alpha$ mono implies $\underline{\alpha}$ is mono,
 	whereas $\beta'$ epi implies $\overline{\beta'}$ is epi.
 \end{lem} 	
 
-\begin{rem}[S.e.s. in the category of complexes]
+\begin{rem}[Short exact sequences in the category of complexes]
 	Since the abelian structure of $\mathrm{Ch}(\mathsf{A})$ is defined degree wise, we have
 	that a sequence in $\mathrm{Ch}(\mathsf{A})$
 	\begin{equation}
@@ -278,17 +282,17 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{rem}
 
 \begin{thm}[Fundamental theorem in (co)homology]
-	Consider a s.e.s. in $\mathrm{Ch}(\mathsf{A})$, for an abelian category $\mathsf{A}$,
+	Consider a short exact sequence in $\mathrm{Ch}(\mathsf{A})$, for an abelian category $\mathsf{A}$,
 	\begin{equation}
 	0 \to X^\bullet \xrightarrow{f} Y^\bullet \xrightarrow{g} W^\bullet \to 0
 	.\end{equation} 
-	Then there is a long exact (co)homology sequence in $\mathsf{A}$:
+	Then we can associate to it a long exact sequence in $\mathsf{A}$, called the
+	{\em long exact sequence in (co)homology}, given as follows:
 	\begin{equation}
 		\ldots \to H^n(X^\bullet) \xrightarrow{H^n(f)} H^n(Y^\bullet) \xrightarrow{H^n(g)} 
 		H^n (W^\bullet) \xrightarrow{\partial} H^{n+1}(X^\bullet) \to
 		H^{n+1}(Y^\bullet) \to \ldots
 	,\end{equation} 
-	called \textit{long exact sequence in (co)homology}.
 \end{thm}
 \begin{proof}
 	The proof is essentially an application of the snake lemma.
@@ -315,16 +319,17 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \begin{rem}[Notation]
 	We denote by $Z^n(X^\bullet) := \ker d_X^n$, the $n$-cycles,
 	and by $B^n(X^\bullet) := \ima d_X^{n-1}$, the $n$-boundaries.
-	They are clearly subobjects of $X^n$.
+	Both clearly are subobjects of $X^n$.
 \end{rem}
 
 \begin{defn}[Long/short exact sequence category]
 	Let $\mathsf{A}$ be an abelian category.
 	\begin{itemize}
-		\item We define $\mathsf{S}$ the category of short exact sequences
-	in $\mathrm{Ch}(\mathsf{A})$ as the category whose objects
-	are short exact sequences with objects in $\mathrm{Ob} \left(\mathrm{Ch}(\mathsf{A})\right)$,
-	and whose morphisms are triples $(f,g,h)$ of cochain maps s.t.
+		\item We define $\mathsf{S}$, the category of short exact sequences
+	in $\mathrm{Ch}(\mathsf{A})$, as the category whose objects
+	are short exact sequences with objects in $\mathrm{Ob} \left(\mathrm{Ch}(\mathsf{A})\right)$
+	and whose morphisms, called morphisms of short exact sequences,
+	are triples $(f,g,h)$ of cochain maps such that
 	the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -340,10 +345,11 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		0 
 	\end{tikzcd}
 	.\end{equation} 
-		\item We define $\mathsf{L}$ the category of long exact sequences
-	in $\mathrm{Ch}(\mathsf{A})$ as the category whose objects
-	are long exact sequences in $\mathrm{Ob} \left(\mathrm{Ch}\mathsf{A}\right)$,
-	and whose morphisms are families of maps $\left\{ f^n \right\}_{n \in \Z}$ making
+		\item We define $\mathsf{L}$, the category of long exact sequences
+	in $\mathsf{A}$, as the category whose objects
+	are exact sequences in $\mathrm{Ob} \left(\mathrm{Ch}\mathsf{A}\right)$
+	and whose morphisms are morphisms of complexes, i.e.
+	families of maps $\left\{ f^n \right\}_{n \in \Z}$ making
 	the following diagram commute
 	\begin{equation}
 	\begin{tikzcd}
@@ -367,9 +373,9 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	\begin{align}
 		L: \mathsf{S} &\to \mathsf{L}
 	,\end{align} 
-	that, on objects, maps each short exact sequence of complexes to its corresponding long exact
-	(co)homology sequence.
-	In particular, given a morphism in $\mathsf{S}$
+	that, on objects, maps each short exact sequence of complexes to its corresponding exact
+	sequence in (co)homology.
+	In particular a given morphism in $\mathsf{S}$
 	\begin{equation}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -384,27 +390,28 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		0 
 	\end{tikzcd}
 	\end{equation} 
-	it gets mapped to the following morphism in $\mathsf{L}$ of long exact sequences
-	\begin{equation}
-	\begin{tikzcd}[column sep = small]
+	gets mapped to the following morphism of long exact sequences, in $\mathsf{L}$ 
+	\begin{equation*}
+	\begin{tikzcd}[column sep = 2.4em]
 		\ldots \arrow[r, "", rightarrow] &
-		H^n(A^\bullet) \arrow[r, "H^n(\alpha)", rightarrow] \arrow[d, "H^n(f)"', rightarrow] &
+%		H^n(A^\bullet) \arrow[r, "H^n(\alpha)", rightarrow] \arrow[d, "H^n(f)"', rightarrow] &
 		H^n(B^\bullet) \arrow[r, "H^n(\beta)", rightarrow] \arrow[d, "H^n(g)"', rightarrow] &
-		H^n(C^\bullet) \arrow[r, "\partial_1^n", rightarrow] \arrow[d, "H^n(h)"', rightarrow] &
-		H^{n+1}(A^\bullet) \arrow[r, "H^{n+1}(\alpha)", rightarrow] \arrow[d, "H^{n+1}(f)"', rightarrow] &
-		H^{n+1}(B^\bullet) \arrow[r, "H^{n+1}(\beta)", rightarrow] \arrow[d, "H^{n+1}(g)"', rightarrow] &
+		H^n(C^\bullet) \arrow[r, "\partial_1^n", rightarrow] \arrow[d, "H^n(h)"', rightarrow] 
+		\arrow[rd, "\circlearrowright" description, phantom, rightarrow] &
+		H^{n+1}(A^\bullet) \arrow[r, "H^{n+1}(\alpha)", rightarrow] \arrow[d, "H^{n+1}(f)", rightarrow] &
+		H^{n+1}(B^\bullet) \arrow[r, "H^{n+1}(\beta)", rightarrow] \arrow[d, "H^{n+1}(g)", rightarrow] &
 		\ldots \\
 		\ldots \arrow[r, "", rightarrow] &
-		H^n(X^\bullet) \arrow[r, "H^n(\alpha')"', rightarrow] &
+%		H^n(X^\bullet) \arrow[r, "H^n(\alpha')"', rightarrow] &
 		H^n(Y^\bullet) \arrow[r, "H^n(\beta')"', rightarrow] &
 		H^n(W^\bullet) \arrow[r, "\partial_2^n"', rightarrow] &
 		H^{n+1}(X^\bullet) \arrow[r, "H^{n+1}(\alpha')"', rightarrow] &
 		H^{n+1}(Y^\bullet) \arrow[r, "H^{n+1}(\beta')"', rightarrow] &
 		\ldots 
 	\end{tikzcd}
-	.\end{equation} 
-	In particular also the squares involving the connecting morphisms commute,
-	in other words $H^{n+1}(f) \circ \partial_1^n = \partial_2^n \circ H^n(h)$.
+	.\end{equation*} 
+	In particular also the squares involving the connecting morphisms $\partial^n$ commute,
+	in other words we have $H^{n+1}(f) \circ \partial_1^n = \partial_2^n \circ H^n(h)$.
 \end{prop} 
 
 \begin{rem}[Notation]
@@ -415,10 +422,10 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	can be visualized by the following diagram, called the exact triangle
 	\begin{equation}
 	\begin{tikzcd}[column sep=tiny]
-		H^*(A^\bullet) \arrow[rr, "", rightarrow] & &
-		H^*(B^\bullet) \arrow[dl, "", rightarrow] \\
+		H^{\bullet}(A^\bullet) \arrow[rr, "", rightarrow] & &
+		H^{\bullet}(B^\bullet) \arrow[dl, "", rightarrow] \\
 		&
-		H^*(C^\bullet) \arrow[lu, "\partial", rightarrow] &
+		H^{\bullet}(C^\bullet) \arrow[lu, "\partial", rightarrow] &
 	\end{tikzcd}
 	.\end{equation} 
 \end{rem}
@@ -443,12 +450,12 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		B_3 \arrow[r, "", rightarrow] &
 		C_3 \arrow[r, "", rightarrow] &
 		0 \\
-	\end{tikzcd}
-	.\end{equation} 
+	.\end{tikzcd}
+	\end{equation} 
 	\begin{enumerate}
 		\item If the $2$nd and $3$rd rows are exact, then so is the $1$st.
 		\item If the $1$st and $2$nd rows are exact, then so is the $3$rd.
-		\item If the $1$st and $2$nd rows are exact, and the $2$nd is a complex,
+		\item If the $1$st and $3$rd rows are exact, and the $2$nd is a complex,
 			then the $2$nd is also exact.
 	\end{enumerate}
 \end{lem} 
@@ -468,18 +475,18 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		C_2 \arrow[r, "", rightarrow] &
 		D_2 \arrow[r, "", rightarrow] &
 		E_2 
-	\end{tikzcd}
-	.\end{equation} 
+	.\end{tikzcd}
+	\end{equation} 
 	\begin{enumerate}
-		\item If $b$ and $d$ are mono, $a$ is epi, then $c$ is mono.
-		\item If $b$ and $d$ are epi, $e$ is mono, then $c$ is epi.
+		\item If $b$ and $d$ are mono and $a$ is epi, then $c$ is mono.
+		\item If $b$ and $d$ are epi and $e$ is mono, then $c$ is epi.
 	\end{enumerate}
 \end{lem} 
 
 \begin{defn}[quasi-isomorphism]
 	Let $\mathsf{A}$ be an abelian category.
 	Let $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
-	We say that $f$ is a \textbf{quasi-isomorphism} iff the induced cohomology morphism
+	We say that $f$ is a {\em quasi-isomorphism} iff the induced cohomology morphism
 	\begin{equation}
 		H^n(f): H^n(X^\bullet) \to H^n(Y^\bullet)
 	\end{equation} 
@@ -487,28 +494,29 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{defn}
 
 \begin{lem}
-	An homotopy equivalence $f: X^\bullet \to Y^\bullet$, i.e.
-	an iso in $K(\mathsf{A})$, then $f$ is a \textit{quasi-isomorphism}.
+	An homotopy equivalence $f\colon X^\bullet \to Y^\bullet$, i.e.
+	an iso in $K(\mathsf{A})$, is a {\em quasi-isomorphism}.
 \end{lem} 
 
 \begin{lem}
-	Find an example of quasi-isomorphism, which is not an homotopy equivalence.
+	One can find examples of quasi-isomorphism, which is not an homotopy equivalence.
 	(Look at morphisms of exact sequences).
 \end{lem} 
 
 \begin{lem}
-	Let $\mathsf{A}$ be an abelian category and $\left( X^{\bullet}, d_{X} \right) \in \mathrm{Ch}(\mathsf{A})$.
+	Let $\mathsf{A}$ be an abelian category and consider
+	$\left( X^{\bullet}, d_{X} \right) \in \mathrm{Ch}(\mathsf{A})$.
 	Define $\left( Z^{\bullet}, d_{Z} \right)$ by:
 	\begin{equation}
 		Z^n := Z^n(X^\bullet) := \ker d_X^n \qquad \text{ and } \qquad
 		d^n_{Z} = 0 \qquad \,\forall\, n \in \Z
 	.\end{equation} 
-	Moreover define the complex $\left( B^{\bullet}, d_{B} \right)$ by
+	Analogously define the complex $\left( B^{\bullet}, d_{B} \right)$ by
 	\begin{equation}
 		B^n := B^n(X^\bullet) := \ima d_X^{n-1} \qquad \text{ and } \qquad
 		d^n_{B} = 0 \quad \,\forall\, n \in \Z
 	.\end{equation} 
-	Then there is a s.e.s. of complexes
+	Then there is a short exact sequence of complexes
 	\begin{equation}
 	0\to Z^\bullet \to X^\bullet \to
 	B^\bullet[1] \to 0
@@ -516,21 +524,23 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	whose associated long exact sequence breaks into short exact sequences in $\mathsf{A}$.
 \end{lem} 
 \begin{proof}
-	Apart from the exactness of the s.e.s. of complexes, notice that:
+	Apart from the exactness of the short exact sequence of complexes, notice that:
 	$H^n(Z^\bullet) = Z^n$ and $H^n(B^\bullet[1]) = H^{n+1}(B^\bullet) = B^{n+1}$ for all $n \in \Z$.
 	Then the associated long exact sequence is
 	\begin{equation}
 		\ldots B^n \xrightarrow{\partial} Z^n \to H^n(X^\bullet) \to B^{n+1} \xrightarrow{\partial}
 		Z^{n+1} \to H^{n+1}(X^\bullet) \to \ldots
 	.\end{equation} 
-	But, for each $n$ it breaks into the s.e.s.
-	\begin{equation}
-		0 \to B^n \to Z^n \to H^n(X^\bullet) \to 0
-	.\end{equation} 
+	But, for each $n$, the above breaks into the short exact sequences
+	\begin{equation*}
+		0 \to B^n \to Z^n \to H^n(X^\bullet) \to 0.\qedhere
+	\end{equation*} 
 \end{proof}
 
 \begin{lem}
-	Let $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
+	Let $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
+	be a cochain map in $\mathrm{Ch}(\mathsf{A})$,
+	for an abelian category $\mathsf{A}$.
 	Assume that $\left(\ker f^\bullet, d^\bullet\right)$ and $\left(\coker f^\bullet, d^\bullet\right)$
 	are acyclic.
 	Then $f$ is a quasi-isomorphism.
@@ -556,7 +566,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		\Z \arrow[r, "\dot{2}"', rightarrow] &
 		\Z \arrow[r, "\pi"', rightarrow] &
 		\mathbb{Z}/2\mathbb{Z} \arrow[r, "", rightarrow] &
-		0 \\
+		0 
 	\end{tikzcd}
 	\end{equation} 
 	is a quasi-isomorphism.

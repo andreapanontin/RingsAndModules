@@ -5,7 +5,7 @@
 	Let $\mathsf{C}$ be a preadditive category, with a zero object.
 	Let $A \xrightarrow{f} B$ a morphism in $\mathsf{C}$.
 	\begin{itemize}
-		\item A \textbf{kernel} of $f$ is a pair $\left(K, \epsilon\right)$, with $K \xrightarrow{\epsilon} A$ satisfying
+		\item A {\em kernel} of $f$ is a pair $\left(K, \epsilon\right)$, with $K \xrightarrow{\epsilon} A$ satisfying
 	\begin{description}
 		\item[K1] $f \circ \epsilon = 0$,
 		\item[K2] for any $\epsilon': K' \to A$ s.t. $f \circ \epsilon' = 0$, then
@@ -17,7 +17,7 @@
 			\end{tikzcd}
 			.\end{equation} 
 	\end{description} 
-	\item A \textbf{cokernel} of $f$ is a kernel of $B \xrightarrow{f} A$ in $\mathsf{C}^{op}$.
+	\item A {\em cokernel} of $f$ is a kernel of $B \xrightarrow{f} A$ in $\mathsf{C}^{op}$.
 		In other words it is a pair $\left(C, p\right)$, with $B \xrightarrow{p} C$ s.t.
 	\begin{description}
 		\item[CK1] $p \circ f = 0$,
@@ -36,14 +36,14 @@
 \end{defn}
 
 \begin{rem}
-	Property \textbf{K2} grants that Ker satisfies a universal property (U.P.).
+	Property {\em K2} grants that Ker satisfies a universal property (U.P.).
 	Objects that satisfy universal properties are unique up to a unique isomorphism. 
 \end{rem}
 
 \begin{defn}[(Co)equalizer]
 	Let $f,g$ be two parallel morphisms $A \rightrightarrows B$ in a category $\mathsf{C}$.
 	\begin{itemize}
-		\item An \textbf{equalizer} of $f$ and $g$ is a pair $\left(C, e\right)$, with $C \xrightarrow{e} A$, satisfying
+		\item An {\em equalizer} of $f$ and $g$ is a pair $\left(C, e\right)$, with $C \xrightarrow{e} A$, satisfying
 	\begin{description}
 		\item[eq1] $f \circ e = g \circ e$,
 		\item[eq2] for $\left(C', e'\right)$ with $C' \xrightarrow{e'} A$ s.t. $f \circ e' = g \circ e'$, then
@@ -55,7 +55,7 @@
 			\end{tikzcd}
 			.\end{equation} 
 	\end{description}
-	\item A \textbf{coequalizer} of $f$ and $g$ is an equalizer of $f$ and $g$ in $\mathsf{C}^{op}$.
+	\item A {\em coequalizer} of $f$ and $g$ is an equalizer of $f$ and $g$ in $\mathsf{C}^{op}$.
 		In other words it is a pair $\left(C, p\right)$, with $B \xrightarrow{p} C$ s.t.
 		\begin{description}
 			\item[coeq1] $p \circ f = p \circ g$,
@@ -102,7 +102,7 @@
 	\begin{equation}
 		\ker f_*(X) = \left\{ X \xrightarrow{\alpha} A  \ \middle|\ f \circ \alpha = 0\right\} \leq \mathrm{Hom}_{\mathsf{C}} \left( X, A \right)
 	.\end{equation} 
-	We can define the \textit{contravariant} functor
+	We can define the {\em contravariant} functor
 	\begin{equation}
 	F := \ker \left[ f_*: \mathrm{Hom}_{\mathsf{C}} \left( -, A \right) \to \mathrm{Hom}_{\mathsf{C}} \left( -, B \right) \right]
 	\end{equation} 
@@ -140,7 +140,7 @@
 	\begin{equation}
 		\ker f^*(X) = \left\{ B \xrightarrow{\beta} X \ \middle|\ \beta \circ f = 0 \right\}
 	.\end{equation} 
-	We can define a \textit{covariant} functor
+	We can define a {\em covariant} functor
 	\begin{equation}
 	F := \ker \left[ f^*: \mathrm{Hom}_{\mathsf{C}} \left( B, - \right) \to \mathrm{Hom}_{\mathsf{C}} \left( A, - \right) \right]
 	\end{equation} 
@@ -188,7 +188,7 @@
 
 \begin{defn}[Product]
 	Let $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$ for an arbitrary category $\mathsf{C}$.
-	A \textbf{product} of $A$ and $B$, if it exists, is a triple $\left(A \prod B, \pi_A, \pi_B \right)$, where $A \prod B \in \mathrm{Ob} \left(\mathsf{C}\right)$, and the morphisms $\pi_A$ and $\pi_B$ in $\mathsf{C}$, called \textbf{projections}, 
+	A {\em product} of $A$ and $B$, if it exists, is a triple $\left(A \prod B, \pi_A, \pi_B \right)$, where $A \prod B \in \mathrm{Ob} \left(\mathsf{C}\right)$, and the morphisms $\pi_A$ and $\pi_B$ in $\mathsf{C}$, called {\em projections}, 
 	 \begin{equation}
 	A \prod B \xrightarrow{\pi_A} A \quad \text{ and } \quad A \prod B \xrightarrow{\pi_B} B
 	\end{equation} 
@@ -243,10 +243,10 @@
 
 \begin{defn}[Coproduct]
 	Let $A,B \in \mathrm{Ob} \left(\mathsf{C}\right)$ for an arbitrary category $\mathsf{C}$.
-	A \textbf{coproduct} of $A$ and $B$, if it exists,
+	A {\em coproduct} of $A$ and $B$, if it exists,
 	is a triple $\left(A \coprod B, \epsilon_A, \epsilon_B \right)$,
 	where $A \coprod B \in \mathrm{Ob} \left(\mathsf{C}\right)$
-	and the morphisms $\epsilon_A$ and $\epsilon_B$, called \textbf{embeddings}, 
+	and the morphisms $\epsilon_A$ and $\epsilon_B$, called {\em embeddings}, 
 	\begin{equation}
 	A \xrightarrow{\epsilon_A} A \coprod B \quad \text{ and } \quad B \xrightarrow{\epsilon_B} A \coprod B
 	\end{equation} 
@@ -300,7 +300,7 @@
 
 \begin{defn}[Additive category]
 	Let $\mathsf{C}$ be a preadditive category with $0$ object.
-	$\mathsf{C}$ is said \textbf{additive} iff, given any pair (or finite family) of objects in $\mathsf{C}$, their product exists in $\mathsf{C}$.
+	$\mathsf{C}$ is said {\em additive} iff, given any pair (or finite family) of objects in $\mathsf{C}$, their product exists in $\mathsf{C}$.
 \end{defn}
 
 \begin{prop}
@@ -342,7 +342,7 @@
 \end{defn}
 
 \begin{prop}
-	Let $\mathsf{C}$ be an \textbf{additive} category with $0$.
+	Let $\mathsf{C}$ be an {\em additive} category with $0$.
 	Let $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$.
 	The structure of abelian group of $\mathrm{Hom}_{\mathsf{C}} \left( A, B \right)$ is determined by $\mathsf{C}$.
 \end{prop} 
@@ -352,9 +352,9 @@
 \begin{defn}[(Co)product of an arbitrary family of objects]
 	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$ an arbitrary family of objects in the category $\mathsf{C}$.
 	 \begin{itemize}
-		 \item A \textbf{product} of the $A_i$s is the couple $\left(\prod_i A_i, (\pi_i)_{i \in I} \right)$, with $\prod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\pi_i: \prod_j A_j \to A_i$ for any $i \in I$, satisfying the universal property:
+		 \item A {\em product} of the $A_i$s is the couple $\left(\prod_i A_i, (\pi_i)_{i \in I} \right)$, with $\prod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\pi_i: \prod_j A_j \to A_i$ for any $i \in I$, satisfying the universal property:
 			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $X \xrightarrow{\alpha_i} A_i$, then $\exists\, !\, \alpha: X \to \prod_i A_i$ s.t. $\pi_i \circ \alpha = \alpha_i$ for all $i$.
-		 \item A \textbf{coproduct} of the $A_i$s is the couple $\left(\coprod_i A_i, (\epsilon_i)_{i \in I} \right)$, with $\coprod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\epsilon_i: A_i \to \coprod_j A_j$ for any $i \in I$, satisfying the universal property:
+		 \item A {\em coproduct} of the $A_i$s is the couple $\left(\coprod_i A_i, (\epsilon_i)_{i \in I} \right)$, with $\coprod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\epsilon_i: A_i \to \coprod_j A_j$ for any $i \in I$, satisfying the universal property:
 			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $A_i \xrightarrow{\alpha_i} X$, then $\exists\, !\, \alpha: \coprod_i A_i \to X$ s.t. $\alpha \circ \epsilon_i = \alpha_i$ for all $i$.
 			 In other words it is a product in $\mathsf{C}^{op}$.
 	\end{itemize}

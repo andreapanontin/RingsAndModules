@@ -1,19 +1,19 @@
 \section{Chain and cochain complexes}
-Let, in the following, $\mathsf{A}$ be a \textit{preadditive} category with $0$.
+Let, in the following, $\mathsf{A}$ be a {\em preadditive} category with $0$.
 
 \begin{defn}[Chain complex over $\mathsf{A}$]
-	We define $\mathrm{Ch}(\mathsf{A})$ the category of \textbf{chain complexes} over $\mathsf{A}$
+	We define $\mathrm{Ch}(\mathsf{A})$ the category of {\em chain complexes} over $\mathsf{A}$
 	as the category whose objects are sequences
 	\begin{equation}
 	\ldots \to X_n \xrightarrow{d_n} X_{n-1}
 	\xrightarrow{d_{n-1}} X_{n-2} \to \ldots
 	\end{equation} 
 	s.t. $X_i \in \mathrm{Ob} \left(\mathsf{A}\right)$, $d_i \circ d_{i+1} = 0$ for all $i \in \Z$.
-	The morphisms $d_i$ are called \textit{differentials} and the sequence is called \textit{complex},
-	denoted by $\left( X_{\bullet}, d^X_{\bullet} \right)$, with $\left( d^X \right)^2 = 0$.
+	The morphisms $d_i$ are called {\em differentials} and the sequence is called {\em complex},
+	denoted by $\left( X_{\bullet}, d^X \right)$, with $\left( d^X \right)^2 = 0$.
 
 	Morphisms in $\mathrm{Ch}(\mathsf{A})$, denoted by
-	$f\colon\left(X_{\bullet}, d^X_{\bullet}\right) \to \left(Y_{\bullet}, d^Y_{\bullet}\right)$,
+	$f\colon\left(X_{\bullet}, d^X\right) \to \left(Y_{\bullet}, d^Y\right)$,
 	are a family of morphisms $\left\{ f_n \right\}_{n \in \Z}$, where
 	$f_n \in \mathrm{Hom}_{\mathsf{A}} \left( X_n, Y_n \right)$,
 	making the following diagram commute
@@ -36,18 +36,18 @@ Let, in the following, $\mathsf{A}$ be a \textit{preadditive} category with $0$.
 \end{defn}
 
 \begin{defn}[Cochain complex over $A$]
-	We define $\mathrm{Cch}(\mathsf{A})$ the category of \textbf{cochain complexes} over $\mathsf{A}$
+	We define $\mathrm{Cch}(\mathsf{A})$ the category of {\em cochain complexes} over $\mathsf{A}$
 	as the category whose objects are sequences
 	\begin{equation}
 	\ldots \to X^n \xrightarrow{d^n} X^{n+1}
 	\xrightarrow{d^{n+1}} X^{n+2} \to \ldots
 	\end{equation} 
 	s.t. $X^i \in \mathrm{Ob} \left(\mathsf{A}\right)$, $d^i \circ d^{i-1} = 0$ for all $i \in \Z$.
-	The morphisms $d^i$ are called \textit{differentials} and the sequence is called \textit{complex},
-	denoted by $\left( X^{\bullet}, d_X^{\bullet} \right)$, with $\left( d_X \right)^2 = 0$.
+	The morphisms $d^i$ are called {\em differentials} and the sequence is called {\em complex},
+	denoted by $\left( X^{\bullet}, d_X \right)$, with $\left( d_X \right)^2 = 0$.
 
 	Morphisms in $\mathrm{Cch}(\mathsf{A})$, denoted by
-	$f\colon\left(X^{\bullet}, d_X^{\bullet}\right) \to \left(Y^{\bullet}, d_Y^{\bullet}\right)$
+	$f\colon\left(X^{\bullet}, d_X\right) \to \left(Y^{\bullet}, d_Y\right)$
 	are a family of morphisms $\left\{ f^n \right\}_{n \in \Z}$, where
 	$f^n \in \mathrm{Hom}_{\mathsf{A}} \left( X^n, Y^n \right)$,
 	making the following diagram commute
@@ -89,9 +89,9 @@ Let, in the following, $\mathsf{A}$ be a \textit{preadditive} category with $0$.
 \end{rem}
 
 \begin{defn}[Bounded (co)chain complex]
-	A (co)chain complex $\left(X^{\bullet}, d_X\right)$ is \textbf{bounded} iff
+	A (co)chain complex $\left(X^{\bullet}, d_X\right)$ is {\em bounded} iff
 	$\exists\, b \in \N$ s.t. $X^n = 0$ for all $\left| n \right| > b$.
-	It is bounded \textbf{below}, resp. \textbf{above}, iff
+	It is bounded {\em below}, resp. {\em above}, iff
 	$\exists\, b \in \Z$ s.t. $X^n = 0$ for all
 	$n < b$, resp. $n > b$.
 	(Even though we used the notation for cochain complexes the definitions apply without
@@ -219,7 +219,7 @@ Let, in the following, $\mathsf{A}$ be a \textit{preadditive} category with $0$.
 	=: \left( X^{\bullet}, d_{X} \right)	
 	.\end{equation} 
 	Then $H^n(X) = 0$ for all $n \in \Z$ and we say that 
-	$\left( X^{\bullet}, d_{X} \right)$ is \textit{acyclic}.
+	$\left( X^{\bullet}, d_{X} \right)$ is {\em acyclic}.
 \end{ex}
 
 \begin{prop}
@@ -337,7 +337,7 @@ And now, a very important result!
 \begin{defn}[Functor reflecting exactness]
 	Let $\mathsf{C}$ and $\mathsf{D}$ be abelian categories, and
 	$F\colon \mathsf{C} \to \mathsf{D}$ be an {\em additive functor}.
-	We say that $F$ \textbf{reflects exactness} iff
+	We say that $F$ {\em reflects exactness} iff
 	\begin{equation}
 	A \to B \to C
 	\end{equation} 
@@ -364,7 +364,7 @@ And now, a very important result!
 \end{prop} 
 
 \begin{defn}[Acyclic complex]
-	A (co)chain complex $\left( X^{\bullet}, d_{X} \right)$ is \textbf{acyclic} iff 
+	A (co)chain complex $\left( X^{\bullet}, d_{X} \right)$ is {\em acyclic} iff 
 	$H^n(X) = 0$ for all $n \in \Z$, i.e. as a sequence it is exact
 	\begin{equation}
 	\ldots \to X^{n-1} \xrightarrow{d_X^{n-1}} X^n \xrightarrow{d_X^n} 

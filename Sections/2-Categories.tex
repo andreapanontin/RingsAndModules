@@ -5,8 +5,8 @@
 \begin{defn}[Category]
 	A category $\mathsf{C}$ si determined by the following elements:
 	\begin{itemize}
-		\item $\mathrm{Ob}(\mathsf{C})$ a \textbf{class} of objects,
-		\item $\,\forall\, X,Y \in \mathrm{Ob}(\mathsf{C})$ the data of a set of \textbf{arrows}  with \textbf{source} $X$ and \textbf{target} $Y$, denoted with $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$, whose elements are called \textbf{morphisms},
+		\item $\mathrm{Ob}(\mathsf{C})$ a {\em class} of objects,
+		\item $\,\forall\, X,Y \in \mathrm{Ob}(\mathsf{C})$ the data of a set of {\em arrows}  with {\em source} $X$ and {\em target} $Y$, denoted with $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$, whose elements are called {\em morphisms},
 		\item an operation of composition, that acts as follows
 			\begin{align}
 				\circ: \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( Y, Z \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, Z \right)\\
@@ -50,18 +50,18 @@
 	\begin{description}
 		\item[monomorphism:] iff $\,\forall\, Z \begin{matrix} g_1 \\ \rightrightarrows \\ g_2 \end{matrix} X$ s.t. $f \circ g_1 = f \circ g_2 \implies g_1 = g_2$.
 			We denote it with $f: Y \rightarrowtail Z$.
-			It is said that $f$ is \textbf{left} erasable
+			It is said that $f$ is {\em left} erasable
 		\item[epimorphism:] iff $\,\forall\, X \begin{matrix} h_1 \\ \rightrightarrows \\ h_2 \end{matrix} Y$ s.t. $h_1 \circ f = h_2 \circ f \implies h_1 = h_2$.
 			We denote it with $f: Y \twoheadrightarrow Z$.
-			It is said that $f$ is \textbf{right} erasable
+			It is said that $f$ is {\em right} erasable
 		\item[isomorphism:] iff $\exists\,  Y \xrightarrow{g} X$ s.t. $g \circ f = id_X$ and $f \circ g = id_Y$.
 	\end{description} 	
 \end{defn}
 
 \begin{rem}
-	Note that if $X \xrightarrow{f} Y$ is an \textbf{iso}, then it is also \textbf{mono} and \textbf{epi}, but the converse is not always true.
+	Note that if $X \xrightarrow{f} Y$ is an {\em iso}, then it is also {\em mono} and {\em epi}, but the converse is not always true.
 
-	If, moreover, $X \xrightarrow{f} Y$ is an iso, we say that $X$ and $Y$ are \textbf{isomorphic} and we denote it with $X \simeq_{\mathsf{C}} Y$ (especially if we do not want to explicitly cite the isomorphism).
+	If, moreover, $X \xrightarrow{f} Y$ is an iso, we say that $X$ and $Y$ are {\em isomorphic} and we denote it with $X \simeq_{\mathsf{C}} Y$ (especially if we do not want to explicitly cite the isomorphism).
 \end{rem}
 
 \begin{defn}[Subcategory]
@@ -74,7 +74,7 @@
 \end{defn}
 
 \begin{defn}[Full subcategory]
-	$\mathsf{C}' \subset \mathsf{C}$ is said to be a \textbf{full} subcategory iff $\,\forall\, X, Y \in \mathrm{Ob}(\mathsf{C}')$ 
+	$\mathsf{C}' \subset \mathsf{C}$ is said to be a {\em full} subcategory iff $\,\forall\, X, Y \in \mathrm{Ob}(\mathsf{C}')$ 
 	\begin{equation}
 	\mathrm{Hom}_{\mathsf{C}'} \left( X, Y \right) = \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)
 	.\end{equation} 
@@ -84,10 +84,10 @@
 	A category $\mathsf{C}$ is said to be
 	\begin{description}
 		\item[Discrete:] iff the only morphisms are the identities.
-			Note that a set can be naturally identified as a \textbf{discrete} category.
+			Note that a set can be naturally identified as a {\em discrete} category.
 		\item[Finite:] iff the family $\mathrm{Mor}(\mathsf{C})$ of all the morphisms in $\mathsf{C}$ (and, as a consequence $\mathrm{Ob}(\mathsf{C})$) is a finite set.
 		\item[Grupoid:] iff all the morphisms are isomoprhisms.
-			Note that a group $G$ can be identified with a \textbf{grupoid} category $\mathsf{C}$ with only one element $X \in \mathrm{Ob}\mathsf{C}$ and
+			Note that a group $G$ can be identified with a {\em grupoid} category $\mathsf{C}$ with only one element $X \in \mathrm{Ob}\mathsf{C}$ and
 			\begin{equation}
 				\mathrm{Hom}_{\mathsf{C}} \left( X, X \right) := G
 			.\end{equation} 
@@ -108,7 +108,7 @@
 	\begin{description}
 		\item[Initial:] iff $\,\forall\, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$ we have $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) = \left\{ \mathrm{pt} \right\}$,
 		\item[Terminal:] iff $\,\forall\, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$ we have $\mathrm{Hom}_{\mathsf{C}} \left( Y, X \right) = \left\{ \mathrm{pt} \right\}$,
-		\item[Zero:] iff it is both an \textbf{initial} and \textbf{terminal} object.
+		\item[Zero:] iff it is both an {\em initial} and {\em terminal} object.
 	\end{description} 
 	In the above list we have denoted with $\left\{ \mathrm{pt} \right\}$ the singleton, i.e. any set with only one element.
 \end{defn}
@@ -156,17 +156,17 @@
 
 
 \begin{defn}[Concrete category]
-	A category $\mathsf{C}$ is called \textbf{concrete} iff it is equipped with a faithful functor to $\mathsf{Sets}$.
+	A category $\mathsf{C}$ is called {\em concrete} iff it is equipped with a faithful functor to $\mathsf{Sets}$.
 \end{defn}
 
 
 \begin{defn}[Contravariant functor]
-	We define a \textbf{contravariant} functor from $\mathsf{C}$ to $\mathsf{C}'$ to be a functor from $\mathsf{C}^{op}$ to $\mathsf{C}'$, i.e. it satisfies
+	We define a {\em contravariant} functor from $\mathsf{C}$ to $\mathsf{C}'$ to be a functor from $\mathsf{C}^{op}$ to $\mathsf{C}'$, i.e. it satisfies
 	\begin{equation}
 		F(g \circ f) = F(f) \circ F(g)
 	.\end{equation}
 	We denote with $\mathrm{op}: \mathsf{C} \to \mathsf{C}^{op}$ to be the contravariant functor associated with $id_{\mathsf{C}^{op}}$.
-	Sometimes functors are called \textbf{covariant} in order to emphasize the fact that they are not \textbf{contravariant}.
+	Sometimes functors are called {\em covariant} in order to emphasize the fact that they are not {\em contravariant}.
 \end{defn}
 
 \begin{rem}
@@ -178,7 +178,7 @@
 \end{rem}
 
 \begin{defn}[Bifunctor]
-	A \textbf{bifunctor} $F$ from $\left(\mathsf{C}, \mathsf{D}\right)$ to $\mathsf{E}$ is a functor from the product category, i.e.
+	A {\em bifunctor} $F$ from $\left(\mathsf{C}, \mathsf{D}\right)$ to $\mathsf{E}$ is a functor from the product category, i.e.
 	\begin{equation}
 	F: \mathsf{C}\cross \mathsf{D} \to \mathsf{E} 
 	.\end{equation}
@@ -221,7 +221,7 @@
 \end{ex} 	
 
 \begin{defn}[Morphism of functors]
-	Given two functors $F,G: \mathsf{C} \to \mathsf{D}$, a {\em morphism of functors} (sometimes called \textit{natural transformation}) $\theta: F \to G$ (sometimes denoted with $F \xRightarrow{\theta} G$) 
+	Given two functors $F,G: \mathsf{C} \to \mathsf{D}$, a {\em morphism of functors} (sometimes called {\em natural transformation}) $\theta: F \to G$ (sometimes denoted with $F \xRightarrow{\theta} G$) 
 	is the data, for any $X \in \mathsf{C}$, of a map $\theta(X): FX \to GX$ s.t. $\,\forall\, f: X \to X'$ in $\mathsf{C}$ the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -247,7 +247,7 @@
 
 \begin{defn}[Natural isomorphic functors]
 	Let $\mathsf{C}$ and $\mathsf{D}$ be two categories, and $G,F: \mathsf{C} \to \mathsf{D}$ be two functors.
-	We say that $F$ is \textbf{naturally isomorphic} to $G$ iff one of the following (equivalent) conditions is satisfied:
+	We say that $F$ is {\em naturally isomorphic} to $G$ iff one of the following (equivalent) conditions is satisfied:
 	\begin{itemize}
 		\item there exist two natural transformations $\eta: F \to G$ and $\theta: G \to F$ s.t.
 			\begin{equation}
@@ -258,12 +258,12 @@
 \end{defn}
 
 \begin{defn}[Category of functors]
-	We denote by $\mathsf{D}^{\mathsf{C}} := \mathsf{Fct}\left(\mathsf{C}, \mathsf{D} \right)$ the \textbf{category of functors} from $\mathsf{C}$ to $\mathsf{D}$,
+	We denote by $\mathsf{D}^{\mathsf{C}} := \mathsf{Fct}\left(\mathsf{C}, \mathsf{D} \right)$ the {\em category of functors} from $\mathsf{C}$ to $\mathsf{D}$,
 	whose elements are functors $F: \mathsf{C} \to \mathsf{D}$ and whose morphisms are the above mentioned morphisms of functors.
 \end{defn}
 
 \begin{rem}
-	In general the category of functors is a \textbf{large category}, in the sense that its objects might not be sets.
+	In general the category of functors is a {\em large category}, in the sense that its objects might not be sets.
 	Though, if we start from a {\em small} category, i.e. if $\mathrm{Ob} \left(\mathsf{C}\right)$ is a set,
 	then $\mathsf{Fct}\left(\mathsf{C}, \mathsf{D} \right) $ is a small category.
 
@@ -295,11 +295,11 @@
 	\begin{equation}
 		f_{ki} = f_{kj} \circ f_{ji}
 	.\end{equation} 
-	This is called a \textbf{direct system of modules}.
+	This is called a {\em direct system of modules}.
 \end{ex} 
 
 \begin{defn}[Preadditive category]
-	A category $\mathsf{C}$ is called \textbf{preadditive} iff it is a $\Z$ category, i.e. iff
+	A category $\mathsf{C}$ is called {\em preadditive} iff it is a $\Z$ category, i.e. iff
 	given any pair $X,Y \in \mathrm{Ob} \left(\mathsf{C}\right)$ the set $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$ is a $\Z$-module (an abelian group) and the composition of morphisms is a bilinear map.
 \end{defn}
 
@@ -309,7 +309,7 @@
 \end{ex} 
 
 \begin{defn}[Additive functors]
-	Given two preadditive categores $\mathsf{C}$ and $\mathsf{D}$, a functor $F: \mathsf{C} \to \mathsf{D}$ is called \textbf{additive} iff, for any $X,Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, for any $f,g: X \to Y$, then
+	Given two preadditive categores $\mathsf{C}$ and $\mathsf{D}$, a functor $F: \mathsf{C} \to \mathsf{D}$ is called {\em additive} iff, for any $X,Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, for any $f,g: X \to Y$, then
 	\begin{equation}
 		F(f+g) = F(f) + F(g)
 	.\end{equation} 
@@ -341,7 +341,7 @@
 	\begin{equation}
 		\underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{C}, \mathsf{Ab} \right)}
 	\end{equation} 
-	of additive covariant (contravariant) functors, is called the category of \textbf{left (right) } $\mathsf{C}$-modules.
+	of additive covariant (contravariant) functors, is called the category of {\em left (right) } $\mathsf{C}$-modules.
 \end{defn}
 
 \begin{defn}[Category isomorphism/equivalence]
@@ -349,10 +349,10 @@
 	\begin{description}
 		\item[isomorphic], notation $\mathsf{C} \cong \mathsf{D}$, iff there exist $F: \mathsf{C} \to \mathsf{D}$ and $G: \mathsf{D} \to \mathsf{C}$ s.t. $F \circ G = id_{\mathsf{D}}$ and $G \circ F = id_\mathsf{C}$,
 		\item[equivalent], notation $\mathsf{C} \simeq \mathsf{D}$, iff there exist $F: \mathsf{C} \to \mathsf{D}$ and $G: \mathsf{D} \to \mathsf{C}$ s.t. $F \circ G \simeq id_{\mathsf{D}}$ and $G \circ F \simeq id_\mathsf{C}$.
-			In this case we just asked for isomorphism of functors, which makes $F$ and $G$ \textbf{quasi-inverses}.
+			In this case we just asked for isomorphism of functors, which makes $F$ and $G$ {\em quasi-inverses}.
 	\end{description} 
 
-	Moreover an equivalence $F: \mathsf{C} \to \mathsf{D}^{op}$ is called a  \textbf{duality}.
+	Moreover an equivalence $F: \mathsf{C} \to \mathsf{D}^{op}$ is called a  {\em duality}.
 \end{defn}
 
 \begin{rem}
@@ -374,7 +374,7 @@
 \end{ex} 
 
 \begin{prop}
-	A functor $F: \mathsf{C} \to \mathsf{D}$ is an equivalence of categories iff it is \textbf{fully faithful} and \textbf{essentially surjective}.
+	A functor $F: \mathsf{C} \to \mathsf{D}$ is an equivalence of categories iff it is {\em fully faithful} and {\em essentially surjective}.
 \end{prop} 
 
 \subsection{Yoneda lemma}
@@ -399,15 +399,15 @@
 
 \begin{defn}[Representable functor]\leavevmode\vspace{-\baselineskip}
 	\begin{enumerate}
-		\item A functor $F: \mathsf{C}^{op} \to \mathsf{Sets}$ is \textbf{representable} iff there exists $X \in \mathsf{C}$ s.t. $F(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( Y, X \right)$ functorially in $Y \in \mathsf{C}$.
+		\item A functor $F: \mathsf{C}^{op} \to \mathsf{Sets}$ is {\em representable} iff there exists $X \in \mathsf{C}$ s.t. $F(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( Y, X \right)$ functorially in $Y \in \mathsf{C}$.
 			In other words we have $F \simeq h_\mathsf{C}(X)$ in $\mathsf{C}^{\wedge}$. 
 			Such object $X$ is called a representative of $F$.
-		\item A functor $G: \mathsf{C} \to \mathsf{Sets}$ is \textbf{corepresentable} iff there exists a representative $X \in \mathsf{C}$ s.t. $G(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$ functorially in $Y \in \mathsf{C}$.
+		\item A functor $G: \mathsf{C} \to \mathsf{Sets}$ is {\em corepresentable} iff there exists a representative $X \in \mathsf{C}$ s.t. $G(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$ functorially in $Y \in \mathsf{C}$.
 	\end{enumerate} 
 \end{defn}
 
 \begin{prop}
-	Let $F: \mathsf{C}^{op} \to \mathsf{Sets}$ be a \textbf{representable} functor, i.e. $\exists\, X \in \mathrm{Ob} \left(\mathsf{C}\right)$ s.t.
+	Let $F: \mathsf{C}^{op} \to \mathsf{Sets}$ be a {\em representable} functor, i.e. $\exists\, X \in \mathrm{Ob} \left(\mathsf{C}\right)$ s.t.
 	\begin{equation}
 	F \simeq \mathrm{Hom}_{\mathsf{C}} \left( -, X \right)
 	.\end{equation} 
@@ -416,7 +416,7 @@
 
 \begin{defn}[Adjoint functors]
 	Let $F: \mathsf{C} \to \mathsf{D}$ and $G: \mathsf{D} \to \mathsf{C}$ be two functors.
-	One says that $\left(F, G\right)$ is an \textbf{adjoint} pair, or equivalently that $F$ is a \textbf{left adjoint} to $G$ or that $G$ is a \textbf{right adjoint} to $F$,
+	One says that $\left(F, G\right)$ is an {\em adjoint} pair, or equivalently that $F$ is a {\em left adjoint} to $G$ or that $G$ is a {\em right adjoint} to $F$,
 	iff there exists an isomorphism of bifunctors:
 	\begin{equation}
 		\mathrm{Hom}_{\mathsf{D}} \left( F(-), - \right) \simeq
@@ -425,7 +425,7 @@
 \end{defn}
 
 \begin{rem}
-	Note that, given two categories $\mathsf{C}$ and $\mathsf{D}$ and a pair $\left(F, G\right)$ of \textbf{adjoint} functors, one has the following morphism of functors:
+	Note that, given two categories $\mathsf{C}$ and $\mathsf{D}$ and a pair $\left(F, G\right)$ of {\em adjoint} functors, one has the following morphism of functors:
 	\begin{equation}
 	F \circ G \to id_\mathsf{D}, \quad G \circ F \to id_\mathsf{C}
 	.\end{equation} 

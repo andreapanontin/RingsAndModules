@@ -1,7 +1,7 @@
-\subsection{Operation on complexes}
+\subsection{Operations on complexes}
 \begin{defn}[Canonical truncation]
 	Let $\left( X^{\bullet}, d_{X} \right)$ be a cochain complex and $n \in \Z$.
-	We define the \textbf{canonical truncation} of $\left( X^{\bullet}, d_{X} \right)$ to be the complex
+	We define the {\em canonical truncation} of $\left( X^{\bullet}, d_{X} \right)$ to be the complex
 	$\left( [\tau_{\leq n}(X^\bullet)]^{\bullet}, d_{[\tau_{\leq n}(X^\bullet)]} \right)$, whose objects are
 	\begin{equation}
 		[\tau_{\leq n}(X^\bullet)]^i := 
@@ -31,7 +31,8 @@
 	\end{tikzcd}
 	,\end{equation} 
 	which is clearly a mono.
-	Moreover we can compute the associated cohomology groups (assuming $\mathsf{A}$ is abelian, or that we can compute them)
+	Moreover we can compute the associated cohomology groups
+	(assuming $\mathsf{A}$ is abelian, or that we can compute them)
 	and they are
 	\begin{equation}
 		H^i \left( \tau_{\leq n}(X^\bullet) \right) =
@@ -40,7 +41,8 @@
 			H^i(X^\bullet) & \text{ if } i \leq n\\
 		\end{cases} 
 	.\end{equation} 
-	Moreover, since $\epsilon$ is an ambedding, we can define the quotient complex
+	Moreover, since $\epsilon$ is an embedding, we can define the quotient complex,
+	which we denote by
 	$\left( [X^\bullet/\tau_{\leq n}(X^\bullet)]^{\bullet}, d_{[X^\bullet/\tau_{\leq n}(X^\bullet)]} \right)$,
 	whose objects are
 	\begin{equation}
@@ -60,16 +62,21 @@
 			H^i(X^\bullet) & \text{ if } i > n\\
 		\end{cases} 
 	.\end{equation} 
-	And we obtain a s.e.s. of complexes
-	\begin{equation}
-		0 \to\tau_{\leq n}(X^\bullet) \xrightarrow{\epsilon} X^\bullet
-		\twoheadrightarrow X^\bullet/\tau_{\leq n}(X^\bullet) \to 0
-	.\end{equation} 
+	And we obtain a short exact sequence of complexes
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\tau_{\leq n}(X^\bullet) \arrow[r, "\epsilon", rightarrow] &
+		X^\bullet \arrow[r, "", rightarrow] &
+		X^\bullet/ \tau_{\leq n}(X^\bullet) \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
 \end{defn}
 
 \begin{defn}[Stupid truncation]
 	Given, as before, a cochain complex $\left( X^{\bullet}, d_{X} \right)$ and $n \in \Z$,
-	one defines its	\textbf{stupid truncation} as the cochain complex with objects
+	one defines its	{\em stupid truncation} as the cochain complex with objects
 	\begin{equation}
 		[\sigma_{\leq n}(X^\bullet)]^i =
 		\begin{cases}
@@ -106,7 +113,7 @@
 
 \begin{defn}[Mapping cone]
 	Let $f \in \mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})} \left( X^\bullet, Y^\bullet \right)$ an arbitrary cochain map.
-	We define the \textbf{mapping cone} of $f$ as the cochain complex,
+	We define the {\em mapping cone} of $f$ as the cochain complex,
 	denoted by $(\mathrm{Cone}\, f)^\bullet$, whose objects are
 	\begin{equation}
 		[\mathrm{Cone}\, f]^n := Y^n \oplus X^{n+1}
@@ -148,9 +155,14 @@
 \begin{rem}[]
 	From the definition of mapping cone we obtain the short exact sequence of complexes
 	\begin{equation}\label{eqn:ConeSes}
-	0 \to Y^\bullet \xrightarrow{\alpha}
-	(\mathrm{Cone}\, f)^\bullet \xrightarrow{\beta} X^\bullet[1] \to 0
-	,\end{equation} 
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		Y^\bullet \arrow[r, "\alpha", rightarrow] &
+		\left( \mathrm{Cone}\, f \right)^\bullet \arrow[r, "\beta", rightarrow] &
+		X^\bullet[1] \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation}
 	where the maps $\alpha$ and $\beta$ (check they are indeed cochain maps) are defined by the matrices
 	\begin{equation}
 	\alpha := 
@@ -162,7 +174,7 @@
 		0 & 1_{X^\bullet[1]}
 	\end{bmatrix} 
 	.\end{equation} 
-	In particular, for each degree the s.e.s. splits, in fact it is
+	In particular, for each degree, the short exact sequence splits, in fact it is
 	\begin{equation}
 	0 \to Y^n \to Y^n \oplus X^{n+1} \to X^{n+1} \to 0
 	,\end{equation} 
@@ -170,36 +182,41 @@
 \end{rem}
 
 \begin{lem}
-	Let the following be a s.e.s. sequence
-	\begin{equation}
-	0 \to Y^\bullet \to C^\bullet \to W^\bullet \to 0
-	\end{equation} 
-	s.t. it is degree-wise splitting.
+	Let the following be a degree-wise splitting short exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		Y^\bullet \arrow[r, "", rightarrow] &
+		C^\bullet \arrow[r, "", rightarrow] &
+		W^\bullet \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
 	Then there is a cochain map $f: W^\bullet[-1] \to Y^\bullet$ s.t.
-	$C^\bullet \simeq \mathrm{Cone}\, f$
+	$C^\bullet \simeq \mathrm{Cone}\, f$.
 \end{lem} 
 
 \begin{lem}
-	Let $f: X^\bullet \to Y^\bullet$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
+	Let $f\colon X^\bullet \to Y^\bullet$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
 	Then $f$ is a quasi-isomorphism iff the complex
 	$(\mathrm{Cone}\, f)^\bullet$ is acyclic.
 \end{lem} 
 \begin{proof}
-	From the s.e.s. for the Cone of $f$, see \eqref{eqn:ConeSes}, and the 
+	From the short exact sequence for the Cone of $f$, see \eqref{eqn:ConeSes}, and the 
 	fundamental theorem in cohomology, one obtains the long exact cohomology sequence
 	\begin{equation}
 		\ldots \to H^{n-1}(X^\bullet[1]) \xrightarrow{\partial^n} H^n(Y^\bullet) \to
 		H^n(\mathrm{Cone}\, f) \to H^n(X^\bullet[1]) \to \ldots
 	.\end{equation} 
 	One can show that $H^n(f) = \partial^n$, then
-	$H^n(f)$ is an iso iff $H^n(\mathrm{Cone}\, f) = 0$.
+	$H^n(f)$ is an isomorphism iff $H^n(\mathrm{Cone}\, f) = 0$.
 \end{proof}
 
 \begin{defn}[Split complex]
-	A complex $\left( X^{\bullet}, d_{X} \right)$ is \textbf{split} iff there exist
+	A complex $\left( X^{\bullet}, d_{X} \right)$ is {\em split} iff there exist
 	maps $s^n: X^{n+1} \to X^n$, for all $n \in \Z$, s.t.
 	$d^n_X \circ s^n \circ d^n_X = d^n_X$ for all $n \in \Z$ (shortly $d = d \circ s \circ d$).
-	The maps $s^n$ are called \textit{splitting maps}.
+	The maps $s^n$ are called {\em splitting maps}.
 \end{defn}
 
 \begin{lem}
@@ -222,14 +239,14 @@
 	In fact for any $x \in M$, then $x = e(x) + (x - e(x))$ and
 	$e(x - e(x)) = 0$.
 	Moreover, given $x \in \ker e \cap \ima e$, there exists $y$ s.t. $x = e(y)$, then
-	\begin{equation}
-		0 = e(x) = e(e(y)) = e(y) = x
-	.\end{equation} 
+	\begin{equation*}
+		0 = e(x) = e(e(y)) = e(y) = x.\qedhere
+	\end{equation*} 
 \end{proof}
 
 \begin{defn}[Split exact/contractible complex]
-	A complex $\left( X^{\bullet}, d_{X} \right)$ is called \textbf{split exact} or \textbf{contractible} iff
-	it is both \textit{split} and \textit{acyclic} (i.e. exact).
+	A complex $\left( X^{\bullet}, d_{X} \right)$ is called {\em split exact} or {\em contractible} iff
+	it is both {\em split} and {\em acyclic} (i.e. exact).
 \end{defn}
 
 \begin{rem}[]
@@ -243,13 +260,13 @@
 \begin{proof}
 	$\left( \mathrm{Cone}\, C \right)^\bullet$ is exact, since $1_{X^\bullet}$ is a quasi-isomorphism.
 	Then we define the splitting maps by
-	\begin{equation}
+	\begin{equation*}
 	s^n :=
 	\begin{bmatrix}
 		0 & 0\\
-		1_{X^{n+1}} & 0
-	\end{bmatrix} 
-	.\end{equation} 
+		1_{X^{n+1}} & 0.
+	\end{bmatrix} \qedhere
+	\end{equation*} 
 \end{proof}
 
 \begin{lem}
@@ -263,26 +280,27 @@
 
 \begin{lem}
 	Let $f: X^\bullet \to Y^\bullet$ be a cochain map.
-	Prove that $f \sim 0$ iff $f$ extends to
+	Then $f \sim 0$ iff $f$ extends to
 	\begin{equation}
 		\begin{bmatrix}
 			f & s
 		\end{bmatrix} 
-		: \mathrm{Cone}\, X \to Y
+		\colon \mathrm{Cone}\, X \to Y
 	,\end{equation} 
 	where $\left\{ s^n \right\}_{n \in \Z}$ are the contractions.
 \end{lem} 
 
 \begin{lem}
 	Let $\left( X^{\bullet}, d_{X} \right)$ be a split complex
-	with splitting maps $\left\{ s^n \right\}_{n \in \Z} =: s$.
+	with splitting maps $s \coloneqq \left\{ s^n \right\}_{n \in \Z}$.
 	Then $f = s \circ d + d \circ s$ is a cochain map (clearly, then $f \sim 0$).
 \end{lem} 
 
 \begin{rem}[]
 	for all $A \in \mathrm{Ob} \left(\mathsf{A}\right)$, we define the following complex
 	\begin{equation}
-		D^n(A) := 0 \to A \xrightarrow{1_A} A \to 0
+		D^n(A) \coloneqq 
+		\ldots \to 0 \to A \xrightarrow{1_A} A \to 0 \to \ldots
 	,\end{equation} 
 	where the non-zero elements are in degree $n$ and $n+1$.
 	Clearly $D^n(A)$ contractible. In fact:
@@ -301,21 +319,30 @@
 \end{rem}
 
 \begin{lem}
-	for all $A \in \mathrm{Ob} \left(\mathsf{A}\right)$ and $X^\bullet \in \mathrm{Ch}(\mathsf{A})$ we have
+	for all $A \in \mathrm{Ob} \left(\mathsf{A}\right)$ and $X^\bullet \in \mathrm{Ch}(\mathsf{A})$ we have,
+	naturally in both components,
 	\begin{equation}
 		\mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})} \left( D^n(A), X^\bullet \right) \simeq
 		\mathrm{Hom}_{\mathsf{A}} \left( A, X^n \right)
 	.\end{equation} 
 	In other words the pair $(D^n, (-)^n)$ is an adjoint pair for every $n \in \Z$, for the functors
-	\begin{align}
-		D^n: \mathsf{A} &\to \mathrm{Ch}(\mathsf{A}) \\
-		A &\mapsto D^n(A)
-	\end{align} 
-	and
-	\begin{align}
-		(-)^n: \mathrm{Ch}(\mathsf{A}) &\to \mathsf{A} \\
-		X^\bullet &\mapsto X^n
-	.\end{align} 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		D^n\colon \mathsf{A} \arrow[r, "", rightarrow] &
+		\mathrm{Ch}(\mathsf{A}) \\
+		A \arrow[r, "", mapsto] & D^n(A)
+	\end{tikzcd}
+	\qquad \text{ and } \qquad
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		(-)^n\colon \mathrm{Ch}(\mathsf{A}) \arrow[r, "", rightarrow] &
+		\mathsf{A} \\
+		X^\bullet \arrow[r, "", mapsto] & x^n
+	.\end{tikzcd}
+	\end{equation*} 
 \end{lem} 
 
 \begin{prop}
@@ -325,7 +352,7 @@
 	$i \in \Z$ and $\left( P^{\bullet}, d_{P} \right)$ is contractible.
 
 	A complex $\left( I^{\bullet}, d_{I} \right)$ is an injective object of
-	$\mathrm{Ch}(\mathsf{A})$ iff $I^i$ is projective in $\mathsf{A}$ for all
+	$\mathrm{Ch}(\mathsf{A})$ iff $I^i$ is injective in $\mathsf{A}$ for all
 	$i \in \Z$ and $\left( I^{\bullet}, d_{I} \right)$ is contractible.
 \end{prop} 
 
@@ -341,4 +368,3 @@
 	Given a cochain complex $\left( X^{\bullet}, d_{X} \right)$, we can define an associated
 	chain complex $\left( X_{\bullet}, d^{X} \right)$ by setting $X_n := X^{-n}$.
 \end{rem}
-

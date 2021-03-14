@@ -15,7 +15,7 @@
 	\end{equation} 
 	in other words s.t. $g \circ \alpha = f$.
 	Clearly this is an equivalence relation.
-	An equivalence class of monomorphisms ending in $A$ is called a \textbf{subobject} of $A$.
+	An equivalence class of monomorphisms ending in $A$ is called a {\em subobject} of $A$.
 	Chosen a representative $f: B \to A$ we denote the corresponding subobject by $B \subseteq A$.
 
 	Moreover, given $B_1$ and $B_2$ subobjects of $A$, we say that $B_1$ is a subobject of $B_2$, 
@@ -49,7 +49,7 @@ Let's now give the dual definition.
 	\end{tikzcd}
 	\end{equation} 
 	i.e. s.t. $\alpha \circ f = g$.
-	Given one such morphism $f: A \to B$ we call the equivalence class a \textbf{quotient} of $A$.
+	Given one such morphism $f: A \to B$ we call the equivalence class a {\em quotient} of $A$.
 \end{defn}
 \begin{rem}[notation]
 	Assume that $f: B \to A$ is a subobject of $A$ (i.e. $f$ is a mono).
@@ -86,17 +86,17 @@ Let's now give the dual definition.
 	A_{n+1}  \xrightarrow{f_{n + 1}} 
 	A_{n+2} \xrightarrow{f_{n + 2}} \ldots
 	.\end{equation} 
-	The sequence is \textbf{exact} at $n$ iff
+	The sequence is {\em exact} at $n$ iff
 	$\Ima f_n = \ker f_{n+1}$ as subobjects of $A_{n + 1}$.
-	It is said to be \textbf{exact} iff it is exact at $n$ for every $n$.
+	It is said to be {\em exact} iff it is exact at $n$ for every $n$.
 \end{defn}
 
 \begin{defn}[Short exact sequence]
-	An \textbf{exact} sequence of the form
+	An {\em exact} sequence of the form
 	\begin{equation}
 	0 \to A_1 \xrightarrow{f_1} A_2 \xrightarrow{f_2} A_3 \to 0 
 	\end{equation} 
-	is called \textbf{short exact sequence}.
+	is called {\em short exact sequence}.
 	In particular this sequence is exact iff
 	$f_1$ is a mono, $f_2$ is an epi, and $\Ima f_1 = \ker f_2$.
 \end{defn}
@@ -131,7 +131,7 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 
 \begin{defn}[Exact functor]
 	Let $F: \mathsf{C} \to \mathsf{D}$ be an {\em additive} functor.
-	We say that $F$ is \textbf{exact} iff, for every exact sequence
+	We say that $F$ is {\em exact} iff, for every exact sequence
 	\begin{equation}
 	A \xrightarrow{f} B \xrightarrow{g} C \quad \text{ in } \mathsf{C}
 	,\end{equation} 
@@ -144,7 +144,7 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 \end{defn}
 
 \begin{defn}[Left (resp. right) exact functor]
-	An additive functor $F: \mathsf{C} \to \mathsf{D}$ is \textbf{left} (resp. \textbf{right}) exact iff,
+	An additive functor $F: \mathsf{C} \to \mathsf{D}$ is {\em left} (resp. {\em right}) exact iff,
 	for every exact sequence in $\mathsf{C}$
 	\begin{equation}
 		0 \to A \xrightarrow{f} B \xrightarrow{g} C \quad ( \text{resp. }
@@ -167,7 +167,7 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 	\begin{equation}
 	0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0 
 	\end{equation} 
-	is said \textbf{split exact} iff $\exists\, \alpha: B \to A \oplus C$ s.t. the following diagram is commutative
+	is said {\em split exact} iff $\exists\, \alpha: B \to A \oplus C$ s.t. the following diagram is commutative
 	\begin{equation}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &

@@ -11,7 +11,7 @@
 	\end{tikzcd}
 	\end{equation} 
 	$\exists\, !\, \widetilde{f}: \mathrm{coker}\, \epsilon \to \ker \pi$ s.t. $\widetilde{f} \circ p = \beta$.
-	$\widetilde{f}$ is called \textbf{parallel morphism} of $f$.
+	$\widetilde{f}$ is called {\em parallel morphism} of $f$.
 \end{lem} 
 
 \begin{ex}
@@ -32,7 +32,7 @@
 \end{defn}
 
 \begin{defn}[Abelian category]
-	A category $\mathsf{C}$ is said \textbf{abelian} iff it is additive and
+	A category $\mathsf{C}$ is said {\em abelian} iff it is additive and
 	\begin{enumerate}
 		\item every morphism has both kernel and cokernel,
 		\item the parallel morphism $\widetilde{f}$ of $f$ is an isomorphism for any $f$.
@@ -73,14 +73,14 @@
 	Let's now see a few examples of abelian categories:
 	\begin{itemize}
 		\item Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ the category of abelian groups.
-			$\mathsf{C}$ is \textbf{abelian}: consider $A_R \xrightarrow{f} B_R$, then
+			$\mathsf{C}$ is {\em abelian}: consider $A_R \xrightarrow{f} B_R$, then
 			\begin{equation}
 				\coker \left( \ker f \right) \simeq A/ \ker f \quad \text{ and } \quad
 				\ker \left( \coker f \right) \simeq \ima f
 			.\end{equation} 
 			From the first isomorphism theorem we obtain an isomorphism of the two.
 			Then one can show that this category is abelian.
-		\item Let $\mathsf{T} \subset \mathsf{Ab}$  the full subcategory of abelian groups consisting of \textbf{torsion} abelian groups, then $\mathsf{T}$ is abelian.
+		\item Let $\mathsf{T} \subset \mathsf{Ab}$  the full subcategory of abelian groups consisting of {\em torsion} abelian groups, then $\mathsf{T}$ is abelian.
 			This is the case, since $\ker$ and $\coker$ in $\mathsf{T}$ correspond to the notions in $\mathsf{Ab}$, which is abelian.
 	\end{itemize}
 	The following, instead, are additive, with kernels and cokernels, but not abelian:
@@ -111,8 +111,8 @@
 
 
 		\item Let $G \in \mathrm{Ob} \left(\mathsf{Ab}\right)$ an abelian group. 
-			We say that $G$ is \textbf{divisible} iff $\,\forall\, x \in G$ and $\,\forall\,  0 \neq n \in \Z$, $\exists\, y \in G$ s.t. $ny = x$.
-			Instead an abelian group is called \textbf{reduced} iff it has no nonzero divisible subgroups.
+			We say that $G$ is {\em divisible} iff $\,\forall\, x \in G$ and $\,\forall\,  0 \neq n \in \Z$, $\exists\, y \in G$ s.t. $ny = x$.
+			Instead an abelian group is called {\em reduced} iff it has no nonzero divisible subgroups.
 
 			Let $\mathsf{D} \subset \mathsf{Ab}$ the full subcategory consisting of divisible abelian groups.
 			Then $\mathsf{D}$ has kernels and cokernels, it is also additive, but not abelian.
@@ -122,7 +122,7 @@
 I'm actually not sure whether the following definition is correct, but I cannot find it on the internet and I really didn't understand what was part of the definition during the lecture.
 \begin{defn}[Torsion pair of full subcategories]
 	Let $\mathsf{C}$ be an abelian category, and $\mathsf{D} \subset \mathsf{C} \supset \mathsf{E}$ be two full subcategories.
-	We say that the pair $\left(\mathsf{D}, \mathsf{E}\right)$ is a \textbf{torsion pair} iff given any $D \in \mathrm{Ob} \left(\mathsf{D}\right)$ and $E \in \mathrm{Ob} \left(\mathsf{E}\right)$ we have
+	We say that the pair $\left(\mathsf{D}, \mathsf{E}\right)$ is a {\em torsion pair} iff given any $D \in \mathrm{Ob} \left(\mathsf{D}\right)$ and $E \in \mathrm{Ob} \left(\mathsf{E}\right)$ we have
 	\begin{equation}
 	\mathrm{Hom}_{\mathsf{C}} \left( D, E \right) = 0
 	.\end{equation} 
@@ -147,7 +147,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 \begin{defn}[Pullback]
 	Let $\mathsf{C}$ be an arbitrary category.
 	Let $A \xrightarrow{f} C$ and $B \xrightarrow{g} C$ be morphisms in $\mathsf{C}$.
-	A \textbf{pullback} of $f$ and $g$ is a triple $\left(P, p_A, p_B\right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $p_A: P \to A$ and $p_B: P \to B$ s.t. the following conditions are satisfied
+	A {\em pullback} of $f$ and $g$ is a triple $\left(P, p_A, p_B\right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $p_A: P \to A$ and $p_B: P \to B$ s.t. the following conditions are satisfied
 	\begin{description}
 		\item[PB1] The following square is commutative
 			\begin{equation}
@@ -170,8 +170,8 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 \end{defn}
 		
 \begin{rem}
-	Notice that \textbf{PB2} is a universal property.
-	This means that, if a \textbf{pullback} of $f$ and $g$ exists, then it is unique up to a unique isomorphism.
+	Notice that {\em PB2} is a universal property.
+	This means that, if a {\em pullback} of $f$ and $g$ exists, then it is unique up to a unique isomorphism.
 \end{rem}
 
 \begin{ex}
@@ -268,7 +268,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 
 \begin{defn}[Pushout]
 	Let $\mathsf{C}$ be an arbitrary category.
-	A \textbf{pushout} of morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$ in $\mathsf{C}$ is a \textbf{pullback} in $\mathsf{C}^{op}$.
+	A {\em pushout} of morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$ in $\mathsf{C}$ is a {\em pullback} in $\mathsf{C}^{op}$.
 	This means that we can dualize every result for the pullback.
 
 	More explicitly, a pushout is a triple $ \left(P, \nu_A, \nu_B \right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $\nu_A: A \to P$,  and $\nu_B: B \to P$ morphisms s.t. the following conditions are satisfied

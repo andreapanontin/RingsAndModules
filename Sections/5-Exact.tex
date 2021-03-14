@@ -18,7 +18,7 @@
 
 \begin{defn}[Kernel-cokernel pair]
 	Let $\mathsf{C}$ be an additive category.
-	A \textbf{kernel cokernel pair} $\left(i, d\right)$ in $\mathsf{C}$ is a pair of composable morphisms
+	A {\em kernel cokernel pair} $\left(i, d\right)$ in $\mathsf{C}$ is a pair of composable morphisms
 	\begin{equation}
 	A \xrightarrow{i} B \xrightarrow{d} C
 	\end{equation} 
@@ -31,14 +31,14 @@
 	\begin{equation}
 	A \xrightarrow{i} B \xrightarrow{d} C
 	\end{equation} 
-	is called a \textbf{conflation}.
-	A morphism $i: A \rightarrowtail B$ s.t. there exists a morphism $d$ with $\left(i, d\right) \in \mathcal{E}$ is called \textbf{inflation}.
-	A morphism $d: B \twoheadrightarrow C$ s.t. there exists a morphism $i$ with $\left(i, d\right) \in \mathcal{E}$ is called \textbf{deflation}.
+	is called a {\em conflation}.
+	A morphism $i: A \rightarrowtail B$ s.t. there exists a morphism $d$ with $\left(i, d\right) \in \mathcal{E}$ is called {\em inflation}.
+	A morphism $d: B \twoheadrightarrow C$ s.t. there exists a morphism $i$ with $\left(i, d\right) \in \mathcal{E}$ is called {\em deflation}.
 	Sometimes they are called admissible mono and admissible epi.
 \end{defn}
 
 \begin{defn}[Exact structure]
-	Given an additive category $\mathsf{C}$, an \textbf{exact structure} on $\mathsf{C}$
+	Given an additive category $\mathsf{C}$, an {\em exact structure} on $\mathsf{C}$
 	is a class $\mathcal{E}$ of ker-coker pairs satisfying the following axioms and closed under isomorphisms, i.e.
 	given a commutative diagram
 	\begin{equation}
@@ -86,8 +86,8 @@
 \end{defn}
 
 \begin{defn}[Exact category]
-	An \textbf{exact category} is a pair $\left(\mathsf{C}, \mathcal{E}\right)$, with $\mathsf{C}$ an additive category and $\mathcal{E}$ an exact structure on $\mathsf{C}$.
-	Conflations in $\mathcal{E}$ are called \textbf{short exact sequences}.
+	An {\em exact category} is a pair $\left(\mathsf{C}, \mathcal{E}\right)$, with $\mathsf{C}$ an additive category and $\mathcal{E}$ an exact structure on $\mathsf{C}$.
+	Conflations in $\mathcal{E}$ are called {\em short exact sequences}.
 \end{defn}
 
 \begin{rem}
@@ -99,7 +99,7 @@
 \end{rem}
 
 \begin{defn}[Extensions closed subcategory]
-	Given an abelian category $\mathsf{C}$, a full subcategory $\mathsf{C}' \subset \mathsf{C}$ is \textbf{extensions closed} iff, given a ker-coker pair
+	Given an abelian category $\mathsf{C}$, a full subcategory $\mathsf{C}' \subset \mathsf{C}$ is {\em extensions closed} iff, given a ker-coker pair
 	$A \xrightarrow{i} B \xrightarrow{d} C$ with $A, C \in \mathrm{Ob} \left(\mathsf{C}'\right)$, then $B \in \mathrm{Ob} \left(\mathsf{C}'\right)$
 \end{defn}
 
@@ -119,12 +119,12 @@
 	From this it can be easily proved that also $B \in \mathrm{Ob} \left(\mathsf{F}\right)$.
 \end{rem}
 
-The following proposition can be found in the paper \textit{Chain complexes and stable categories}, by B. Keller.
-Also in the PhD thesis of  T. Bühler \textit{Exact categories}
+The following proposition can be found in the paper {\em Chain complexes and stable categories}, by B. Keller.
+Also in the PhD thesis of  T. Bühler {\em Exact categories}
 (For more precise references see lecture 8-1, minute 20).
 \begin{prop}[Keller]
 	The axioms of exact categories are redundant.
-	The following are enough \textbf{Ex0}, \textbf{Ex1}, \textbf{Ex2}, \textbf{Ex2}$^{op}$.
+	The following are enough {\em Ex0}, {\em Ex1}, {\em Ex2}, {\em Ex2}$^{op}$.
 	They imply:
 	\begin{description}
 		\item[a] given $X, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, then the following is a conflation
@@ -140,8 +140,8 @@ Also in the PhD thesis of  T. Bühler \textit{Exact categories}
 				\end{bmatrix} 
 			} Z
 			.\end{equation} 
-		\item[b] \textbf{Ex1}$^{op}$.
-		\item[c] \textbf{Quillen's obscure axioms}: If a morphism $d$ has a kernel and if $d \circ e$ is a deflation for some morphism $e$, then also $d$ is a deflation.
-		\item[c$^{op}$] \textbf{Quillen's obscure axioms}: If a morphism $i$ has a cokernel and if $k \circ i$ is an inflation for some morphism $k$, then also $i$ is an inflation.
+		\item[b] {\em Ex1}$^{op}$.
+		\item[c] {\em Quillen's obscure axioms}: If a morphism $d$ has a kernel and if $d \circ e$ is a deflation for some morphism $e$, then also $d$ is a deflation.
+		\item[c$^{op}$] {\em Quillen's obscure axioms}: If a morphism $i$ has a cokernel and if $k \circ i$ is an inflation for some morphism $k$, then also $i$ is an inflation.
 	\end{description} 
 \end{prop} 

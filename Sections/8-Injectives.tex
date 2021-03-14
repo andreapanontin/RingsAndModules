@@ -1,9 +1,9 @@
 \section{Injective and projective objects}
-Let $\mathsf{C}$ be an \textit{arbitrary} category.
+Let $\mathsf{C}$ be an {\em arbitrary} category.
 
 \begin{defn}[Projective object]
 	Let $P \in \mathrm{Ob} \left(\mathsf{C}\right)$.
-	$P$ is \textbf{projective} iff given any $\varphi: B \to C$ epimorphism in $\mathsf{C}$, 
+	$P$ is {\em projective} iff given any $\varphi: B \to C$ epimorphism in $\mathsf{C}$, 
 	and any morphism $f: P \to C$, then there exists $g: P \to B$ s.t. $\varphi \circ g = f$, 
 	i.e. s.t. the following diagram commutes
 	\begin{equation}
@@ -15,7 +15,7 @@ Let $\mathsf{C}$ be an \textit{arbitrary} category.
 		P \arrow[lu, "\exists\, g", dashrightarrow] \arrow[u, "f"', rightarrow]  &
 	\end{tikzcd}
 	.\end{equation} 
-	In such case $g$ is called a \textit{lift} of $f$.\newline
+	In such case $g$ is called a {\em lift} of $f$.\newline
 	Equivalently:
 	$P$ is projective iff
 	\begin{equation}
@@ -27,13 +27,13 @@ Let $\mathsf{C}$ be an \textit{arbitrary} category.
 
 \begin{rem}
 	If, moreover, $\mathsf{C}$ is abelian, then
-	$P$ is \textbf{projective} iff $\mathrm{Hom}_{\mathsf{C}} \left( P, - \right)$ is exact.
-	Hence $P$ is projective iff $\mathrm{Hom}_{\mathsf{C}} \left( P, -\right)$ is also \textbf{right} exact.
+	$P$ is {\em projective} iff $\mathrm{Hom}_{\mathsf{C}} \left( P, - \right)$ is exact.
+	Hence $P$ is projective iff $\mathrm{Hom}_{\mathsf{C}} \left( P, -\right)$ is also {\em right} exact.
 \end{rem}
 
 \begin{defn}[Injective object]
 	Let $I \in \mathrm{Ob} \left(\mathsf{C}\right)$.
-	$I$ is \textbf{injective} iff $I$ is projective in $\mathsf{C}^{op}$.
+	$I$ is {\em injective} iff $I$ is projective in $\mathsf{C}^{op}$.
 	More explicitly, iff given any $\mu: A \to B$ mono in $\mathsf{C}$,
 	and any morphism $f: A \to I$, then there exists $g: B \to I$ s.t. $g \circ \mu = f$,
 	i.e. s.t. the following diagram commutes
@@ -45,7 +45,7 @@ Let $\mathsf{C}$ be an \textit{arbitrary} category.
 		& I &
 	\end{tikzcd}
 	.\end{equation} 
-	In such case $g$ is called an \textit{extension} of $f$.\newline
+	In such case $g$ is called an {\em extension} of $f$.\newline
 	Equivalently:
 	$I$ is injective iff
 	\begin{equation}
@@ -57,8 +57,8 @@ Let $\mathsf{C}$ be an \textit{arbitrary} category.
 
 \begin{rem}
 	If, moreover, $\mathsf{C}$ is abelian, then
-	$I$ is \textbf{injective} iff $\mathrm{Hom}_{\mathsf{C}} \left( -, I \right)$ is exact.
-	Hence $I$ is injective iff $\mathrm{Hom}_{\mathsf{C}} \left( -, I\right)$ is also \textbf{right} exact.
+	$I$ is {\em injective} iff $\mathrm{Hom}_{\mathsf{C}} \left( -, I \right)$ is exact.
+	Hence $I$ is injective iff $\mathrm{Hom}_{\mathsf{C}} \left( -, I\right)$ is also {\em right} exact.
 \end{rem}
 
 \begin{prop}
@@ -96,10 +96,10 @@ Dually we have the following
 \begin{defn}[Enough projectives/injectives]
 	Consider a category $\mathsf{C}$.
 	\begin{itemize}
-		\item We say that $\mathsf{C}$ has \textbf{enough projectives} iff,
+		\item We say that $\mathsf{C}$ has {\em enough projectives} iff,
 	given any $C \in \mathrm{Ob} \left(\mathsf{C}\right)$, 
 	there exists a projective object $P \in \mathrm{Ob} \left(\mathsf{C}\right)$ and an epimorphism $\varphi: P \to C$.
-	\item We say that $\mathsf{C}$ has \textbf{enough injectives} iff, 
+	\item We say that $\mathsf{C}$ has {\em enough injectives} iff, 
 		given any object $C \in \mathrm{Ob} \left(\mathsf{C}\right)$,
 		there exists an injective object $E \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a monomorphism
 		$\mu: C \to E$.
@@ -108,7 +108,7 @@ Dually we have the following
 
 \begin{defn}[Free module]
 	Let $\mathsf{C} := \mathsf{Mod}\text{-}R$.
-	$M_R \in \mathsf{Mod}\text{-}R$ is \textbf{free} iff it has a free set of generators $\left\{ x_i \right\}_{i \in I}$, 
+	$M_R \in \mathsf{Mod}\text{-}R$ is {\em free} iff it has a free set of generators $\left\{ x_i \right\}_{i \in I}$, 
 	with $x_i \in M$ for all $i$, s.t. $\,\forall\, x \in M$ it can be written in a unique way as a linear combination of the generators.
 	More explicitly
 	\begin{equation}
@@ -135,7 +135,7 @@ Dually we have the following
 	Projective modules are easy to describe.
 	For injective ones we are able to do so only for a specific class of rings, for example for PIDs.
 
-	For this purpose, recall that a module $M_R$ is \textbf{divisible} iff
+	For this purpose, recall that a module $M_R$ is {\em divisible} iff
 	\begin{equation}
 	\,\forall\, x \in M, \ \,\forall\, 0 \neq r \in R, \quad \exists\, y \in M \text{ s.t. } x = yr
 	.\end{equation} 
@@ -242,7 +242,7 @@ Dually we have the following
 
 \begin{rem}[An application of Yoneda lemma]
 	Consider $X, X' \in \mathrm{Ob} \left(\mathsf{I}\right)$. 
-	Let $F := h^{X'}$, then \textit{Yoneda lemma} implies
+	Let $F := h^{X'}$, then {\em Yoneda lemma} implies
 	\begin{equation}
 		\mathrm{Nat} \left( h^X, h^{X'} \right) \simeq h^{X'}(X) = \mathrm{Hom}_{\mathsf{I}} \left( X, X' \right)
 	.\end{equation} 
@@ -250,7 +250,7 @@ Dually we have the following
 
 \begin{defn}[Yoneda embedding]
 	Consider $\mathsf{I}$ small and preadditive, $\mathsf{C} = \mathsf{Ab}$.
-	We define the \textbf{Yoneda embedding} as the functor
+	We define the {\em Yoneda embedding} as the functor
 	$Y: \mathsf{I} \to \underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$,
 	defined on objects as
 	\begin{align}
@@ -264,7 +264,7 @@ Dually we have the following
 \end{defn}
 
 \begin{prop}
-	The Yoneda embedding $Y$ is \textbf{fully faithful}.
+	The Yoneda embedding $Y$ is {\em fully faithful}.
 	Moreover it sends distinct objects of $\mathsf{I}$ to distinct objects of
 	$\underline{\mathrm{Hom}\left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$.
 \end{prop} 
@@ -285,7 +285,7 @@ Dually we have the following
 
 \begin{defn}[Generator of a category]
 	Let $\mathsf{C}$ be a category.
-	An object $G \in \mathrm{Ob} \left(\mathsf{C}\right)$ is a \textbf{generator} of $\mathsf{C}$ iff
+	An object $G \in \mathrm{Ob} \left(\mathsf{C}\right)$ is a {\em generator} of $\mathsf{C}$ iff
 	$\mathrm{Hom}_{\mathsf{C}} \left( G, - \right): \mathsf{C} \to \mathsf{Sets}$ is faithful.
 	In other words iff the maps of sets
 	 \begin{equation}
@@ -332,7 +332,7 @@ Dually we have the following
 
 \begin{defn}[Cogenerator of a category]
 	Let $\mathsf{C}$ be a category.
-	An object $C \in \mathrm{Ob} \left(\mathsf{C}\right)$ is a \textbf{cogenerator} of $\mathsf{C}$ iff
+	An object $C \in \mathrm{Ob} \left(\mathsf{C}\right)$ is a {\em cogenerator} of $\mathsf{C}$ iff
 	$C$ is a generator in $\mathsf{C}^{op}$, i.e. iff
 	$\mathrm{Hom}_{\mathsf{C}} \left( -, C \right): \mathsf{C}^{op} \to \mathsf{Sets}$ is faithful.
 	In other words iff the maps of sets
@@ -431,7 +431,7 @@ Dually we have the following
 
 \subsection{Grothendieck categories}
 \begin{defn}[Grothendieck category]
-	An abelian category $\mathsf{C}$ is a \textbf{Grothendieck} category iff
+	An abelian category $\mathsf{C}$ is a {\em Grothendieck} category iff
 	it is cocomplete, it has a generator, and filtered direct limits are exact in $\mathsf{C}$.
 \end{defn}
 
