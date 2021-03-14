@@ -1,20 +1,20 @@
-\section{Limit}
+\section{(Co)limits}
 We will concentrate on an arbitrary category $\mathsf{C}$,
 and on a small category $\mathsf{I}$,
 i.e. a category where $\mathrm{Ob} \left(\mathsf{I}\right)$ and $\mathrm{Morph}\, \mathsf{I}$,
 the family of all morphisms in the category $\mathsf{I}$, are sets.
 Consider a functor 
 \begin{equation}
-F: \mathsf{I} \to \mathsf{C}
+F\colon \mathsf{I} \to \mathsf{C}
 .\end{equation} 
 Then $\,\forall\, i \in \mathrm{Ob} \left(\mathsf{I}\right)$, $F(i) \in \mathrm{Ob} \left(\mathsf{C}\right)$ and,
-given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to F(j)$.
+given a morphism $\lambda\colon i \to j$ in $\mathsf{I}$, then $F(\lambda)\colon F(i) \to F(j)$.
 
 \begin{defn}[Compatible family with respect to $F$]
 	Consider a family $\left\{ \alpha_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$ of morphisms 
-	$\alpha_i: X \to F(i)$ for a fixed $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+	$\alpha_i\colon X \to F(i)$ for a fixed $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
 	It is said to be a {\em compatible family} with respect to $F$ iff
-	given any morphism $\lambda: i \to j$ in $\mathsf{I}$, the following triangle commutes
+	given any morphism $\lambda\colon i \to j$ in $\mathsf{I}$, the following triangle commutes
 	\begin{equation}
 	\begin{tikzcd}
 		X \arrow[r, "\alpha_i", rightarrow] \arrow[rd, "\alpha_j"', rightarrow] &
@@ -23,12 +23,12 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 		F(j)
 	\end{tikzcd}
 	.\end{equation} 
-	In other words iff $\alpha_j = F(\lambda) \circ \alpha_i$ for every $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and every $\lambda: i \to j$.
+	In other words iff $\alpha_j = F(\lambda) \circ \alpha_i$ for every $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and every $\lambda\colon i \to j$.
 \end{defn}
 
 \begin{defn}[Projective (inverse) limit]
 	A (projective/inverse) {\em limit} of $F$ is an object in $\mathsf{C}$, denoted with $\varprojlim F$, with morphisms
-	$p_i: \varprojlim F \to F(i)$ for all $i \in \mathrm{Ob} \left(\mathsf{I}\right)$ satisfying the following conditions
+	$p_i\colon \varprojlim F \to F(i)$ for all $i \in \mathrm{Ob} \left(\mathsf{I}\right)$ satisfying the following conditions
 	\begin{description}
 		\item[LIM1] $\left\{ p_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$ is a compatible family of morphisms, i.e.
 			\begin{equation}
@@ -39,9 +39,9 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 				F(j)
 			\end{tikzcd}
 			\end{equation} 
-			the above diagram commutes for all $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and all $\lambda: i \to j$.
-		\item[LIM2] For any $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and any compatible family of morphisms $\left\{ \alpha_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$, with $\alpha_i: X \to F(i)$, 
-			$\exists\, !\, \alpha: X \to \varprojlim F$ s.t. $p_i \circ \alpha = \alpha_i$ $\,\forall\, i \in \mathrm{Ob} \left(\mathsf{I}\right)$, i.e.
+			the above diagram commutes for all $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and all $\lambda\colon i \to j$.
+		\item[LIM2] For any $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and any compatible family of morphisms $\left\{ \alpha_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$, with $\alpha_i\colon X \to F(i)$, 
+			$\exists\, !\, \alpha\colon X \to \varprojlim F$ s.t. $p_i \circ \alpha = \alpha_i$ $\,\forall\, i \in \mathrm{Ob} \left(\mathsf{I}\right)$, i.e.
 			\begin{equation}
 			\begin{tikzcd}
 				X \arrow[r, "\alpha_i", rightarrow] \arrow[d, "\alpha"', rightarrow] &
@@ -58,7 +58,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 
 \begin{ex}
 	Let $\mathsf{I}$ be a small discrete category, i.e. the morphisms in $\mathsf{I}$ are only the identities.
-	Then, for any functor $F: \mathsf{I} \to \mathsf{C}$, $\varprojlim F$ exists iff 
+	Then, for any functor $F\colon \mathsf{I} \to \mathsf{C}$, $\varprojlim F$ exists iff 
 	$\prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i)$ exists and they are isomorphic.
 	In particular the $p_i$ s correspond with the projections of the product.
 \end{ex} 
@@ -73,7 +73,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	\end{tikzcd}
 	.\end{equation} 
 	Consider the category $\mathsf{I}$ with $\mathrm{Ob} \left(\mathsf{I}\right) = \left\{ 1, 2, 3 \right\}$ and morphism (other than the identities) $1 \to 3$ and $2 \to 3$.
-	Consider the functor $F: \mathsf{I} \to \mathsf{C}$ defined as follows:
+	Consider the functor $F\colon \mathsf{I} \to \mathsf{C}$ defined as follows:
 	 \begin{equation}
 		 \begin{matrix}
 			 F(i) = A_i, &
@@ -86,15 +86,15 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 
 \begin{defn}[Complete category]
 	A category $\mathsf{C}$ is called {\em complete} iff 
-	every functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, admits limit in $\mathsf{C}$.
+	every functor $F\colon \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, admits limit in $\mathsf{C}$.
 \end{defn}
 
 \begin{rem}[Some terminology]
 	Assume that a preadditive category $\mathsf{C}$ has arbitrary products.
-	Consider a functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$.
-	For any morphism $\lambda: i \to j$ in $\mathsf{I}$, let's define
+	Consider a functor $F\colon \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$.
+	For any morphism $\lambda\colon i \to j$ in $\mathsf{I}$, let's define
 	\begin{equation}
-		s(\lambda) := i \quad \text{ and } \quad t(\lambda) := j
+		s(\lambda) \coloneqq i \quad \text{ and } \quad t(\lambda) \coloneqq j
 	,\end{equation} 
 	where $s$ denotes the source and $t$ the target of the morphism.
 	Consider a product
@@ -110,19 +110,19 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	.\end{equation} 
 	In general it is not commutative, but we can define the morphism
 	\begin{equation}
-		\sigma_\lambda := F(\lambda) \circ \pi_{s(\lambda)} - \pi_{t(\lambda)}: \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \to F \left( t(\lambda) \right)
+		\sigma_\lambda \coloneqq F(\lambda) \circ \pi_{s(\lambda)} - \pi_{t(\lambda)}\colon \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \to F \left( t(\lambda) \right)
 	.\end{equation} 
-	Let's now consider the product $\left(\prod_{\lambda \in \Lambda} F \left( t(\lambda) \right), q_\lambda\right)$, indexed by $\lambda \in \Lambda := \mathrm{Morph}\, \mathsf{I}$.
+	Let's now consider the product $\left(\prod_{\lambda \in \Lambda} F \left( t(\lambda) \right), q_\lambda\right)$, indexed by $\lambda \in \Lambda \coloneqq \mathrm{Morph}\, \mathsf{I}$.
 	By the universal property of products, the family $\left\{ \sigma_\lambda \right\}_{\lambda \in \Lambda}$ induces a unique morphism
 	 \begin{equation}
-		 \sigma: \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \to \prod_{\lambda \in \Lambda} F \left( t(\lambda) \right)
+		 \sigma\colon \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \to \prod_{\lambda \in \Lambda} F \left( t(\lambda) \right)
 	\end{equation} 
 	s.t. $q_\lambda \circ\sigma = \sigma_\lambda$.
 \end{rem}
 
 \begin{prop}\label{prop:LimConstr}
 	If a (preadditive) category $\mathsf{C}$ admits kernels and (arbitrary) products,
-	then for every functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, 
+	then for every functor $F\colon \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, 
 	$\mathsf{C}$ admits $\varprojlim F$.
 	Moreover the limit is constructed by means of kernels and products.
 \end{prop} 
@@ -130,20 +130,20 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	The proof wants to show that the following construction actually is a limit for $F$.
 	Consider $\left(K, \epsilon\right)$ a kernel for the morphism constructed above
 	\begin{equation}
-		\sigma: \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \to \prod_{\lambda \in \Lambda} F \left( t(\lambda) \right)
+		\sigma\colon \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i) \to \prod_{\lambda \in \Lambda} F \left( t(\lambda) \right)
 	.\end{equation} 
-	Then $\left(K, p_i\right)$, for $p_i := \pi_i \circ\epsilon$ is a projective limit of $F$.
+	Then $\left(K, p_i\right)$, for $p_i \coloneqq \pi_i \circ\epsilon$ is a projective limit of $F$.
 \end{proof}
 
 \begin{ex}
 	Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $\left( \mathsf{I}, \leq \right)$ a partially ordered set, viewed as a category.
 	Consider a contravariant functor
 	\begin{equation}
-	F: \mathsf{I}^{op} \to \mathsf{Mod}\text{-}R
+	F\colon \mathsf{I}^{op} \to \mathsf{Mod}\text{-}R
 	.\end{equation} 
-	This is equivalent to the data of $F(i) =: M_i \in \mathsf{Mod}\text{-}R$, and, for all $i \leq j$ of
+	This is equivalent to the data of $F(i) \eqqcolon M_i \in \mathsf{Mod}\text{-}R$, and, for all $i \leq j$ of
 	\begin{equation}
-		F(i \to j) =: f_{ij}: M_j \to M_i
+		F(i \to j) \eqqcolon f_{ij}\colon M_j \to M_i
 	.\end{equation} 
 	Now, given $i \leq j \leq k$, then the following diagram commutes
 	\begin{equation}
@@ -171,11 +171,11 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 		& M_i
 	\end{tikzcd} 
 	.\end{equation}
-	Let's define, for each $i \leq j$, $\sigma_{ij} := f_{ij} \circ\pi_j - \pi_i$.
+	Let's define, for each $i \leq j$, $\sigma_{ij} \coloneqq f_{ij} \circ\pi_j - \pi_i$.
 	Then, by universal property of the product,
-	$\exists\, !\, \sigma: \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i \to \prod_{i \leq j} M_{ij}$,
-	where $M_{ij} := M_i$ for every $i \leq j$.
-	In the above construction $\pi_i \circ\sigma = \sigma_{ij}: \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i \to M_{ij}$.
+	$\exists\, !\, \sigma\colon \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i \to \prod_{i \leq j} M_{ij}$,
+	where $M_{ij} \coloneqq M_i$ for every $i \leq j$.
+	In the above construction $\pi_i \circ\sigma = \sigma_{ij}\colon \prod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i \to M_{ij}$.
 	Then we have
 	\begin{align}
 		\varprojlim M_i &\simeq \ker \sigma =
@@ -205,7 +205,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	Let $R$ be a commutative ring and $I \triangleleft R$ an ideal of $R$.
 	For $n \leq m$, then $I^m \subset I^n$, hence the canonical projections
 	\begin{align}
-		\pi_{n,m}: R/I^m &\to R/I^n \\
+		\pi_{n,m}\colon R/I^m &\to R/I^n \\
 		x + I^m &\mapsto x + I^n
 	\end{align} 
 	are well defined.
@@ -222,7 +222,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 	It is called completion since, given $\left\{ x_n \right\}_{n \in \N}$ it is a {\em Cauchy} sequence iff
 	$\,\forall\, V$ neighbourhood of $0$, $\exists\, n_0 \in \N$ s.t. $x_n - x_m \in V$ for all $n,m \geq n_0$.
 	Moreover we can define a {\em neat Cauchy} sequence as a sequence $\left\{ x_n \right\}_{n \in \N}$ s.t.
-	$\,\forall\, V_n := I^n$ m then $x_m - x_n \in V_n$ for all $m \geq n$.
+	$\,\forall\, V_n \coloneqq I^n$ m then $x_m - x_n \in V_n$ for all $m \geq n$.
 
 	In particular an element $\left( x_n + I^n \right)_{n \in \N} \in \varprojlim R/I^n$ can be viewed as a limit
 	of the Cauchy sequence $\left\{ x_n \right\}_{n \in \N}$.
@@ -230,7 +230,7 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 
 	Moreover we have a canonical projection
 	\begin{align}
-		\mu: R &\to \varprojlim R/I^n \\
+		\mu\colon R &\to \varprojlim R/I^n \\
 		x &\mapsto \left( x + I^n \right)_{n \in \N}
 	.\end{align} 
 	Clearly $\ker \mu = \bigcap_{n \in \N} I^n$ (i.e. $\mu$ is injective iff
@@ -238,9 +238,9 @@ given a morphism $\lambda: i \to j$ in $\mathsf{I}$, then $F(\lambda): F(i) \to 
 \end{ex} 
 
 \begin{ex}[$p$-adic completion of the ring of integers]
-	Let $R := \mathbb{Z}$ and $I := p  \mathbb{Z}$.
+	Let $R \coloneqq \mathbb{Z}$ and $I \coloneqq p  \mathbb{Z}$.
 	\begin{equation}
-		\hat{\mathbb{Z}}_p := \varprojlim \mathbb{Z}/p^n \mathbb{Z}
+		\hat{\mathbb{Z}}_p \coloneqq \varprojlim \mathbb{Z}/p^n \mathbb{Z}
 	\end{equation} 
 	is the $p$-adic completion of the ring of integers.
 	An element $\zeta \in \hat{\mathbb{Z}}$ can be written as
@@ -262,16 +262,16 @@ Let $\mathsf{C}^{\mathsf{I}}$ be the functor category.
 
 \begin{prop}
 	\begin{align}
-		\varprojlim: \mathsf{C}^{\mathsf{I}} &\to \mathsf{C} \\
+		\varprojlim\colon \mathsf{C}^{\mathsf{I}} &\to \mathsf{C} \\
 		F &\mapsto \varprojlim F
 	\end{align} 
 	is a functor.
 \end{prop} 	
 \begin{proof}
-	Given $\eta: F \to G$ a natural transformation between the functors
+	Given $\eta\colon F \to G$ a natural transformation between the functors
 	$F, G \in \mathsf{C}^{\mathsf{I}}$, the functor associates it a morphism in the natural way
 	\begin{equation*}
-	\varprojlim \eta: \varprojlim F \to \varprojlim G
+	\varprojlim \eta\colon \varprojlim F \to \varprojlim G
 	.\qedhere\end{equation*} 
 \end{proof}
 
@@ -291,9 +291,9 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 			$\left(F \Pi G, \pi_F, \pi_G\right)$, s.t. this is a product of $F$ and $G$ in $\mathsf{C}^{\mathsf{I}}$.
 			On objects it is defined as expected
 			\begin{equation}
-				(F \prod G)(i) := F(i) \prod G(i)
+				(F \prod G)(i) \coloneqq F(i) \prod G(i)
 			.\end{equation} 
-			Moreover, on morphisms it is defined as follows: given $\lambda: i \to j$, then
+			Moreover, on morphisms it is defined as follows: given $\lambda\colon i \to j$, then
 			\begin{equation}
 				\left( F \prod G \right)(\lambda) = 
 				\begin{bmatrix}
@@ -301,17 +301,17 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 					0 & G(\lambda)
 				\end{bmatrix} 
 			,\end{equation} 
-			is our morphism $\left( F \Pi G \right)(\lambda): F(i) \Pi G(i) \to F(j) \Pi G(j)$.
+			is our morphism $\left( F \Pi G \right)(\lambda)\colon F(i) \Pi G(i) \to F(j) \Pi G(j)$.
 			Finally we have to define the projections.
 			They are constructed naturally as
 			\begin{equation}
-				(\pi_F)_i := \pi_{F(i)} \qquad \text{ and } \qquad \left( \pi_G \right)_i := \pi_{G(i)}
+				(\pi_F)_i \coloneqq \pi_{F(i)} \qquad \text{ and } \qquad \left( \pi_G \right)_i \coloneqq \pi_{G(i)}
 			.\end{equation} 
 		\item If $\mathsf{C}$ has kernels, then also $\mathsf{C}^{\mathsf{I}}$ has.
-			Let $\eta: F \to G$ be a natural transformation.
+			Let $\eta\colon F \to G$ be a natural transformation.
 			Let's define $\ker \eta$ as an object of $\mathsf{C}^{\mathsf{I}}$.
-			For every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$ we define $K(i) := \ker \eta_i$ as an object in $\mathsf{C}$.
-			This, for any morphism $\lambda: i \to j$, gives rise to the commutative diagram
+			For every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$ we define $K(i) \coloneqq \ker \eta_i$ as an object in $\mathsf{C}$.
+			This, for any morphism $\lambda\colon i \to j$, gives rise to the commutative diagram
 			\begin{equation}
 			\begin{tikzcd}
 				K(i) \arrow[d, "\exists\, !\, \nu", dashrightarrow] \arrow[r, "\epsilon_i", rightarrow] &
@@ -322,17 +322,17 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 				G(j)
 			\end{tikzcd}
 			.\end{equation} 
-			From this we define $K(\lambda) := \nu$.
+			From this we define $K(\lambda) \coloneqq \nu$.
 			Then, the couple $\left(K, \left\{ \epsilon_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} \right)$
 			is the kernel of $\left\{ \eta_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$.
 
 		\item If $\mathsf{C}$ has cokernels, 
 			then also $\mathsf{C}^{\mathsf{I}}$ has.
-			Let $\eta: F \to G$ be a natural transformation.
+			Let $\eta\colon F \to G$ be a natural transformation.
 			Let's define $\coker \eta$ as an object of $\mathsf{C}^{\mathsf{I}}$.
 			For every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$
-			we define $C(i) := \coker \eta_i$ as an object in $\mathsf{C}$.
-			This, for any morphism $\lambda: i \to j$, gives rise to the commutative diagram
+			we define $C(i) \coloneqq \coker \eta_i$ as an object in $\mathsf{C}$.
+			This, for any morphism $\lambda\colon i \to j$, gives rise to the commutative diagram
 			\begin{equation}
 			\begin{tikzcd}
 				F(i) \arrow[r, "\eta_i", rightarrow] \arrow[d, "F(\lambda)", rightarrow] &
@@ -344,7 +344,7 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 				C(j).
 			\end{tikzcd}
 			\end{equation} 
-			From this we define $C(\lambda) := \nu$.
+			From this we define $C(\lambda) \coloneqq \nu$.
 			Then, the couple
 			$\left(C, \left\{ p_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} \right)$
 			is the cokernel of 
@@ -353,39 +353,39 @@ Let's study a little the category $\mathsf{C}^{\mathsf{I}}$, for a small categor
 \end{prop} 
 
 \subsection{Characterization of projective limit}
-Let, as before, $\mathsf{I}$ be a small category, and $\mathsf{C}^{\mathsf{I}}$ the category of functors $F: \mathsf{I} \to \mathsf{C}$.
+Let, as before, $\mathsf{I}$ be a small category, and $\mathsf{C}^{\mathsf{I}}$ the category of functors $F\colon \mathsf{I} \to \mathsf{C}$.
 
 \begin{defn}[Constant functor]
 	Consider a fixed $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
 	We define the constant functor
 	\begin{equation}
-	\Delta_X: \mathsf{I} \to \mathsf{C}
+	\Delta_X\colon \mathsf{I} \to \mathsf{C}
 	.\end{equation} 
 	On objects as $\Delta_X(i) = X$ for all $i \in \mathrm{Ob} \left(\mathsf{I}\right)$.
-	On morphism $\Delta_X(\lambda) = id_X$ for all $\lambda: i \to j$.
+	On morphism $\Delta_X(\lambda) = id_X$ for all $\lambda\colon i \to j$.
 \end{defn}
 
 \begin{defn}[Diagonal functor]
 	We define, in terms of the constant functor, the diagonal functor
 	 \begin{equation}
-	\Delta: \mathsf{C} \to \mathsf{C}^{\mathsf{I}}
+	\Delta\colon \mathsf{C} \to \mathsf{C}^{\mathsf{I}}
 	.\end{equation} 
-	On objects as $\Delta(X) := \Delta_X$.
-	On morphisms $f: X \to Y$, then
+	On objects as $\Delta(X) \coloneqq \Delta_X$.
+	On morphisms $f\colon X \to Y$, then
 	\begin{equation}
-		\Delta(f) := \bar{f}: \Delta_X \to \Delta_Y
+		\Delta(f) \coloneqq \bar{f}\colon \Delta_X \to \Delta_Y
 	,\end{equation} 
 	where $\bar{f}$ is a natural transformation s.t. for every $i \in \mathrm{Ob} \left(\mathsf{I}\right)$, $\bar{f}_i = f$.
 \end{defn}
 
 \begin{defn}[Some notation for the following proposition]
 	Fix a functor $F \in \mathsf{C}^{\mathsf{I}}$.
-	Let $H: \mathsf{C}^{op} \to \mathsf{Sets}$ be a contravariant functor from $\mathsf{C}$, defined as follows.
+	Let $H\colon \mathsf{C}^{op} \to \mathsf{Sets}$ be a contravariant functor from $\mathsf{C}$, defined as follows.
 	On the objects $Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, 
-	$H(Y) := \mathrm{Nat} \left( \Delta_Y, F \right)$.
-	On the morphisms, for $f: X \to Y$, 
+	$H(Y) \coloneqq \mathrm{Nat} \left( \Delta_Y, F \right)$.
+	On the morphisms, for $f\colon X \to Y$, 
 	 \begin{align}
-		 H(f): \mathrm{Nat} \left( \Delta_Y, F \right) &\to \mathrm{Nat} \left( \Delta_X, F \right) \\
+		 H(f)\colon \mathrm{Nat} \left( \Delta_Y, F \right) &\to \mathrm{Nat} \left( \Delta_X, F \right) \\
 		 \eta &\mapsto \eta \circ \bar{f}
 	.\end{align} 
 \end{defn}
@@ -401,21 +401,21 @@ Let, as before, $\mathsf{I}$ be a small category, and $\mathsf{C}^{\mathsf{I}}$ 
 	.\end{equation} 
 	In such case $P \simeq \varprojlim F$, and the compatible family is defined as
 	\begin{align}
-		\varphi_P: \mathrm{Hom}_{\mathsf{C}} \left( P, P \right) &\to
+		\varphi_P\colon \mathrm{Hom}_{\mathsf{C}} \left( P, P \right) &\to
 		\mathrm{Nat} \left( \Delta_P, F \right) \\
 		1_P &\mapsto \bar{p} = \left\{ p_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}
 	.\end{align} 
 \end{prop} 
 
-\section{Colimit}
+\subsection{Colimits}
 Let's dualize the notion of limit, to obtain the notion of colimit.
-As usual we consider $\mathsf{I}$ a small category, and $F: \mathsf{I} \to \mathsf{C}$ a functor.
+As usual we consider $\mathsf{I}$ a small category, and $F\colon \mathsf{I} \to \mathsf{C}$ a functor.
 
 Before we introduce the notion of colimit let's dualize that of compatible family
 \begin{defn}[Compatible family]
 	Fix $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and
-	consider a family $\left\{ \alpha_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$ of morphisms $\alpha_i: F(i) \to X$.
-	This is said to be a {\em compatible family} with respect to $F$ iff, given any morphism $\lambda: i \to j$ in $\mathsf{I}$,
+	consider a family $\left\{ \alpha_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$ of morphisms $\alpha_i\colon F(i) \to X$.
+	This is said to be a {\em compatible family} with respect to $F$ iff, given any morphism $\lambda\colon i \to j$ in $\mathsf{I}$,
 	the following triangle commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -425,13 +425,13 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 		F(j) \arrow[u, "\alpha_j"', rightarrow] 
 	\end{tikzcd}
 	.\end{equation} 
-	In other words iff $\alpha_i = \alpha_j \circ F(\lambda)$ for every $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and every $\lambda: i \to j$.
+	In other words iff $\alpha_i = \alpha_j \circ F(\lambda)$ for every $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and every $\lambda\colon i \to j$.
 \end{defn}
 
 \begin{defn}[Colimit/Injective (inverse) limit]
 	A {\em colimit} of $F$, denoted with $\varinjlim F$ is a limit of $F$ in $\mathsf{C}^{op}$.
 	More explicitly a colimit is an object in $\mathsf{C}$, still denoted with $\varinjlim F$, 
-	with morphisms $\mu_i: F(i) \to \varinjlim F$ satisfying the following conditions
+	with morphisms $\mu_i\colon F(i) \to \varinjlim F$ satisfying the following conditions
 	\begin{description}
 		\item[CoLIM1] $\left\{ \mu_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$ is a compatible family of morphisms, i.e.
 			\begin{equation}
@@ -442,11 +442,11 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 				F(j) \arrow[u, "\mu_j"', rightarrow] 
 			\end{tikzcd}
 			\end{equation} 
-			the above diagram commutes for all $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and all $\lambda: i \to j$.
+			the above diagram commutes for all $i, j \in \mathrm{Ob} \left(\mathsf{I}\right)$ and all $\lambda\colon i \to j$.
 		\item[CoLIM2] For any $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and any compatible family of morphisms
 			$\left\{ \alpha_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)}$, 
-			with $\alpha_i: F(i) \to X$, 
-			$\exists\, !\, \alpha: \varinjlim F \to X$ s.t. 
+			with $\alpha_i\colon F(i) \to X$, 
+			$\exists\, !\, \alpha\colon \varinjlim F \to X$ s.t. 
 			$\alpha \circ \mu_i = \alpha_i$ $\,\forall\, i \in \mathrm{Ob} \left(\mathsf{I}\right)$, i.e.
 			\begin{equation}
 			\begin{tikzcd}
@@ -465,7 +465,7 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 
 \begin{ex}
 	Let $\mathsf{I}$ be a small discrete category, i.e. the morphisms in $\mathsf{I}$ are only the identities.
-	Then, for any functor $F: \mathsf{I} \to \mathsf{C}$, $\varinjlim F$ exists iff
+	Then, for any functor $F\colon \mathsf{I} \to \mathsf{C}$, $\varinjlim F$ exists iff
 	$\coprod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i)$ exists and they are isomorphic.
 	In particular the $\mu_i$ s correspond with the embeddings of the coproduct.
 \end{ex} 
@@ -479,8 +479,8 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 		A_2
 	\end{tikzcd}
 	.\end{equation} 
-	Consider the small category $\mathsf{I}$, with $\mathrm{Ob} \left(\mathsf{I}\right) := \left\{ 1, 2, 3 \right\}$ and morphisms, other than the identities, $3 \to 1$ and $3 \to 2$.
-	Consider the functor $F: \mathsf{I} \to \mathsf{C}$ defined as follows:
+	Consider the small category $\mathsf{I}$, with $\mathrm{Ob} \left(\mathsf{I}\right) \coloneqq \left\{ 1, 2, 3 \right\}$ and morphisms, other than the identities, $3 \to 1$ and $3 \to 2$.
+	Consider the functor $F\colon \mathsf{I} \to \mathsf{C}$ defined as follows:
 	\begin{equation}
 		F(i) = A_i, \qquad F( 3 \to 1 ) = f_1, \qquad
 		F( 3 \to 2 ) = f_2
@@ -489,12 +489,12 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 \end{ex} 
 
 \begin{defn}[Cocomplete category]
-	A category $\mathsf{C}$ is called {\em cocomplete} iff every functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, admits colimit in $\mathsf{C}$.
+	A category $\mathsf{C}$ is called {\em cocomplete} iff every functor $F\colon \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, admits colimit in $\mathsf{C}$.
 \end{defn}
 
 \begin{prop}\label{prop:ColimConstr}
 	If a (preadditive) category $\mathsf{C}$ admits cokernels and (arbitrary) coproducts, then
-	for every functor $F: \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, $\mathsf{C}$ admits $\varinjlim F$.
+	for every functor $F\colon \mathsf{I} \to \mathsf{C}$, from a small category $\mathsf{I}$, $\mathsf{C}$ admits $\varinjlim F$.
 	Moreover the colimit is constructed by means of cokernels and coproducts.
 \end{prop} 
 \begin{proof}
@@ -502,39 +502,39 @@ Before we introduce the notion of colimit let's dualize that of compatible famil
 	Consider $\left(\coprod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i), \epsilon_i\right)$ the coproduct of $F(i)$.
 	Define
 	\begin{equation}
-		\psi_\lambda := \epsilon_{t(\lambda)} \circ F(\lambda) - \epsilon_{s(\lambda)}:
+		\psi_\lambda \coloneqq \epsilon_{t(\lambda)} \circ F(\lambda) - \epsilon_{s(\lambda)}:
 		F \left( s(\lambda)  \right) \to \coprod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i)
 	.\end{equation} 
 	Then the family $\psi_\lambda$ induces a unique 
 	\begin{equation}
-		\psi: \coprod_{\lambda \in \Lambda} F \left( s(\lambda) \right) \to \coprod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i)
+		\psi\colon \coprod_{\lambda \in \Lambda} F \left( s(\lambda) \right) \to \coprod_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} F(i)
 	\end{equation} 
 	s.t. $\psi \circ \epsilon_{s(\lambda)} = \psi_\lambda$.
-	Moreover, we recall that $\Lambda := \mathrm{Morph}\, \mathsf{I}$.
-	Then, denoted by $\left(C, p\right)$ a cokernel of $\psi$, $\left(C, \mu_i\right)$, where $\mu_i := p \circ\epsilon_i$, is an injective limit of $F$.
+	Moreover, we recall that $\Lambda \coloneqq \mathrm{Morph}\, \mathsf{I}$.
+	Then, denoted by $\left(C, p\right)$ a cokernel of $\psi$, $\left(C, \mu_i\right)$, where $\mu_i \coloneqq p \circ\epsilon_i$, is an injective limit of $F$.
 \end{proof}
 
 Fix a small category $\mathsf{I}$ and let $\mathsf{C}$ be a cocomplete category.
 \begin{prop}
 	\begin{align}
-		\varinjlim: \mathsf{C}^{\mathsf{I}} &\to \mathsf{C} \\
+		\varinjlim\colon \mathsf{C}^{\mathsf{I}} &\to \mathsf{C} \\
 		F &\mapsto \varinjlim F
 	\end{align} 
 	is a functor.
 \end{prop} 
 \begin{proof}
 	It is clear how the functor acts on objects.
-	Let's define how it acts on $\eta: F \to G$ a natural transformation between the functors $F, G \in \mathsf{C}^{\mathsf{I}}$.
+	Let's define how it acts on $\eta\colon F \to G$ a natural transformation between the functors $F, G \in \mathsf{C}^{\mathsf{I}}$.
 	It associates to $\eta$ a morphism in the natural way
 	\begin{equation*}
-	\varinjlim \eta: \varinjlim F \to \varinjlim G.\qedhere
+	\varinjlim \eta\colon \varinjlim F \to \varinjlim G.\qedhere
 	\end{equation*} 
 \end{proof}
 
 \begin{prop}
 	Given a functor $F \in \mathsf{C}^{\mathsf{I}}$, then $\varinjlim F$ exists iff the functor
 	\begin{align}
-		H: \mathsf{C} &\to \mathsf{Sets} \\
+		H\colon \mathsf{C} &\to \mathsf{Sets} \\
 		Y &\mapsto \mathrm{Nat} \left( F, \Delta_Y \right)
 	\end{align} 
 	is corepresentable.
@@ -545,21 +545,21 @@ Fix a small category $\mathsf{I}$ and let $\mathsf{C}$ be a cocomplete category.
 	.\end{equation} 
 	In such case $C \simeq \varinjlim F$, and the compatible family is defined as
 	\begin{align}
-		\varphi_C: \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to \mathrm{Nat} \left( F, \Delta_C \right) \\
+		\varphi_C\colon \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to \mathrm{Nat} \left( F, \Delta_C \right) \\
 		1_C &\mapsto \bar{\mu} = \left\{ \mu_i \right\}_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} 
 	.\end{align} 
 \end{prop} 
 
 Let's now describe a particular case of colimits:
 \begin{ex}
-	Let $\mathsf{C} := \mathsf{Mod}\text{-}R$ and $\left( \mathsf{I}, \leq \right)$ a partially ordered set, viewed as a category.
+	Let $\mathsf{C} \coloneqq \mathsf{Mod}\text{-}R$ and $\left( \mathsf{I}, \leq \right)$ a partially ordered set, viewed as a category.
 	Consider a functor
 	\begin{equation}
-	F: \mathsf{I} \to \mathsf{Mod}\text{-}R
+	F\colon \mathsf{I} \to \mathsf{Mod}\text{-}R
 	.\end{equation} 
-	This is equivalent to the data of $F(i) =: M_i \in \mathsf{Mod}\text{-}R$ and, for all $i \leq j$, of
+	This is equivalent to the data of $F(i) \eqqcolon M_i \in \mathsf{Mod}\text{-}R$ and, for all $i \leq j$, of
 	\begin{equation}
-		F(i \to j) =: f_{ji}: M_i \to M_j
+		F(i \to j) \eqqcolon f_{ji}\colon M_i \to M_j
 	.\end{equation} 
 	Now, given $i \leq j \leq k$, then the following diagram commutes
 	\begin{equation}
@@ -587,11 +587,11 @@ Let's now describe a particular case of colimits:
 		M_j \arrow[ru, "\epsilon_j"', rightarrow] & 
 	\end{tikzcd} 
 	.\end{equation}
-	Let's define, for each $i \leq j$, $\psi_{ij} := \epsilon_j \circ f_{ji} - \epsilon_i$.
+	Let's define, for each $i \leq j$, $\psi_{ij} \coloneqq \epsilon_j \circ f_{ji} - \epsilon_i$.
 	Then, by universal property of the coproduct,
-	$\exists\, !\, \psi: \bigoplus_{i \leq j} M_{ij} \to \bigoplus_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_{i}$,
-	where $M_{ij} := M_i$ for every $i \leq j$.
-	In the above construction $\psi \circ \epsilon_i = \psi_{ij}: M_{ij} \to \bigoplus_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i$.
+	$\exists\, !\, \psi\colon \bigoplus_{i \leq j} M_{ij} \to \bigoplus_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_{i}$,
+	where $M_{ij} \coloneqq M_i$ for every $i \leq j$.
+	In the above construction $\psi \circ \epsilon_i = \psi_{ij}\colon M_{ij} \to \bigoplus_{i \in \mathrm{Ob} \left(\mathsf{I}\right)} M_i$.
 	Then we have
 	\begin{align}
 		\varinjlim M_i &\simeq \coker \psi =
@@ -626,7 +626,7 @@ In general it is easier to describe a colimit on a directed poset.
 Before giving an example of one such limit, let's recall a definition:
 \begin{defn}[Finitely generated module]
 	A module $M_R$ is {\em finitely generated} iff there is an epimorphism
-	$\phi: R^N := \bigoplus_{i=1}^N R \to M$, for some $N \in \N$.
+	$\phi\colon R^N \coloneqq \bigoplus_{i=1}^N R \to M$, for some $N \in \N$.
 	If we denote by $e_i$ the generators of $R^N$, then $\phi(e_i) = x_i$ are the generators of $M$.
 	In other words we are saying that there exists
 	$\left\{ x_1, \ldots, x_N \right\} \subset M$ a finite set of generators 
@@ -637,8 +637,8 @@ Before giving an example of one such limit, let's recall a definition:
 \end{defn}
 
 \begin{defn}[Finitely presented module]
-	For a finitely generated module, with epimorphism $\phi: R^N \to M$,
-	we denote by $K := \ker \phi$, the module of relations of $M$:
+	For a finitely generated module, with epimorphism $\phi\colon R^N \to M$,
+	we denote by $K \coloneqq \ker \phi$, the module of relations of $M$:
 	\begin{equation}
 	K = 
 	\left\{ \left( r_1, \ldots, r_N \right) \in R^N \ \middle|\ \sum_{i=1}^{N} x_i r_i = 0 \right\}
@@ -651,7 +651,7 @@ Before giving an example of one such limit, let's recall a definition:
 	Let $M \in \mathsf{Mod}\text{-}R$.
 	Consider the family
 	\begin{equation}
-	\mathcal{F} := \left\{ N \leq M \ \middle|\ 
+	\mathcal{F} \coloneqq \left\{ N \leq M \ \middle|\ 
 	N \text{ is finitely generated } \right\}
 	.\end{equation} 
 	Let's label the elements $N \in \mathcal{F}$ as $N= N_i$, for some index $i \in \mathsf{I}$, with $\mathsf{I}$ a set of indices.
@@ -660,7 +660,7 @@ Before giving an example of one such limit, let's recall a definition:
 	Moreover, if $i, j \in \mathsf{I}$, then $N_i + N_j$ is finitely generated, hence $\exists\, k \in \mathsf{I}$ s.t.
 	$N_i + N_j = N_k$, for some $k \in \mathsf{I}$.
 	This makes $\left( \mathsf{I}, \leq \right)$ a filtered poset.
-	We then label the inclusions as $\epsilon_{ji}: N_i \to N_j$ and $\epsilon_i: N_i \to M$.
+	We then label the inclusions as $\epsilon_{ji}\colon N_i \to N_j$ and $\epsilon_i\colon N_i \to M$.
 	Clearly this makes $\left(N_i, \epsilon_{ji}\right)_{i \leq j}$ into a directed system.
 \end{ex} 
 
@@ -674,17 +674,17 @@ Before giving an example of one such limit, let's recall a definition:
 
 \begin{ex}[Prüfer group]
 	An example of a direct limit construction in $\mathsf{C} = \mathsf{Ab}$.
-	Let $M_n := \mathbb{Z}/p^n\mathbb{Z} = \left\langle c_n \right\rangle$, for $n \in \N$ and $p \in \N$ a prime number.
+	Let $M_n \coloneqq \mathbb{Z}/p^n\mathbb{Z} = \left\langle c_n \right\rangle$, for $n \in \N$ and $p \in \N$ a prime number.
 	Notice that $c_n$ has order $p^n$, hence $p^n c_n = 0$.
 	We define the structural morphisms of the direct system as
 	\begin{align}
-		f_{n+1, n}: \mathbb{Z}/p^n\mathbb{Z} &\to \mathbb{Z}/p^{n+1}\mathbb{Z} \\
+		f_{n+1, n}\colon \mathbb{Z}/p^n\mathbb{Z} &\to \mathbb{Z}/p^{n+1}\mathbb{Z} \\
 		c_n &\mapsto p \cdot c_{n+1}
 	\end{align} 
 	extending it by linearity.
 	Moreover, composing consecutive maps, we obtain
 	\begin{align}
-		f_{m, n}: \mathbb{Z}/p^n\mathbb{Z} &\to \mathbb{Z}/p^m\mathbb{Z} \\
+		f_{m, n}\colon \mathbb{Z}/p^n\mathbb{Z} &\to \mathbb{Z}/p^m\mathbb{Z} \\
 		c_n &\mapsto p^{m-n} c_m
 	\end{align} 
 	(also this extended by linearity).
@@ -716,8 +716,8 @@ Before giving an example of one such limit, let's recall a definition:
 		\bigoplus_{i \in \mathsf{I}} M_i \arrow[ru, "p"', rightarrow] &
 	\end{tikzcd}
 	.\end{equation} 
-	Where $\mu_i := p \circ\epsilon_i$ and $p = \coker \psi$.
-	If we denote with $D := \Ima \psi$, then
+	Where $\mu_i \coloneqq p \circ\epsilon_i$ and $p = \coker \psi$.
+	If we denote with $D \coloneqq \Ima \psi$, then
 	every element $x \in \varinjlim M_i = (\bigoplus M_i)/D$ can be written as
 	$\mu_i(x_i)$, for some $i \in \mathsf{I}$ and $x_i \in M_i$.
 

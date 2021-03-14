@@ -2,9 +2,9 @@
 \subsection{Subobjects and quotients}
 \begin{defn}[Subobject]
 	Let $A$ be an object of a category (abelian) $\mathsf{C}$.
-	Consider two monomorphism $f: B \to A$ and $g: C \to A$.
+	Consider two monomorphism $f\colon B \to A$ and $g\colon C \to A$.
 	We say that $f \sim g$ iff 
-	$\exists\, \alpha: B \to C$ an isomorphism s.t. the following diagram commutes
+	$\exists\, \alpha\colon B \to C$ an isomorphism s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
 		B \arrow[r, "f", rightarrow] \arrow[rd, "\alpha"', rightarrow] &
@@ -16,11 +16,11 @@
 	in other words s.t. $g \circ \alpha = f$.
 	Clearly this is an equivalence relation.
 	An equivalence class of monomorphisms ending in $A$ is called a {\em subobject} of $A$.
-	Chosen a representative $f: B \to A$ we denote the corresponding subobject by $B \subseteq A$.
+	Chosen a representative $f\colon B \to A$ we denote the corresponding subobject by $B \subseteq A$.
 
 	Moreover, given $B_1$ and $B_2$ subobjects of $A$, we say that $B_1$ is a subobject of $B_2$, 
 	denoted by $B_1 \subseteq B_2$, iff
-	$\exists\, \alpha: B_1 \to B_2$ a morphism s.t. the following diagram commutes
+	$\exists\, \alpha\colon B_1 \to B_2$ a morphism s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
 		B_1 \arrow[r, "f_1", rightarrow] \arrow[rd, "\alpha"', rightarrow] &
@@ -39,8 +39,8 @@
 
 Let's now give the dual definition.
 \begin{defn}[Quotient]
-	Consider $f: A \to B$ and $g: A \to C$ two epimorphisms.
-	We say that $f \sim g$ iff $\exists\, \alpha: B \to C$ an isomorphism s.t. the following diagram commutes
+	Consider $f\colon A \to B$ and $g\colon A \to C$ two epimorphisms.
+	We say that $f \sim g$ iff $\exists\, \alpha\colon B \to C$ an isomorphism s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
 		A \arrow[r, "f", rightarrow] \arrow[rd, "g"', rightarrow] &
@@ -49,10 +49,10 @@ Let's now give the dual definition.
 	\end{tikzcd}
 	\end{equation} 
 	i.e. s.t. $\alpha \circ f = g$.
-	Given one such morphism $f: A \to B$ we call the equivalence class a {\em quotient} of $A$.
+	Given one such morphism $f\colon A \to B$ we call the equivalence class a {\em quotient} of $A$.
 \end{defn}
 \begin{rem}[notation]
-	Assume that $f: B \to A$ is a subobject of $A$ (i.e. $f$ is a mono).
+	Assume that $f\colon B \to A$ is a subobject of $A$ (i.e. $f$ is a mono).
 	We write $A/B$ for the quotient object represented by $\coker f$.
 \end{rem}
 
@@ -65,8 +65,8 @@ Let's now give the dual definition.
 \begin{lem}
 	Let $\mathsf{C}$ be an abelian category.
 	Consider two composable morphisms $A \xrightarrow{f} B \xrightarrow{g} C$.
-	Then $\ker g \subseteq \Ima f$, viewed as subobjects of $B$, iff $\,\forall\, h: D \to B$ s.t.
-	$g \circ h = 0$, $\exists\, !\, h': D \to \Ima f$ s.t. $\mu \circ h' = h$, where $\Ima f \xrightarrow{\mu} B$ is the natural morphism.
+	Then $\ker g \subseteq \Ima f$, viewed as subobjects of $B$, iff $\,\forall\, h\colon D \to B$ s.t.
+	$g \circ h = 0$, $\exists\, !\, h'\colon D \to \Ima f$ s.t. $\mu \circ h' = h$, where $\Ima f \xrightarrow{\mu} B$ is the natural morphism.
 	In other words s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -130,7 +130,7 @@ Let's combine the above lemmas
 In this section we'll always work with abelian categories $\mathsf{C}$ and $\mathsf{D}$.
 
 \begin{defn}[Exact functor]
-	Let $F: \mathsf{C} \to \mathsf{D}$ be an {\em additive} functor.
+	Let $F\colon \mathsf{C} \to \mathsf{D}$ be an {\em additive} functor.
 	We say that $F$ is {\em exact} iff, for every exact sequence
 	\begin{equation}
 	A \xrightarrow{f} B \xrightarrow{g} C \quad \text{ in } \mathsf{C}
@@ -144,7 +144,7 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 \end{defn}
 
 \begin{defn}[Left (resp. right) exact functor]
-	An additive functor $F: \mathsf{C} \to \mathsf{D}$ is {\em left} (resp. {\em right}) exact iff,
+	An additive functor $F\colon \mathsf{C} \to \mathsf{D}$ is {\em left} (resp. {\em right}) exact iff,
 	for every exact sequence in $\mathsf{C}$
 	\begin{equation}
 		0 \to A \xrightarrow{f} B \xrightarrow{g} C \quad ( \text{resp. }
@@ -158,7 +158,7 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 \end{defn}
 
 \begin{prop}
-	An additive functor $F: \mathsf{C} \to \mathsf{D}$ between abelian categories,
+	An additive functor $F\colon \mathsf{C} \to \mathsf{D}$ between abelian categories,
 	is exact iff it is both left and right exact.
 \end{prop} 
 
@@ -167,7 +167,7 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 	\begin{equation}
 	0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0 
 	\end{equation} 
-	is said {\em split exact} iff $\exists\, \alpha: B \to A \oplus C$ s.t. the following diagram is commutative
+	is said {\em split exact} iff $\exists\, \alpha\colon B \to A \oplus C$ s.t. the following diagram is commutative
 	\begin{equation}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -200,8 +200,8 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 	TFAE
 	\begin{enumerate}
 		\item The sequence $0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$ is split exact,
-		\item $\exists\, f': B \to A$ s.t. $f' \circ f = 1_A$,
-		\item $\exists\, g': C \to B$ s.t. $g \circ g' = 1_B$.
+		\item $\exists\, f'\colon B \to A$ s.t. $f' \circ f = 1_A$,
+		\item $\exists\, g'\colon C \to B$ s.t. $g \circ g' = 1_B$.
 	\end{enumerate}
 	In such a case $f'$ is called a section of $f$, and $g'$ a retraction of $g$.
 \end{prop} 
@@ -209,20 +209,20 @@ In this section we'll always work with abelian categories $\mathsf{C}$ and $\mat
 \subsubsection{Some examples}
 Recall that, given a category $\mathsf{C}$, we have the natural bifunctor
 \begin{equation}
-F = \mathrm{Hom}_{\mathsf{C}} \left( - , - \right): \mathsf{C}^{op} \cross \mathsf{C} \to \mathsf{Sets}
+F = \mathrm{Hom}_{\mathsf{C}} \left( - , - \right)\colon \mathsf{C}^{op} \cross \mathsf{C} \to \mathsf{Sets}
 .\end{equation} 
 Clearly, if $\mathsf{C}$ is preadditive, $F$ is an additive functor. Moreover
 
 \begin{prop}
 	Let $\mathsf{C}$ be an abelian category, then
 	\begin{equation}
-	\mathrm{Hom}_{\mathsf{C}} \left( -, - \right): \mathsf{C}^{op} \cross \mathsf{C} \to \mathsf{Ab}
+	\mathrm{Hom}_{\mathsf{C}} \left( -, - \right)\colon \mathsf{C}^{op} \cross \mathsf{C} \to \mathsf{Ab}
 	\end{equation} 
 	is left exact in both variables.
 \end{prop} 
 
 \begin{rem}
-	Recall that a contravariant functor $F: \mathsf{C} \to \mathsf{D}$, i.e. a covariant functor $F: \mathsf{C}^{op} \to \mathsf{D}$, 
+	Recall that a contravariant functor $F\colon \mathsf{C} \to \mathsf{D}$, i.e. a covariant functor $F\colon \mathsf{C}^{op} \to \mathsf{D}$, 
 	is left exact iff given any exact sequence in $\mathsf{C}$ 
 	\begin{equation}
 	A \to B \to C \to 0
@@ -234,7 +234,7 @@ Clearly, if $\mathsf{C}$ is preadditive, $F$ is an additive functor. Moreover
 \end{rem}
 \begin{rem}
 Consider $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $\left(\mathsf{I}, \leq \right)$ a filtered poset, then
-the functors $F: \mathsf{I} \to \mathsf{Mod}\text{-}R$ are in correspondence
+the functors $F\colon \mathsf{I} \to \mathsf{Mod}\text{-}R$ are in correspondence
 with the directed systems of modules
 $\left\{ M_i, f_{ji} \right\}_{i \leq j }$.
 Consider the functors $F, G, L \in \mathsf{C}^{\mathsf{I}}$ and their corresponding
@@ -264,27 +264,27 @@ for each $i \leq j$ in $\mathsf{I}$.
 
 \begin{prop}
 	Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $\left(\mathsf{I}, \leq \right)$ be a filtered poset.
-	Then the functor $\varinjlim: \mathsf{Mod}\text{-}R^{\mathsf{I}} \to \mathsf{Mod}\text{-}R$ is exact.
+	Then the functor $\varinjlim\colon \mathsf{Mod}\text{-}R^{\mathsf{I}} \to \mathsf{Mod}\text{-}R$ is exact.
 \end{prop} 
 
 \begin{rem}
 	Colimits, in general, are not exact, even in $\mathsf{Mod}\text{-}\Z = \mathsf{Ab}$.
 	Consider, in fact, the category $\mathsf{I}$, characterized by
-	$\mathrm{Ob} \left(\mathsf{I}\right) := \left\{ 1, 2, 3 \right\}$ and nontrivial arrows
+	$\mathrm{Ob} \left(\mathsf{I}\right) \coloneqq \left\{ 1, 2, 3 \right\}$ and nontrivial arrows
 	$1 \to 2$ and $1 \to 2$.
 	Consider $F, G, H \in \mathsf{Ab}^{\mathsf{I}}$, defined by:
 	\begin{equation}
-	F : \ \, 
+	F \colon \ \, 
 	\begin{tikzcd}
 		\Z \arrow[r, "\dot{4}", rightarrow] \arrow[d, "0"', rightarrow] & \Z \\
 		\Z &
 	\end{tikzcd}\qquad
-	G : \ \,
+	G \colon \ \,
 	\begin{tikzcd}
 		\Z \arrow[r, "\dot{4}", rightarrow] \arrow[d, "0"', rightarrow] & \Z \\
 		\Z &
 	\end{tikzcd}\qquad
-	H : \ \,
+	H \colon \ \,
 	\begin{tikzcd}
 		\mathbb{Z}/2\mathbb{Z} \arrow[r, "0", rightarrow] \arrow[d, "0"', rightarrow] & \mathbb{Z}/2\mathbb{Z} \\
 		\mathbb{Z}/2\mathbb{Z} &
@@ -343,12 +343,12 @@ for each $i \leq j$ in $\mathsf{I}$.
 		0
 	\end{tikzcd}
 	\end{equation} 
-	which is not exact, since $\dot{2}: \mathbb{Z}/4\mathbb{Z} \to \mathbb{Z}/4\mathbb{Z}$ is not injective.
+	which is not exact, since $\dot{2}\colon \mathbb{Z}/4\mathbb{Z} \to \mathbb{Z}/4\mathbb{Z}$ is not injective.
 \end{rem}
 
 \begin{prop}
-	Let $C := \mathsf{Mod}\text{-}R$ and $\left(\mathsf{I}, \leq\right)$ be a filtered poset.
-	Then the functor $\varprojlim: \mathsf{Mod}\text{-}R^{\mathsf{I}} \to \mathsf{Mod}\text{-}R$ is left exact.
+	Let $C \coloneqq \mathsf{Mod}\text{-}R$ and $\left(\mathsf{I}, \leq\right)$ be a filtered poset.
+	Then the functor $\varprojlim\colon \mathsf{Mod}\text{-}R^{\mathsf{I}} \to \mathsf{Mod}\text{-}R$ is left exact.
 \end{prop} 
 
 \begin{ex}
@@ -357,12 +357,12 @@ for each $i \leq j$ in $\mathsf{I}$.
 	\begin{equation}
 		\left\{ M_i, f_{ji} \right\}_{i \leq j} \xrightarrow{\zeta} \left\{ N_i, g_{ji} \right\}_{i \leq j} \to 0 
 	\end{equation} 
-	s.t. the induced $\varprojlim \zeta: \varprojlim M_i \to \varprojlim N_i$  is not epi.
+	s.t. the induced $\varprojlim \zeta\colon \varprojlim M_i \to \varprojlim N_i$  is not epi.
 
 	Let $\mathsf{I} = \N$, with the usual order.
 	Let $M_n = \Z$ for every $n$, with structural morphisms $M_m \xrightarrow{3^{m-n}} M_n$, 
 	that acts as $x \mapsto x \cdot 3^{m-n}$, for all $m \leq n$, for all $x \in \Z$.
-	Let $N_n = \mathbb{Z}/2\mathbb{Z}$ for every $n$, with structural morphisms $id: \mathbb{Z}/2\mathbb{Z} \to \mathbb{Z}/2\mathbb{Z}$.
+	Let $N_n = \mathbb{Z}/2\mathbb{Z}$ for every $n$, with structural morphisms $\mathrm{id}: \mathbb{Z}/2\mathbb{Z} \to \mathbb{Z}/2\mathbb{Z}$.
 	We define
 	\begin{equation}
 	\left\{ M_n, 3^{m-n} \right\}_{ m \leq n} \xrightarrow{\pi} \left\{ \mathbb{Z}/2\mathbb{Z}, id \right\}_{ m \leq n}

@@ -3,8 +3,8 @@ Let $\mathsf{C}$ be an {\em arbitrary} category.
 
 \begin{defn}[Projective object]
 	Let $P \in \mathrm{Ob} \left(\mathsf{C}\right)$.
-	$P$ is {\em projective} iff given any $\varphi: B \to C$ epimorphism in $\mathsf{C}$, 
-	and any morphism $f: P \to C$, then there exists $g: P \to B$ s.t. $\varphi \circ g = f$, 
+	$P$ is {\em projective} iff given any $\varphi\colon B \to C$ epimorphism in $\mathsf{C}$, 
+	and any morphism $f\colon P \to C$, then there exists $g\colon P \to B$ s.t. $\varphi \circ g = f$, 
 	i.e. s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -34,8 +34,8 @@ Let $\mathsf{C}$ be an {\em arbitrary} category.
 \begin{defn}[Injective object]
 	Let $I \in \mathrm{Ob} \left(\mathsf{C}\right)$.
 	$I$ is {\em injective} iff $I$ is projective in $\mathsf{C}^{op}$.
-	More explicitly, iff given any $\mu: A \to B$ mono in $\mathsf{C}$,
-	and any morphism $f: A \to I$, then there exists $g: B \to I$ s.t. $g \circ \mu = f$,
+	More explicitly, iff given any $\mu\colon A \to B$ mono in $\mathsf{C}$,
+	and any morphism $f\colon A \to I$, then there exists $g\colon B \to I$ s.t. $g \circ \mu = f$,
 	i.e. s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -80,7 +80,7 @@ Dually we have the following
 \begin{prop}[Baer's criterion for injectivity]
 	Let $\mathsf{C} = \mathsf{Mod}\text{-}R$.
 	$E_R \in \mathsf{Mod}\text{-}R$ is an injective module iff
-	for any ideal $I_R \triangleleft R$ and every $f: I \to E$, there exists $g: R \to E$ s.t.
+	for any ideal $I_R \triangleleft R$ and every $f\colon I \to E$, there exists $g\colon R \to E$ s.t.
 	the following diagram commutes
 	 \begin{equation}
 	\begin{tikzcd}
@@ -89,7 +89,7 @@ Dually we have the following
 		E &
 	\end{tikzcd}
 	,\end{equation} 
-	where $\mu: I_R \to R$ is the inclusion.
+	where $\mu\colon I_R \to R$ is the inclusion.
 	In other words we ask $g \circ \mu = f$.
 \end{prop} 
 
@@ -98,16 +98,16 @@ Dually we have the following
 	\begin{itemize}
 		\item We say that $\mathsf{C}$ has {\em enough projectives} iff,
 	given any $C \in \mathrm{Ob} \left(\mathsf{C}\right)$, 
-	there exists a projective object $P \in \mathrm{Ob} \left(\mathsf{C}\right)$ and an epimorphism $\varphi: P \to C$.
+	there exists a projective object $P \in \mathrm{Ob} \left(\mathsf{C}\right)$ and an epimorphism $\varphi\colon P \to C$.
 	\item We say that $\mathsf{C}$ has {\em enough injectives} iff, 
 		given any object $C \in \mathrm{Ob} \left(\mathsf{C}\right)$,
 		there exists an injective object $E \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a monomorphism
-		$\mu: C \to E$.
+		$\mu\colon C \to E$.
 	\end{itemize}
 \end{defn}
 
 \begin{defn}[Free module]
-	Let $\mathsf{C} := \mathsf{Mod}\text{-}R$.
+	Let $\mathsf{C} \coloneqq \mathsf{Mod}\text{-}R$.
 	$M_R \in \mathsf{Mod}\text{-}R$ is {\em free} iff it has a free set of generators $\left\{ x_i \right\}_{i \in I}$, 
 	with $x_i \in M$ for all $i$, s.t. $\,\forall\, x \in M$ it can be written in a unique way as a linear combination of the generators.
 	More explicitly
@@ -142,7 +142,7 @@ Dually we have the following
 \end{rem}
 
 \begin{prop}
-	Let $R$ be a PID, consider the category $\mathsf{C} := \mathsf{Mod}\text{-}R$.
+	Let $R$ be a PID, consider the category $\mathsf{C} \coloneqq \mathsf{Mod}\text{-}R$.
 	$E_R \in \mathsf{Mod}\text{-}R$ is injective iff it is divisible.
 \end{prop} 
 \begin{proof}
@@ -153,7 +153,7 @@ Dually we have the following
 \end{proof}
 
 \begin{ex}[category with no nonzero projective objects]
-	Let $\mathsf{C} := \mathsf{T}$ the full subcategory of $\mathsf{Ab}$ of torsion abelian groups.
+	Let $\mathsf{C} \coloneqq \mathsf{T}$ the full subcategory of $\mathsf{Ab}$ of torsion abelian groups.
 	Then $\mathsf{T}$ has enough injectives, but no nonzero projective objects.
 	\begin{itemize}
 		\item Notice that $\mathsf{T} \subset \mathsf{Ab} = \mathsf{Mod}\text{-}\Z$,
@@ -165,7 +165,7 @@ Dually we have the following
 			$o(x_i) = n_i \in \N$.
 			Then we have an epimorphism
 			\begin{equation}
-			\varphi: \bigoplus_{i \in I} \mathbb{Z}/n_i\mathbb{Z} \twoheadrightarrow T
+			\varphi\colon \bigoplus_{i \in I} \mathbb{Z}/n_i\mathbb{Z} \twoheadrightarrow T
 			.\end{equation} 
 			Then an injective element $I \in \mathsf{T}$ containing $T$ is
 			\begin{equation}
@@ -221,14 +221,14 @@ Dually we have the following
 	Define
 	$\underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}, \mathsf{C} \right)} 
 	\subset \mathsf{C}^{\mathsf{I}}$
-	the subcategory of all additive functors $F: \mathsf{I} \to \mathsf{C}$.
+	the subcategory of all additive functors $F\colon \mathsf{I} \to \mathsf{C}$.
 	In this situation 
 	$\underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}, \mathsf{C} \right)}$ is abelian.
 \end{rem}
 
 \begin{lem}[Yoneda]
 	Let $\mathsf{I}$ be as above.
-	Let $\mathsf{C} := \mathsf{Ab}$.
+	Let $\mathsf{C} \coloneqq \mathsf{Ab}$.
 	Fix $X \in \mathrm{Ob} \left(\mathsf{I}\right)$ and
 	$F \in \underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$.
 	There is an isomorphism
@@ -237,12 +237,12 @@ Dually we have the following
 	F(X)
 	,\end{equation} 
 	natural in $X$ and in $F$.
-	Recall that $h^X := \mathrm{Hom}_{\mathsf{I}} \left( -, X \right)$.
+	Recall that $h^X \coloneqq \mathrm{Hom}_{\mathsf{I}} \left( -, X \right)$.
 \end{lem} 
 
 \begin{rem}[An application of Yoneda lemma]
 	Consider $X, X' \in \mathrm{Ob} \left(\mathsf{I}\right)$. 
-	Let $F := h^{X'}$, then {\em Yoneda lemma} implies
+	Let $F \coloneqq h^{X'}$, then {\em Yoneda lemma} implies
 	\begin{equation}
 		\mathrm{Nat} \left( h^X, h^{X'} \right) \simeq h^{X'}(X) = \mathrm{Hom}_{\mathsf{I}} \left( X, X' \right)
 	.\end{equation} 
@@ -251,15 +251,15 @@ Dually we have the following
 \begin{defn}[Yoneda embedding]
 	Consider $\mathsf{I}$ small and preadditive, $\mathsf{C} = \mathsf{Ab}$.
 	We define the {\em Yoneda embedding} as the functor
-	$Y: \mathsf{I} \to \underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$,
+	$Y\colon \mathsf{I} \to \underline{\mathrm{Hom}_{\mathsf{}} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)}$,
 	defined on objects as
 	\begin{align}
-	Y: \mathsf{I} &\to \underline{\mathrm{Hom} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)} \\
+	Y\colon \mathsf{I} &\to \underline{\mathrm{Hom} \left( \mathsf{I}^{op}, \mathsf{Ab} \right)} \\
 		X &\mapsto h^X
 	\end{align} 
-	and on morphisms, given $f: X \to X'$, by
+	and on morphisms, given $f\colon X \to X'$, by
 	\begin{equation}
-		Y(f):= \mathrm{Hom}_{\mathsf{I}} \left( -, f \right): h^X \to h^{X'}
+		Y(f)\coloneqq \mathrm{Hom}_{\mathsf{I}} \left( -, f \right)\colon h^X \to h^{X'}
 	.\end{equation} 
 \end{defn}
 
@@ -286,7 +286,7 @@ Dually we have the following
 \begin{defn}[Generator of a category]
 	Let $\mathsf{C}$ be a category.
 	An object $G \in \mathrm{Ob} \left(\mathsf{C}\right)$ is a {\em generator} of $\mathsf{C}$ iff
-	$\mathrm{Hom}_{\mathsf{C}} \left( G, - \right): \mathsf{C} \to \mathsf{Sets}$ is faithful.
+	$\mathrm{Hom}_{\mathsf{C}} \left( G, - \right)\colon \mathsf{C} \to \mathsf{Sets}$ is faithful.
 	In other words iff the maps of sets
 	 \begin{equation}
 	\mathrm{Hom}_{\mathsf{C}} \left( C, D \right) \to
@@ -297,9 +297,9 @@ Dually we have the following
 \end{defn}
 
 \begin{rem}[Equivalent definition]
-	$G$ is a generator, iff for every pair $f,g: C \to D$
+	$G$ is a generator, iff for every pair $f,g\colon C \to D$
 	s.t. $\mathrm{Hom}_{\mathsf{C}} \left( G, f \right) = \mathrm{Hom}_{\mathsf{C}} \left( G, g \right)$,
-	i.e. $g \circ \alpha = f \circ \alpha$ for all $\alpha: G \to C$, then $f = g$.
+	i.e. $g \circ \alpha = f \circ \alpha$ for all $\alpha\colon G \to C$, then $f = g$.
 
 	In the case of a preadditive category $\mathsf{C}$, then $G$ is a generator iff
 	for all morphisms $f$ in $\mathsf{C}$ s.t. $\mathrm{Hom}_{\mathsf{C}} \left( G, f \right) = 0$,
@@ -309,13 +309,13 @@ Dually we have the following
 \begin{defn}[Alternative notation for (co)products]
 	Fix $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and $I$ a set.
 	\begin{itemize}
-		\item If $\prod_{i \in I} X_i$, with $X_i := X$ for all $i \in I$, exists we define the notation
+		\item If $\prod_{i \in I} X_i$, with $X_i \coloneqq X$ for all $i \in I$, exists we define the notation
 			\begin{equation}
-			X^I := \prod_{i \in I} X_i
+			X^I \coloneqq \prod_{i \in I} X_i
 			.\end{equation} 
-		\item If $\coprod_{i \in I} X_i$, with $X_i := X$ for all $i \in I$, exists we define the notation
+		\item If $\coprod_{i \in I} X_i$, with $X_i \coloneqq X$ for all $i \in I$, exists we define the notation
 			\begin{equation}
-				X^{(I)} := \coprod_{i \in I} X_i
+				X^{(I)} \coloneqq \coprod_{i \in I} X_i
 			.\end{equation} 
 	\end{itemize}
 \end{defn}
@@ -334,7 +334,7 @@ Dually we have the following
 	Let $\mathsf{C}$ be a category.
 	An object $C \in \mathrm{Ob} \left(\mathsf{C}\right)$ is a {\em cogenerator} of $\mathsf{C}$ iff
 	$C$ is a generator in $\mathsf{C}^{op}$, i.e. iff
-	$\mathrm{Hom}_{\mathsf{C}} \left( -, C \right): \mathsf{C}^{op} \to \mathsf{Sets}$ is faithful.
+	$\mathrm{Hom}_{\mathsf{C}} \left( -, C \right)\colon \mathsf{C}^{op} \to \mathsf{Sets}$ is faithful.
 	In other words iff the maps of sets
 	 \begin{equation}
 	\mathrm{Hom}_{\mathsf{C}} \left( A, B \right) \to
@@ -345,9 +345,9 @@ Dually we have the following
 \end{defn}
 
 \begin{rem}[Equivalent definition]
-	$C$ is a cogenerator, iff for every pair $f,g: A \to B$
+	$C$ is a cogenerator, iff for every pair $f,g\colon A \to B$
 	s.t. $\mathrm{Hom}_{\mathsf{C}} \left( f, C \right) = \mathrm{Hom}_{\mathsf{C}} \left( g, C \right)$,
-	i.e. $\alpha \circ f = \alpha \circ g$ for all $\alpha: B \to C$, then $f = g$.
+	i.e. $\alpha \circ f = \alpha \circ g$ for all $\alpha\colon B \to C$, then $f = g$.
 
 	In the case of a preadditive category $\mathsf{C}$, then $C$ is a generator iff
 	for all morphisms $f$ in $\mathsf{C}$ s.t. $\mathrm{Hom}_{\mathsf{C}} \left( f, C \right) = 0$,
@@ -360,23 +360,23 @@ Dually we have the following
 	\begin{enumerate}
 		\item $C$ is a cogenerator of $\mathsf{C}$,
 		\item $\,\forall\, X \in \mathrm{Ob} \left(\mathsf{C}\right)$, there is a monomorphism
-			$\mu: X \rightarrowtail C^{I}$, for some set $I$.
+			$\mu\colon X \rightarrowtail C^{I}$, for some set $I$.
 	\end{enumerate}
 \end{prop} 
 
 \begin{ex}
-	Let $\mathsf{C} := \mathsf{Mod}\text{-}R$.
+	Let $\mathsf{C} \coloneqq \mathsf{Mod}\text{-}R$.
 	$R$ is a generator of $\mathsf{Mod}\text{-}R$:
 	given a module $M_R$, and $\left\{ x_i \right\}_{i \in I}$ a set of generators for $M$, then
 	\begin{equation}
 		R^{(I)} = \bigoplus_{i \in I} R_i \xrightarrow{\phi} M \to 0
 	,\end{equation} 
-	in which $\phi(e_i) := x_i$.
+	in which $\phi(e_i) \coloneqq x_i$.
 	Moreover $R$ is projective, hence it is a projective generator.
 \end{ex} 
 
 \begin{rem}[A not-so-easy-to-prove fact about modules]
-	Let $\mathsf{C} := \mathsf{Mod}\text{-}R$.
+	Let $\mathsf{C} \coloneqq \mathsf{Mod}\text{-}R$.
 	Every module $M$ can be embedded in an injective module
 	(i.e. $\mathsf{Mod}\text{-}R$ has enough injectives).
 	Moreover every module $M$ admits an injective envelope, denoted $E(M)$,
@@ -384,13 +384,13 @@ Dually we have the following
 \end{rem}
 
 \begin{ex}
-	Let $\mathsf{C}:= \mathsf{Mod}\text{-}R$ as before.
+	Let $\mathsf{C}\coloneqq \mathsf{Mod}\text{-}R$ as before.
 	Let $\mathcal{S}$ be the set of simple modules $S \in \mathsf{Mod}\text{-}R$ (i.e. modules with no proper submodules).
 	Recall that $S \in \mathcal{S}$ iff $S \simeq R/\mathfrak{m}_R$, for some maximal ideal $\mathfrak{m}_R \triangleleft R$.
 	Given $S \in \mathcal{S}$, consider its injective envelope $E(S)$, and finally
 	let's define
 	\begin{equation}
-		C := \prod_{S \in \mathcal{S}} E(S) \simeq
+		C \coloneqq \prod_{S \in \mathcal{S}} E(S) \simeq
 		\prod_{\mathfrak{m}_R \in \mathrm{Max}\, R} E \left( R / \mathfrak{m}_R \right)
 		\in \mathrm{Ob} \left(\mathsf{C}\right)
 	.\end{equation} 
@@ -411,12 +411,12 @@ Dually we have the following
 	.\end{equation} 
 	Then, for every $0 \neq x \in X$, we have the map
 	\begin{equation}
-		0 \neq f_x: X \to E \left( R/\mathfrak{m}_R \right) \hookrightarrow
+		0 \neq f_x\colon X \to E \left( R/\mathfrak{m}_R \right) \hookrightarrow
 		\prod_{\mathfrak{m}_R \in \mathrm{Max}\, R} E \left( R / \mathfrak{m}_R \right) =: C
 	.\end{equation} 
 	Then, by the universal property of products, viewing $X$ as a set,
 	\begin{equation}
-	\exists\, !\, f: X \hookrightarrow C^X
+	\exists\, !\, f\colon X \hookrightarrow C^X
 	\end{equation} 
 	induced by the various $f_x$.
 	Moreover this $f$ is mono, since $f_x(x) \neq 0$ for any $0 \neq x$.

@@ -1,0 +1,336 @@
+\section{Yoneda extension}
+Our next aim is, given an abelian category $\mathsf{A}$
+and objects $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$,
+to define $\mathrm{Ext}^{ }_{ \mathsf{A}} \left( A, B \right)$ even though
+$\mathsf{A}$ might not have enough injectives nor projectives.
+
+\begin{defn}[Extension]
+	Let $\mathsf{A}$ be an abelian category, $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	An extension of $A$ by $B$ is a short exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		\zeta \coloneqq 0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	We say that two extensions $\zeta$ and $\zeta'$ are equivalent, denoted by $\zeta \sim \zeta'$,
+	iff there is a commutative diagram such that the nontrivial vertical arrow is an isomorphism
+	\begin{equation}
+	\begin{tikzcd}
+		\zeta \colon &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		X \arrow[r, "", rightarrow] \arrow[d, "\rotatebox{90}{\(\sim\)}", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\zeta' \colon &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X' \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation} 
+\end{defn}
+
+\begin{rem}[Split extensions]
+	Recall the characterization of splitting short exact sequences: an extension
+	\begin{equation*}
+	\begin{tikzcd}
+		\zeta \coloneqq 0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "\mu", rightarrow] &
+		X \arrow[r, "p", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	splits iff it is equivalent to the following extension of $A$ by $B$:
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "\epsilon_B", rightarrow] &
+		A \oplus B \arrow[r, "\pi_A", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Equivalently iff there is $f\colon X \to B$ s.t. $f \circ \mu = 1_B$,
+	iff there is $g\colon A \to X$ s.t. $p \circ g = 1_A$.
+\end{rem}
+
+\begin{rem}[Class of extensions and Ext]
+	Denote by $\mathrm{E}(A,B)$ the class of all extensions of $A$ by $B$.
+	If we denote by $\sim$ the above equivalence relation and we can
+	define $\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)$ (i.e. if $\mathsf{A}$
+	has enough injectives of projectives), then we want to construct an isomorphism
+	$\theta$ of abelian groups
+	\begin{equation}
+	\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right) \simeq_{\theta}
+	\frac{\mathrm{E}(A,B)}{\sim}
+	.\end{equation} 
+	Let's define $\theta$.
+	Fix $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$ and consider an extension of $A$ by $B$
+	\begin{equation*}
+	\begin{tikzcd}
+		\zeta \coloneqq 0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Assume that $\mathrm{Ext}^{ n}_{ \mathsf{A}} \left( -, B \right)$ exist,
+	forming a cohomological $\partial$-functor (e.g. if $\mathsf{A}$ has enough
+	projectives).
+	Apply $\mathrm{Hom}_{\mathsf{A}} \left( -, B \right)$ to $\zeta$ and obtain
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{A}} \left( A, B \right) \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{A}} \left( X, B \right) \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{A}} \left( B, B \right) \arrow[r, "\partial", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{A}} \left( A, B \right)
+	.\end{tikzcd}
+	\end{equation*}
+	Finally we define $\theta(\zeta) \coloneqq \partial(1_B) \in \mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)$.
+\end{rem}
+
+\begin{lem}
+	Fixed a category $\mathsf{A}$ and objects $A,B$ of $\mathsf{A}$ as before, 
+	if $\zeta \sim \zeta' \in \mathrm{E}(A,B)$, then $\theta(\zeta) = \theta(\zeta')$.
+	In other words $\theta\colon \mathrm{E}(A,B) \to \mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)$
+	induces a map on the quotient $\frac{\mathrm{E}(A,B)}{\sim}$.
+\end{lem} 
+
+\begin{thm}[]
+	Given $\mathsf{A},A,B$ as before,
+	$\theta$ gives a bijective correspondence
+	\begin{equation}
+	\begin{tikzcd}
+		\frac{\mathrm{E}(A,B)}{\sim} \arrow[r, "\theta", leftrightarrow] &
+		\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)
+	\end{tikzcd}
+	.\end{equation} 
+\end{thm}
+
+\begin{lem}
+	Let $\mathsf{A}$ be an abelian category.
+	Consider a commutative diagram
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		K \arrow[r, "\nu", rightarrow] \arrow[d, "\beta"', rightarrow] &
+		M \arrow[r, "", rightarrow] \arrow[d, "h", rightarrow] \arrow[ld, "g"', dashrightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		Y \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	,\end{equation} 
+	with exact rows and where the leftmost square is a pushout.
+	Then there is $g\colon M \to B$ s.t. $g \circ \nu = \beta$
+	iff the second row splits.
+\end{lem} 
+
+\begin{lem}
+	Let $\mathsf{A}, A,B$ be as before,
+	then $\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right) = 0$ (as abelian groups)
+	iff every extension of $A$ by $B$ splits.
+\end{lem} 
+
+\begin{rem}[]
+	Consider $\zeta \in \mathrm{E}(A,B)$,
+	then $\gamma \in \mathrm{Hom}_{\mathsf{A}} \left( A', A \right)$
+	gives $\zeta\gamma \in \mathrm{E}(A',B)$
+	\begin{equation}
+	\begin{tikzcd}
+		\zeta\gamma\colon &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		X' \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] &
+		A' \arrow[r, "", rightarrow] \arrow[d, "\gamma", rightarrow] &
+		0\\
+		\zeta\colon &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	,\end{equation} 
+	where $X'$ is a pullback of the diagram
+	\begin{equation}
+	\begin{tikzcd}
+		& A' \arrow[d, "\pi", rightarrow] \\
+		X \arrow[r, "", rightarrow] & A
+	\end{tikzcd}
+	.\end{equation} 
+	Analogously $\beta \in \mathrm{Hom}_{\mathsf{A}} \left( B, B' \right)$ gives
+	$\beta\zeta \in \mathrm{E}(A,B')$:
+	\begin{equation}
+	\begin{tikzcd}
+		\zeta\colon &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "\beta", rightarrow] &
+		X \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\beta\zeta\colon &
+		0 \arrow[r, "", rightarrow] &
+		B' \arrow[r, "", rightarrow] &
+		X' \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	,\end{equation} 
+	where $X'$ is a pushout of the diagram
+	\begin{equation}
+	\begin{tikzcd}
+		B \arrow[r, "", rightarrow] \arrow[d, "p"', rightarrow] & X\\
+		B' &
+	\end{tikzcd}
+	.\end{equation} 
+\end{rem}
+
+\begin{defn}[Baer sum in $\mathrm{E}(A,B)/\sim$]
+	Consider $\mathsf{A},A,B$ as before.
+	Let $\left[ \zeta \right], \left[ \zeta' \right]$ be the equivalence classes
+	of $\zeta,\zeta' \in \mathrm{E}(A,B)$
+	with respect to $\sim$:
+	\begin{equation*}
+	\begin{tikzcd}[column sep=1.5em]
+		\zeta \coloneqq 0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "i", rightarrow] &
+		X \arrow[r, "\pi", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\quad\text{and}\quad
+	\begin{tikzcd}[column sep=1.5em]
+		\zeta' \coloneqq 0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "i'", rightarrow] &
+		X' \arrow[r, "\pi'", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Now consider the extension of $A \oplus A$ by $B \oplus B$, given by the direct sum
+	\begin{equation*}
+	\begin{tikzcd}
+		\zeta \oplus \zeta'\coloneqq 
+		0 \arrow[r, "", rightarrow] &
+		B \oplus B \arrow[r, "i \oplus i'", rightarrow] &
+		X \oplus X' \arrow[r, "\pi \oplus \pi'", rightarrow] &
+		A \oplus A \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Let moreover $\Delta_A\colon A \to A \oplus A$ be the diagonal map,
+	i.e. $\Delta_A = \begin{bmatrix} 1_A \\ 1_A \end{bmatrix}$,
+	and $\nabla_B\colon B \to B \oplus B$ the codiagonal map,
+	i.e. $\nabla_B = \begin{bmatrix} 1_B & 1_B \end{bmatrix}$.
+	By the above remark we can construct
+	\begin{equation*}
+	\begin{tikzcd}
+		\nabla_B \left( \zeta \oplus \zeta' \right) \Delta_A\colon &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		Z \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\left( \zeta \oplus \zeta' \right) \Delta_A \colon &
+		0 \arrow[r, "", rightarrow] &
+		B \oplus B \arrow[r, "", rightarrow] \arrow[d, "", equal] \arrow[u, "\nabla_B", rightarrow] &
+		Y \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] \arrow[u, "", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "\Delta_A", rightarrow] &
+		0\\
+		\zeta \oplus \zeta' \colon &
+		0 \arrow[r, "", rightarrow] &
+		B \oplus B \arrow[r, "", rightarrow] &
+		X \oplus X' \arrow[r, "", rightarrow] &
+		A \oplus A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation*} 
+	Finally we define $\left[ \zeta \right] + \left[ \zeta' \right] :=
+	\left[ \nabla_B \left( \zeta \oplus \zeta' \right)\Delta_A \right]$.
+	We can also see that this definition is independent of the choice
+	of representatives.
+\end{defn}
+
+\begin{prop}
+	$\mathrm{E}(A,B)/\sim$ endowed with the Baer sum (i.e$.$ the sum we just defined)
+	is an abelian group.
+	Moreover the map 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\theta\colon \frac{\mathrm{E}(A,B)}{\sim} \arrow[r, "", rightarrow] &
+		\mathrm{Ext}^{ 1}_{ \mathsf{A}} \left( A, B \right)
+	\end{tikzcd}
+	\end{equation*} 
+	is a group homomorphism.
+\end{prop} 
+By this proposition, one can also define $\mathrm{Ext}^1_R$
+to be $\mathrm{E}(A,B)/\sim$, and this definition does not require the 
+abelian category $\mathsf{A}$ to have enough injectives or projectives.
+
+Analogously this construction can be carried out for every $n \in \N$:
+\begin{defn}[$n$ extension]
+	Let $\mathsf{A}$ be an abelian category, $A,B \in \mathrm{Ob} \left(\mathsf{A}\right)$.
+	An $n$ extension of $A$ by $B$, denoted by $\zeta \in \mathrm{E}_n(A,B)$, is an exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		\zeta \coloneqq 0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X_n \arrow[r, "", rightarrow] &
+		X_{n-1} \arrow[r, "", rightarrow] &
+		\ldots \arrow[r, "", rightarrow] &
+		X_1 \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	We say that two extensions $\zeta$ and $\zeta'$ are equivalent, denoted by $\zeta \sim \zeta'$,
+	iff there is a commutative diagram s.t. the nontrivial vertical arrows are all isomorphisms
+	\begin{equation*}
+	\begin{tikzcd}
+		\zeta \colon
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		X_n \arrow[r, "", rightarrow] \arrow[d, "f_n", rightarrow] &
+		X_{n-1} \arrow[r, "", rightarrow] \arrow[d, "f_{n-1}", rightarrow] &
+		\ldots \arrow[r, "", rightarrow] &
+		X_1 \arrow[r, "", rightarrow] \arrow[d, "f_1", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		\zeta' \colon
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X'_n \arrow[r, "", rightarrow] &
+		X'_{n-1} \arrow[r, "", rightarrow] &
+		\ldots \arrow[r, "", rightarrow] &
+		X'_1 \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	.\end{equation*} 
+\end{defn}
+
+And, as expected, it gives the desired result:
+\begin{prop}
+	For every $n \in \N$, if $\mathrm{Ext}^{ n}_{ \mathsf{A}} \left( A, B \right)$ is defined
+	in $\mathsf{A}$ abelian,
+	we have the following isomorphism of abelian groups
+	\begin{equation}
+		\frac{\mathrm{E}_n(A,B)}{\sim} \simeq
+		\mathrm{Ext}^{ n}_{ \mathsf{A}} \left( A, B \right)
+	.\end{equation} 
+\end{prop} 

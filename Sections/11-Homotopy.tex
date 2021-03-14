@@ -27,7 +27,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{defn}
 
 \begin{defn}[Homotopic morphisms]
-	Two cochain maps $f,g: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
+	Two cochain maps $f,g\colon \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
 	are called {\em homotopic}, denoted by $f \sim g$, iff
 	$f - g$ is nullhomotopic.
 \end{defn}
@@ -61,8 +61,8 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		\frac{\mathrm{Hom}_{\mathrm{Ch}(\mathsf{A})}\left( X^\bullet, Y^\bullet \right)}{
 		\mathrm{Hom}_{t}\left( X^\bullet, Y^\bullet \right)}
 	.\end{equation} 
-	Moreover, let $f,g: X^\bullet \to Y^\bullet$ be homotopic cochain maps.
-	Let $\alpha: Z^\bullet \to X^\bullet$ and $\beta: Y^\bullet \to W^\bullet$ be cochain maps,
+	Moreover, let $f,g\colon X^\bullet \to Y^\bullet$ be homotopic cochain maps.
+	Let $\alpha\colon Z^\bullet \to X^\bullet$ and $\beta\colon Y^\bullet \to W^\bullet$ be cochain maps,
 	then, by linearity of composition, we obtain
 	$\beta \circ f \circ \alpha \sim \beta \circ g \circ \alpha$.
 \end{rem}
@@ -71,7 +71,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	$K(\mathsf{A})$ is an additive category, and the quotient functor,
 	defined
 	\begin{align}
-		q: \mathrm{Ch}(\mathsf{A}) &\to K(\mathsf{A}) \\
+		q\colon \mathrm{Ch}(\mathsf{A}) &\to K(\mathsf{A}) \\
 		X^\bullet &\mapsto X^\bullet\\
 		f &\mapsto [f]_{\sim}
 	\end{align} 
@@ -79,9 +79,9 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{prop} 
 
 \begin{defn}[Homotopy equivalence]
-	A cochain map $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
+	A cochain map $f\colon \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
 	is said to be a {\em homotopy equivalence} iff
-	$\exists\, g: \left( Y^{\bullet}, d_{Y} \right) \to \left( X^{\bullet}, d_{X} \right)$
+	$\exists\, g\colon \left( Y^{\bullet}, d_{Y} \right) \to \left( X^{\bullet}, d_{X} \right)$
 	s.t.
 	$g \circ f \sim 1_X$ and $f \circ g \sim 1_Y$.
 	In other words a homotopy equivalence is an isomorphism in $K(\mathsf{A})$.
@@ -89,11 +89,11 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 
 \begin{prop}
 	Let $\mathsf{A}$ be an abelian category and
-	$f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a
+	$f\colon \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a
 	nullhomotopic cochain map.
 	Then the induced cohomology map
 	\begin{equation}
-		H^n(f) =: \overline{f^n}: H^n(X) \to H^n(Y)
+		H^n(f) =: \overline{f^n}\colon H^n(X) \to H^n(Y)
 	\end{equation} 
 	is the zero map for every $n \in \Z$.
 \end{prop} 
@@ -142,24 +142,24 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	should be incorrect. 
 	Here what should be the correct one
 	(I'm not going to copy the proof again, though).
-	Let $\mathsf{A} := \mathsf{Mod}\text{-}R$.
+	Let $\mathsf{A} \coloneqq \mathsf{Mod}\text{-}R$.
 	If $K(\mathsf{A})$ is abelian, then
 	$R$ is semisimple.
 \end{prop}
 \begin{prop}
-	Let $\mathsf{A} := \mathsf{Mod}\text{-}R$.
+	Let $\mathsf{A} \coloneqq \mathsf{Mod}\text{-}R$.
 	If $R$ is not semisimple, then $K(\mathsf{A})$ is not abelian.
 \end{prop}
 \begin{proof}
 	Assume that $R$ is not semisimple, but $K(\mathsf{Mod}\text{-}R)$ is abelian.
-	Since $R$ is not semisimple, then there exists a s.e.s.
+	Since $R$ is not semisimple, then there exists a short exact sequence
 	\begin{equation}\label{eqn:sesAbHomCat}
 	0 \to X \xrightarrow{f} Y \xrightarrow{\pi}
 	Z \to 0 \qquad \text{ in } \mathsf{Mod}\text{-}R
 	\end{equation} 
 	which does not split.
 	Consider now $X^\bullet, Y^\bullet, Z^\bullet$ as complexes concentrated in degree $0$.
-	Since $K(\mathsf{Mod}\text{-}R)$ is abelian, then  $f:= q(f)$ has a cokernel
+	Since $K(\mathsf{Mod}\text{-}R)$ is abelian, then  $f\coloneqq q(f)$ has a cokernel
 	And, by uniqueness up to isomorphism of the cokernel,
 	we can assume that $\pi$ is a cokernel of $f$ in $K(\mathsf{Mod}\text{-}R)$.
 
@@ -168,7 +168,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		0 \to X \xrightarrow{f} Y \to 0
 	,\end{equation} 
 	where $Y$ is in degree $0$.
-	Let's define the cochain map $\alpha: Y^\bullet \to \mathrm{Cone}\, f$
+	Let's define the cochain map $\alpha\colon Y^\bullet \to \mathrm{Cone}\, f$
 	defined by
 	\begin{equation}
 	\begin{tikzcd}
@@ -213,8 +213,8 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 		0
 	\end{tikzcd}
 	.\end{equation} 
-	Since $\pi$ is a cokernel of $f$, then $\exists\, !\, \gamma: Z^\bullet \to \mathrm{Cone}\, f$ s.t. $\gamma \circ \pi = \alpha$.
-	With regard to $\delta: \mathrm{Cone}\, f \to Z^\bullet$, instead, we define $(0, \pi)$, i.e.
+	Since $\pi$ is a cokernel of $f$, then $\exists\, !\, \gamma\colon Z^\bullet \to \mathrm{Cone}\, f$ s.t. $\gamma \circ \pi = \alpha$.
+	With regard to $\delta\colon \mathrm{Cone}\, f \to Z^\bullet$, instead, we define $(0, \pi)$, i.e.
 	the family of maps which all correspond to zero, apart from degree $0$, in which it is $\pi$.
 	Then $\delta \circ \alpha = \pi$, as described by the following diagram
 	\begin{equation}
@@ -233,7 +233,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	Then we have $\pi = \delta \circ \alpha = \delta \circ \gamma \circ \pi$.
 	Since $\pi$ is epi (it is a cokernel), we obtain that
 	$\delta \circ \gamma = id_Z$ in $K(\mathsf{Mod}\text{-}R)$.
-	But then, if we denote by $\gamma_0: Z \to Y$ the morphism in degree $0$ of $\gamma$, we obtain
+	But then, if we denote by $\gamma_0\colon Z \to Y$ the morphism in degree $0$ of $\gamma$, we obtain
 	that $\pi \circ \gamma_0 = 1_Z$, hence we have found a retraction of $\pi$ in \eqref{eqn:sesAbHomCat}.
 	This is a contradiction, since we assumed it did not split.
 \end{proof}
@@ -296,9 +296,9 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{thm}
 \begin{proof}
 	The proof is essentially an application of the snake lemma.
-	In particular we obtain that $\partial: H^n(W^\bullet) \to H^{n+1}(X^\bullet)$ acts as
+	In particular we obtain that $\partial\colon H^n(W^\bullet) \to H^{n+1}(X^\bullet)$ acts as
 	\begin{align}
-		\partial: H^n(W^\bullet) &\to H^{n+1}(X^\bullet) \\
+		\partial\colon H^n(W^\bullet) &\to H^{n+1}(X^\bullet) \\
 		[z^n] &\mapsto \left[ (f^{n+1})^{-1} \left( d_Y^n ((g^n)^{-1}(z^n)) \right) \right]
 	.\end{align} 
 	More visually it is defined by the following diagram chase:
@@ -317,8 +317,8 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{proof}
 
 \begin{rem}[Notation]
-	We denote by $Z^n(X^\bullet) := \ker d_X^n$, the $n$-cycles,
-	and by $B^n(X^\bullet) := \ima d_X^{n-1}$, the $n$-boundaries.
+	We denote by $Z^n(X^\bullet) \coloneqq \ker d_X^n$, the $n$-cycles,
+	and by $B^n(X^\bullet) \coloneqq \ima d_X^{n-1}$, the $n$-boundaries.
 	Both clearly are subobjects of $X^n$.
 \end{rem}
 
@@ -371,7 +371,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \begin{prop}
 	Given an abelian category $\mathsf{A}$, then we can define a functor
 	\begin{align}
-		L: \mathsf{S} &\to \mathsf{L}
+		L\colon \mathsf{S} &\to \mathsf{L}
 	,\end{align} 
 	that, on objects, maps each short exact sequence of complexes to its corresponding exact
 	sequence in (co)homology.
@@ -485,10 +485,10 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 
 \begin{defn}[quasi-isomorphism]
 	Let $\mathsf{A}$ be an abelian category.
-	Let $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
+	Let $f\colon \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$ be a cochain map in $\mathrm{Ch}(\mathsf{A})$.
 	We say that $f$ is a {\em quasi-isomorphism} iff the induced cohomology morphism
 	\begin{equation}
-		H^n(f): H^n(X^\bullet) \to H^n(Y^\bullet)
+		H^n(f)\colon H^n(X^\bullet) \to H^n(Y^\bullet)
 	\end{equation} 
 	is an isomorphism for every $n \in \Z$.
 \end{defn}
@@ -508,12 +508,12 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 	$\left( X^{\bullet}, d_{X} \right) \in \mathrm{Ch}(\mathsf{A})$.
 	Define $\left( Z^{\bullet}, d_{Z} \right)$ by:
 	\begin{equation}
-		Z^n := Z^n(X^\bullet) := \ker d_X^n \qquad \text{ and } \qquad
+		Z^n \coloneqq Z^n(X^\bullet) \coloneqq \ker d_X^n \qquad \text{ and } \qquad
 		d^n_{Z} = 0 \qquad \,\forall\, n \in \Z
 	.\end{equation} 
 	Analogously define the complex $\left( B^{\bullet}, d_{B} \right)$ by
 	\begin{equation}
-		B^n := B^n(X^\bullet) := \ima d_X^{n-1} \qquad \text{ and } \qquad
+		B^n \coloneqq B^n(X^\bullet) \coloneqq \ima d_X^{n-1} \qquad \text{ and } \qquad
 		d^n_{B} = 0 \quad \,\forall\, n \in \Z
 	.\end{equation} 
 	Then there is a short exact sequence of complexes
@@ -538,7 +538,7 @@ Let $\mathsf{A}$ be an additive category, and $X^{\bullet}, Y^{\bullet} \in \mat
 \end{proof}
 
 \begin{lem}
-	Let $f: \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
+	Let $f\colon \left( X^{\bullet}, d_{X} \right) \to \left( Y^{\bullet}, d_{Y} \right)$
 	be a cochain map in $\mathrm{Ch}(\mathsf{A})$,
 	for an abelian category $\mathsf{A}$.
 	Assume that $\left(\ker f^\bullet, d^\bullet\right)$ and $\left(\coker f^\bullet, d^\bullet\right)$

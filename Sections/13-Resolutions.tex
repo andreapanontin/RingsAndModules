@@ -1,18 +1,18 @@
-\section{Resolutions}
-
+\section{Derived functors}
+\subsection{Resolutions}
 \begin{defn}[(Co)homological $\partial$-functor]
 	Let $\mathsf{A}, \mathsf{B}$ be abelian categories.
-	A \textbf{(co)homological} $\partial$\textbf{-functor} between $\mathsf{A}$ and $\mathsf{B}$
+	A {\em (co)homological} $\partial${\em -functor} between $\mathsf{A}$ and $\mathsf{B}$
 	is the data of a sequence of functors $\left\{ T^n \right\}_{n \in \Z}$, with
-	$T^n: \mathsf{A} \to \mathsf{B}$ for every $n$,
+	$T^n\colon \mathsf{A} \to \mathsf{B}$ for every $n$,
 	($\left\{ T_n \right\}_{n \in \Z}$ for the homological functors)
 	s.t. $T^i = 0$ for all $i < 0$ ($T_i = 0$ for all $i > 0$)
-	and for any s.e.s. $S \in \mathsf{S}(\mathsf{A})$
+	and for any short exact sequence $S \in \mathsf{S}(\mathsf{A})$
 	\begin{equation}
 	0 \to A \to B \to C \to 0
 	\end{equation} 
 	for all $n \in \Z$ there is a connecting morphism
-	$\partial^n: T^n(C) \to T^{n+1}(A)$ (resp. $\partial_n: T_n(C) \to T_{n-1}(A)$)
+	$\partial^n\colon T^n(C) \to T^{n+1}(A)$ (resp. $\partial_n\colon T_n(C) \to T_{n-1}(A)$)
 	satisfying
 	\begin{enumerate}
 		\item there is a long exact sequence
@@ -40,7 +40,7 @@
 				A' \arrow[r, "", rightarrow] &
 				B' \arrow[r, "", rightarrow] &
 				C' \arrow[r, "", rightarrow] &
-				0 
+				0,
 			\end{tikzcd}
 			\end{equation} 
 			there is an associated morphism between the long exact sequences, i.e.
@@ -60,17 +60,17 @@
 			\end{tikzcd}
 			.\end{equation} 
 	\end{enumerate}
-	Then the family $T := \left\{ T^n \right\}_{n \in \Z}: \mathsf{S}(\mathsf{A}) \to \mathsf{L}(\mathsf{B})$
+	Then the family $T \coloneqq \left\{ T^n \right\}_{n \in \Z}\colon\mathsf{S}(\mathsf{A}) \to \mathsf{L}(\mathsf{B})$
 	actually is a functor.
 \end{defn}
 
 \begin{rem}[]
 	$T^0$ is always left exact, for a cohomological $\partial$-functor.
-	In fact given a s.e.s. in $\mathsf{A}$
+	In fact given a short exact sequence in $\mathsf{A}$
 	\begin{equation}
 		0 \to A \to B \to C \to 0
 	,\end{equation} 
-	then the associated long exact sequence, since $T^{-1} = 0$, is
+	the associated long exact sequence, since $T^{-1} = 0$, is
 	\begin{equation}
 		T^{-1}(C) = 0 \xrightarrow{\partial^{-1}} T^0(A) \to T^0(B) \to T^0(C) \to \ldots
 	.\end{equation} 
@@ -79,19 +79,19 @@
 \end{rem}
 
 \begin{ex}
-	Consider $\mathsf{A} := \mathsf{Mod}\text{-}R$, for a ring $R$.
+	Consider $\mathsf{A} \coloneqq \mathsf{Mod}\text{-}R$, for a ring $R$.
 	Consider $U^{-1}$ and $U^0$ free (in particular projective) $R$-modules
-	and the morphism of modules $u: U^{-1} \to U^0$.
+	and the morphism of modules $u\colon U^{-1} \to U^0$.
 	Consider functor $T$, given by the family $\left\{ T^0, T^1 \right\}$ (i.e. $T^i = 0$ for all $i \neq 1,0$),
 	where
 	\begin{equation}
-	T^0 := \ker \mathrm{Hom}_{R} \left( u, - \right)
+	T^0 \coloneqq \ker \mathrm{Hom}_{R} \left( u, - \right)
 	\qquad \text{ and } \qquad
-	T^1 := \coker \mathrm{Hom}_{R}\left( u, - \right)
+	T^1 \coloneqq \coker \mathrm{Hom}_{R}\left( u, - \right)
 	.\end{equation} 
-	Let's show that $T: \mathsf{Mod}\text{-}R \to \mathsf{Mod}\text{-}R$ is a
+	Let's show that $T\colon\mathsf{Mod}\text{-}R \to \mathsf{Mod}\text{-}R$ is a
 	cohomological $\partial$-function.
-	Consider a s.e.s. of modules
+	Consider a short exact sequence of modules
 	$0 \to A\to B \to C \to 0$.
 	We need to show that the following is exact:
 	\begin{equation}
@@ -118,19 +118,19 @@
 	\end{equation} 
 	which clearly is commutative and with exact rows (both $U^0$ and $U^{-1}$ are free,
 	hence projective, i.e. both $\mathrm{Hom}_{ R}\left( U^0, - \right)$ and
-	$\mathrm{Hom}_{ R}\left( U^{1}, - \right)$ are exact functors), then by the snake lemma
+	$\mathrm{Hom}_{ R}\left( U^{-1}, - \right)$ are exact functors), then by the snake lemma
 	we obtain exactness of the long sequence.
 
-	Moreover consider $\mathsf{C} := \left\{ X \in \mathrm{Ob} \left(\mathsf{Mod}\text{-}R\right) \ \middle|\ 
+	Moreover consider $\mathsf{C} \coloneqq \left\{ X \in \mathrm{Ob} \left(\mathsf{Mod}\text{-}R\right) \ \middle|\ 
 	T^0(X) = T^1(X) = 0\right\} \subset \mathsf{Mod}\text{-}R$.
 	Then this subcategory of $\mathsf{Mod}\text{-}R$ is closed under
 	kernel, cokernel, extension and products.
 	In particular $C$ is an abelian full subcategory of $\mathsf{Mod}\text{-}R$.
-	In fact, given $X, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, and a morphism $f: X \to Y$.
-	Let $K := \ker f$, $I := \ima f$, and $C := \coker f$.
-	Then we have the s.e.s.s
+	In fact, given $X, Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, and a morphism $f\colon X \to Y$.
+	Let $K \coloneqq \ker f$, $I \coloneqq \ima f$, and $C \coloneqq \coker f$.
+	Then we have the short exact sequences
 	$0 \to K \to X \to I \to 0$ and $0 \to I \to Y \to C \to 0$.
-	The functor $T$ associates them the long exact sequences
+	The functor $T$ associates to them the long exact sequences
 	\begin{equation}
 		0 \to T^0(K) \to 0 \to T^0(I) \to
 		T^1(K) \to 0 \to T^1(I) \to 0
@@ -144,24 +144,25 @@
 
 \begin{defn}[Left resolution]
 	Let $\mathsf{A}$ be an abelian category, and $M \in \mathrm{Ob} \left(\mathsf{A}\right)$.
-	A \textbf{left resolution} of $M$ is a chain-complex:
+	A {\em left resolution} of $M$ is a chain-complex:
 	\begin{equation}
-		X_{\bullet} := \ldots \to X_2 \xrightarrow{d_2} X_1 \xrightarrow{d_1} X_0 \to 0
+		X_{\bullet} \coloneqq \ldots \to X_2 \xrightarrow{d_2} X_1 \xrightarrow{d_1} X_0 \to 0
 	\end{equation} 
-	s.t. there exists $\pi: X_0 \to M$ with which the augmented complex
+	s.t. there exists $\pi\colon X_0 \to M$ with which the augmented complex
 	\begin{equation}
-	X_{\bullet} \xrightarrow{\pi} M \to 0 := \ldots \to X_2 \xrightarrow{d_2} 
+	X_{\bullet} \xrightarrow{\pi} M \to 0 \coloneqq \ldots \to X_2 \xrightarrow{d_2} 
 	X_1 \xrightarrow{d_1} X_0 \xrightarrow{\pi} M \to 0
 	\end{equation} 
 	is exact.
-	In other words we ask that $\pi$ is a quasi-isomorphism between $X_{\bullet}$ and $M$
+	We can view these conditions as stating that $\pi$
+	is a quasi-isomorphism between $X_{\bullet}$ and $M$,
 	viewed as a complex concentrated in degree $0$.
-	Then $H_i(X_{\bullet}) = 0$ for all $i \neq 0$
+	In fact $H_i(X_{\bullet}) = 0$ for all $i \neq 0$
 	and $H_0(X_{\bullet}) \simeq M$.
 
 	If, moreover, each $X_i$ is a projective object in $\mathsf{A}$, then
 	the left resolution $X_{\bullet} \xrightarrow{\pi} M \to 0$ is called a
-	\textbf{projective resolution} of $M$.
+	{\em projective resolution} of $M$.
 \end{defn}
 
 \begin{lem}
@@ -175,7 +176,7 @@
 	\begin{equation}
 	\ldots \to P_2 \xrightarrow{\pi_2} P_1 \xrightarrow{\pi_1} P_0 \xrightarrow{\pi_0} M \to 0
 	.\end{equation} 
-	We can define, for each $n \in \N$, $K_n := \ker \pi_{n-1}$.
+	We can define, for each $n \in \N$, $K_n \coloneqq \ker \pi_{n-1}$.
 	Then $K_n$ is called $n$-th syzygy of $M$, sometimes
 	denoted by $\Omega_n(M)$.
 
@@ -185,7 +186,7 @@
 
 \begin{thm}[Comparison]
 	Let $\mathsf{A}$ be an abelian category.
-	Let $f_{-1}: M \to N$ be a morphism in $\mathsf{A}$.
+	Let $f_{-1}\colon M \to N$ be a morphism in $\mathsf{A}$.
 	Consider the chain complex (not necessairily exact)
 	\begin{equation}
 	\ldots \to P_3 \to P_2 \to P_1 \to P_0 \xrightarrow{\pi} 
@@ -193,7 +194,7 @@
 	,\end{equation} 
 	with $P_i$ projective for all $i \geq 0$.
 	Let $Y_{\bullet} \xrightarrow{\sigma} N \to 0$ be a left resolution of $N$.
-	Then there is a chain map $f: P_{\bullet} \to Y_{\bullet}$ lifting $f_{-1}$,
+	Then there is a chain map $f\colon P_{\bullet} \to Y_{\bullet}$ lifting $f_{-1}$,
 	i.e.
 	\begin{equation}
 	\begin{tikzcd}
@@ -213,7 +214,7 @@
 		0
 	\end{tikzcd}
 	.\end{equation} 
-	Moreover given any other chain map $g := \left\{ g_n \right\}_{n \geq 0}$
+	Moreover given any other chain map $g \coloneqq \left\{ g_n \right\}_{n \geq 0}$
 	lifting $f_{-1}$, then $f \sim g$ the two chain maps are homotopic.
 	In other words the lift of $f_{-1}$ is unique up to homotopy.
 \end{thm}
@@ -228,7 +229,7 @@
 
 \begin{lem}[Horseshoe]
 	Let $\mathsf{A}$ be an abelian category.
-	Consider the s.e.s.
+	Consider the short exact sequence
 	\begin{equation}
 	0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0
 	,\end{equation} 
@@ -263,13 +264,13 @@
 Let's now dualize everything we obtained up to now:
 \begin{defn}[Right coresolution]
 	Let $\mathsf{A}$ be an abelian category and $M \in \mathrm{Ob} \left(\mathsf{A}\right)$.
-	A \textbf{right coresolution} of $M$ is a cochain complex
+	A {\em right coresolution} of $M$ is a cochain complex
 	\begin{equation}
-	Y^\bullet := 0 \to Y_0 \xrightarrow{d^0} Y^1 \xrightarrow{d^1} Y^2 \to\ldots	
+	Y^\bullet \coloneqq 0 \to Y_0 \xrightarrow{d^0} Y^1 \xrightarrow{d^1} Y^2 \to\ldots	
 	\end{equation} 
-	s.t. there exists a morphism $\delta^0: M \to Y^0$ with which the augmented complex
+	s.t. there exists a morphism $\delta^0\colon M \to Y^0$ with which the augmented complex
 	\begin{equation}
-	0 \to M \xrightarrow{\delta^0} Y^\bullet := 
+	0 \to M \xrightarrow{\delta^0} Y^\bullet \coloneqq 
 	0 \to M \xrightarrow{\delta^0} Y_0 \xrightarrow{d^0} Y^1 \xrightarrow{d^1} Y^2 \to\ldots	
 	\end{equation} 
 	is exact.
@@ -279,7 +280,7 @@ Let's now dualize everything we obtained up to now:
 
 	If, moreover, each $Y^i$ is an injective object in $\mathsf{A}$,
 	then the right coresolution $0 \to M \xrightarrow{\delta^0} Y^\bullet$ is called an
-	\textbf{injective coresolution} of $M$.
+	{\em injective coresolution} of $M$.
 \end{defn}
 
 \begin{lem}
@@ -292,7 +293,7 @@ Let's now dualize everything we obtained up to now:
 	\begin{equation}
 		0 \to M \xrightarrow{\delta^0} I^0 \xrightarrow{\delta^1} I^1 \xrightarrow{\delta^1} I^2 \to \ldots
 	.\end{equation} 
-	We can define, for each $n \in \N$, $C^n := \coker \delta^{n-1}$.
+	We can define, for each $n \in \N$, $C^n \coloneqq \coker \delta^{n-1}$.
 	Then $C^n$ is called $n$-th cosyzygy of $M$, sometimes
 	denoted by $\Omega^n(M)$.
 
@@ -302,14 +303,14 @@ Let's now dualize everything we obtained up to now:
 
 \begin{thm}[Comparison]
 	Le $\mathsf{A}$ be an abelian category.
-	Let $f^{-1}: M \to N$ a morphism in $\mathsf{A}$.
+	Let $f^{-1}\colon M \to N$ a morphism in $\mathsf{A}$.
 	Consider the cochain complex (not necessairily exact)
 	\begin{equation}
 	0 \to N \xrightarrow{\eta} I^0 \to I^1 \to I^2 \to I^3 \to \ldots
 	,\end{equation} 
 	with $I^i$ injective for all $i \geq 0$.
 	Let $0 \to M \xrightarrow{\delta^0} Y^{\bullet}$ a right coresolution of $M$.
-	Then there exists a cochain map $f: Y^\bullet \to I^\bullet$
+	Then there exists a cochain map $f\colon Y^\bullet \to I^\bullet$
 	extending $f^{-1}$, i.e.
 	\begin{equation}
 	\begin{tikzcd}
@@ -329,7 +330,7 @@ Let's now dualize everything we obtained up to now:
 		\ldots\\
 	\end{tikzcd}
 	.\end{equation} 
-	Moreover, given any other cochain map $g := \left\{ g^n \right\}_{n \geq 0}$ extending
+	Moreover, given any other cochain map $g \coloneqq \left\{ g^n \right\}_{n \geq 0}$ extending
 	$f^{-1}$, then $f \sim g$, the two cochain maps are homotopic.
 	In other words the extension of $f^{-1}$ is unique up to homotopy.
 \end{thm}

@@ -1,4 +1,4 @@
-\section{Limits}
+%\section{Limits}
 \subsection{Kernel and Cokernel}
 
 \begin{defn}[(Co)kernel]
@@ -8,7 +8,7 @@
 		\item A {\em kernel} of $f$ is a pair $\left(K, \epsilon\right)$, with $K \xrightarrow{\epsilon} A$ satisfying
 	\begin{description}
 		\item[K1] $f \circ \epsilon = 0$,
-		\item[K2] for any $\epsilon': K' \to A$ s.t. $f \circ \epsilon' = 0$, then
+		\item[K2] for any $\epsilon'\colon K' \to A$ s.t. $f \circ \epsilon' = 0$, then
 			$\exists\, ! K' \xrightarrow{\alpha} K$ s.t. $\epsilon \circ \alpha = \epsilon'$, i.e. s.t. the following diagram commutes
 			\begin{equation}
 			\begin{tikzcd}
@@ -21,7 +21,7 @@
 		In other words it is a pair $\left(C, p\right)$, with $B \xrightarrow{p} C$ s.t.
 	\begin{description}
 		\item[CK1] $p \circ f = 0$,
-		\item[CK2] for any $p': B \to C'$ s.t. $p' \circ f = 0$, then
+		\item[CK2] for any $p'\colon B \to C'$ s.t. $p' \circ f = 0$, then
 			$\exists\, ! C \xrightarrow{\gamma} C'$ s.t. $\gamma \circ p = p'$, i.e. s.t. the following diagram commutes
 			\begin{equation}
 			\begin{tikzcd}
@@ -31,8 +31,8 @@
 			.\end{equation} 
 	\end{description} 
 	\end{itemize}
-	We denote with the uppercase Ker the object $K$, and with the lowercase ker the morphism $\epsilon: K \to A$.\newline
-	Analogously for the cokernel, we denote with the uppercase Coker the object $C$, and with the lower case coker the morphism $p: B \to C$.
+	We denote with the uppercase Ker the object $K$, and with the lowercase ker the morphism $\epsilon\colon K \to A$.\newline
+	Analogously for the cokernel, we denote with the uppercase Coker the object $C$, and with the lower case coker the morphism $p\colon B \to C$.
 \end{defn}
 
 \begin{rem}
@@ -47,7 +47,7 @@
 	\begin{description}
 		\item[eq1] $f \circ e = g \circ e$,
 		\item[eq2] for $\left(C', e'\right)$ with $C' \xrightarrow{e'} A$ s.t. $f \circ e' = g \circ e'$, then
-			$\exists\, ! \alpha: C' \to C$ s.t. $e \circ \alpha = e'$, i.e. the following diagram commutes
+			$\exists\, ! \alpha\colon C' \to C$ s.t. $e \circ \alpha = e'$, i.e. the following diagram commutes
 			\begin{equation}
 			\begin{tikzcd}
 				C \arrow[r, "e", rightarrow] & A \arrow[r, "f", rightarrow, shift left=.5ex] \arrow[r, "g"', rightarrow, shift right=.5ex] & B\\
@@ -59,7 +59,7 @@
 		In other words it is a pair $\left(C, p\right)$, with $B \xrightarrow{p} C$ s.t.
 		\begin{description}
 			\item[coeq1] $p \circ f = p \circ g$,
-			\item[coeq2] for $\left(C', p'\right)$ with $B \xrightarrow{p'} C'$ s.t. $p' \circ f = p' \circ g$, then $\exists\, ! \gamma: C \to C'$, with $\gamma \circ p = p'$, i.e. s.t. the following diagram commutes
+			\item[coeq2] for $\left(C', p'\right)$ with $B \xrightarrow{p'} C'$ s.t. $p' \circ f = p' \circ g$, then $\exists\, ! \gamma\colon C \to C'$, with $\gamma \circ p = p'$, i.e. s.t. the following diagram commutes
 			\begin{equation}
 			\begin{tikzcd}
 				A \arrow[r, "f", rightarrow, shift left=.5ex] \arrow[r, "g"', rightarrow, shift right=.5ex] & B \arrow[r, "P", rightarrow] \arrow[d, "p'", rightarrow] & C \arrow[dl, "\exists\, ! \gamma", dashrightarrow] \\
@@ -79,7 +79,7 @@
 
 \begin{lem}
 	Let $\mathsf{C}$ be a preadditive category with $0$ object.
-	Let $f: A \to B$ in $\mathsf{C}$.
+	Let $f\colon A \to B$ in $\mathsf{C}$.
 	\begin{itemize}
 		\item $f$ is a mono (epi) iff $f \circ h = 0 \implies h = 0$ ($h \circ f = 0 \implies h = 0$),
 		\item $f$ is a mono (epi) iff $0 \to A$ is a kernel of $f$ ($B \to 0$ is a cokernel of $f$),
@@ -93,7 +93,7 @@
 	This induces a natural transformation 
 	$f_*\colon h^A \to h^B$, given by the collection of maps
 	\begin{align}
-		f_*(X): h^A(X) = \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, B \right) = h^B(X) \\
+		f_*(X)\colon h^A(X) = \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, B \right) = h^B(X) \\
 		\alpha &\mapsto f \circ \alpha
 	\end{align} 
 	for $X \in \mathrm{Ob} \left(\mathsf{C}\right)$.
@@ -104,11 +104,11 @@
 	.\end{equation} 
 	We can define the {\em contravariant} functor
 	\begin{equation}
-	F := \ker \left[ f_*: \mathrm{Hom}_{\mathsf{C}} \left( -, A \right) \to \mathrm{Hom}_{\mathsf{C}} \left( -, B \right) \right]
+	F \coloneqq \ker \left[ f_*\colon \mathrm{Hom}_{\mathsf{C}} \left( -, A \right) \to \mathrm{Hom}_{\mathsf{C}} \left( -, B \right) \right]
 	\end{equation} 
 	That acts on a morphism $X \xrightarrow{h} Y$ as
 	 \begin{align}
-		 F(h): F(Y) &\to F(X) \\
+		 F(h)\colon F(Y) &\to F(X) \\
 		\beta &\mapsto \beta \circ f
 	.\end{align} 
 \end{defn}
@@ -131,7 +131,7 @@
 	This induces a natural transformation
 	$f^*\colon h_B \to h_A$, given by the collection of maps
 	\begin{align}
-		f^*(X): h_B(X) = \mathrm{Hom}_{\mathsf{C}} \left( B, X \right) &\to
+		f^*(X)\colon h_B(X) = \mathrm{Hom}_{\mathsf{C}} \left( B, X \right) &\to
 		\mathrm{Hom}_{\mathsf{C}} \left( A, X \right) = h_A(X) \\
 		\beta &\mapsto \beta \circ f
 	\end{align} 
@@ -142,11 +142,11 @@
 	.\end{equation} 
 	We can define a {\em covariant} functor
 	\begin{equation}
-	F := \ker \left[ f^*: \mathrm{Hom}_{\mathsf{C}} \left( B, - \right) \to \mathrm{Hom}_{\mathsf{C}} \left( A, - \right) \right]
+	F \coloneqq \ker \left[ f^*\colon \mathrm{Hom}_{\mathsf{C}} \left( B, - \right) \to \mathrm{Hom}_{\mathsf{C}} \left( A, - \right) \right]
 	\end{equation} 
 	that acts on a morphism $X \xrightarrow{h} Y$ as
 	\begin{align}
-		F(h): F(X) &\to F(Y) \\
+		F(h)\colon F(X) &\to F(Y) \\
 		\beta &\mapsto h \circ \beta
 	.\end{align} 
 \end{defn}
@@ -213,11 +213,11 @@
 \begin{prop}
 	Define the functor 
 	\begin{equation}
-	F := \mathrm{Hom}_{\mathsf{C}} \left( -, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( -, B \right): \mathsf{C} \to \mathsf{Sets}
+	F \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( -, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( -, B \right)\colon \mathsf{C} \to \mathsf{Sets}
 	\end{equation} 
-	on objects as $F(X) := \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( X, B \right)$, and on morphisms $X \xrightarrow{f} Y$, for a couple of arrows $Y \xrightarrow{\alpha} A$ and $Y \xrightarrow{\beta} B$, as
+	on objects as $F(X) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( X, B \right)$, and on morphisms $X \xrightarrow{f} Y$, for a couple of arrows $Y \xrightarrow{\alpha} A$ and $Y \xrightarrow{\beta} B$, as
 	\begin{align}
-		F(f): \mathrm{Hom}_{\mathsf{C}} \left( Y, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( Y, B \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( X, B \right) \\
+		F(f)\colon \mathrm{Hom}_{\mathsf{C}} \left( Y, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( Y, B \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, A \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( X, B \right) \\
 		\left(\alpha, \beta\right) &\mapsto \left(\alpha \circ f, \beta \circ f \right)
 	.\end{align} 
 	A product $\left(A \prod B, \pi_A, \pi_B \right)$ exists iff the functor $F$ is representable.
@@ -226,7 +226,7 @@
 	In this case $\left(P, \pi_A, \pi_B\right)$ is a product of $A$ and $B$,
 	where $\left(\pi_A, \pi_B\right)$ are given by
 	\begin{align}
-		\eta_P: \mathrm{Hom}_{\mathsf{C}} \left( P, P \right) &\to F(P) =
+		\eta_P\colon \mathrm{Hom}_{\mathsf{C}} \left( P, P \right) &\to F(P) =
 		\mathrm{Hom}_{\mathsf{C}} \left( P, A \right) \cross 
 		\mathrm{Hom}_{\mathsf{C}} \left( P, B \right)  \\
 		1_P &\mapsto \left(\pi_A, \pi_B\right)
@@ -271,11 +271,11 @@
 \begin{prop}
 	Define the functor 
 	\begin{equation}
-	F := \mathrm{Hom}_{\mathsf{C}} \left( A, - \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, - \right): \mathsf{C} \to \mathsf{Sets}
+	F \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( A, - \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, - \right)\colon \mathsf{C} \to \mathsf{Sets}
 	\end{equation} 
-	on objects as $F(X) := \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, X \right)$, and on morphisms $X \xrightarrow{f} Y$, for a couple of arrows $Y \xrightarrow{\alpha} A$ and $Y \xrightarrow{\beta} B$, as
+	on objects as $F(X) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, X \right)$, and on morphisms $X \xrightarrow{f} Y$, for a couple of arrows $Y \xrightarrow{\alpha} A$ and $Y \xrightarrow{\beta} B$, as
 	\begin{align}
-		F(f): \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( A, Y \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( A, Y \right) \\
+		F(f)\colon \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( A, X \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( A, Y \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( A, Y \right) \\
 		\left(\alpha, \beta\right) &\mapsto \left(f \circ \alpha, f \circ \beta \right)
 	.\end{align} 
 	A coproduct $\left(A \coprod B, \epsilon_A, \epsilon_B \right)$ exists iff the functor $F$ is corepresentable.
@@ -284,7 +284,7 @@
 	In this case $\left(C, \epsilon_A, \epsilon_B\right)$ is a coproduct of $A$ and $B$,
 	where $\left(\epsilon_A, \epsilon_B\right)$ are given by
 	\begin{align}
-		\eta_C: \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) = \mathrm{Hom}_{\mathsf{C}} \left( A, C \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, C \right)  \\
+		\eta_C\colon \mathrm{Hom}_{\mathsf{C}} \left( C, C \right) &\to F(C) = \mathrm{Hom}_{\mathsf{C}} \left( A, C \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( B, C \right)  \\
 		1_C &\mapsto \left(\epsilon_A, \epsilon_B\right)
 	.\end{align} 
 \end{prop} 
@@ -352,10 +352,10 @@
 \begin{defn}[(Co)product of an arbitrary family of objects]
 	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$ an arbitrary family of objects in the category $\mathsf{C}$.
 	 \begin{itemize}
-		 \item A {\em product} of the $A_i$s is the couple $\left(\prod_i A_i, (\pi_i)_{i \in I} \right)$, with $\prod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\pi_i: \prod_j A_j \to A_i$ for any $i \in I$, satisfying the universal property:
-			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $X \xrightarrow{\alpha_i} A_i$, then $\exists\, !\, \alpha: X \to \prod_i A_i$ s.t. $\pi_i \circ \alpha = \alpha_i$ for all $i$.
-		 \item A {\em coproduct} of the $A_i$s is the couple $\left(\coprod_i A_i, (\epsilon_i)_{i \in I} \right)$, with $\coprod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\epsilon_i: A_i \to \coprod_j A_j$ for any $i \in I$, satisfying the universal property:
-			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $A_i \xrightarrow{\alpha_i} X$, then $\exists\, !\, \alpha: \coprod_i A_i \to X$ s.t. $\alpha \circ \epsilon_i = \alpha_i$ for all $i$.
+		 \item A {\em product} of the $A_i$s is the couple $\left(\prod_i A_i, (\pi_i)_{i \in I} \right)$, with $\prod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\pi_i\colon \prod_j A_j \to A_i$ for any $i \in I$, satisfying the universal property:
+			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $X \xrightarrow{\alpha_i} A_i$, then $\exists\, !\, \alpha\colon X \to \prod_i A_i$ s.t. $\pi_i \circ \alpha = \alpha_i$ for all $i$.
+		 \item A {\em coproduct} of the $A_i$s is the couple $\left(\coprod_i A_i, (\epsilon_i)_{i \in I} \right)$, with $\coprod_i A_i \in \mathrm{Ob} \left(\mathsf{C}\right)$, and morphisms $\epsilon_i\colon A_i \to \coprod_j A_j$ for any $i \in I$, satisfying the universal property:
+			 Given $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ and a family of morphisms $A_i \xrightarrow{\alpha_i} X$, then $\exists\, !\, \alpha\colon \coprod_i A_i \to X$ s.t. $\alpha \circ \epsilon_i = \alpha_i$ for all $i$.
 			 In other words it is a product in $\mathsf{C}^{op}$.
 	\end{itemize}
 \end{defn}
@@ -368,12 +368,12 @@
 		\item Let $\mathsf{C} = \mathsf{Mod}\text{-}R$ and $\left\{ M_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right)$.
 			The set 
 			\begin{equation}
-			\prod_{i \in I} M_i := \left\{ \left( x_i \right)_{i \in I} \ \middle|\ x_i \in M_i \,\forall\, i \in I \right\}	
+			\prod_{i \in I} M_i \coloneqq \left\{ \left( x_i \right)_{i \in I} \ \middle|\ x_i \in M_i \,\forall\, i \in I \right\}	
 			.\end{equation}
 			(the infinite cartesian product), with componentwise operations and usual projections, is a product in $\mathsf{Mod}\text{-}R$.
-			Clearly, given a family of morphisms $\alpha_i: X \to M_i$, one defines
+			Clearly, given a family of morphisms $\alpha_i\colon X \to M_i$, one defines
 			\begin{align}
-				\alpha: X &\to \prod_{i \in I} M_i \\
+				\alpha\colon X &\to \prod_{i \in I} M_i \\
 				x &\mapsto \left( a_i(x) \right)_{i \in I}
 			\end{align} 
 			and easily checks the universal properties of products.
@@ -383,13 +383,13 @@
 			.\end{equation} 
 			with the embeddings
 			\begin{align}
-				\epsilon_i: M_i &\to \coprod_{i \in I} M_i \\
+				\epsilon_i\colon M_i &\to \coprod_{i \in I} M_i \\
 				x &\mapsto \left( \ldots, 0, x, 0, \ldots \right)
 			,\end{align} 
 			with nonzero entry only for the $i$-th component, is a coproduct in $\mathsf{Mod}\text{-}R$.
-			In fact, given a family of morphisms $\alpha_i: M_i \to X$, the unique morphism is defined as
+			In fact, given a family of morphisms $\alpha_i\colon M_i \to X$, the unique morphism is defined as
 			\begin{align}
-				\exists\, !\, \alpha: \coprod_{i \in I}M_i &\to X \\
+				\exists\, !\, \alpha\colon \coprod_{i \in I}M_i &\to X \\
 				\left( x_i \right)_{i\in I} &\mapsto \sum_{i \in I}^{} \alpha_i(x_i)
 			.\end{align} 
 			It is important to remark that the sum makes sense, since $x_i \neq 0$ only for finitely many $i \in I$, hence it is a finite sum.
@@ -408,7 +408,7 @@
 	is an isomorphism in $\mathsf{Sets}$ (by U.P.).
 	Moreover the family $\left\{ \phi_X \right\}_{X \in \mathrm{Ob} \left(\mathsf{C}\right)}$ gives a natural isomorphism between the functors
 	\begin{equation}
-	F := \mathrm{Hom}_{\mathsf{C}} \bigg( -, \prod_{i \in I} A_i \bigg) \quad \text{ and } \quad G:= \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( -, A_i \right)
+	F \coloneqq \mathrm{Hom}_{\mathsf{C}} \bigg( -, \prod_{i \in I} A_i \bigg) \quad \text{ and } \quad G\coloneqq \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( -, A_i \right)
 	,\end{equation} 
 	where $G$, on morphisms acts as: $G(f) = \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( f, A_i \right)$.
 \end{prop} 
@@ -425,7 +425,7 @@
 	is an isomorphism in $\mathsf{Sets}$ (by U.P.).
 	Moreover the family $\left\{ \psi_X \right\}_{X \in \mathrm{Ob} \left(\mathsf{C}\right)}$ gives a natural isomorphism between the functors
 	\begin{equation}
-	F := \mathrm{Hom}_{\mathsf{C}} \bigg( \coprod_{i \in I} A_i, - \bigg) \quad \text{ and } \quad G:= \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( A_i, - \right)
+	F \coloneqq \mathrm{Hom}_{\mathsf{C}} \bigg( \coprod_{i \in I} A_i, - \bigg) \quad \text{ and } \quad G\coloneqq \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( A_i, - \right)
 	,\end{equation} 
 	where $G$, on morphisms acts as: $G(f) = \prod_{i \in I} \mathrm{Hom}_{\mathsf{C}} \left( A_i, f \right)$.
 \end{prop} 
@@ -443,11 +443,11 @@
 	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right),
 	\left\{ B_i \right\}_{i \in I}
 	\subset \mathrm{Ob} \left(\mathsf{C}\right)$.
-	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i: A_i \to B_i$.
+	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i\colon A_i \to B_i$.
 	Assume that both products $\left(\prod_{i \in I} A_i , \pi_i\right)$ and $\left(\prod_{i \in I} B_i, p_i\right)$ exist in $\mathsf{C}$.
 	Then 
 	\begin{equation}
-	\exists\, !\, \alpha: \prod_{i \in I} A_i  \to \prod_{i \in I} B_i
+	\exists\, !\, \alpha\colon \prod_{i \in I} A_i  \to \prod_{i \in I} B_i
 	\end{equation} 
 	s.t. $p_i \circ \alpha = \alpha_i \circ \pi_i$.
 	Moreover if, for all $i$, the morphism $\alpha_i$ is a monomorphism,
@@ -459,12 +459,12 @@
 	Let $\left\{ A_i \right\}_{i \in I} \subset \mathrm{Ob} \left(\mathsf{C}\right),
 	\left\{ B_i \right\}_{i \in I}
 	\subset \mathrm{Ob} \left(\mathsf{C}\right)$.
-	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i: A_i \to B_i$.
+	Let $\left\{ \alpha_i \right\}_{i \in I}$ a family of morphisms s.t. for each $i$ $\alpha_i\colon A_i \to B_i$.
 	Assume that both coproducts $\left(\coprod_{i \in I} A_i , \epsilon_i\right)$ and
 	$\left(\coprod_{i \in I} B_i, \delta_i\right)$ exist in $\mathsf{C}$.
 	Then 
 	\begin{equation}
-	\exists\, !\, \alpha: \coprod_{i \in I} A_i  \to \coprod_{i \in I} B_i
+	\exists\, !\, \alpha\colon \coprod_{i \in I} A_i  \to \coprod_{i \in I} B_i
 	\end{equation} 
 	s.t. $\alpha \circ \epsilon_i = \delta_i \circ \alpha_i$.
 	Moreover if, for all $i$, the morphism $\alpha_i$ is am epimorphism,
@@ -483,7 +483,7 @@
 	In particular, if $\mathsf{C}$ is preadditive with $0$ object, then every $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \neq \emptyset$.
 	This means that $\pi_i$ and $\epsilon_i$ in the above proposition are always respectively epi and mono.
 	In particular, given $A, B \in \mathrm{Ob} \left(\mathsf{C}\right)$, then 
-	$\pi_A: A \prod B \to A$ and $\pi_B: A \prod B \to B$ are epi, whereas
-	$\epsilon_A: A \to A \prod B$ and $\epsilon_B: B \to A \prod B$ are mono.
+	$\pi_A\colon A \prod B \to A$ and $\pi_B\colon A \prod B \to B$ are epi, whereas
+	$\epsilon_A\colon A \to A \prod B$ and $\epsilon_B\colon B \to A \prod B$ are mono.
 \end{cor} 
 

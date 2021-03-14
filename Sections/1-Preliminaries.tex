@@ -4,27 +4,27 @@ Here a couple of preliminariy definitions, before we move on to categories.
 \begin{defn}[$R$-module]
 	A {\em left} $R$-module $\left(M, +, \cdot\right)$ is an abelian group $\left(M, +\right)$ on which is defined a map
 	\begin{align}
-		\cdot: R \cross M &\to M \\
+		\cdot\colon R \cross M &\to M \\
 		\left(r, m\right) &\mapsto rm
 	.\end{align} 
 	It is called scalar multiplication and satisfies
 	\begin{enumerate}
 		\item for any $r \in R$ the induced map
 			 \begin{align}
-				\dot{r}: M &\to M \\
+				\dot{r}\colon M &\to M \\
 				m &\mapsto rm
 			\end{align} 
 			is a homomorphism of abelian groups.
 		\item The map that sends each $r \in R$ to its associated endomorphism (as in the above)
 			\begin{align}
-				\phi: R &\to \mathrm{End}_{\Z}\left( M \right) \\
+				\phi\colon R &\to \mathrm{End}_{\Z}\left( M \right) \\
 				r &\mapsto \dot{r}
 			\end{align} 
 			is a morphism of rings.
 	\end{enumerate}
 	If $\phi$, instead of being a homomorphism is an antihomomorphism (i.e. it is a homomorphism
 	\begin{align}
-		\phi: R^{op} &\to \mathrm{End}_{ \Z}\left( M \right)
+		\phi\colon R^{op} &\to \mathrm{End}_{ \Z}\left( M \right)
 	,\end{align} 
 	from the opposite ring, in which the operations are computed in the opposite direction), then $M$ is a {\em right} $R$-module.
 	We denote {\em left} $R$-modules as $\prescript{}{R}{M}$, wheareas {\em right} $R$-modules as $M_R$.
@@ -42,7 +42,7 @@ Here a couple of preliminariy definitions, before we move on to categories.
 
 \begin{defn}[Tensor product of modules]
 	Let $S$ be a ring, $M_S \in \mathsf{Mod}\text{-}S$ and ${}_SN \in S\text{-}\mathsf{Mod}$.
-	A map $\beta: M \cross N \to G$, to $G$ an abelian group, is called balanced iff
+	A map $\beta\colon M \cross N \to G$, to $G$ an abelian group, is called balanced iff
 	it satisfies the following
 	\begin{align}
 		\beta(m + m', n) &= \beta(m,n) + \beta(m',n) \qquad & \,\forall\, m, m' \in M \text{ and } \,\forall\, n \in N\\
@@ -50,8 +50,8 @@ Here a couple of preliminariy definitions, before we move on to categories.
 		\beta(ms, n) &= \beta(m,sn) \qquad & \,\forall\, m \in M,\ \,\forall\, n \in N \text{ and } \,\forall\, s \in S
 	.\end{align} 
 	The tensor product of $M$ and $N$ is the pair $\left(M \otimes_{S} N, \tau \right)$,
-	with $M \otimes_{S} N$ an abelian group and $\tau: M \cross N \to M \otimes_{S} N$ a map s.t.
-	$\,\forall\, \beta: M \cross N \to G$ a balanced map, $\exists\, !\, \alpha: M \otimes_{S} N \to G$ an abelian group morphism
+	with $M \otimes_{S} N$ an abelian group and $\tau\colon M \cross N \to M \otimes_{S} N$ a map s.t.
+	$\,\forall\, \beta\colon M \cross N \to G$ a balanced map, $\exists\, !\, \alpha\colon M \otimes_{S} N \to G$ an abelian group morphism
 	s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
@@ -75,7 +75,7 @@ Here a couple of preliminariy definitions, before we move on to categories.
 		      &\left(ms, n\right) - \left(m, sn\right)
 		     \ \big|\ m,m' \in M,\ n,n' \in N,\ s \in S \big\}
 	.\end{align} 
-	Let $\tau: M \cross N \to \Z^{M \cross N}/H$, defined by $\left(m, n\right) \xmapsto{\tau} \left(m, n\right) + H$,
+	Let $\tau\colon M \cross N \to \Z^{M \cross N}/H$, defined by $\left(m, n\right) \xmapsto{\tau} \left(m, n\right) + H$,
 	then $\left(\Z^{M \cross N}, \tau\right)$ is a tensor product of $M$ and $N$.
 \end{rem}
 

@@ -9,7 +9,7 @@
 		\item $\,\forall\, X,Y \in \mathrm{Ob}(\mathsf{C})$ the data of a set of {\em arrows}  with {\em source} $X$ and {\em target} $Y$, denoted with $\mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$, whose elements are called {\em morphisms},
 		\item an operation of composition, that acts as follows
 			\begin{align}
-				\circ: \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( Y, Z \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, Z \right)\\
+				\circ\colon \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \cross \mathrm{Hom}_{\mathsf{C}} \left( Y, Z \right) &\to \mathrm{Hom}_{\mathsf{C}} \left( X, Z \right)\\
 				\left(f, g\right) &\mapsto g \circ f
 			,\end{align} 
 			for any $X,Y,Z \in \mathrm{Ob}(\mathsf{C})$ and is associative, i.e.
@@ -18,7 +18,7 @@
 			,\end{equation} 
 			whenever defined, i.e. $\,\forall\, X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} W$.
 	\end{itemize}
-	Also the set $\mathrm{End}_{\mathsf{C}}\left(X\right) := \mathrm{Hom}_{\mathsf{C}} \left( X, X \right)$ always contains the element $id_X$, that is defined to act as: given any $f \in \mathrm{Hom}_{C} \left( X, Y \right)$, $g \in \mathrm{Hom}_{\mathsf{C}} \left( Z, X \right)$ 
+	Also the set $\mathrm{End}_{\mathsf{C}}\left(X\right) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( X, X \right)$ always contains the element $id_X$, that is defined to act as: given any $f \in \mathrm{Hom}_{C} \left( X, Y \right)$, $g \in \mathrm{Hom}_{\mathsf{C}} \left( Z, X \right)$ 
 	\begin{equation}
 	f \circ id_X = f, \quad id_X \circ g = g
 	.\end{equation} 
@@ -37,10 +37,10 @@
 \begin{defn}[Opposite category]
 	Given a category $\mathsf{C}$, one can define the opposite category $\mathsf{C}^{op}$, characterized by
 	\begin{itemize}
-		\item $\mathrm{Ob}(\mathsf{C}^{op}) := \mathrm{Ob}(\mathsf{C})$,
-		\item $\mathrm{Hom}_{\mathsf{C}^{op}} \left( X, Y \right) := \mathrm{Hom}_{\mathsf{C}} \left( Y, X \right)$, with composition given by
+		\item $\mathrm{Ob}(\mathsf{C}^{op}) \coloneqq \mathrm{Ob}(\mathsf{C})$,
+		\item $\mathrm{Hom}_{\mathsf{C}^{op}} \left( X, Y \right) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( Y, X \right)$, with composition given by
 			\begin{equation}
-				g^{op} \circ_{\mathsf{C}^{op}} f^{op} := \left( f \circ_{\mathsf{C}} g \right)^{op}
+				g^{op} \circ_{\mathsf{C}^{op}} f^{op} \coloneqq \left( f \circ_{\mathsf{C}} g \right)^{op}
 			.\end{equation} 
 	\end{itemize} 
 \end{defn}
@@ -49,10 +49,10 @@
 	Let $X \xrightarrow{f} Y$ be a morphism in a category $\mathsf{C}$, then it is a(n)
 	\begin{description}
 		\item[monomorphism:] iff $\,\forall\, Z \begin{matrix} g_1 \\ \rightrightarrows \\ g_2 \end{matrix} X$ s.t. $f \circ g_1 = f \circ g_2 \implies g_1 = g_2$.
-			We denote it with $f: Y \rightarrowtail Z$.
+			We denote it with $f\colon Y \rightarrowtail Z$.
 			It is said that $f$ is {\em left} erasable
 		\item[epimorphism:] iff $\,\forall\, X \begin{matrix} h_1 \\ \rightrightarrows \\ h_2 \end{matrix} Y$ s.t. $h_1 \circ f = h_2 \circ f \implies h_1 = h_2$.
-			We denote it with $f: Y \twoheadrightarrow Z$.
+			We denote it with $f\colon Y \twoheadrightarrow Z$.
 			It is said that $f$ is {\em right} erasable
 		\item[isomorphism:] iff $\exists\,  Y \xrightarrow{g} X$ s.t. $g \circ f = id_X$ and $f \circ g = id_Y$.
 	\end{description} 	
@@ -89,7 +89,7 @@
 		\item[Grupoid:] iff all the morphisms are isomoprhisms.
 			Note that a group $G$ can be identified with a {\em grupoid} category $\mathsf{C}$ with only one element $X \in \mathrm{Ob}\mathsf{C}$ and
 			\begin{equation}
-				\mathrm{Hom}_{\mathsf{C}} \left( X, X \right) := G
+				\mathrm{Hom}_{\mathsf{C}} \left( X, X \right) \coloneqq G
 			.\end{equation} 
 	\end{description} 
 \end{defn}
@@ -97,9 +97,9 @@
 \begin{defn}[Product category]
 	Let $\mathsf{C}$ and $\mathsf{D}$ be two categories, one can define their product $\mathsf{C}\cross \mathsf{D}$ as the category characterized by
 	\begin{itemize}
-		\item $\mathrm{Ob} \left(\mathsf{C}\cross \mathsf{D}\right) := \mathrm{Ob} \left(\mathsf{C}\right) \cross \mathrm{Ob} \left(\mathsf{D}\right)$,
-		\item $\mathrm{Hom}_{\mathsf{C}\cross \mathsf{D}} \left( (X,Y), (X',Y') \right) := \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \cross \mathrm{Hom}_{\mathsf{D}} \left( X', Y' \right)$,
-		\item $\left(f, g\right)\circ_{\mathsf{C}\cross \mathsf{D}}\left(f', g'\right) := \left(f \circ_{\mathsf{C}}g, f' \circ_{\mathsf{D}} g' \right)$.
+		\item $\mathrm{Ob} \left(\mathsf{C}\cross \mathsf{D}\right) \coloneqq \mathrm{Ob} \left(\mathsf{C}\right) \cross \mathrm{Ob} \left(\mathsf{D}\right)$,
+		\item $\mathrm{Hom}_{\mathsf{C}\cross \mathsf{D}} \left( (X,Y), (X',Y') \right) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \cross \mathrm{Hom}_{\mathsf{D}} \left( X', Y' \right)$,
+		\item $\left(f, g\right)\circ_{\mathsf{C}\cross \mathsf{D}}\left(f', g'\right) \coloneqq \left(f \circ_{\mathsf{C}}g, f' \circ_{\mathsf{D}} g' \right)$.
 	\end{itemize} 
 \end{defn}
 
@@ -127,10 +127,10 @@
 \begin{defn}[Functor]
 	Given two categories $\mathsf{C}$ and $\mathsf{D}$, a functor $F$ between them is defined by:
 	\begin{itemize}
-		\item a map $F: \mathrm{Ob} \left(\mathsf{C}\right) \to \mathrm{Ob} \left(\mathsf{D}\right)$,
+		\item a map $F\colon \mathrm{Ob} \left(\mathsf{C}\right) \to \mathrm{Ob} \left(\mathsf{D}\right)$,
 		\item a collection of maps, also denoted by $F$, given $\,\forall\, X,Y \in \mathrm{Ob} \left(\mathsf{C}\right)$
 			\begin{equation}
-			F: \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \to \mathrm{Hom}_{\mathsf{D}} \left( FX, FY \right) 
+			F\colon \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right) \to \mathrm{Hom}_{\mathsf{D}} \left( FX, FY \right) 
 			,\end{equation} 
 			s.t. $F(id_X) = id_Y$ and $\,\forall\, f,g$ these maps preserve composition, i.e. 
 			\begin{equation}
@@ -151,7 +151,7 @@
 \end{defn}
 
 \begin{rem}
-	A fully faithful functor $F: \mathsf{C} \to \mathsf{D}$ is conservative.
+	A fully faithful functor $F\colon \mathsf{C} \to \mathsf{D}$ is conservative.
 \end{rem}
 
 
@@ -165,12 +165,12 @@
 	\begin{equation}
 		F(g \circ f) = F(f) \circ F(g)
 	.\end{equation}
-	We denote with $\mathrm{op}: \mathsf{C} \to \mathsf{C}^{op}$ to be the contravariant functor associated with $id_{\mathsf{C}^{op}}$.
+	We denote with $\mathrm{op}\colon \mathsf{C} \to \mathsf{C}^{op}$ to be the contravariant functor associated with $id_{\mathsf{C}^{op}}$.
 	Sometimes functors are called {\em covariant} in order to emphasize the fact that they are not {\em contravariant}.
 \end{defn}
 
 \begin{rem}
-	Notice that, given $F: \mathsf{C} \to \mathsf{D}$ and $G: \mathsf{D} \to \mathsf{E}$ functors, then
+	Notice that, given $F\colon \mathsf{C} \to \mathsf{D}$ and $G\colon \mathsf{D} \to \mathsf{E}$ functors, then
 	\begin{itemize}
 		\item if both $F$ and $G$ are either covariant or contravariant, then $F \circ G$ is covariant,
 		\item if one of them is covariant and the other is contravariant, then $F \circ G$ is contravariant.
@@ -180,13 +180,13 @@
 \begin{defn}[Bifunctor]
 	A {\em bifunctor} $F$ from $\left(\mathsf{C}, \mathsf{D}\right)$ to $\mathsf{E}$ is a functor from the product category, i.e.
 	\begin{equation}
-	F: \mathsf{C}\cross \mathsf{D} \to \mathsf{E} 
+	F\colon \mathsf{C}\cross \mathsf{D} \to \mathsf{E} 
 	.\end{equation}
 	In particular, fixed $X \in \mathsf{C}$ and $Y \in \mathsf{D}$,
-	then $F \left(X, - \right): \mathsf{D} \to \mathsf{E}$ and
-	$F \left( - , Y \right): \mathsf{C} \to \mathsf{E}$ are functors.
-	Moreover, for any morphism $f: X \to X'$ in $\mathsf{C}$ and
-	$g: Y \to Y'$ in $\mathsf{D}$, then the following diagram commutes:
+	then $F \left(X, - \right)\colon \mathsf{D} \to \mathsf{E}$ and
+	$F \left( - , Y \right)\colon \mathsf{C} \to \mathsf{E}$ are functors.
+	Moreover, for any morphism $f\colon X \to X'$ in $\mathsf{C}$ and
+	$g\colon Y \to Y'$ in $\mathsf{D}$, then the following diagram commutes:
 	\begin{equation}
 	\begin{tikzcd}
 		F(X,Y) \arrow[r, "{F(X,g)}", rightarrow]\arrow[d, "{F(f,Y)}"', rightarrow] & F(X,Y')\arrow[d, "{F(f,Y')}", rightarrow] \\
@@ -198,12 +198,12 @@
 \begin{ex}
 	Given a category $\mathsf{C}$, there is a natural bifunctor
 	\begin{equation}
-	F = \mathrm{Hom}_{\mathsf{C}} \left( -, - \right): \mathsf{C}^{op} \cross \mathsf{C} \to \mathsf{Sets}
+	F = \mathrm{Hom}_{\mathsf{C}} \left( -, - \right)\colon \mathsf{C}^{op} \cross \mathsf{C} \to \mathsf{Sets}
 	.\end{equation} 
 	It is defined as follows.
 	On objects it acts as
 	\begin{align}
-		F: \mathsf{C}^{op} \cross \mathsf{C} &\to \mathsf{Sets} \\
+		F\colon \mathsf{C}^{op} \cross \mathsf{C} &\to \mathsf{Sets} \\
 		\left(C, D\right) &\mapsto \mathrm{Hom}_{\mathsf{C}} \left( C, D \right)
 	.\end{align} 
 	On pairs of morphisms $C' \xrightarrow{f} C$ and $D \xrightarrow{g} D'$, it acts as
@@ -221,8 +221,8 @@
 \end{ex} 	
 
 \begin{defn}[Morphism of functors]
-	Given two functors $F,G: \mathsf{C} \to \mathsf{D}$, a {\em morphism of functors} (sometimes called {\em natural transformation}) $\theta: F \to G$ (sometimes denoted with $F \xRightarrow{\theta} G$) 
-	is the data, for any $X \in \mathsf{C}$, of a map $\theta(X): FX \to GX$ s.t. $\,\forall\, f: X \to X'$ in $\mathsf{C}$ the following diagram commutes
+	Given two functors $F,G\colon \mathsf{C} \to \mathsf{D}$, a {\em morphism of functors} (sometimes called {\em natural transformation}) $\theta\colon F \to G$ (sometimes denoted with $F \xRightarrow{\theta} G$) 
+	is the data, for any $X \in \mathsf{C}$, of a map $\theta(X)\colon FX \to GX$ s.t. $\,\forall\, f\colon X \to X'$ in $\mathsf{C}$ the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
 		FX \arrow[r, "{\theta(X)}", rightarrow] \arrow[d, "{F(f)}"', rightarrow] & GX \arrow[d, "{G(f)}", rightarrow] \\
@@ -246,20 +246,20 @@
 \end{defn}
 
 \begin{defn}[Natural isomorphic functors]
-	Let $\mathsf{C}$ and $\mathsf{D}$ be two categories, and $G,F: \mathsf{C} \to \mathsf{D}$ be two functors.
+	Let $\mathsf{C}$ and $\mathsf{D}$ be two categories, and $G,F\colon \mathsf{C} \to \mathsf{D}$ be two functors.
 	We say that $F$ is {\em naturally isomorphic} to $G$ iff one of the following (equivalent) conditions is satisfied:
 	\begin{itemize}
-		\item there exist two natural transformations $\eta: F \to G$ and $\theta: G \to F$ s.t.
+		\item there exist two natural transformations $\eta\colon F \to G$ and $\theta\colon G \to F$ s.t.
 			\begin{equation}
 			id_G = \eta \circ \theta \quad \text{ and } \quad \theta \circ \eta = id_F
 			,\end{equation} 
-		\item there exists a natural transformation $\eta: F \to G$ s.t. $\eta_X: FX \to GX$ is an isomorphism in $\mathsf{D}$ for every $C \in \mathrm{Ob} \left(\mathsf{C}\right)$.
+		\item there exists a natural transformation $\eta\colon F \to G$ s.t. $\eta_X\colon FX \to GX$ is an isomorphism in $\mathsf{D}$ for every $C \in \mathrm{Ob} \left(\mathsf{C}\right)$.
 	\end{itemize}
 \end{defn}
 
 \begin{defn}[Category of functors]
-	We denote by $\mathsf{D}^{\mathsf{C}} := \mathsf{Fct}\left(\mathsf{C}, \mathsf{D} \right)$ the {\em category of functors} from $\mathsf{C}$ to $\mathsf{D}$,
-	whose elements are functors $F: \mathsf{C} \to \mathsf{D}$ and whose morphisms are the above mentioned morphisms of functors.
+	We denote by $\mathsf{D}^{\mathsf{C}} \coloneqq \mathsf{Fct}\left(\mathsf{C}, \mathsf{D} \right)$ the {\em category of functors} from $\mathsf{C}$ to $\mathsf{D}$,
+	whose elements are functors $F\colon \mathsf{C} \to \mathsf{D}$ and whose morphisms are the above mentioned morphisms of functors.
 \end{defn}
 
 \begin{rem}
@@ -278,20 +278,20 @@
 \end{rem}
 
 \begin{ex}
-	Fix $\mathsf{I} := \left(I, \le\right)$ a poset (a small category) and a category $\mathsf{C}$.
+	Fix $\mathsf{I} \coloneqq \left(I, \le\right)$ a poset (a small category) and a category $\mathsf{C}$.
 	An element $F \in \mathsf{Fct}\left(\mathsf{I}, \mathsf{C} \right) = \mathsf{C}^{\mathsf{I}}$ is a functor
 	\begin{equation}
-	F: \mathsf{I} \to \mathsf{C}
+	F\colon \mathsf{I} \to \mathsf{C}
 	\end{equation} 
 	that associates to each element $i \in I$ an object $F(i) \in \mathrm{Ob} \left(\mathsf{C}\right)$.
-	Moreover, with regards to morphisms it acts as follows: given $i \leq j \le k$ we have $i \xrightarrow{\alpha} j \xrightarrow{\beta} k$ and $\beta \circ \alpha = \gamma : i \to k$ and the following commutative diagram
+	Moreover, with regards to morphisms it acts as follows: given $i \leq j \le k$ we have $i \xrightarrow{\alpha} j \xrightarrow{\beta} k$ and $\beta \circ \alpha = \gamma \colon i \to k$ and the following commutative diagram
 	\begin{equation}
 	\begin{tikzcd}[column sep=tiny]
 		F(i) \arrow[rr, "F(\gamma)", rightarrow] \arrow[rd, "F(\alpha)"', rightarrow] & & F(k)\\
 			& F(j) \arrow[ru, "F(\beta)"', rightarrow] &
 	\end{tikzcd}
 	.\end{equation} 
-	In particular, given $\mathsf{C} = \mathsf{Mod}\left( R \right)$, then $F \in \mathsf{Fct}\left(I, \mathsf{Mod}\left( R \right) \right)$ is a functor s.t., called $f_{ji} := F( i \to j)$, then
+	In particular, given $\mathsf{C} = \mathsf{Mod}\left( R \right)$, then $F \in \mathsf{Fct}\left(I, \mathsf{Mod}\left( R \right) \right)$ is a functor s.t., called $f_{ji} \coloneqq F( i \to j)$, then
 	\begin{equation}
 		f_{ki} = f_{kj} \circ f_{ji}
 	.\end{equation} 
@@ -309,7 +309,7 @@
 \end{ex} 
 
 \begin{defn}[Additive functors]
-	Given two preadditive categores $\mathsf{C}$ and $\mathsf{D}$, a functor $F: \mathsf{C} \to \mathsf{D}$ is called {\em additive} iff, for any $X,Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, for any $f,g: X \to Y$, then
+	Given two preadditive categores $\mathsf{C}$ and $\mathsf{D}$, a functor $F\colon \mathsf{C} \to \mathsf{D}$ is called {\em additive} iff, for any $X,Y \in \mathrm{Ob} \left(\mathsf{C}\right)$, for any $f,g\colon X \to Y$, then
 	\begin{equation}
 		F(f+g) = F(f) + F(g)
 	.\end{equation} 
@@ -326,7 +326,7 @@
 \begin{ex}
 	Given a ring $R$, we define the category $\underline{\mathsf{R}}$ with one object, $*$, characterized by
 	\begin{equation}
-		\mathrm{Hom}_{\underline{\mathsf{R}}} \left(* , * \right) := R
+		\mathrm{Hom}_{\underline{\mathsf{R}}} \left(* , * \right) \coloneqq R
 	,\end{equation} 
 	with the composition acting as the product in $R$.
 	Clearly it is a preadditive category.
@@ -347,12 +347,12 @@
 \begin{defn}[Category isomorphism/equivalence]
 	Given two categories $\mathsf{C}$ and $\mathsf{D}$ we say they are
 	\begin{description}
-		\item[isomorphic], notation $\mathsf{C} \cong \mathsf{D}$, iff there exist $F: \mathsf{C} \to \mathsf{D}$ and $G: \mathsf{D} \to \mathsf{C}$ s.t. $F \circ G = id_{\mathsf{D}}$ and $G \circ F = id_\mathsf{C}$,
-		\item[equivalent], notation $\mathsf{C} \simeq \mathsf{D}$, iff there exist $F: \mathsf{C} \to \mathsf{D}$ and $G: \mathsf{D} \to \mathsf{C}$ s.t. $F \circ G \simeq id_{\mathsf{D}}$ and $G \circ F \simeq id_\mathsf{C}$.
+		\item[isomorphic], notation $\mathsf{C} \cong \mathsf{D}$, iff there exist $F\colon \mathsf{C} \to \mathsf{D}$ and $G\colon \mathsf{D} \to \mathsf{C}$ s.t. $F \circ G = id_{\mathsf{D}}$ and $G \circ F = id_\mathsf{C}$,
+		\item[equivalent], notation $\mathsf{C} \simeq \mathsf{D}$, iff there exist $F\colon \mathsf{C} \to \mathsf{D}$ and $G\colon \mathsf{D} \to \mathsf{C}$ s.t. $F \circ G \simeq id_{\mathsf{D}}$ and $G \circ F \simeq id_\mathsf{C}$.
 			In this case we just asked for isomorphism of functors, which makes $F$ and $G$ {\em quasi-inverses}.
 	\end{description} 
 
-	Moreover an equivalence $F: \mathsf{C} \to \mathsf{D}^{op}$ is called a  {\em duality}.
+	Moreover an equivalence $F\colon \mathsf{C} \to \mathsf{D}^{op}$ is called a  {\em duality}.
 \end{defn}
 
 \begin{rem}
@@ -367,14 +367,14 @@
 \begin{ex}[duality]
 	Let $K$ be a division ring and $K$-$\mathsf{Vect}$ the category of finite dimensionale left $K$-Vector Spaces, then
 	\begin{align}
-		D: K \text{-}\mathsf{Vect} &\to \mathsf{Vect} \text{-}K \\
+		D\colon K \text{-}\mathsf{Vect} &\to \mathsf{Vect} \text{-}K \\
 		V &\mapsto V^*
 	\end{align} 
 	is a duality.
 \end{ex} 
 
 \begin{prop}
-	A functor $F: \mathsf{C} \to \mathsf{D}$ is an equivalence of categories iff it is {\em fully faithful} and {\em essentially surjective}.
+	A functor $F\colon \mathsf{C} \to \mathsf{D}$ is an equivalence of categories iff it is {\em fully faithful} and {\em essentially surjective}.
 \end{prop} 
 
 \subsection{Yoneda lemma}
@@ -382,13 +382,13 @@
 \begin{defn}[]
 	Let $\mathsf{C}$ be a category, one defines the following:
 	\begin{equation}
-	\mathsf{C}^\wedge := \mathsf{Fct}\left(\mathsf{C}^{op}, \mathsf{Sets} \right), \quad \mathsf{C}^\vee := \mathsf{Fct}\left(\mathsf{C}^{op}, \mathsf{Sets}^{op} \right)
+	\mathsf{C}^\wedge \coloneqq \mathsf{Fct}\left(\mathsf{C}^{op}, \mathsf{Sets} \right), \quad \mathsf{C}^\vee \coloneqq \mathsf{Fct}\left(\mathsf{C}^{op}, \mathsf{Sets}^{op} \right)
 	,\end{equation} 
 	and the functors
 	\begin{align}
-		h_\mathsf{C}: \mathsf{C} \to \mathsf{C}^\wedge &\text{ s.t. }
+		h_\mathsf{C}\colon \mathsf{C} \to \mathsf{C}^\wedge &\text{ s.t. }
 		X \mapsto \mathrm{Hom}_{\mathsf{\mathsf{C}}} \left( -, X \right)\\
-		k_\mathsf{C}: \mathsf{C} \to \mathsf{C}^\vee &\text{ s.t. }
+		k_\mathsf{C}\colon \mathsf{C} \to \mathsf{C}^\vee &\text{ s.t. }
 		X \mapsto \mathrm{Hom}_{\mathsf{\mathsf{C}}} \left( X, - \right)
 	.\end{align}
 \end{defn}
@@ -399,15 +399,15 @@
 
 \begin{defn}[Representable functor]\leavevmode\vspace{-\baselineskip}
 	\begin{enumerate}
-		\item A functor $F: \mathsf{C}^{op} \to \mathsf{Sets}$ is {\em representable} iff there exists $X \in \mathsf{C}$ s.t. $F(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( Y, X \right)$ functorially in $Y \in \mathsf{C}$.
+		\item A functor $F\colon \mathsf{C}^{op} \to \mathsf{Sets}$ is {\em representable} iff there exists $X \in \mathsf{C}$ s.t. $F(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( Y, X \right)$ functorially in $Y \in \mathsf{C}$.
 			In other words we have $F \simeq h_\mathsf{C}(X)$ in $\mathsf{C}^{\wedge}$. 
 			Such object $X$ is called a representative of $F$.
-		\item A functor $G: \mathsf{C} \to \mathsf{Sets}$ is {\em corepresentable} iff there exists a representative $X \in \mathsf{C}$ s.t. $G(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$ functorially in $Y \in \mathsf{C}$.
+		\item A functor $G\colon \mathsf{C} \to \mathsf{Sets}$ is {\em corepresentable} iff there exists a representative $X \in \mathsf{C}$ s.t. $G(Y) \simeq \mathrm{Hom}_{\mathsf{C}} \left( X, Y \right)$ functorially in $Y \in \mathsf{C}$.
 	\end{enumerate} 
 \end{defn}
 
 \begin{prop}
-	Let $F: \mathsf{C}^{op} \to \mathsf{Sets}$ be a {\em representable} functor, i.e. $\exists\, X \in \mathrm{Ob} \left(\mathsf{C}\right)$ s.t.
+	Let $F\colon \mathsf{C}^{op} \to \mathsf{Sets}$ be a {\em representable} functor, i.e. $\exists\, X \in \mathrm{Ob} \left(\mathsf{C}\right)$ s.t.
 	\begin{equation}
 	F \simeq \mathrm{Hom}_{\mathsf{C}} \left( -, X \right)
 	.\end{equation} 
@@ -415,7 +415,7 @@
 \end{prop} 
 
 \begin{defn}[Adjoint functors]
-	Let $F: \mathsf{C} \to \mathsf{D}$ and $G: \mathsf{D} \to \mathsf{C}$ be two functors.
+	Let $F\colon \mathsf{C} \to \mathsf{D}$ and $G\colon \mathsf{D} \to \mathsf{C}$ be two functors.
 	One says that $\left(F, G\right)$ is an {\em adjoint} pair, or equivalently that $F$ is a {\em left adjoint} to $G$ or that $G$ is a {\em right adjoint} to $F$,
 	iff there exists an isomorphism of bifunctors:
 	\begin{equation}

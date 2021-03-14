@@ -4,7 +4,7 @@
 	We define the {\em canonical truncation} of $\left( X^{\bullet}, d_{X} \right)$ to be the complex
 	$\left( [\tau_{\leq n}(X^\bullet)]^{\bullet}, d_{[\tau_{\leq n}(X^\bullet)]} \right)$, whose objects are
 	\begin{equation}
-		[\tau_{\leq n}(X^\bullet)]^i := 
+		[\tau_{\leq n}(X^\bullet)]^i \coloneqq 
 	\begin{cases}
 		X^i & \text{ if } i < n\\
 		\ker d_X^n & \text{ if } i = n\\
@@ -12,8 +12,8 @@
 	\end{cases} 
 	,\end{equation} 
 	and differentials given by the induced ones.
-	Denoted by $\epsilon^n: \ker d^n_X \to X^n$ the Kernel, then we have a
-	natural cochain map $\epsilon: \tau_{\leq n}(X^\bullet) \to X^\bullet$, given by
+	Denoted by $\epsilon^n\colon \ker d^n_X \to X^n$ the Kernel, then we have a
+	natural cochain map $\epsilon\colon \tau_{\leq n}(X^\bullet) \to X^\bullet$, given by
 	\begin{equation}
 	\begin{tikzcd}
 		\ldots \arrow[r, "", rightarrow] &
@@ -46,7 +46,7 @@
 	$\left( [X^\bullet/\tau_{\leq n}(X^\bullet)]^{\bullet}, d_{[X^\bullet/\tau_{\leq n}(X^\bullet)]} \right)$,
 	whose objects are
 	\begin{equation}
-		[X^\bullet/\tau_{\leq n}(X^\bullet)]^i := 
+		[X^\bullet/\tau_{\leq n}(X^\bullet)]^i \coloneqq 
 	\begin{cases}
 		X^i & \text{ if } i > n\\
 		X^n/\ker d_X^n & \text{ if } i = n\\
@@ -116,12 +116,12 @@
 	We define the {\em mapping cone} of $f$ as the cochain complex,
 	denoted by $(\mathrm{Cone}\, f)^\bullet$, whose objects are
 	\begin{equation}
-		[\mathrm{Cone}\, f]^n := Y^n \oplus X^{n+1}
+		[\mathrm{Cone}\, f]^n \coloneqq Y^n \oplus X^{n+1}
 	\end{equation} 
-	and differentials $d^n_{\mathrm{Cone}\, f}: Y^n \oplus X^{n+1} \to Y^{n+1} \oplus X^{n+2}$ given by
+	and differentials $d^n_{\mathrm{Cone}\, f}\colon Y^n \oplus X^{n+1} \to Y^{n+1} \oplus X^{n+2}$ given by
 	the following matrix
 	\begin{equation}
-	d^n_{\mathrm{Cone}\, f} :=
+	d^n_{\mathrm{Cone}\, f} \coloneqq
 	\begin{bmatrix}
 		d^n_Y & f^{n+1}\\
 		0 & -d_X^{n+1}
@@ -148,7 +148,7 @@
 
 \begin{defn}[Cone of a complex]
 	Given a complex $\left( X^{\bullet}, d_{X} \right)$, we define the cocahin $(\mathrm{Cone}\, X)^\bullet$ as the
-	mapping cone of the cochain map $1_{X^\bullet}: X^\bullet \to X^\bullet$.
+	mapping cone of the cochain map $1_{X^\bullet}\colon X^\bullet \to X^\bullet$.
 \end{defn}
 
 
@@ -165,11 +165,11 @@
 	\end{equation}
 	where the maps $\alpha$ and $\beta$ (check they are indeed cochain maps) are defined by the matrices
 	\begin{equation}
-	\alpha := 
+	\alpha \coloneqq 
 	\begin{bmatrix}
 		1_Y \\ 0
 	\end{bmatrix} \qquad \text{ and } \qquad
-	\beta := 
+	\beta \coloneqq 
 	\begin{bmatrix}
 		0 & 1_{X^\bullet[1]}
 	\end{bmatrix} 
@@ -192,7 +192,7 @@
 		0
 	.\end{tikzcd}
 	\end{equation*}
-	Then there is a cochain map $f: W^\bullet[-1] \to Y^\bullet$ s.t.
+	Then there is a cochain map $f\colon W^\bullet[-1] \to Y^\bullet$ s.t.
 	$C^\bullet \simeq \mathrm{Cone}\, f$.
 \end{lem} 
 
@@ -214,7 +214,7 @@
 
 \begin{defn}[Split complex]
 	A complex $\left( X^{\bullet}, d_{X} \right)$ is {\em split} iff there exist
-	maps $s^n: X^{n+1} \to X^n$, for all $n \in \Z$, s.t.
+	maps $s^n\colon X^{n+1} \to X^n$, for all $n \in \Z$, s.t.
 	$d^n_X \circ s^n \circ d^n_X = d^n_X$ for all $n \in \Z$ (shortly $d = d \circ s \circ d$).
 	The maps $s^n$ are called {\em splitting maps}.
 \end{defn}
@@ -232,7 +232,7 @@
 \end{lem} 
 \begin{proof}
 	In this proof we use the general fact, for $R$-modules, that given an idempotent
-	endomorphism $e: M \to M$ (i.e. s.t. $e^2 = e$), then
+	endomorphism $e\colon M \to M$ (i.e. s.t. $e^2 = e$), then
 	\begin{equation}
 	M = \ker e \oplus \ima e
 	.\end{equation} 
@@ -261,7 +261,7 @@
 	$\left( \mathrm{Cone}\, C \right)^\bullet$ is exact, since $1_{X^\bullet}$ is a quasi-isomorphism.
 	Then we define the splitting maps by
 	\begin{equation*}
-	s^n :=
+	s^n \coloneqq
 	\begin{bmatrix}
 		0 & 0\\
 		1_{X^{n+1}} & 0.
@@ -279,7 +279,7 @@
 \end{rem}
 
 \begin{lem}
-	Let $f: X^\bullet \to Y^\bullet$ be a cochain map.
+	Let $f\colon X^\bullet \to Y^\bullet$ be a cochain map.
 	Then $f \sim 0$ iff $f$ extends to
 	\begin{equation}
 		\begin{bmatrix}
@@ -366,5 +366,5 @@
 
 \begin{rem}[]
 	Given a cochain complex $\left( X^{\bullet}, d_{X} \right)$, we can define an associated
-	chain complex $\left( X_{\bullet}, d^{X} \right)$ by setting $X_n := X^{-n}$.
+	chain complex $\left( X_{\bullet}, d^{X} \right)$ by setting $X_n \coloneqq X^{-n}$.
 \end{rem}

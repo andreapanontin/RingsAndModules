@@ -10,7 +10,7 @@
 					       & \mathrm{coker}\, \epsilon \arrow[r, "\widetilde{f}"', dashrightarrow] & \ker \pi \arrow[u, "\mu"', rightarrow] &
 	\end{tikzcd}
 	\end{equation} 
-	$\exists\, !\, \widetilde{f}: \mathrm{coker}\, \epsilon \to \ker \pi$ s.t. $\widetilde{f} \circ p = \beta$.
+	$\exists\, !\, \widetilde{f}\colon \mathrm{coker}\, \epsilon \to \ker \pi$ s.t. $\widetilde{f} \circ p = \beta$.
 	$\widetilde{f}$ is called {\em parallel morphism} of $f$.
 \end{lem} 
 
@@ -26,8 +26,8 @@
 \begin{defn}[Some notation]
 	We denote the above objects as
 	\begin{align}
-		\coim f := \coker \left( \ker f \right)\\
-		\Ima f := \ker \left( \coker f \right)	
+		\coim f \coloneqq \coker \left( \ker f \right)\\
+		\Ima f \coloneqq \ker \left( \coker f \right)	
 	.\end{align} 
 \end{defn}
 
@@ -66,7 +66,7 @@
 	Instead $G$ is torsion iff $\,\forall\,  x \in G$ there exists $0 \neq n \in \Z$ s.t. $nx = 0$.
 	Given $G \in \mathsf{Ab}$, we denote by $t(G) \leq G$ the torsion subgroup of $G$, i.e.
 	\begin{equation}
-		t(G) := \left\{ x \in G \ \middle|\ \exists\, 0 \neq n \in \Z \text{ s.t. } nx = 0 \right\}
+		t(G) \coloneqq \left\{ x \in G \ \middle|\ \exists\, 0 \neq n \in \Z \text{ s.t. } nx = 0 \right\}
 	.\end{equation} 
 	Clearly, then, $G/t(G)$ is a torsion free group.
 
@@ -103,7 +103,7 @@
 				 & \Z \arrow[r, "\widetilde{\dot{2}}", rightarrow] & \Z \arrow[u, "1_\Z"', rightarrow] & 
 			\end{tikzcd}
 			,\end{equation} 
-			where $\dot{2}: \Z \to \Z$ is the multiplication by $2$.
+			where $\dot{2}\colon \Z \to \Z$ is the multiplication by $2$.
 			In $\mathsf{F}$ we have $\coker \dot{2} = 0$, since in $\mathsf{Ab}$ $\coker \dot{2} = \Z/2\Z$, which is torsion.
 			Then, in this example, $\widetilde{f} = \widetilde{\dot{2}}$, which is not an isomorphism in $\mathsf{F}$ 
 			(nor in $\mathsf{Ab}$, and $\mathsf{F}$ is a full subcategory of $\mathsf{Ab}$).
@@ -143,11 +143,11 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 	\end{itemize}
 \end{ex} 
 
-\section{Pullback and Pushout}
+\subsection{Pullback and Pushout}
 \begin{defn}[Pullback]
 	Let $\mathsf{C}$ be an arbitrary category.
 	Let $A \xrightarrow{f} C$ and $B \xrightarrow{g} C$ be morphisms in $\mathsf{C}$.
-	A {\em pullback} of $f$ and $g$ is a triple $\left(P, p_A, p_B\right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $p_A: P \to A$ and $p_B: P \to B$ s.t. the following conditions are satisfied
+	A {\em pullback} of $f$ and $g$ is a triple $\left(P, p_A, p_B\right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $p_A\colon P \to A$ and $p_B\colon P \to B$ s.t. the following conditions are satisfied
 	\begin{description}
 		\item[PB1] The following square is commutative
 			\begin{equation}
@@ -200,9 +200,9 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 	The construction via kernels and products goes as follows:
 	Consider the morphisms $A \xrightarrow{f} C$ and $B \xrightarrow{g} C$.
 	Let $\left(A \prod B, \pi_A, \pi_B\right)$ be a product.
-	Let $\mu := f \circ \pi_A - g \circ \pi_B: A \prod B \to C$.
+	Let $\mu \coloneqq f \circ \pi_A - g \circ \pi_B\colon A \prod B \to C$.
 	Finally, consider $\left(K, \epsilon\right)$ a kernel of $\mu$.
-	Then $\left(K, p_A, p_B\right)$, with $p_A := \pi_A \circ \epsilon$ and $p_B = \pi_B \circ \epsilon$, is a pullback of $f$ and $g$.
+	Then $\left(K, p_A, p_B\right)$, with $p_A \coloneqq \pi_A \circ \epsilon$ and $p_B = \pi_B \circ \epsilon$, is a pullback of $f$ and $g$.
 	The corresponding diagram is
 	\begin{equation}
 	\begin{tikzcd}
@@ -252,7 +252,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 	.\end{equation} 
 	Assume that $g$ is epi.
 	Take $\left(K, \epsilon\right)$ a kernel of $g$, then
-	$\exists\, ! \delta: K \to P$ s.t. the following diagram commutes
+	$\exists\, ! \delta\colon K \to P$ s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
 		K \arrow[r, "\delta", tail] & %\arrow[d, "", equal] &
@@ -271,7 +271,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 	A {\em pushout} of morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$ in $\mathsf{C}$ is a {\em pullback} in $\mathsf{C}^{op}$.
 	This means that we can dualize every result for the pullback.
 
-	More explicitly, a pushout is a triple $ \left(P, \nu_A, \nu_B \right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $\nu_A: A \to P$,  and $\nu_B: B \to P$ morphisms s.t. the following conditions are satisfied
+	More explicitly, a pushout is a triple $ \left(P, \nu_A, \nu_B \right)$, with $P \in \mathrm{Ob} \left(\mathsf{C}\right)$, $\nu_A\colon A \to P$,  and $\nu_B\colon B \to P$ morphisms s.t. the following conditions are satisfied
 	\begin{description}
 		\item[PO1] The following square is commutative
 			\begin{equation}
@@ -327,7 +327,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 	The construction goes as follows:
 	Consider the morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$.
 	Let $\left(A \coprod B, \epsilon_A, \epsilon_B\right)$ be a coproduct.
-	Let $\delta := \epsilon_A \circ f - \epsilon_B \circ g:C \to A \coprod B$.
+	Let $\delta \coloneqq \epsilon_A \circ f - \epsilon_B \circ g:C \to A \coprod B$.
 	Finally consider $\left(P, p\right)$ a cokernel of $\delta$.
 	Then $\left(P, p \circ \epsilon_A, p \circ \epsilon_B\right)$ is a pushout of $f$ and $g$.
 	The corresponding diagram is
@@ -365,7 +365,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 	Consider the morphisms $C \xrightarrow{f} A$ and $C \xrightarrow{g} B$.
 	Then a pushout $P \simeq \frac{A \oplus B}{H}$, where $H$ is the image of $\delta$ as defined above, more explicitly
 	\begin{equation}
-		H := \left\langle \left(f(c), -g(c)\right) \ \middle|\ c \in C \right\rangle
+		H \coloneqq \left\langle \left(f(c), -g(c)\right) \ \middle|\ c \in C \right\rangle
 	.\end{equation} 
 	More explicitly, the image of $C$ in $A$ and $B$ (resp. via $f$ and $g$) are glued together in $P$.
 \end{ex} 
@@ -382,7 +382,7 @@ I'm actually not sure whether the following definition is correct, but I cannot 
 	\end{tikzcd}
 	.\end{equation} 
 	Assume that $f$ is mono.
-	Take $\left(D, p\right)$ a cokernel of $f$, then $\exists\, !\, q: P \to D$ s.t. the following diagram commutes
+	Take $\left(D, p\right)$ a cokernel of $f$, then $\exists\, !\, q\colon P \to D$ s.t. the following diagram commutes
 	\begin{equation}
 	\begin{tikzcd}
 		C \arrow[r, "f", tail] \arrow[d, "g"', rightarrow] &
