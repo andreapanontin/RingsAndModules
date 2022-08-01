@@ -1,0 +1,18 @@
+compile_pdf:
+  image: aergus/latex
+  script:
+    - latexmk -pdf RingsAndModules.tex
+  artifacts:
+    paths:
+      - RingsAndModules.pdf
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public  # create a folder called public
+    - mv RingsAndModules.pdf public/Rings_and_Modules.pdf
+  artifacts:
+    paths: 
+      - public  # instruct GitLab to keep the public folder
+  only: 
+    - main  # deploy the pdf only for commits made to the master branch
