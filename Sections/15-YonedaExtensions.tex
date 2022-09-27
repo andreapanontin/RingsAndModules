@@ -17,7 +17,7 @@ $\mathsf{A}$ might not have enough injectives nor projectives.
 	.\end{tikzcd}
 	\end{equation*}
 	We say that two extensions $\zeta$ and $\zeta'$ are equivalent, denoted by $\zeta \sim \zeta'$,
-	iff there is a commutative diagram such that the nontrivial vertical arrow is an isomorphism
+	iff there is a commutative diagram as below
 	\begin{equation}
 	\begin{tikzcd}
 		\zeta \colon &
@@ -31,9 +31,11 @@ $\mathsf{A}$ might not have enough injectives nor projectives.
 		B \arrow[r, "", rightarrow] &
 		X' \arrow[r, "", rightarrow] &
 		A \arrow[r, "", rightarrow] &
-		0
+		0.
 	\end{tikzcd}
-	.\end{equation} 
+	\end{equation} 
+	Notice that, by the five lemma, in any such diagram the middle
+	vertical arrow is an isomorphism.
 \end{defn}
 
 \begin{rem}[Split extensions]
@@ -196,6 +198,44 @@ $\mathsf{A}$ might not have enough injectives nor projectives.
 		B' &
 	\end{tikzcd}
 	.\end{equation} 
+\end{rem}
+
+
+\begin{rem}
+	In $\mathsf{Mod}\text{-}R$ (hence in any abelian category by
+	Freyd-Mitchell), in any diagram like
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		X' \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] &
+		A' \arrow[r, "", rightarrow] \arrow[d, "\gamma", rightarrow] &
+		0\\
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation} 
+	the right square is a pullback, so that pullbacks of
+	short exact sequences are the only diagrams of this form.
+	Analogously in any diagram of the form
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] \arrow[d, "\beta", rightarrow] &
+		X \arrow[r, "", rightarrow] \arrow[d, "", rightarrow] &
+		A \arrow[r, "", rightarrow] \arrow[d, "", equal] &
+		0\\
+		0 \arrow[r, "", rightarrow] &
+		B' \arrow[r, "", rightarrow] &
+		X' \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation} 
+	the left square is a pushout.
 \end{rem}
 
 \begin{defn}[Baer sum in $\mathrm{E}(A,B)/\sim$]
